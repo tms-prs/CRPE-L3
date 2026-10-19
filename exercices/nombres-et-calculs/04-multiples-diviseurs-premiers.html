@@ -112,10 +112,33 @@ window.PAGE = {
         solution: "PPCM(12, 18) = 36 min." },
       { type: "num", q: "Pour additionner 5/8 + 7/12, quel est le plus petit dénominateur commun possible ?", answer: "24",
         solution: "PPCM(8, 12) = 24 : 15/24 + 14/24 = 29/24." }
+    ]},
+    { title: "Problème 1 · Les billes de Marc", statement: "Marc possède 84 billes bleues et 126 billes rouges. Il veut former des lots identiques (mêmes nombres de billes bleues et de billes rouges dans chaque lot), en utilisant toutes ses billes et en faisant le plus grand nombre de lots possible.", items: [
+      { type: "num", label: "a)", q: "Combien de lots peut-il former ?", answer: "42",
+        hint: "Le nombre de lots doit diviser 84 et 126.",
+        solution: "Le nombre de lots est le plus grand diviseur commun de 84 et 126. 84 = 2² × 3 × 7 et 126 = 2 × 3² × 7 : PGCD = 2 × 3 × 7 = 42." },
+      { type: "num", label: "b)", q: "Combien de billes bleues y a-t-il dans chaque lot ?", answer: "2",
+        solution: "84 ÷ 42 = 2." },
+      { type: "num", label: "c)", q: "Combien de billes rouges y a-t-il dans chaque lot ?", answer: "3",
+        solution: "126 ÷ 42 = 3." }
+    ]},
+    { title: "Problème 2 · Les deux phares", statement: "Deux phares émettent un éclair : le premier toutes les 12 secondes, le second toutes les 18 secondes. Ils émettent un éclair ensemble à minuit pile.", items: [
+      { type: "num", label: "a)", q: "Au bout de combien de secondes émettent-ils de nouveau un éclair en même temps ?", answer: "36",
+        solution: "Il faut un multiple commun de 12 et 18, le plus petit : PPCM(12 ; 18) = 36 secondes." },
+      { type: "num", label: "b)", q: "Combien de fois émettent-ils ensemble pendant la première heure suivante (l'éclair de minuit n'est pas compté, celui de 1 h 00 min 00 s l'est) ?", answer: "100",
+        hint: "Une heure vaut 3 600 secondes.",
+        solution: "Éclairs communs aux instants multiples de 36 s : 3 600 ÷ 36 = 100." }
+    ]},
+    { title: "Problème 3 · Les carreaux de la terrasse", statement: "Une terrasse rectangulaire mesure 252 cm sur 198 cm. On veut la recouvrir entièrement de carreaux carrés tous identiques, sans découpe, en prenant des carreaux les plus grands possible.", items: [
+      { type: "num", label: "a)", q: "Quelle est la longueur du côté d'un carreau (en cm) ?", answer: "18",
+        solution: "Le côté doit diviser 252 et 198, et être le plus grand possible : PGCD(252 ; 198) = 18 cm (252 = 2² × 3² × 7, 198 = 2 × 3² × 11)." },
+      { type: "num", label: "b)", q: "Combien de carreaux faut-il ?", answer: "154",
+        solution: "252 ÷ 18 = 14 et 198 ÷ 18 = 11 : 14 × 11 = 154 carreaux." }
     ]}
   ]
 };
 </script>
+<script src="../../assets/admin-config.js"></script>
 <script src="../../assets/nav-data.js"></script>
 <script src="../../assets/nav.js"></script>
 <script src="../../assets/app.js"></script>

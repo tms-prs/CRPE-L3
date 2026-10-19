@@ -92,10 +92,30 @@ window.PAGE = {
       { type: "qcm", q: "(x + 3)² − x² est égal à…",
         options: ["9", "6x + 9", "x² + 9"], answer: 1,
         explain: "(x + 3)² = x² + 6x + 9, puis on soustrait x² : 6x + 9." }
+    ]},
+    { title: "Problème 1 · Le rectangle qui s'agrandit", statement: "Un rectangle a pour longueur x + 5 et pour largeur x (en cm), où x est un nombre positif.", items: [
+      { type: "num", label: "a)", q: "Quel est son périmètre pour x = 3 (en cm) ?", answer: "22",
+        solution: "Périmètre = 2 × (longueur + largeur) = 2 × (2x + 5) = 4x + 10. Pour x = 3 : 22 cm." },
+      { type: "num", label: "b)", q: "Quelle est son aire pour x = 4 (en cm²) ?", answer: "36",
+        solution: "Aire = x(x + 5) = 4 × 9 = 36 cm²." },
+      { type: "num", label: "c)", q: "Pour quelle valeur positive de x l'aire vaut-elle 84 cm² ?", answer: "7",
+        hint: "Cherche un nombre x tel que x(x + 5) = 84 : teste des valeurs.",
+        solution: "x(x + 5) = 84. Pour x = 7 : 7 × 12 = 84. C'est la seule solution positive." },
+      { type: "num", label: "d)", q: "Pour x = 7, on agrandit chaque côté de 1 cm. De combien l'aire augmente-t-elle (en cm²) ?", answer: "20",
+        solution: "Nouvelle aire : 8 × 13 = 104 cm². Augmentation : 104 − 84 = 20 cm²." }
+    ]},
+    { title: "Problème 2 · Un calcul toujours vrai ?", statement: "Léa choisit un nombre entier n. Elle calcule le carré de n + 1, puis retranche le carré de n.", items: [
+      { type: "num", label: "a)", q: "Quel résultat obtient-elle pour n = 6 ?", answer: "13",
+        solution: "7² − 6² = 49 − 36 = 13." },
+      { type: "num", label: "b)", q: "Quel résultat obtient-elle pour n = 10 ?", answer: "21",
+        solution: "11² − 10² = 121 − 100 = 21." },
+      { type: "num", label: "c)", q: "Léa conjecture que le résultat vaut toujours 2n + 1. Cela se démontre par (n + 1)² − n² = n² + 2n + 1 − n² = 2n + 1. Pour quelle valeur de n le résultat vaut-il 99 ?", answer: "49",
+        solution: "2n + 1 = 99 donc n = 49. Vérification : 50² − 49² = 2 500 − 2 401 = 99." }
     ]}
   ]
 };
 </script>
+<script src="../../assets/admin-config.js"></script>
 <script src="../../assets/nav-data.js"></script>
 <script src="../../assets/nav.js"></script>
 <script src="../../assets/app.js"></script>

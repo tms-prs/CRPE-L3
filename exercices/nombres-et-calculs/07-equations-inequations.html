@@ -85,10 +85,29 @@ window.PAGE = {
       { type: "num", q: "Léa a 3 fois plus de billes que Tom. Elle lui en donne 12 et elles en ont alors autant. Combien Tom avait-il de billes au départ ?", answer: "12",
         hint: "Tom : x. Léa : 3x. Après le don : x + 12 et 3x − 12.",
         solution: "x + 12 = 3x − 12 ; 24 = 2x ; x = 12. Vérification : après le don, 24 chacun. (Tom avait 12 billes.)" }
+    ]},
+    { title: "Problème 1 · Quelle formule choisir ?", statement: "Un club de sport propose deux formules. Formule A : 20 € d'inscription, puis 6 € par séance. Formule B : pas d'inscription, mais 10 € par séance.", items: [
+      { type: "num", label: "a)", q: "Combien coûte la formule A pour 5 séances (en €) ?", answer: "50",
+        solution: "20 + 6 × 5 = 50 €." },
+      { type: "num", label: "b)", q: "Pour quel nombre de séances les deux formules coûtent-elles le même prix ?", answer: "5",
+        hint: "Écris le coût de chaque formule pour x séances.",
+        solution: "20 + 6x = 10x donc 20 = 4x et x = 5 séances (50 € dans les deux cas)." },
+      { type: "num", label: "c)", q: "À partir de combien de séances la formule A est-elle strictement moins chère ?", answer: "6",
+        solution: "20 + 6x < 10x ⇔ x > 5. Il faut au moins 6 séances." },
+      { type: "num", label: "d)", q: "Léa dispose de 110 €. Combien de séances au maximum peut-elle faire avec la formule A ?", answer: "15",
+        solution: "20 + 6x ≤ 110 ⇔ 6x ≤ 90 ⇔ x ≤ 15 séances." }
+    ]},
+    { title: "Problème 2 · L'âge de Paul", statement: "Dans 8 ans, Paul aura le double de l'âge qu'il avait il y a 7 ans.", items: [
+      { type: "num", label: "a)", q: "Quel est l'âge actuel de Paul ?", answer: "22",
+        hint: "Note x l'âge actuel et traduis la phrase par une équation.",
+        solution: "x + 8 = 2(x − 7) ⇔ x + 8 = 2x − 14 ⇔ x = 22 ans." },
+      { type: "num", label: "b)", q: "Quel âge aura-t-il dans 8 ans ?", answer: "30",
+        solution: "22 + 8 = 30 ans. Il y a 7 ans il avait 15 ans, et 2 × 15 = 30 : la condition est vérifiée." }
     ]}
   ]
 };
 </script>
+<script src="../../assets/admin-config.js"></script>
 <script src="../../assets/nav-data.js"></script>
 <script src="../../assets/nav.js"></script>
 <script src="../../assets/app.js"></script>

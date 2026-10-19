@@ -1,0 +1,75 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Problèmes de synthèse — Nombres et calculs</title>
+<link rel="stylesheet" href="../../assets/style.css">
+</head>
+<body>
+<main>
+  <header>
+    <h1 id="title"></h1>
+    <p id="subtitle"></p>
+  </header>
+  <div id="app"></div>
+</main>
+<script>
+window.PAGE = {
+  id: "synthese-nombres-et-calculs",
+  title: "Problèmes de synthèse — Nombres et calculs",
+  subtitle: "4 problèmes dans l'esprit du devoir ou du concours : plusieurs notions du thème se mêlent et rien n'indique la méthode. À toi de repérer les informations utiles et la propriété à employer. Chaque question a un indice discret et une correction détaillée qui nomme la méthode. 16 questions.",
+  sections: [
+    { title: "Problème 1 · La course solidaire", statement: "Une classe de 28 élèves organise une course solidaire : chaque élève parcourt en moyenne 3,5 km. Un sponsor verse 1,20 € par kilomètre parcouru, mais son don est plafonné à 100 €. Une entreprise verse le double de la somme versée par le sponsor. La classe retire ensuite 15 € de frais sur le total des deux dons.", items: [
+      { type: "num", label: "a)", q: "Quelle distance totale la classe parcourt-elle (en km) ?", answer: "98",
+        solution: "28 × 3,5 = 98 km (multiplication d'un nombre par un décimal)." },
+      { type: "num", label: "b)", q: "Quelle somme le sponsor verse-t-il réellement (en €) ?", answer: "100",
+        hint: "Compare le don calculé et le plafond.",
+        solution: "Don calculé : 98 × 1,20 = 117,60 €, supérieur au plafond de 100 €. Le sponsor verse donc 100 €." },
+      { type: "num", label: "c)", q: "Quel est le montant total reçu par la classe, frais retirés (en €) ?", answer: "285",
+        solution: "Entreprise : 2 × 100 = 200 €. Total : 100 + 200 − 15 = 285 €." },
+      { type: "num", label: "d)", q: "Quelle somme cela représente-t-il par élève, arrondie au centime (en €) ?", answer: "10.18", tol: 0.005,
+        solution: "285 ÷ 28 ≈ 10,18 € (division, puis arrondi au centime)." }
+    ]},
+    { title: "Problème 2 · Les deux robinets", statement: "Un bassin se remplit en 6 heures avec le robinet A seul et en 4 heures avec le robinet B seul (chaque robinet a un débit constant).", items: [
+      { type: "num", label: "a)", q: "Quelle fraction du bassin le robinet A remplit-il en une heure ? (fraction irréductible)", answer: "1/6", irreducible: true,
+        solution: "Il remplit tout le bassin en 6 h, donc 1/6 du bassin par heure." },
+      { type: "num", label: "b)", q: "Quelle fraction du bassin les deux robinets ouverts ensemble remplissent-ils en une heure ? (fraction irréductible)", answer: "5/12", irreducible: true,
+        hint: "Additionne les deux fractions, avec un dénominateur commun.",
+        solution: "1/6 + 1/4 = 2/12 + 3/12 = 5/12 du bassin par heure." },
+      { type: "num", label: "c)", q: "En combien d'heures les deux robinets remplissent-ils le bassin ensemble ? Donner la valeur décimale.", answer: "2.4",
+        solution: "Il faut 1 ÷ 5/12 = 12/5 = 2,4 heures (diviser par une fraction, c'est multiplier par son inverse)." },
+      { type: "num", label: "d)", q: "2,4 heures correspondent à 2 heures et combien de minutes ?", answer: "24",
+        solution: "0,4 h = 0,4 × 60 = 24 minutes." }
+    ]},
+    { title: "Problème 3 · Du Soleil à la Terre", statement: "La Terre est à 1,5 × 10⁸ km du Soleil. La lumière parcourt 3 × 10⁵ km par seconde.", items: [
+      { type: "num", label: "a)", q: "Combien de secondes la lumière du Soleil met-elle pour arriver sur Terre ?", answer: "500",
+        solution: "Durée = distance ÷ vitesse = (1,5 × 10⁸) ÷ (3 × 10⁵) = 0,5 × 10³ = 500 s." },
+      { type: "num", label: "b)", q: "Combien cela fait-il de minutes, arrondi au dixième ?", answer: "8.3", tol: 0.05,
+        solution: "500 ÷ 60 ≈ 8,33 minutes, soit 8,3 minutes." },
+      { type: "num", label: "c)", q: "Un vaisseau roule à 3 × 10⁴ km/h. Combien d'heures lui faudrait-il pour parcourir la distance Terre-Soleil ?", answer: "5000",
+        solution: "(1,5 × 10⁸) ÷ (3 × 10⁴) = 0,5 × 10⁴ = 5 000 h." },
+      { type: "num", label: "d)", q: "Combien cela fait-il de jours, arrondi au jour ?", answer: "208", tol: 0.5,
+        solution: "5 000 ÷ 24 ≈ 208,3 jours : environ 208 jours." }
+    ]},
+    { title: "Problème 4 · Le nombre mystère", statement: "Lucas choisit un nombre positif. Il lui ajoute 5, puis multiplie le résultat par le nombre choisi diminué de 5.", items: [
+      { type: "num", label: "a)", q: "Avec le nombre n, le résultat est (n + 5)(n − 5) = n² − c. Quelle est la valeur de c ?", answer: "25",
+        solution: "Identité remarquable : (n + 5)(n − 5) = n² − 5² = n² − 25." },
+      { type: "num", label: "b)", q: "Lucas obtient 56. Quel nombre a-t-il choisi ?", answer: "9",
+        hint: "Utilise le résultat de la question a).",
+        solution: "n² − 25 = 56 donc n² = 81 et n = 9 (nombre positif)." },
+      { type: "num", label: "c)", q: "Avec un autre nombre positif, il obtient 119. Quel nombre a-t-il choisi ?", answer: "12",
+        solution: "n² − 25 = 119 donc n² = 144 et n = 12." },
+      { type: "qcm", label: "d)", q: "Peut-il obtenir −30 ?",
+        options: ["Oui, avec un nombre bien choisi", "Non : n² serait égal à −5, impossible pour un carré"], answer: 1,
+        explain: "n² − 25 = −30 donne n² = −5 : un carré n'est jamais négatif." }
+    ]}
+  ]
+};
+</script>
+<script src="../../assets/admin-config.js"></script>
+<script src="../../assets/nav-data.js"></script>
+<script src="../../assets/nav.js"></script>
+<script src="../../assets/app.js"></script>
+</body>
+</html>

@@ -95,10 +95,31 @@ window.PAGE = {
       { type: "qcm", q: "Un élève trouve 4,98 × 19,9 = 9,91. Quel contrôle montre l'erreur ?",
         options: ["4,98 × 19,9 ≈ 5 × 20 = 100, bien plus grand que 9,91", "4,98 + 19,9 ≈ 25", "Il suffit de refaire le calcul à la main", "Aucun contrôle n'est possible"], answer: 0,
         explain: "L'ordre de grandeur permet de repérer une virgule mal placée sans refaire le calcul exact (le bon résultat est 99,102)." }
+    ]},
+    { title: "Problème 1 · Le budget de rentrée", statement: "Sophie achète 3 cahiers à 2,40 € l'un, 5 stylos à 1,20 € l'un et une trousse. Elle paie avec un billet de 20 € et le vendeur lui rend 3,40 €.", items: [
+      { type: "num", label: "a)", q: "Quelle somme Sophie a-t-elle dépensée en tout (en €) ?", answer: "16.6",
+        solution: "20 − 3,40 = 16,60 €." },
+      { type: "num", label: "b)", q: "Quel est le prix total des cahiers et des stylos (en €) ?", answer: "13.2",
+        solution: "3 × 2,40 + 5 × 1,20 = 7,20 + 6,00 = 13,20 €." },
+      { type: "num", label: "c)", q: "Quel est le prix de la trousse (en €) ?", answer: "3.4",
+        solution: "16,60 − 13,20 = 3,40 €." },
+      { type: "num", label: "d)", q: "La trousse est ensuite soldée à −25 %. Quel est son nouveau prix (en €) ?", answer: "2.55",
+        hint: "Une baisse de 25 % revient à multiplier par 0,75.",
+        solution: "3,40 × 0,75 = 2,55 €." }
+    ]},
+    { title: "Problème 2 · Le programme de calcul de Mia", statement: "Mia choisit un nombre, le multiplie par 4, ajoute 6, puis divise le tout par 2.", items: [
+      { type: "num", label: "a)", q: "Quel résultat obtient-elle en partant de 7 ?", answer: "17",
+        solution: "7 × 4 = 28 ; 28 + 6 = 34 ; 34 ÷ 2 = 17." },
+      { type: "num", label: "b)", q: "Avec quel nombre de départ obtient-elle 15 ?", answer: "6",
+        hint: "Remonte le programme avec les opérations inverses.",
+        solution: "15 × 2 = 30 ; 30 − 6 = 24 ; 24 ÷ 4 = 6. Vérification : (6 × 4 + 6) ÷ 2 = 15." },
+      { type: "num", label: "c)", q: "Mia remarque que le résultat est toujours égal au double du nombre de départ plus 3. Avec quel nombre de départ obtient-elle 33 ?", answer: "15",
+        solution: "2n + 3 = 33 donc n = 15. Vérification : (15 × 4 + 6) ÷ 2 = 66 ÷ 2 = 33." }
     ]}
   ]
 };
 </script>
+<script src="../../assets/admin-config.js"></script>
 <script src="../../assets/nav-data.js"></script>
 <script src="../../assets/nav.js"></script>
 <script src="../../assets/app.js"></script>

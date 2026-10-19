@@ -106,10 +106,31 @@ window.PAGE = {
       { type: "qcm", q: "Pour tout nombre a, que vaut a − (−a) ?",
         options: ["0", "2a", "−2a", "a²"], answer: 1,
         explain: "a − (−a) = a + a = 2a (soustraire l'opposé revient à ajouter)." }
+    ]},
+    { title: "Problème 1 · Le plongeur et le sous-marin", statement: "Un plongeur part de la surface (altitude 0 m). Il descend de 18 m, remonte de 7 m, puis redescend de 11 m. Pendant ce temps, un petit sous-marin situé à l'altitude −40 m remonte de 15 m.", items: [
+      { type: "num", label: "a)", q: "Quelle est l'altitude du plongeur après ses trois déplacements (en m) ?", answer: "-22",
+        solution: "On additionne des relatifs : −18 + 7 − 11 = −22 m." },
+      { type: "num", label: "b)", q: "Quelle est l'altitude du sous-marin après sa remontée (en m) ?", answer: "-25",
+        solution: "−40 + 15 = −25 m." },
+      { type: "num", label: "c)", q: "Quelle distance sépare alors le plongeur du sous-marin (en m) ?", answer: "3",
+        hint: "Une distance est toujours positive.",
+        solution: "Distance = |−22 − (−25)| = |3| = 3 m. Le plongeur est 3 m plus haut que le sous-marin." },
+      { type: "num", label: "d)", q: "Le plongeur remonte vers la surface à 4 m par minute depuis son altitude actuelle. Combien de minutes lui faut-il ?", answer: "5.5",
+        solution: "Il doit gagner 22 m : 22 ÷ 4 = 5,5 minutes." }
+    ]},
+    { title: "Problème 2 · Relevés de température", statement: "Dans une station de montagne, les températures minimales relevées sur cinq jours consécutifs sont : −4 °C ; 2 °C ; −7 °C ; 0 °C ; 3 °C.", items: [
+      { type: "num", label: "a)", q: "Quelle est la température moyenne sur ces cinq jours (en °C) ?", answer: "-1.2",
+        solution: "Moyenne = (−4 + 2 − 7 + 0 + 3) ÷ 5 = −6 ÷ 5 = −1,2 °C." },
+      { type: "num", label: "b)", q: "Quel est l'écart entre le jour le plus chaud et le jour le plus froid (en °C) ?", answer: "10",
+        solution: "Écart = 3 − (−7) = 10 °C." },
+      { type: "num", label: "c)", q: "Le lendemain, il fait 2,3 °C de moins que la moyenne de ces cinq jours. Quelle température (en °C) ?", answer: "-3.5",
+        hint: "Utilise la moyenne trouvée en a).",
+        solution: "−1,2 − 2,3 = −3,5 °C." }
     ]}
   ]
 };
 </script>
+<script src="../../assets/admin-config.js"></script>
 <script src="../../assets/nav-data.js"></script>
 <script src="../../assets/nav.js"></script>
 <script src="../../assets/app.js"></script>

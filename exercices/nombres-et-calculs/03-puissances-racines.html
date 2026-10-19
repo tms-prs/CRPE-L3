@@ -119,10 +119,31 @@ window.PAGE = {
         solution: "(1,5 × 10⁸)/(3 × 10⁵) = 0,5 × 10³ = 500 s." },
       { type: "num", q: "Un fichier fait 5 Go. Combien de Mo cela représente-t-il ? (1 Go = 10⁹ octets, 1 Mo = 10⁶ octets)", answer: "5000",
         solution: "5 × 10⁹ / 10⁶ = 5 × 10³ = 5000 Mo." }
+    ]},
+    { title: "Problème 1 · Le carrelage", statement: "Une pièce carrée a une aire de 36 m². On la recouvre de dalles carrées de 0,5 m de côté, posées sans découpe ni espace.", items: [
+      { type: "num", label: "a)", q: "Quel est le côté de la pièce (en m) ?", answer: "6",
+        solution: "Le côté d'un carré d'aire 36 m² est √36 = 6 m." },
+      { type: "num", label: "b)", q: "Quelle est l'aire d'une dalle (en m²) ?", answer: "0.25",
+        solution: "0,5² = 0,25 m²." },
+      { type: "num", label: "c)", q: "Combien de dalles faut-il ?", answer: "144",
+        hint: "Compare l'aire de la pièce et l'aire d'une dalle.",
+        solution: "36 ÷ 0,25 = 144 dalles (ou 12 × 12 : le côté de la pièce contient 12 dalles)." },
+      { type: "num", label: "d)", q: "On pose une plinthe sur tout le périmètre sauf devant une porte de 0,9 m. Quelle longueur de plinthe faut-il (en m) ?", answer: "23.1",
+        solution: "Périmètre : 4 × 6 = 24 m ; 24 − 0,9 = 23,1 m." }
+    ]},
+    { title: "Problème 2 · Une colonie de bactéries", statement: "Une bactérie mesure 2 × 10⁻⁶ m. D'autre part, une bactérie se divise en deux toutes les 30 minutes.", items: [
+      { type: "num", label: "a)", q: "On aligne 5 × 10⁴ bactéries bout à bout. Quelle est la longueur de la file (en m) ?", answer: "0.1",
+        solution: "(2 × 10⁻⁶) × (5 × 10⁴) = 10 × 10⁻² = 10⁻¹ = 0,1 m." },
+      { type: "num", label: "b)", q: "Cette longueur s'écrit 1 × 10ⁿ m. Quelle est la valeur de n ?", answer: "-1",
+        solution: "0,1 = 1 × 10⁻¹ : n = −1." },
+      { type: "num", label: "c)", q: "À partir d'une seule bactérie, combien y en a-t-il au bout de 3 heures ?", answer: "64",
+        hint: "Combien de divisions en 3 heures ?",
+        solution: "3 h = 6 périodes de 30 min : 2⁶ = 64 bactéries." }
     ]}
   ]
 };
 </script>
+<script src="../../assets/admin-config.js"></script>
 <script src="../../assets/nav-data.js"></script>
 <script src="../../assets/nav.js"></script>
 <script src="../../assets/app.js"></script>

@@ -123,10 +123,33 @@ window.PAGE = {
       { type: "qcm", q: "A-t-on toujours a/b + c/d = (a + c)/(b + d) ?",
         options: ["Oui, toujours", "Non : par exemple 1/2 + 1/2 = 1, mais (1 + 1)/(2 + 2) = 1/2", "Oui, si a < c"], answer: 1,
         explain: "Un seul contre-exemple suffit pour démontrer qu'une propriété est fausse." }
+    ]},
+    { title: "Problème 1 · Le gâteau d'anniversaire", statement: "Léa prépare un gâteau. Elle en offre les 2/5 à ses voisins, puis mange 1/4 du gâteau entier. Le reste est partagé équitablement entre elle et deux amis. Le gâteau entier pèse 1,2 kg.", items: [
+      { type: "num", label: "a)", q: "Quelle fraction du gâteau a déjà été donnée ou mangée ? (fraction irréductible)", answer: "13/20", irreducible: true,
+        solution: "Dans les deux cas on prend une fraction du gâteau entier : 2/5 + 1/4 = 8/20 + 5/20 = 13/20." },
+      { type: "num", label: "b)", q: "Quelle fraction du gâteau reste-t-il ? (fraction irréductible)", answer: "7/20", irreducible: true,
+        solution: "1 − 13/20 = 7/20." },
+      { type: "num", label: "c)", q: "Quelle fraction du gâteau entier chacune des trois personnes reçoit-elle ? (fraction irréductible)", answer: "7/60", irreducible: true,
+        hint: "Partager le reste en 3, c'est le diviser par 3.",
+        solution: "7/20 ÷ 3 = 7/20 × 1/3 = 7/60." },
+      { type: "num", label: "d)", q: "Quelle est la masse d'une de ces trois parts (en g) ?", answer: "140",
+        solution: "1 200 × 7/60 = 20 × 7 = 140 g." }
+    ]},
+    { title: "Problème 2 · La recette de crêpes", statement: "Une recette pour 6 personnes demande 3/4 de litre de lait et 2/3 de kilogramme de farine. On veut préparer les crêpes pour 8 personnes.", items: [
+      { type: "num", label: "a)", q: "Quelle quantité de lait faut-il pour 8 personnes (en L) ?", answer: "1",
+        hint: "Les quantités sont proportionnelles au nombre de personnes.",
+        solution: "Coefficient 8/6 = 4/3. Lait : 3/4 × 4/3 = 1 L." },
+      { type: "num", label: "b)", q: "Quelle quantité de farine faut-il pour 8 personnes (en kg, fraction irréductible) ?", answer: "8/9", irreducible: true,
+        solution: "2/3 × 4/3 = 8/9 kg." },
+      { type: "num", label: "c)", q: "La farine est vendue en paquets de 1 kg. Quelle fraction d'un paquet reste-t-il après la recette ? (fraction irréductible)", answer: "1/9", irreducible: true,
+        solution: "1 − 8/9 = 1/9 de paquet." },
+      { type: "num", label: "d)", q: "Le lait est vendu en bouteilles de 1/2 L. Combien de bouteilles faut-il pour la recette ?", answer: "2",
+        solution: "1 ÷ 1/2 = 1 × 2 = 2 bouteilles." }
     ]}
   ]
 };
 </script>
+<script src="../../assets/admin-config.js"></script>
 <script src="../../assets/nav-data.js"></script>
 <script src="../../assets/nav.js"></script>
 <script src="../../assets/app.js"></script>
