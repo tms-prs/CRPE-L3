@@ -217,3 +217,32 @@ Chaque thème commence par un **test de positionnement** (`tests-blancs/<thème>
 - Chaque thème a aussi une page **« Problèmes de synthèse »** (`tests-blancs/<thème>/problemes-synthese.html`, onglet Tests) : 4 problèmes mêlant plusieurs notions du thème.
 - Format d'un problème dans une page : `{ title: "Problème 1 · …", statement: "énoncé", items: [ { type: "num", label: "a)", q: "…", answer: "…", hint: "…", solution: "…" } ] }`.
 - Options de page : `mix: true` mélange toutes les questions d'un test (sans titres) ; `shuffle: true` sur une section mélange ses questions.
+
+## Mise en ligne gratuite (Vercel)
+
+Le site est **statique** (HTML, CSS, JavaScript) : n'importe quel hébergeur statique gratuit convient. Le projet est prêt pour **Vercel** (offre gratuite « Hobby », usage personnel non commercial).
+
+**Ce qui est prévu dans le dépôt**
+- `vercel.json` : commande de build `python3 build.py --dist`, dossier publié `dist/`, en-têtes de sécurité (CSP, anti-iframe, nosniff…).
+- `python build.py --dist` : régénère les pages puis copie dans `dist/` **uniquement** ce qui doit être public (accueil, `assets/`, pages HTML). Ne sont jamais publiés : sources Markdown, `build.py`, `serve.py`, `creds.txt`, `.git`, README.
+- `dist/` est ignoré par git (régénéré à chaque déploiement).
+
+**Déployer (une fois)**
+1. Le code est déjà sur GitHub (`tms-prs/CRPE-L3`).
+2. Sur [vercel.com](https://vercel.com), se connecter avec GitHub (offre gratuite), puis **Add New → Project** et importer le dépôt `CRPE-L3`.
+3. Laisser les réglages par défaut (le `vercel.json` impose la commande de build et le dossier `dist`).
+4. *(Optionnel)* **Environment Variables** : ajouter `ADMIN_PASSWORD` avec un mot de passe long pour activer le mode admin en ligne (voir ci-dessous). Sans cette variable, le mode admin n'existe pas sur le site en ligne.
+5. **Deploy**. Le site est disponible sur une adresse du type `https://crpe-l3.vercel.app` (le nom se change dans *Settings → Domains*).
+
+**Mises à jour** : chaque `git push` sur `main` redéploie automatiquement le site.
+
+**Mode admin en ligne**
+- En local, le mot de passe vient de `creds.txt`. En ligne, il vient de la variable d'environnement `ADMIN_PASSWORD` de Vercel (jamais écrite dans le dépôt). Pour le changer : modifier la variable puis redéployer.
+- Le site publie un sel et une empreinte du mot de passe (`assets/admin-config.js`), jamais le mot de passe. Comme tout est côté navigateur, **choisis un mot de passe long et aléatoire** (16 caractères ou plus) : un mot de passe faible pourrait être retrouvé par essais hors ligne.
+- Pour ne pas avoir de mode admin en ligne : ne pas définir `ADMIN_PASSWORD`.
+
+**Bon à savoir**
+- Aucune donnée n'est collectée : la progression, les scores et les tests sont enregistrés uniquement dans le navigateur de chaque visiteur (pas de synchronisation entre appareils).
+- Les polices sont chargées depuis Google Fonts. Sur un site public destiné à des visiteurs européens, l'auto-hébergement des polices évite tout échange avec Google.
+- Pour que le site ne soit pas référencé par les moteurs de recherche, ajouter un en-tête `X-Robots-Tag: noindex` dans `vercel.json`.
+- Alternatives gratuites : Netlify (même dossier `dist/`, commande `python3 build.py --dist`) ou GitHub Pages (workflow GitHub Actions qui lance le build).
