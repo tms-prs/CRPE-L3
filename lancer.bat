@@ -13,5 +13,5 @@ echo   Maths CRPE : http://localhost:%PORT%
 echo   Ferme cette fenetre (ou Ctrl+C) pour arreter le serveur.
 echo.
 start "" cmd /c "timeout /t 2 /nobreak >nul && start http://localhost:%PORT%"
-%PY% -m http.server %PORT% --bind 127.0.0.1
+%PY% serve.py %PORT%
 pause
