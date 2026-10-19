@@ -1,12 +1,16 @@
 #!/usr/bin/env python3
 """Génère le site de révision à partir des fichiers du projet.
 
-Usage :  python build.py
+Usage :  python build.py          (génère les pages dans le dossier du projet)
+         python build.py --dist   (génère puis copie le site publiable dans dist/)
 
 - convertit chaque leçon `lecons/<domaine>/NN-sujet.md` en `NN-sujet.html` ;
 - écrit `assets/nav-data.js` (arborescence du menu de navigation) ;
 - ajoute le menu de navigation aux pages quiz / exercices / tests blancs ;
-- génère la page d'accueil `index.html`.
+- génère la page d'accueil `index.html` ;
+- génère `assets/admin-config.js` si un mot de passe admin est fourni (creds.txt ou variable
+  d'environnement ADMIN_PASSWORD) ;
+- avec --dist : copie uniquement les fichiers à publier (pas les sources, scripts ni secrets).
 
 Aucune dépendance externe. Les fichiers .md restent la source des leçons :
 relancer ce script après toute modification ou ajout.
@@ -14,8 +18,11 @@ relancer ce script après toute modification ou ajout.
 import hashlib
 import html
 import json
+import os
 import re
 import secrets
+import shutil
+import sys
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parent
@@ -348,6 +355,9 @@ def write_admin_config():
             if line.startswith("ADMIN_PASSWORD="):
                 password = line.split("=", 1)[1].strip()
     if not password:
+        # hébergement (Vercel…) : le mot de passe vient d'une variable d'environnement
+        password = os.environ.get("ADMIN_PASSWORD", "").strip() or None
+    if not password:
         if cfg.exists():
             cfg.unlink()
         return False
@@ -507,6 +517,35 @@ def build_index(nav, stats):
     return out
 
 
+# ---------------------------------------------------------------- publication
+PUBLISH_GLOBS = [
+    "index.html",
+    "assets/*.js",
+    "assets/*.css",
+    "lecons/**/*.html",
+    "quiz/**/*.html",
+    "exercices/**/*.html",
+    "tests-blancs/**/*.html",
+]
+
+
+def publish_dist():
+    """Copie le site publiable dans dist/ (pour un hébergement statique comme Vercel)."""
+    dist = ROOT / "dist"
+    if dist.exists():
+        shutil.rmtree(dist)
+    n = 0
+    for pattern in PUBLISH_GLOBS:
+        for src in sorted(ROOT.glob(pattern)):
+            if not src.is_file() or src.name.startswith("_"):
+                continue
+            target = dist / src.relative_to(ROOT)
+            target.parent.mkdir(parents=True, exist_ok=True)
+            shutil.copy2(src, target)
+            n += 1
+    print("Dossier dist/ : %d fichiers" % n)
+
+
 def main():
     nav = {"domains": []}
     n_lessons = n_injected = n_questions = 0
@@ -606,9 +645,11 @@ def main():
     print("Pages avec menu ajouté : %d" % n_injected)
     print("Questions au total : %d" % n_questions)
     print("Accueil : index.html")
-    print("Mode admin : %s" % ("active (creds.txt)" if admin_on else "desactive (pas de creds.txt)"))
+    print("Mode admin : %s" % ("active" if admin_on else "desactive (ni creds.txt ni ADMIN_PASSWORD)"))
     for w in warnings:
         print("ATTENTION", w)
+    if "--dist" in sys.argv:
+        publish_dist()
 
 
 if __name__ == "__main__":

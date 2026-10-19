@@ -2,6 +2,9 @@
 creds.txt
 assets/admin-config.js
 
+# Sortie de build pour l'hébergement (python build.py --dist)
+dist/
+
 # Divers
 __pycache__/
 *.pyc
