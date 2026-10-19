@@ -393,3 +393,21 @@ body.home main { width: min(1180px, 100% - 48px); }
 
 .reset-btn { background: transparent; border: 1.5px solid rgba(246, 240, 225, .5); color: var(--cream); border-radius: 999px; padding: 4px 14px; font-size: 13px; opacity: .85; }
 .reset-btn:hover { background: var(--cream); color: var(--ink); opacity: 1; }
+
+/* ===== figures (SVG des leçons) ===== */
+.fig { margin: 20px 0; text-align: center; background: var(--paper); border: 2px solid var(--ink); border-radius: 20px; padding: 14px 14px 10px; }
+.fig svg { max-width: min(100%, 520px); height: auto; }
+.fig figcaption { font-family: var(--font-serif); font-style: italic; font-size: 17px; color: var(--muted); margin-top: 6px; }
+.fig .s { fill: none; stroke: #0f2350; stroke-width: 2; stroke-linejoin: round; stroke-linecap: round; }
+.fig .sb { fill: none; stroke: #2754d9; stroke-width: 2.5; stroke-linejoin: round; stroke-linecap: round; }
+.fig .fs { fill: #c9dbff; stroke: #0f2350; stroke-width: 2; stroke-linejoin: round; }
+.fig .fc { fill: #ebe2cb; stroke: #0f2350; stroke-width: 2; stroke-linejoin: round; }
+.fig .fb { fill: #2754d9; stroke: #0f2350; stroke-width: 2; stroke-linejoin: round; opacity: .85; }
+.fig .d { stroke-dasharray: 6 5; }
+.fig .g { stroke: #667295; stroke-width: 1; fill: none; }
+.fig .pt { fill: #0f2350; }
+.fig .pb { fill: #2754d9; }
+.fig text { font-family: var(--font-body); font-size: 15px; fill: #0f2350; font-weight: 500; }
+.fig text.b { fill: #2754d9; font-weight: 700; }
+.fig text.m { font-size: 13px; fill: #667295; }
+

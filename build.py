@@ -104,13 +104,19 @@ def md_to_html(md, name=""):
             i += 1
             continue
         if l.startswith("```"):
+            lang = l[3:].strip()
             i += 1
             buf = []
             while i < len(lines) and not lines[i].startswith("```"):
                 buf.append(lines[i])
                 i += 1
             i += 1
-            out.append("<pre><code>" + esc("\n".join(buf)) + "</code></pre>")
+            if lang.startswith("svg"):
+                caption = lang[3:].strip()
+                cap = "<figcaption>%s</figcaption>" % inline(caption) if caption else ""
+                out.append('<figure class="fig">%s%s</figure>' % ("\n".join(buf), cap))
+            else:
+                out.append("<pre><code>" + esc("\n".join(buf)) + "</code></pre>")
             continue
         m = re.match(r"^(#{1,4}) (.*)", l)
         if m:
