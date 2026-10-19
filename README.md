@@ -159,6 +159,7 @@ Chaque thème commence par un **test de positionnement** (`tests-blancs/<thème>
 - À la fin : **note sur 20**, **pourcentage par sous-thème** (Acquis ≥ 80 %, À consolider 50-79 %, À travailler < 50 %), **priorités** à travailler avec lien vers les leçons, et correction des questions ratées.
 - Le niveau de chaque sous-thème s'affiche ensuite en pastille (vert / jaune / rouge) dans les menus et sur l'accueil, et dans l'en-tête de chaque chapitre.
 - Le test peut être refait (le résultat est remplacé, les leçons restent ouvertes). Résultats enregistrés dans le navigateur.
+- **Sauvegarde de la progression** : boutons **« Exporter ma progression »** (télécharge un fichier `maths-crpe-progression-AAAA-MM-JJ.json`) et **« Importer… »** (restaure ce fichier après confirmation, en remplaçant la progression actuelle) en bas de la page d'accueil. Utile pour changer d'appareil ou se protéger d'un effacement des données du navigateur. Seules les données `crpe:*` sont exportées : le jeton du mode admin n'est jamais inclus, et l'import ignore tout ce qui n'est pas de la progression Maths CRPE.
 - Tout remettre à zéro : bouton **« Réinitialiser ma progression »** en bas de la page d'accueil (efface scores, résultats des tests et déverrouillages de ce navigateur). Les données sont propres à chaque adresse : si tu ouvres le site de plusieurs façons (lancer.bat, index.html directement), chacune a sa propre progression.
 - **Mode admin** (pour tester sans passer les tests), **protégé par mot de passe** : bouton « Mode admin » en bas de la page d'accueil, ou `?admin` ajouté à l'adresse d'une page (`?admin=0` pour quitter). Une fenêtre demande le mot de passe. Une fois connecté : tous les thèmes sont déverrouillés, un badge rouge « ADMIN ✕ » apparaît dans l'en-tête (clic = quitter) et chaque quiz / exercices / test reçoit deux boutons « ⚡ Tout juste » et « ⚡ Tout faux » qui répondent à toutes les questions. La session est mémorisée dans le navigateur et n'est pas effacée par « Réinitialiser ma progression ».
 
@@ -242,7 +243,7 @@ Le site est **statique** (HTML, CSS, JavaScript) : n'importe quel hébergeur sta
 - Pour ne pas avoir de mode admin en ligne : ne pas définir `ADMIN_PASSWORD`.
 
 **Bon à savoir**
-- Aucune donnée n'est collectée : la progression, les scores et les tests sont enregistrés uniquement dans le navigateur de chaque visiteur (pas de synchronisation entre appareils).
+- Aucune donnée n'est collectée : la progression, les scores et les tests sont enregistrés uniquement dans le navigateur de chaque visiteur (pas de synchronisation automatique entre appareils : utiliser « Exporter / Importer ma progression » sur la page d'accueil).
 - Les polices sont chargées depuis Google Fonts. Sur un site public destiné à des visiteurs européens, l'auto-hébergement des polices évite tout échange avec Google.
 - Pour que le site ne soit pas référencé par les moteurs de recherche, ajouter un en-tête `X-Robots-Tag: noindex` dans `vercel.json`.
 - Alternatives gratuites : Netlify (même dossier `dist/`, commande `python3 build.py --dist`) ou GitHub Pages (workflow GitHub Actions qui lance le build).
