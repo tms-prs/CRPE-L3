@@ -1,0 +1,120 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Quiz 04 — Multiples, diviseurs, premiers</title>
+<link rel="stylesheet" href="../../assets/style.css">
+</head>
+<body>
+<main>
+  <header>
+    <h1 id="title"></h1>
+    <p id="subtitle"></p>
+  </header>
+  <div id="app"></div>
+</main>
+<script>
+window.PAGE = {
+  id: "quiz-04-multiples-diviseurs-premiers",
+  title: "Quiz 04 — Multiples, diviseurs, premiers",
+  subtitle: "20 questions, correction immédiate. Leçon : lecons/nombres-et-calculs/04-multiples-diviseurs-premiers.md",
+  sections: [
+    { title: "Division euclidienne, multiples, diviseurs", items: [
+      { type: "qcm", q: "17 = 5 × 3 + 2. Dans la division euclidienne de 17 par 5, le quotient et le reste sont :",
+        options: ["quotient 2, reste 3", "quotient 3, reste 2", "quotient 5, reste 2", "quotient 3, reste 5"], answer: 1,
+        explain: "a = b × q + r avec 0 ≤ r < b : b = 5, q = 3, r = 2." },
+      { type: "qcm", q: "Parmi ces valeurs, laquelle ne peut pas être un reste dans une division euclidienne par 7 ?",
+        options: ["0", "3", "6", "7"], answer: 3,
+        explain: "Le reste est strictement inférieur au diviseur : 0 à 6 seulement." },
+      { type: "qcm", q: "Quelle affirmation est vraie ?",
+        options: ["3 est un multiple de 12", "12 est un diviseur de 3", "12 est un multiple de 3 et un diviseur de 60", "60 est un diviseur de 12"], answer: 2,
+        explain: "12 = 3 × 4 et 60 = 12 × 5. Attention au sens de « multiple » et « diviseur »." },
+      { type: "qcm", q: "Quels sont tous les diviseurs de 18 ?",
+        options: ["2, 3, 6, 9", "1, 2, 3, 6, 9, 18", "1, 2, 3, 6, 9", "1, 18"], answer: 1,
+        explain: "Par paires : 1×18, 2×9, 3×6. Il ne faut pas oublier 1 ni 18." },
+      { type: "qcm", q: "Vrai ou faux : 0 est un multiple de 7.",
+        options: ["Vrai", "Faux"], answer: 0,
+        explain: "0 = 7 × 0. Zéro est multiple de tout entier." }
+    ]},
+    { title: "Critères de divisibilité", items: [
+      { type: "qcm", q: "2 574 est-il divisible par 3 ?",
+        options: [
+          "Non, car il se termine par 4",
+          "Oui, car 2 + 5 + 7 + 4 = 18 est divisible par 3",
+          "Non, car 2 574 est pair",
+          "On ne peut pas savoir sans calculatrice"],
+        answer: 1,
+        explain: "Critère de 3 : somme des chiffres divisible par 3." },
+      { type: "qcm", q: "Lequel de ces nombres est divisible par 9 ?",
+        options: ["4 726", "4 735", "4 725", "4 755"], answer: 2,
+        explain: "4+7+2+5 = 18, divisible par 9. Les autres : 19, 19, 21." },
+      { type: "qcm", q: "Un nombre divisible à la fois par 2 et par 5 se termine forcément par :",
+        options: ["5", "0", "2", "10"], answer: 1,
+        explain: "Divisible par 10, donc le chiffre des unités est 0." },
+      { type: "qcm", q: "Vrai ou faux : tout nombre divisible par 9 est divisible par 3.",
+        options: ["Vrai", "Faux"], answer: 0,
+        explain: "9 = 3 × 3. La réciproque est fausse : 12 est divisible par 3 mais pas par 9." }
+    ]},
+    { title: "Nombres premiers", items: [
+      { type: "qcm", q: "1 est-il un nombre premier ?",
+        options: [
+          "Oui : divisible par 1 et par lui-même",
+          "Non : il n'a qu'un seul diviseur",
+          "Oui : c'est le plus petit",
+          "Seulement dans certains cas"],
+        answer: 1,
+        explain: "Un nombre premier a exactement deux diviseurs. 1 n'en a qu'un." },
+      { type: "qcm", q: "Lequel de ces nombres est premier ?",
+        options: ["51", "57", "59", "63"], answer: 2,
+        explain: "51 = 3 × 17 ; 57 = 3 × 19 ; 63 = 7 × 9 ; 59 n'a aucun diviseur premier ≤ 7." },
+      { type: "qcm", q: "Quel est le seul nombre premier pair ?",
+        options: ["0", "2", "4", "Il n'y en a pas"], answer: 1,
+        explain: "Tout autre nombre pair est divisible par 2 et supérieur à 2." },
+      { type: "qcm", q: "Lequel de ces nombres n'est pas premier ?",
+        options: ["83", "87", "89", "97"], answer: 1,
+        explain: "87 = 3 × 29 (8 + 7 = 15, divisible par 3)." },
+      { type: "qcm", q: "Pour savoir si 97 est premier, par quels nombres suffit-il de tester sa divisibilité ?",
+        options: ["Tous les entiers de 2 à 96", "Les premiers 2, 3, 5 et 7", "Seulement 2 et 3", "Seulement 97 lui-même"], answer: 1,
+        explain: "√97 ≈ 9,8 : il suffit de tester les premiers ≤ 9, soit 2, 3, 5, 7. Aucun ne divise 97." }
+    ]},
+    { title: "Décomposition en facteurs premiers", items: [
+      { type: "qcm", q: "Quelle est la décomposition de 60 en facteurs premiers ?",
+        options: ["6 × 10", "2² × 3 × 5", "2 × 3 × 10", "4 × 15"], answer: 1,
+        explain: "60 = 2 × 2 × 3 × 5 = 2² × 3 × 5. Tous les facteurs doivent être premiers." },
+      { type: "qcm", q: "L'écriture 12 = 3 × 4 est-elle la décomposition de 12 en facteurs premiers ?",
+        options: ["Oui", "Non, car 4 n'est pas premier : 12 = 2² × 3"], answer: 1,
+        explain: "Il faut décomposer jusqu'à n'avoir que des facteurs premiers." },
+      { type: "qcm", q: "Quel est le plus grand facteur premier de 84 ?",
+        options: ["2", "3", "7", "42"], answer: 2,
+        explain: "84 = 2² × 3 × 7." },
+      { type: "qcm", q: "Quelle est la forme irréductible de 84/36 ?",
+        options: ["42/18", "21/9", "7/3", "14/6"], answer: 2,
+        explain: "84 = 2² × 3 × 7 et 36 = 2² × 3² : on simplifie par 2² × 3 = 12 et il reste 7/3." }
+    ]},
+    { title: "Regard d'enseignant", items: [
+      { type: "qcm", q: "Un élève affirme que « 1 est premier, car il est divisible par 1 et par lui-même ». Quelle remédiation est la plus pertinente ?",
+        options: [
+          "Lui faire lister les diviseurs de 1, 2, 3, 4 et compter combien chacun en a",
+          "Lui interdire de parler de 1",
+          "Lui faire apprendre la liste des premiers par cœur",
+          "Lui dire qu'il a raison"],
+        answer: 0,
+        explain: "La définition exige exactement deux diviseurs : le tableau fait émerger la condition." },
+      { type: "qcm", q: "Un élève affirme que « 9 est premier car il est impair ». Quelle est l'explication la plus probable ?",
+        options: [
+          "Il confond « impair » et « premier »",
+          "Il ne sait pas compter",
+          "Il confond multiple et diviseur",
+          "Il a raison"],
+        answer: 0,
+        explain: "Contre-exemple : 9 = 3 × 3. Le crible d'Ératosthène aide à voir que les impairs ne sont pas tous premiers." }
+    ]}
+  ]
+};
+</script>
+<script src="../../assets/nav-data.js"></script>
+<script src="../../assets/nav.js"></script>
+<script src="../../assets/app.js"></script>
+</body>
+</html>

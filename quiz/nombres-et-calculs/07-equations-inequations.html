@@ -1,0 +1,105 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Quiz 07 — Équations et inéquations</title>
+<link rel="stylesheet" href="../../assets/style.css">
+</head>
+<body>
+<main>
+  <header>
+    <h1 id="title"></h1>
+    <p id="subtitle"></p>
+  </header>
+  <div id="app"></div>
+</main>
+<script>
+window.PAGE = {
+  id: "quiz-07-equations-inequations",
+  title: "Quiz 07 — Équations et inéquations",
+  subtitle: "20 questions, correction immédiate. Leçon : lecons/nombres-et-calculs/07-equations-inequations.md",
+  sections: [
+    { title: "Équations du premier degré", items: [
+      { type: "qcm", q: "Le nombre 4 est-il solution de 2x + 3 = 11 ?",
+        options: ["Oui : 2 × 4 + 3 = 11", "Non : 2 × 4 + 3 = 12", "Non : 4 + 3 = 7", "On ne peut pas savoir"], answer: 0,
+        explain: "On remplace x par 4 et on compare les deux membres : 11 = 11." },
+      { type: "qcm", q: "Résoudre 3x = 12.",
+        options: ["x = 36", "x = 9", "x = 4", "x = 15"], answer: 2,
+        explain: "On divise les deux membres par 3 : x = 4." },
+      { type: "qcm", q: "Résoudre x + 7 = 2.",
+        options: ["x = 9", "x = −5", "x = 5", "x = −9"], answer: 1,
+        explain: "On retranche 7 aux deux membres : x = 2 − 7 = −5." },
+      { type: "qcm", q: "Résoudre 2x + 5 = 17.",
+        options: ["x = 11", "x = 6", "x = 5", "x = 12"], answer: 1,
+        explain: "2x = 17 − 5 = 12, puis x = 6." },
+      { type: "qcm", q: "Résoudre 5x − 3 = 2x + 9.",
+        options: ["x = 2", "x = 4", "x = 6", "x = 12"], answer: 1,
+        explain: "5x − 2x = 9 + 3, soit 3x = 12, donc x = 4." },
+      { type: "qcm", q: "Résoudre 4 − 3x = 10.",
+        options: ["x = 2", "x = −2", "x = −14/3", "x = 14/3"], answer: 1,
+        explain: "−3x = 6, donc x = 6 ÷ (−3) = −2." },
+      { type: "qcm", q: "Résoudre x/3 + 1 = 5.",
+        options: ["x = 12", "x = 18", "x = 4/3", "x = 6"], answer: 0,
+        explain: "x/3 = 4, donc x = 12." }
+    ]},
+    { title: "Produit nul et x² = a", items: [
+      { type: "qcm", q: "Quelles sont les solutions de (x − 2)(x + 5) = 0 ?",
+        options: ["2 et 5", "−2 et −5", "2 et −5", "−2 et 5"], answer: 2,
+        explain: "Un produit est nul si l'un des facteurs est nul : x − 2 = 0 ou x + 5 = 0." },
+      { type: "qcm", q: "Quelles sont les solutions de x² − 25 = 0 ?",
+        options: ["5 uniquement", "−5 uniquement", "5 et −5", "Aucune"], answer: 2,
+        explain: "x² − 25 = (x − 5)(x + 5) = 0, donc x = 5 ou x = −5." },
+      { type: "qcm", q: "Pour résoudre (x − 2)(x + 5) = 6, peut-on dire « x − 2 = 6 ou x + 5 = 6 » ?",
+        options: ["Oui, par produit nul", "Non : la propriété ne s'applique que lorsque le produit vaut 0", "Oui, si les deux facteurs sont positifs", "Oui, toujours"], answer: 1,
+        explain: "Le produit nul n'est valable que pour un produit égal à 0. Ici, il faut développer et se ramener à 0." },
+      { type: "qcm", q: "Combien de solutions l'équation x² = −4 admet-elle ?",
+        options: ["0", "1", "2", "4"], answer: 0,
+        explain: "Un carré n'est jamais négatif." }
+    ]},
+    { title: "Inéquations", items: [
+      { type: "qcm", q: "Résoudre 3x ≥ 12.",
+        options: ["x ≥ 4", "x ≤ 4", "x ≥ 36", "x > 4"], answer: 0,
+        explain: "On divise par 3 (positif) : le sens ne change pas." },
+      { type: "qcm", q: "Résoudre −2x < 6.",
+        options: ["x < −3", "x > −3", "x > 3", "x < 3"], answer: 1,
+        explain: "Division par −2 (négatif) : on change le sens, d'où x > −3." },
+      { type: "qcm", q: "Quelle est la plus grande valeur entière de x vérifiant 2x + 1 ≤ 9 ?",
+        options: ["3", "4", "5", "8"], answer: 1,
+        explain: "2x ≤ 8, soit x ≤ 4. Le plus grand entier est 4." },
+      { type: "qcm", q: "Pour x > −3, le point d'abscisse −3 est représenté par…",
+        options: ["Un crochet fermé", "Un crochet ouvert (−3 exclu)", "Aucun crochet", "Une flèche vers la gauche"], answer: 1,
+        explain: "Inégalité stricte : −3 n'est pas solution, le crochet est ouvert." }
+    ]},
+    { title: "Mise en équation", items: [
+      { type: "qcm", q: "Un père a 3 fois l'âge de son fils ; à eux deux, ils ont 48 ans. Quelle équation traduit le problème (x : âge du fils) ?",
+        options: ["3x = 48", "x + 3x = 48", "x + 3 = 48", "x × 3x = 48"], answer: 1,
+        explain: "Âge du fils x, âge du père 3x, somme 48 : 4x = 48, donc x = 12." },
+      { type: "qcm", q: "La somme de trois entiers consécutifs est 72. Quel est le plus petit ?",
+        options: ["22", "23", "24", "25"], answer: 1,
+        explain: "n + (n + 1) + (n + 2) = 3n + 3 = 72, d'où n = 23." },
+      { type: "qcm", q: "Tarif A : 12 € + 2 € par entrée ; tarif B : 4 € par entrée. Pour combien d'entrées les deux tarifs coïncident-ils ?",
+        options: ["3", "6", "8", "12"], answer: 1,
+        explain: "12 + 2x = 4x → 12 = 2x → x = 6." },
+      { type: "qcm", q: "Un rectangle de périmètre 36 cm a une longueur supérieure de 4 cm à sa largeur x. Quelle équation convient ?",
+        options: ["x + x + 4 = 36", "2(x + x + 4) = 36", "x(x + 4) = 36", "2x + 4 = 18 + 36"], answer: 1,
+        explain: "Périmètre = 2 × (largeur + longueur) = 2(x + x + 4) = 36, d'où x = 7." }
+    ]},
+    { title: "Regard d'enseignant", items: [
+      { type: "qcm", q: "Un élève résout x + 3 = 7 en écrivant x = 7 + 3 = 10. Quelle remédiation est la plus pertinente ?",
+        options: [
+          "Utiliser une balance : on retranche 3 aux deux plateaux, puis vérifier avec la solution trouvée",
+          "Lui redonner la règle « on change de signe en changeant de côté »",
+          "Lui faire refaire dix équations identiques",
+          "Lui interdire d'écrire x = …"],
+        answer: 0,
+        explain: "Le modèle de la balance donne du sens ; la vérification (10 + 3 ≠ 7) montre l'erreur." }
+    ]}
+  ]
+};
+</script>
+<script src="../../assets/nav-data.js"></script>
+<script src="../../assets/nav.js"></script>
+<script src="../../assets/app.js"></script>
+</body>
+</html>

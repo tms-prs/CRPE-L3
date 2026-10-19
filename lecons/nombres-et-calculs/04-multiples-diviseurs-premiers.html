@@ -1,0 +1,97 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Leçon 04 — Multiples, diviseurs et nombres premiers</title>
+<link rel="stylesheet" href="../../assets/style.css">
+</head>
+<body class="lesson">
+<main>
+<div class="lesson-hero">
+<nav class="crumbs" aria-label="Fil d'Ariane"><a href="../../index.html">Accueil</a><span>›</span><span>Nombres et calculs</span><span>›</span><span>Leçon 04</span></nav>
+<span class="kicker">Leçon 04</span>
+<h1>Multiples, diviseurs et nombres <em>premiers</em></h1>
+<div class="meta-row"><span class="pill-tag blue">Nombres et calculs</span><span class="pill-tag">⏱ 1 h 30 (cours) + exercices</span></div>
+<div class="infos"><div class="info"><b>Programme</b>cycle 4 — multiples et diviseurs, critères de divisibilité par 3 et 9 (5e) ; factorisation d'un entier, simplification de fractions, dénominateur commun (3e). Les nombres premiers sont traités comme prolongement (BO du 5 mars 2026, annexe 2). PGCD et PPCM ne sont plus nommés au programme mais restent des outils utiles.</div><div class="info"><b>Prérequis</b>tables de multiplication, division euclidienne, fractions (leçon 02), racine carrée (leçon 03)</div></div>
+</div>
+<div class="lesson-layout">
+<article class="prose">
+<section class="sec-objectifs"><h2 id="s1">Objectifs</h2><p>À la fin de la leçon, l'étudiante sait :</p>
+<ul><li>utiliser la division euclidienne et le vocabulaire multiple / diviseur / divisible ;</li><li>appliquer les critères de divisibilité par 2, 3, 5, 9, 10 (et les justifier) ;</li><li>reconnaître un nombre premier, dresser la liste des premiers jusqu'à 50 ;</li><li>décomposer un entier en facteurs premiers ;</li><li>exploiter la décomposition : diviseurs, fractions irréductibles, dénominateur commun, problèmes de partage et de coïncidence ;</li><li>repérer les erreurs types d'élèves.</li></ul></section>
+<section class=""><h2 id="s2">1. Division euclidienne, multiples, diviseurs</h2><h3>1.1 Division euclidienne</h3>
+<p>Pour deux entiers naturels <code>a</code> et <code>b</code> (<code>b ≠ 0</code>), il existe un <strong>unique</strong> couple <code>(q, r)</code> tel que :</p>
+<p><code>a = b × q + r</code> avec <code>0 ≤ r &lt; b</code>.</p>
+<p><code>q</code> est le <strong>quotient</strong>, <code>r</code> le <strong>reste</strong>. Exemples : <code>17 = 5 × 3 + 2</code> ; <code>250 = 7 × 35 + 5</code>.</p>
+<p>Le reste est <strong>toujours strictement plus petit que le diviseur</strong> : dans une division par 7, les restes possibles sont <code>0, 1, …, 6</code>.</p>
+<h3>1.2 Vocabulaire</h3>
+<p>Soient <code>a</code> et <code>b</code> deux entiers (<code>b ≠ 0</code>). Les trois affirmations suivantes sont équivalentes :</p>
+<ul><li><code>a</code> est un <strong>multiple</strong> de <code>b</code> ;</li><li><code>b</code> est un <strong>diviseur</strong> de <code>a</code> ;</li><li><code>a</code> est <strong>divisible</strong> par <code>b</code> (le reste de la division euclidienne est <code>0</code>, donc <code>a = b × k</code> avec <code>k</code> entier).</li></ul>
+<p>Exemple : <code>12 = 4 × 3</code> → <code>12</code> est un multiple de <code>4</code> et de <code>3</code> ; <code>3</code> et <code>4</code> sont des diviseurs de <code>12</code>.</p>
+<p><strong>Remarques</strong> :</p>
+<ul><li><code>0</code> est un multiple de tout entier (<code>0 = b × 0</code>).</li><li><code>1</code> divise tous les entiers ; tout entier <code>a ≥ 1</code> est divisible par <code>1</code> et par lui-même.</li><li>Un entier non nul a un nombre <strong>fini</strong> de diviseurs et une <strong>infinité</strong> de multiples.</li></ul>
+<h3>1.3 Chercher tous les diviseurs</h3>
+<p>On teste les entiers <code>1, 2, 3…</code> et on les range <strong>par paires</strong> : si <code>d</code> divise <code>n</code>, alors <code>n/d</code> aussi.</p>
+<p><code>36</code> : <code>1 × 36</code>, <code>2 × 18</code>, <code>3 × 12</code>, <code>4 × 9</code>, <code>6 × 6</code>.<br>Diviseurs de <code>36</code> : <code>1, 2, 3, 4, 6, 9, 12, 18, 36</code> (9 diviseurs, nombre impair car <code>36</code> est un carré parfait).</p>
+<p>On peut arrêter la recherche quand <code>d &gt; √n</code>.</p></section>
+<section class=""><h2 id="s3">2. Critères de divisibilité</h2><div class="table-wrap"><table><thead><tr><th>Divisible par</th><th>Critère</th><th>Exemple</th></tr></thead><tbody><tr><td><strong>2</strong></td><td>Chiffre des unités pair (0, 2, 4, 6, 8)</td><td><code>3 478</code> oui</td></tr><tr><td><strong>5</strong></td><td>Chiffre des unités 0 ou 5</td><td><code>1 205</code> oui</td></tr><tr><td><strong>10</strong></td><td>Chiffre des unités 0</td><td><code>4 530</code> oui</td></tr><tr><td><strong>3</strong></td><td>Somme des chiffres divisible par 3</td><td><code>2 574</code> : <code>2+5+7+4 = 18</code> oui</td></tr><tr><td><strong>9</strong></td><td>Somme des chiffres divisible par 9</td><td><code>4 725</code> : <code>4+7+2+5 = 18</code> oui</td></tr></tbody></table></div>
+<p>Compléments utiles : par <strong>4</strong> si le nombre formé par les deux derniers chiffres est divisible par 4 ; par <strong>6</strong> si divisible par 2 <strong>et</strong> par 3.</p>
+<h3>2.1 Pourquoi les critères de 3 et 9 fonctionnent (preuve attendue)</h3>
+<p>Écrivons <code>2574 = 2 × 1000 + 5 × 100 + 7 × 10 + 4</code>. Or :</p>
+<ul><li><code>1000 = 999 + 1</code>, <code>100 = 99 + 1</code>, <code>10 = 9 + 1</code>, où <code>999</code>, <code>99</code> et <code>9</code> sont des multiples de 9 ;</li><li>donc <code>2574 = (multiple de 9) + (2 + 5 + 7 + 4)</code>.</li></ul>
+<p>Le nombre et la somme de ses chiffres ont le <strong>même reste</strong> dans la division par 9 (et par 3). D'où les critères.</p>
+<p><strong>Conséquence</strong> : le reste de la division d'un nombre par 9 est celui de la somme de ses chiffres (<code>1 000 000</code> a pour reste <code>1</code>).</p>
+<h3>2.2 Implications</h3>
+<ul><li>Divisible par 9 ⇒ divisible par 3 (réciproque fausse : <code>12</code> est divisible par 3 mais pas par 9).</li><li>Divisible par 2 et par 5 ⇔ divisible par 10.</li></ul></section>
+<section class=""><h2 id="s4">3. Nombres premiers</h2><h3>3.1 Définition</h3>
+<p>Un entier naturel est <strong>premier</strong> s'il possède <strong>exactement deux diviseurs</strong> : <code>1</code> et lui-même.</p>
+<ul><li><code>1</code> n'est <strong>pas</strong> premier (un seul diviseur).</li><li><code>2</code> est le <strong>seul premier pair</strong>.</li><li>Un nombre non premier supérieur à 1 est dit <strong>composé</strong>.</li></ul>
+<p>Premiers jusqu'à 50 : <code>2, 3, 5, 7, 11, 13, 17, 19, 23, 29, 31, 37, 41, 43, 47</code> (15 nombres).</p>
+<h3>3.2 Le crible d'Ératosthène</h3>
+<p>On écrit les entiers de 2 à 100, puis on <strong>barre</strong> les multiples de 2 (sauf 2), de 3 (sauf 3), de 5, de 7. Les nombres restants sont premiers. On s'arrête à 7 car <code>11² = 121 &gt; 100</code>.</p>
+<h3>3.3 Tester si un nombre est premier</h3>
+<p>Pour savoir si <code>n</code> est premier, il suffit de tester la divisibilité par les <strong>nombres premiers</strong> <code>p</code> tels que <code>p² ≤ n</code> (<code>p ≤ √n</code>).</p>
+<p><strong>Exemple</strong> : <code>97</code>. <code>√97 ≈ 9,8</code>, donc on teste <code>2, 3, 5, 7</code> : aucun ne divise <code>97</code>, donc <strong>97 est premier</strong>.</p>
+<p><strong>Contre-exemple</strong> : <code>91</code> n'est pas premier (<code>7 × 13</code>). <code>91</code> est un piège classique car il passe les critères de 2, 3, 5.</p>
+<h3>3.4 Il y a une infinité de nombres premiers</h3>
+<p>Preuve d'Euclide (par l'absurde) : si <code>p₁, …, pₖ</code> étaient tous les premiers, le nombre <code>N = p₁ × … × pₖ + 1</code> aurait un diviseur premier, forcément différent des <code>pᵢ</code> : contradiction.</p></section>
+<section class=""><h2 id="s5">4. Décomposition en facteurs premiers</h2><h3>4.1 Théorème</h3>
+<p>Tout entier <code>n ≥ 2</code> s'écrit comme <strong>produit de nombres premiers</strong>, et cette écriture est <strong>unique</strong> à l'ordre des facteurs près.</p>
+<p><code>60 = 2 × 2 × 3 × 5 = 2² × 3 × 5</code>.</p>
+<h3>4.2 Méthode</h3>
+<p>On divise successivement par les plus petits premiers possibles.</p>
+<pre><code>60 | 2
+30 | 2
+15 | 3
+ 5 | 5
+ 1</code></pre>
+<p><code>60 = 2² × 3 × 5</code>. Un facteur n'est valable que s'il est <strong>premier</strong> : <code>60 = 6 × 10</code> n'est pas une décomposition en facteurs premiers.</p>
+<p>Autre exemple : <code>360 = 2³ × 3² × 5</code>.</p>
+<h3>4.3 Ce que donne la décomposition</h3>
+<ul><li><strong>Diviseurs de <code>n</code></strong> : tous les produits de puissances des facteurs premiers. Pour <code>72 = 2³ × 3²</code> : exposant de 2 de 0 à 3 (4 choix), exposant de 3 de 0 à 2 (3 choix), soit <code>4 × 3 = 12</code> diviseurs.</li><li><strong>Carré parfait</strong> : tous les exposants sont <strong>pairs</strong> (<code>144 = 2⁴ × 3²</code>).</li><li><strong>Fraction irréductible</strong> (3e) : on simplifie les facteurs communs. <code>84/36 = (2² × 3 × 7)/(2² × 3²) = 7/3</code>.</li></ul></section>
+<section class=""><h2 id="s6">5. Outils : PGCD et PPCM</h2><p><em>Hors programme explicite du cycle 4 en 2026, mais utiles pour simplifier des fractions et résoudre des problèmes.</em></p>
+<h3>5.1 PGCD</h3>
+<p>Le <strong>PGCD</strong> de <code>a</code> et <code>b</code> est le plus grand diviseur commun. On le lit dans les décompositions : on garde les facteurs <strong>communs</strong> avec le <strong>plus petit</strong> exposant.</p>
+<p><code>84 = 2² × 3 × 7</code>, <code>36 = 2² × 3²</code> → <code>PGCD(84, 36) = 2² × 3 = 12</code>.</p>
+<p><strong>Usage</strong> : simplifier une fraction en divisant par le PGCD ; partager en parts égales sans reste.</p>
+<h3>5.2 PPCM</h3>
+<p>Le <strong>PPCM</strong> est le plus petit multiple commun non nul. On prend <strong>tous</strong> les facteurs avec le <strong>plus grand</strong> exposant.</p>
+<p><code>8 = 2³</code>, <code>12 = 2² × 3</code> → <code>PPCM(8, 12) = 2³ × 3 = 24</code>.</p>
+<p><strong>Usage</strong> : dénominateur commun le plus petit pour additionner des fractions ; phénomènes périodiques qui se rencontrent.</p></section>
+<section class=""><h2 id="s7">6. Problèmes types</h2><p><strong>Problème 1 (partage).</strong> Dans une classe, 45 filles et 60 garçons. Combien d'équipes identiques (mêmes nombres de filles et de garçons) au maximum, en utilisant tout le monde ?<br><code>PGCD(45, 60) = 15</code> équipes de 3 filles et 4 garçons.</p>
+<p><strong>Problème 2 (découpe).</strong> Une plaque de 84 cm sur 60 cm est découpée en carrés identiques, sans perte, avec le plus grand côté possible.<br><code>PGCD(84, 60) = 12</code> : carrés de 12 cm.</p>
+<p><strong>Problème 3 (coïncidence).</strong> Deux bus partent ensemble d'un arrêt ; l'un repasse toutes les 12 min, l'autre toutes les 18 min. Quand se retrouvent-ils ?<br><code>PPCM(12, 18) = 36</code> : après 36 minutes.</p>
+<p><strong>Problème 4 (preuve).</strong> Montrer que la somme de trois entiers consécutifs est divisible par 3.<br><code>n + (n+1) + (n+2) = 3n + 3 = 3(n + 1)</code>.</p></section>
+<section class="sec-didactic"><h2 id="s8">7. Erreurs types d'élèves (volet didactique)</h2><div class="table-wrap"><table><thead><tr><th>Erreur observée</th><th>Exemple</th><th>Cause probable</th><th>Remédiation possible</th></tr></thead><tbody><tr><td>Considérer 1 comme premier</td><td>« 1 est premier : divisible par 1 et par lui-même »</td><td>Définition tronquée (deux diviseurs <strong>distincts</strong>)</td><td>Lister les diviseurs de 1, puis de 2, 3, 4</td></tr><tr><td>Confondre impair et premier</td><td>« 9 est premier »</td><td>Impair associé à « sans diviseur »</td><td>Crible, contre-exemples (<code>9 = 3 × 3</code>, <code>15</code>, <code>21</code>)</td></tr><tr><td>Confondre multiple et diviseur</td><td>« 3 est un multiple de 12 »</td><td>Vocabulaire inversé</td><td>Schéma <code>12 = 3 × 4</code>, phrases-modèles</td></tr><tr><td>Critère de 3 sur le dernier chiffre</td><td>« 52 est divisible par 3 car 2… »</td><td>Transfert du critère de 2 ou 5</td><td>Montrer que 12 est divisible par 3 mais pas 2</td></tr><tr><td>Décomposition non terminée</td><td><code>12 = 3 × 4</code></td><td>Facteur composé conservé</td><td>Exiger que chaque facteur soit premier, arbre de facteurs</td></tr><tr><td>Penser que 0 n'est multiple de rien</td><td></td><td>Intuition de la « table »</td><td><code>0 = 7 × 0</code></td></tr><tr><td>Oublier un diviseur trivial</td><td>Diviseurs de 12 sans 1 ni 12</td><td>Diviseur « propre » vs diviseur</td><td>Méthode par paires</td></tr></tbody></table></div>
+<p><strong>Outils</strong> : tableau de nombres (crible), arbre de facteurs, rectangles de jetons (un nombre est composé s'il se range en rectangle non trivial), calculatrice avec division euclidienne.</p></section>
+<section class="sec-retenir"><h2 id="s9">8. À retenir</h2><ul><li><code>a = b × q + r</code> avec <code>0 ≤ r &lt; b</code>.</li><li><code>a</code> multiple de <code>b</code> ⇔ <code>b</code> diviseur de <code>a</code> ⇔ reste nul.</li><li>Critères : 2 (unités paires), 5 (0 ou 5), 10 (0), 3 et 9 (somme des chiffres).</li><li>Premier : exactement deux diviseurs ; 1 n'est pas premier ; 2 est le seul premier pair.</li><li>Test de primalité : diviser par les premiers <code>p</code> avec <code>p ≤ √n</code>.</li><li>Décomposition en facteurs premiers <strong>unique</strong> ; elle sert à simplifier, à compter les diviseurs, à reconnaître un carré parfait.</li></ul></section>
+<section class="sec-practice"><h2 id="s10">Pour s'entraîner</h2><div class="practice"><a class="mode-card blue" href="../../quiz/nombres-et-calculs/04-multiples-diviseurs-premiers.html"><h3>Quiz</h3><p>Questions courtes avec correction immédiate pour vérifier que c’est acquis.</p><span class="go">Lancer le quiz <span>→</span></span></a><a class="mode-card sky" href="../../exercices/nombres-et-calculs/04-multiples-diviseurs-premiers.html"><h3>Exercices</h3><p>Réponses à saisir, indices et corrections détaillées.</p><span class="go">Commencer <span>→</span></span></a></div></section>
+<section class="sec-extra"><h2 id="s11">Pistes de prolongement (culture mathématique)</h2><ul><li>Notion de nombre premier et développements : infinité des premiers, crible d'Ératosthène.</li><li>Conjecture de Goldbach, nombres premiers jumeaux ; usages en cryptographie.</li><li>Engrenages, calendriers, phénomènes périodiques (cigales à cycles de 13 et 17 ans) : lien avec PPCM.</li></ul></section>
+</article>
+<aside class="toc" aria-label="Sommaire"><h4>Sur cette page</h4><ol><li><a href="#s1">Objectifs</a></li><li><a href="#s2">1. Division euclidienne, multiples, diviseurs</a></li><li><a href="#s3">2. Critères de divisibilité</a></li><li><a href="#s4">3. Nombres premiers</a></li><li><a href="#s5">4. Décomposition en facteurs premiers</a></li><li><a href="#s6">5. Outils : PGCD et PPCM</a></li><li><a href="#s7">6. Problèmes types</a></li><li><a href="#s8">7. Erreurs types d'élèves (volet didactique)</a></li><li><a href="#s9">8. À retenir</a></li><li><a href="#s10">Pour s'entraîner</a></li><li><a href="#s11">Pistes de prolongement (culture mathématique)</a></li></ol></aside>
+</div>
+</main>
+<script src="../../assets/nav-data.js"></script>
+<script src="../../assets/nav.js"></script>
+</body>
+</html>

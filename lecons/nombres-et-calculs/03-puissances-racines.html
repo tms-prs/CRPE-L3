@@ -1,0 +1,104 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Leçon 03 — Puissances, notation scientifique et racine carrée</title>
+<link rel="stylesheet" href="../../assets/style.css">
+</head>
+<body class="lesson">
+<main>
+<div class="lesson-hero">
+<nav class="crumbs" aria-label="Fil d'Ariane"><a href="../../index.html">Accueil</a><span>›</span><span>Nombres et calculs</span><span>›</span><span>Leçon 03</span></nav>
+<span class="kicker">Leçon 03</span>
+<h1>Puissances, notation scientifique et racine <em>carrée</em></h1>
+<div class="meta-row"><span class="pill-tag blue">Nombres et calculs</span><span class="pill-tag">⏱ 2 h (cours) + exercices</span></div>
+<div class="infos"><div class="info"><b>Programme</b>cycle 4 — carré et cube en 5e ; puissances d'exposant positif, produits de puissances, racine carrée (définition, encadrement) en 4e ; exposants négatifs, quotients, notation scientifique, équation x² = a en 3e (BO du 5 mars 2026, annexe 2)</div><div class="info"><b>Prérequis</b>leçons 01 et 02, tables de multiplication, carrés de 0 à 12</div></div>
+</div>
+<div class="lesson-layout">
+<article class="prose">
+<section class="sec-objectifs"><h2 id="s1">Objectifs</h2><p>À la fin de la leçon, l'étudiante sait :</p>
+<ul><li>définir et calculer des puissances d'exposant entier (positif, puis négatif) ;</li><li>appliquer les règles sur les produits et quotients de puissances ;</li><li>écrire un nombre en notation scientifique et utiliser les préfixes (nano à giga) ;</li><li>définir la racine carrée, l'encadrer, résoudre x² = a ;</li><li>repérer les erreurs types d'élèves.</li></ul>
+<p><strong>Automatismes à avoir</strong> : carrés des entiers de 0 à 12 (<code>0, 1, 4, 9, 16, 25, 36, 49, 64, 81, 100, 121, 144</code>), <code>2³ = 8</code>, <code>3³ = 27</code>, <code>10² = 100</code>, <code>10³ = 1000</code>.</p></section>
+<section class=""><h2 id="s2">1. Puissances d'un nombre</h2><h3>1.1 Définition (exposant entier positif)</h3>
+<p>Pour un nombre <code>a</code> et un entier <code>n ≥ 1</code> :</p>
+<p><code>aⁿ = a × a × … × a</code> (<code>n</code> facteurs)</p>
+<ul><li><code>a²</code> (carré) : <code>7² = 7 × 7 = 49</code>.</li><li><code>a³</code> (cube) : <code>4³ = 4 × 4 × 4 = 64</code>.</li><li><code>a¹ = a</code>.</li><li>Une puissance est une <strong>multiplication itérée</strong>, pas une multiplication par l'exposant : <code>2⁵ = 32</code>, et non <code>10</code>.</li></ul>
+<p><strong>Situations qui donnent du sens</strong> : nombre de cases d'un carré de côté <code>a</code> (<code>a²</code>), volume d'un cube d'arête <code>a</code> (<code>a³</code>), doublement répété (1 grain, puis 2, 4, 8… sur l'échiquier de Sissa : <code>2ⁿ</code>).</p>
+<h3>1.2 Puissances et signes</h3>
+<div class="table-wrap"><table><thead><tr><th>Écriture</th><th>Calcul</th><th>Résultat</th></tr></thead><tbody><tr><td><code>(−3)²</code></td><td><code>(−3) × (−3)</code></td><td><code>9</code></td></tr><tr><td><code>−3²</code></td><td><code>−(3 × 3)</code></td><td><code>−9</code></td></tr><tr><td><code>(−2)³</code></td><td><code>(−2) × (−2) × (−2)</code></td><td><code>−8</code></td></tr><tr><td><code>(−2)⁴</code></td><td></td><td><code>16</code></td></tr></tbody></table></div>
+<ul><li>Base négative et exposant <strong>pair</strong> : résultat positif ; exposant <strong>impair</strong> : résultat négatif.</li><li>Sans parenthèses, la puissance s'applique <strong>avant</strong> le signe : <code>−3² = −9</code>.</li></ul>
+<h3>1.3 Exposant négatif (3e)</h3>
+<p>Pour <code>a ≠ 0</code> et <code>n</code> entier positif :</p>
+<p><code>a⁻ⁿ = 1/aⁿ</code></p>
+<p>Exemples : <code>2⁻³ = 1/2³ = 1/8</code> ; <code>10⁻² = 1/100 = 0,01</code> ; <code>5⁻¹ = 1/5</code>.</p>
+<p>L'exposant négatif <strong>n'est pas</strong> un nombre négatif : <code>10⁻² = 0,01 &gt; 0</code>. C'est l'<strong>inverse</strong> de la puissance positive.</p>
+<p>Par convention <code>a⁰ = 1</code> (pour <code>a ≠ 0</code>). On le voit en divisant par <code>a</code> à chaque ligne :</p>
+<pre><code>10³ = 1000
+10² =  100
+10¹ =   10
+10⁰ =    1
+10⁻¹ = 0,1
+10⁻² = 0,01</code></pre></section>
+<section class=""><h2 id="s3">2. Calculs avec des puissances</h2><h3>2.1 Produit de puissances d'un même nombre (4e)</h3>
+<p><code>aᵐ × aⁿ = aᵐ⁺ⁿ</code></p>
+<p><strong>Pourquoi ?</strong> <code>2³ × 2⁴ = (2 × 2 × 2) × (2 × 2 × 2 × 2) = 2⁷</code> : au total 7 facteurs.</p>
+<p>On additionne les <strong>exposants</strong>, la <strong>base</strong> ne change pas : <code>2³ × 2⁴ = 2⁷</code>, et non <code>4⁷</code>.</p>
+<h3>2.2 Quotient de puissances d'un même nombre (3e)</h3>
+<p><code>aᵐ / aⁿ = aᵐ⁻ⁿ</code> (<code>a ≠ 0</code>)</p>
+<p><code>5⁷ / 5⁴ = 5³</code> ; <code>3² / 3⁵ = 3⁻³ = 1/27</code>.</p>
+<h3>2.3 Produit de puissances de même exposant (4e)</h3>
+<p><code>aⁿ × bⁿ = (a × b)ⁿ</code></p>
+<p><code>2³ × 5³ = (2 × 5)³ = 10³ = 1000</code>.</p>
+<h3>2.4 Puissances de 10</h3>
+<ul><li><code>10ⁿ</code> s'écrit <code>1</code> suivi de <code>n</code> zéros : <code>10⁶ = 1 000 000</code>.</li><li><code>10⁻ⁿ</code> s'écrit avec <code>n</code> chiffres après la virgule, le dernier étant <code>1</code> : <code>10⁻³ = 0,001</code>.</li><li>Multiplier par <code>10ⁿ</code> décale la virgule de <code>n</code> rangs vers la droite ; multiplier par <code>10⁻ⁿ</code>, vers la gauche.</li><li><code>10ᵐ × 10ⁿ = 10ᵐ⁺ⁿ</code> et <code>10ᵐ / 10ⁿ = 10ᵐ⁻ⁿ</code>.</li></ul>
+<h3>2.5 Préfixes et conversions (nano à giga)</h3>
+<div class="table-wrap"><table><thead><tr><th>Préfixe</th><th>Symbole</th><th>Puissance de 10</th></tr></thead><tbody><tr><td>nano</td><td>n</td><td><code>10⁻⁹</code></td></tr><tr><td>micro</td><td>µ</td><td><code>10⁻⁶</code></td></tr><tr><td>milli</td><td>m</td><td><code>10⁻³</code></td></tr><tr><td>kilo</td><td>k</td><td><code>10³</code></td></tr><tr><td>méga</td><td>M</td><td><code>10⁶</code></td></tr><tr><td>giga</td><td>G</td><td><code>10⁹</code></td></tr></tbody></table></div>
+<p>Exemples : <code>5 Go = 5 × 10⁹ octets = 5000 Mo</code> ; <code>1 nm = 10⁻⁹ m</code>.</p></section>
+<section class=""><h2 id="s4">3. Notation scientifique (3e)</h2><h3>3.1 Définition</h3>
+<p>Un nombre décimal positif est en <strong>notation scientifique</strong> s'il s'écrit <code>a × 10ⁿ</code> avec :</p>
+<ul><li><code>1 ≤ a &lt; 10</code> (un seul chiffre non nul avant la virgule) ;</li><li><code>n</code> entier relatif.</li></ul>
+<p>Exemples : <code>45 000 000 = 4,5 × 10⁷</code> ; <code>0,00032 = 3,2 × 10⁻⁴</code>.</p>
+<p><strong>Non scientifiques</strong> : <code>62 × 10⁴</code> (62 ≥ 10), <code>0,62 × 10⁶</code> (0,62 &lt; 1).</p>
+<h3>3.2 Méthode</h3>
+<ol><li>Placer la virgule après le premier chiffre non nul.</li><li>Compter de combien de rangs elle a été déplacée.</li><li>Vers la gauche : exposant <strong>positif</strong> ; vers la droite : exposant <strong>négatif</strong>.</li></ol>
+<p><code>750 × 10⁵</code> → <code>7,5 × 10² × 10⁵ = 7,5 × 10⁷</code>.</p>
+<h3>3.3 Calculs</h3>
+<p><code>(3 × 10⁴) × (2 × 10³) = (3 × 2) × (10⁴ × 10³) = 6 × 10⁷</code>.</p>
+<p><code>(6 × 10⁵) / (3 × 10²) = 2 × 10³</code>.</p>
+<p>Si le produit des mantisses dépasse 10, on réajuste : <code>(4 × 10³) × (5 × 10²) = 20 × 10⁵ = 2 × 10⁶</code>.</p>
+<h3>3.4 Usage</h3>
+<p>Ordres de grandeur : distance Terre-Soleil <code>1,5 × 10⁸ km</code>, vitesse de la lumière <code>3 × 10⁵ km/s</code>, diamètre d'un atome <code>10⁻¹⁰ m</code>. La notation facilite aussi les comparaisons : on compare d'abord les exposants.</p></section>
+<section class=""><h2 id="s5">4. Racine carrée (4e et 3e)</h2><h3>4.1 Définition</h3>
+<p>La <strong>racine carrée</strong> d'un nombre positif <code>a</code>, notée <code>√a</code>, est <strong>le nombre positif dont le carré est <code>a</code></strong>.</p>
+<ul><li><code>√49 = 7</code> car <code>7² = 49</code> et <code>7 &gt; 0</code>.</li><li><code>√0 = 0</code> ; <code>√1 = 1</code>.</li><li><code>√a</code> n'existe pas si <code>a &lt; 0</code> (aucun carré n'est négatif).</li><li><code>(√a)² = a</code> et, pour <code>a ≥ 0</code>, <code>√(a²) = a</code>.</li></ul>
+<p><strong>Situation d'introduction</strong> : « quel est le côté d'un carré d'aire 49 cm² ? » : <code>√49 = 7 cm</code>.</p>
+<h3>4.2 Carrés parfaits et encadrements</h3>
+<p>Les carrés parfaits à connaître : <code>0, 1, 4, 9, 16, 25, 36, 49, 64, 81, 100, 121, 144</code>.</p>
+<p>Pour <code>√50</code> : <code>49 &lt; 50 &lt; 64</code>, donc <code>7 &lt; √50 &lt; 8</code>.</p>
+<p><code>√2</code>, <code>√3</code>, <code>√5</code>… ne sont pas des carrés parfaits : on les <strong>encadre</strong> (<code>1,4 &lt; √2 &lt; 1,5</code>). Ce sont des nombres <strong>irrationnels</strong> (leur écriture décimale est infinie non périodique) ; <code>√2</code> est le premier nombre irrationnel découvert.</p>
+<h3>4.3 Équation x² = a (3e)</h3>
+<div class="table-wrap"><table><thead><tr><th>Valeur de <code>a</code></th><th>Solutions de <code>x² = a</code></th></tr></thead><tbody><tr><td><code>a &gt; 0</code></td><td>deux solutions : <code>√a</code> et <code>−√a</code></td></tr><tr><td><code>a = 0</code></td><td>une solution : <code>0</code></td></tr><tr><td><code>a &lt; 0</code></td><td>aucune solution</td></tr></tbody></table></div>
+<p>Exemples : <code>x² = 25</code> → <code>x = 5</code> ou <code>x = −5</code> ; <code>x² = 7</code> → <code>x = √7</code> ou <code>x = −√7</code> ; <code>x² = −4</code> → pas de solution.</p>
+<p><strong>Graphiquement</strong> : on cherche les points d'abscisse <code>x</code> de la parabole <code>y = x²</code> d'ordonnée <code>a</code>.</p>
+<h3>4.4 Lien avec Pythagore</h3>
+<p>Dans un triangle rectangle de côtés de l'angle droit <code>6</code> et <code>8</code>, l'hypoténuse <code>h</code> vérifie <code>h² = 36 + 64 = 100</code>, donc <code>h = √100 = 10</code>.</p>
+<h3>4.5 Attention aux pièges</h3>
+<ul><li><code>√(a + b) ≠ √a + √b</code> : <code>√(9 + 16) = √25 = 5</code>, alors que <code>√9 + √16 = 7</code>.</li><li><code>√9 = 3</code>, <strong>pas</strong> <code>±3</code>. Le signe <code>±</code> vient de l'équation <code>x² = 9</code>, pas de la racine.</li><li><code>√a</code> n'est pas <code>a/2</code>.</li></ul></section>
+<section class=""><h2 id="s6">5. Problèmes types</h2><p><strong>Problème 1 (doublement).</strong> Sur la première case d'un échiquier, on pose 1 grain, puis on double à chaque case. Combien de grains sur la 8e case ?<br><code>2⁷ = 128</code>.</p>
+<p><strong>Problème 2 (pliage).</strong> Une feuille de 0,1 mm d'épaisseur est pliée 10 fois en deux. Épaisseur ?<br><code>0,1 × 2¹⁰ = 0,1 × 1024 = 102,4 mm</code>.</p>
+<p><strong>Problème 3 (temps de trajet de la lumière).</strong> Le Soleil est à <code>1,5 × 10⁸ km</code> de la Terre ; la lumière se déplace à <code>3 × 10⁵ km/s</code>. Durée ?<br><code>(1,5 × 10⁸)/(3 × 10⁵) = 0,5 × 10³ = 500 s</code>, soit environ 8 min 20 s.</p>
+<p><strong>Problème 4 (stockage).</strong> Un fichier de <code>5 Go</code> occupe combien de <code>Mo</code> ?<br><code>5 × 10⁹ / 10⁶ = 5 × 10³ = 5000 Mo</code>.</p></section>
+<section class="sec-didactic"><h2 id="s7">6. Erreurs types d'élèves (volet didactique)</h2><div class="table-wrap"><table><thead><tr><th>Erreur observée</th><th>Exemple</th><th>Cause probable</th><th>Remédiation possible</th></tr></thead><tbody><tr><td>Multiplier base et exposant</td><td><code>2⁵ = 10</code></td><td>Puissance perçue comme <code>2 × 5</code></td><td>Écrire <code>2 × 2 × 2 × 2 × 2</code>, compter les facteurs</td></tr><tr><td>Multiplier les bases au lieu d'additionner les exposants</td><td><code>2³ × 2⁴ = 4⁷</code></td><td>Application de la règle de façon mécanique</td><td>Écrire le développement des deux puissances</td></tr><tr><td>Exposant négatif = nombre négatif</td><td><code>10⁻² = −100</code></td><td>Confusion signe de l'exposant / signe du nombre</td><td>Suite <code>10³, 10², 10¹, 10⁰, 10⁻¹…</code> divisée par 10</td></tr><tr><td>Perdre les parenthèses</td><td><code>−3² = 9</code></td><td>Priorité de la puissance mal comprise</td><td>Comparer <code>(−3)²</code> et <code>−3²</code> à la calculatrice</td></tr><tr><td>Notation scientifique incorrecte</td><td><code>62 × 10⁴</code> accepté</td><td>Mantisse non comprise entre 1 et 10</td><td>Rappeler la définition, contre-exemples</td></tr><tr><td>Distribuer la racine sur une somme</td><td><code>√(9 + 16) = 3 + 4</code></td><td>Fausse linéarité</td><td>Calculer les deux membres : <code>5 ≠ 7</code></td></tr><tr><td><code>√9 = ±3</code></td><td></td><td>Confusion avec <code>x² = 9</code></td><td>Distinguer « la racine » et « les solutions »</td></tr></tbody></table></div>
+<p><strong>Outils</strong> : calculatrice (exploration, vérification), tableau de numération, suites de nombres, aires de carrés, tableur pour étudier <code>2ⁿ</code>.</p></section>
+<section class="sec-retenir"><h2 id="s8">7. À retenir</h2><ul><li><code>aⁿ = a × a × … × a</code> ; <code>a⁻ⁿ = 1/aⁿ</code> ; exposant négatif ≠ nombre négatif.</li><li><code>aᵐ × aⁿ = aᵐ⁺ⁿ</code> ; <code>aᵐ/aⁿ = aᵐ⁻ⁿ</code> ; <code>aⁿ × bⁿ = (ab)ⁿ</code>.</li><li><code>(−a)ⁿ</code> : signe selon la parité de <code>n</code> ; <code>−aⁿ ≠ (−a)ⁿ</code>.</li><li>Notation scientifique : <code>a × 10ⁿ</code> avec <code>1 ≤ a &lt; 10</code>.</li><li><code>√a ≥ 0</code> ; <code>(√a)² = a</code> ; <code>x² = a</code> a 2, 1 ou 0 solution selon le signe de <code>a</code>.</li><li><code>√(a + b) ≠ √a + √b</code>.</li></ul></section>
+<section class="sec-practice"><h2 id="s9">Pour s'entraîner</h2><div class="practice"><a class="mode-card blue" href="../../quiz/nombres-et-calculs/03-puissances-racines.html"><h3>Quiz</h3><p>Questions courtes avec correction immédiate pour vérifier que c’est acquis.</p><span class="go">Lancer le quiz <span>→</span></span></a><a class="mode-card sky" href="../../exercices/nombres-et-calculs/03-puissances-racines.html"><h3>Exercices</h3><p>Réponses à saisir, indices et corrections détaillées.</p><span class="go">Commencer <span>→</span></span></a></div></section>
+<section class="sec-extra"><h2 id="s10">Pistes de prolongement (culture mathématique)</h2><ul><li>L'échiquier de Sissa (croissance exponentielle) ; le papyrus de Rhind.</li><li><code>√2</code> est irrationnel : démonstration par l'absurde (lien avec l'aire d'un carré et la longueur de son côté).</li><li>Algorithmes d'extraction de racines carrées ; paraboles et antennes paraboliques.</li></ul></section>
+</article>
+<aside class="toc" aria-label="Sommaire"><h4>Sur cette page</h4><ol><li><a href="#s1">Objectifs</a></li><li><a href="#s2">1. Puissances d'un nombre</a></li><li><a href="#s3">2. Calculs avec des puissances</a></li><li><a href="#s4">3. Notation scientifique (3e)</a></li><li><a href="#s5">4. Racine carrée (4e et 3e)</a></li><li><a href="#s6">5. Problèmes types</a></li><li><a href="#s7">6. Erreurs types d'élèves (volet didactique)</a></li><li><a href="#s8">7. À retenir</a></li><li><a href="#s9">Pour s'entraîner</a></li><li><a href="#s10">Pistes de prolongement (culture mathématique)</a></li></ol></aside>
+</div>
+</main>
+<script src="../../assets/nav-data.js"></script>
+<script src="../../assets/nav.js"></script>
+</body>
+</html>

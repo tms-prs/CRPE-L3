@@ -1,0 +1,110 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Quiz 05 — Opérations et priorités</title>
+<link rel="stylesheet" href="../../assets/style.css">
+</head>
+<body>
+<main>
+  <header>
+    <h1 id="title"></h1>
+    <p id="subtitle"></p>
+  </header>
+  <div id="app"></div>
+</main>
+<script>
+window.PAGE = {
+  id: "quiz-05-operations-priorites",
+  title: "Quiz 05 — Opérations et priorités",
+  subtitle: "20 questions, correction immédiate. Leçon : lecons/nombres-et-calculs/05-operations-priorites-calcul-mental.md",
+  sections: [
+    { title: "Sens et vocabulaire", items: [
+      { type: "qcm", q: "Dans l'expression 3 − 2 × 5, comment nomme-t-on le calcul dans son ensemble ?",
+        options: ["Un produit", "Une différence", "Une somme", "Un quotient"], answer: 1,
+        explain: "La dernière opération effectuée est la soustraction : c'est la différence de 3 et de 2 × 5." },
+      { type: "qcm", q: "Dans (3 − 2) × 5, comment nomme-t-on le calcul dans son ensemble ?",
+        options: ["Une différence", "Une somme", "Un produit", "Un quotient"], answer: 2,
+        explain: "La dernière opération est la multiplication : produit de (3 − 2) par 5." },
+      { type: "qcm", q: "« Combien de rubans de 0,5 m peut-on couper dans 6 m ? » correspond à…",
+        options: ["6 × 0,5", "6 ÷ 0,5", "6 − 0,5", "0,5 ÷ 6"], answer: 1,
+        explain: "Sens de groupement de la division : combien de fois 0,5 dans 6 ? Réponse 12." }
+    ]},
+    { title: "Priorités opératoires", items: [
+      { type: "qcm", q: "2 + 3 × 4 = ?",
+        options: ["20", "14", "24", "9"], answer: 1,
+        explain: "La multiplication est prioritaire : 3 × 4 = 12, puis 2 + 12 = 14." },
+      { type: "qcm", q: "8 − 3 − 2 = ?",
+        options: ["7", "3", "9", "−3"], answer: 1,
+        explain: "De gauche à droite : 8 − 3 = 5, puis 5 − 2 = 3." },
+      { type: "qcm", q: "24 ÷ 4 × 3 = ?",
+        options: ["2", "18", "72", "9"], answer: 1,
+        explain: "Multiplications et divisions de gauche à droite : 24 ÷ 4 = 6, puis 6 × 3 = 18." },
+      { type: "qcm", q: "3 + 4² × 2 = ?",
+        options: ["98", "35", "22", "40"], answer: 1,
+        explain: "Puissance d'abord : 4² = 16 ; puis 16 × 2 = 32 ; enfin 3 + 32 = 35." },
+      { type: "qcm", q: "Quelle expression traduit « le double de la différence entre 5 et 3 » ?",
+        options: ["2 × 5 − 3", "2 × (5 − 3)", "2 + 5 − 3", "(2 × 5) − 3"], answer: 1,
+        explain: "Le double de (5 − 3) : 2 × (5 − 3) = 4. Dans 2 × 5 − 3, seul le 5 est doublé." },
+      { type: "qcm", q: "100 − 5 × (2 + 3)² = ?",
+        options: ["−25", "2375", "475", "100"], answer: 0,
+        explain: "(2 + 3)² = 25 ; 5 × 25 = 125 ; 100 − 125 = −25." },
+      { type: "qcm", q: "Un programme : « multiplier par 3, puis retrancher 4 ». Le résultat est 20. Quel était le nombre de départ ?",
+        options: ["8", "5,33", "68", "24"], answer: 0,
+        explain: "On remonte avec les opérations inverses : 20 + 4 = 24 ; 24 ÷ 3 = 8." },
+      { type: "qcm", q: "Quel calcul donne 10 % de 350 ?",
+        options: ["350 ÷ 10 = 35", "350 × 10 = 3 500", "350 ÷ 100 = 3,5", "350 − 10 = 340"], answer: 0,
+        explain: "Prendre 10 %, c'est diviser par 10." }
+    ]},
+    { title: "Division par un décimal, produits décimaux", items: [
+      { type: "qcm", q: "7,2 ÷ 0,3 = ?",
+        options: ["2,4", "24", "240", "0,24"], answer: 1,
+        explain: "(7,2 × 10) ÷ (0,3 × 10) = 72 ÷ 3 = 24." },
+      { type: "qcm", q: "Que dire de 6 ÷ 0,5 ?",
+        options: ["Le résultat est plus petit que 6", "Le résultat vaut 12", "Le résultat vaut 3", "L'opération est impossible"], answer: 1,
+        explain: "6 ÷ 0,5 = 12 : diviser par un nombre inférieur à 1 agrandit." },
+      { type: "qcm", q: "0,6 × 7 = ?",
+        options: ["42", "4,2", "0,42", "13"], answer: 1,
+        explain: "6 × 7 = 42 puis on remet la virgule : 4,2. Contrôle : 0,6 × 7 est proche de 0,5 × 7 = 3,5." },
+      { type: "qcm", q: "40 × 0,03 = ?",
+        options: ["12", "1,2", "0,12", "120"], answer: 1,
+        explain: "4 × 3 = 12 ; 40 × 0,03 = 1,2." }
+    ]},
+    { title: "Calcul réfléchi", items: [
+      { type: "qcm", q: "Quelle décomposition permet de calculer 99 × 7 mentalement ?",
+        options: ["(100 − 1) × 7 = 700 − 7", "(100 + 1) × 7", "99 + 7", "100 × 7 + 1"], answer: 0,
+        explain: "99 = 100 − 1, puis distributivité : 700 − 7 = 693." },
+      { type: "qcm", q: "25 × 12 = ?",
+        options: ["250", "300", "275", "320"], answer: 1,
+        explain: "25 × (10 + 2) = 250 + 50 = 300, ou 12 × 100 ÷ 4." },
+      { type: "qcm", q: "Quel est l'ordre de grandeur de 4,98 × 19,9 ?",
+        options: ["10", "50", "100", "1000"], answer: 2,
+        explain: "4,98 × 19,9 ≈ 5 × 20 = 100." }
+    ]},
+    { title: "Regard d'enseignant", items: [
+      { type: "qcm", q: "Un élève écrit 2 + 3 × 4 = 20. Quelle est l'origine la plus probable de cette erreur ?",
+        options: [
+          "Il calcule strictement de gauche à droite sans appliquer la priorité de la multiplication",
+          "Il ne connaît pas la table de 4",
+          "Il a confondu avec une division",
+          "Il a raison"],
+        answer: 0,
+        explain: "Remédiation : situation concrète (2 € plus 3 paquets de 4 €) et usage de parenthèses explicites." },
+      { type: "qcm", q: "Un élève écrit 7,2 ÷ 0,3 = 2,4. Quelle remédiation est la plus pertinente ?",
+        options: [
+          "Lui faire reformuler : combien de morceaux de 0,3 m dans 7,2 m ?, puis ramener à 72 ÷ 3",
+          "Lui interdire les décimaux",
+          "Lui faire apprendre la division par cœur",
+          "Lui donner la calculatrice sans discussion"],
+        answer: 0,
+        explain: "Donner du sens (groupement) et valider par ordre de grandeur : 7 ÷ 0,3 est de l'ordre de 20." }
+    ]}
+  ]
+};
+</script>
+<script src="../../assets/nav-data.js"></script>
+<script src="../../assets/nav.js"></script>
+<script src="../../assets/app.js"></script>
+</body>
+</html>

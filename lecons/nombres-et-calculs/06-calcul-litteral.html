@@ -1,0 +1,89 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Leçon 06 — Calcul littéral</title>
+<link rel="stylesheet" href="../../assets/style.css">
+</head>
+<body class="lesson">
+<main>
+<div class="lesson-hero">
+<nav class="crumbs" aria-label="Fil d'Ariane"><a href="../../index.html">Accueil</a><span>›</span><span>Nombres et calculs</span><span>›</span><span>Leçon 06</span></nav>
+<span class="kicker">Leçon 06</span>
+<h1>Calcul <em>littéral</em></h1>
+<div class="meta-row"><span class="pill-tag blue">Nombres et calculs (calcul littéral et algébrique)</span><span class="pill-tag">⏱ 2 h (cours) + exercices</span></div>
+<div class="infos"><div class="info"><b>Programme</b>cycle 4 — formules, substitution, réduction, distributivité simple (5e-4e) ; double distributivité, identités remarquables, simplification d'expressions, nature d'une expression (3e) (BO du 5 mars 2026, annexe 2)</div><div class="info"><b>Prérequis</b>leçons 01 (relatifs), 03 (puissances), 05 (priorités, distributivité)</div></div>
+</div>
+<div class="lesson-layout">
+<article class="prose">
+<section class="sec-objectifs"><h2 id="s1">Objectifs</h2><p>À la fin de la leçon, l'étudiante sait :</p>
+<ul><li>produire une formule et calculer sa valeur par substitution ;</li><li>identifier la nature d'une expression (somme, produit) ;</li><li>réduire, développer, factoriser, y compris avec la double distributivité et les identités remarquables ;</li><li>démontrer une propriété générale par le calcul littéral, réfuter par un contre-exemple ;</li><li>repérer les erreurs types d'élèves.</li></ul>
+<p>Le calcul littéral sert à <strong>généraliser, démontrer et modéliser</strong>, pas seulement à manipuler des lettres.</p></section>
+<section class=""><h2 id="s2">1. La lettre en mathématiques</h2><p>Une lettre peut désigner :</p>
+<div class="table-wrap"><table><thead><tr><th>Usage</th><th>Exemple</th></tr></thead><tbody><tr><td>Une <strong>variable</strong> dans une formule</td><td><code>P = 2 × (L + l)</code></td></tr><tr><td>Une <strong>inconnue</strong> (équation)</td><td><code>2x + 3 = 11</code></td></tr><tr><td>Un <strong>objet</strong> mathématique</td><td>le point <code>A</code>, le nombre <code>π</code></td></tr><tr><td>Un <strong>nombre quelconque</strong> (généralisation)</td><td><code>a + b = b + a</code></td></tr></tbody></table></div>
+<h3>1.1 Conventions d'écriture</h3>
+<ul><li>On omet le signe <code>×</code> devant une lettre ou une parenthèse : <code>3 × x = 3x</code> ; <code>2 × (x + 1) = 2(x + 1)</code>.</li><li><code>x × x = x²</code> ; <code>3x × 2x = 6x²</code>.</li><li><code>1 × x = x</code> ; <code>x + x = 2x</code>.</li><li>Le coefficient numérique s'écrit <strong>devant</strong> la lettre : <code>x × 5 = 5x</code>.</li></ul>
+<h3>1.2 Produire une formule</h3>
+<div class="table-wrap"><table><thead><tr><th>Situation</th><th>Formule</th></tr></thead><tbody><tr><td>Double, triple, carré d'un nombre <code>n</code></td><td><code>2n</code>, <code>3n</code>, <code>n²</code></td></tr><tr><td>Successeur, prédécesseur de <code>n</code></td><td><code>n + 1</code>, <code>n − 1</code></td></tr><tr><td>Périmètre d'un rectangle</td><td><code>2(L + l)</code></td></tr><tr><td>Aire d'un rectangle</td><td><code>L × l</code></td></tr><tr><td>Nombre pair, impair</td><td><code>2n</code>, <code>2n + 1</code></td></tr></tbody></table></div></section>
+<section class=""><h2 id="s3">2. Substitution</h2><p><strong>Calculer la valeur d'une expression littérale</strong>, c'est remplacer la lettre par un nombre, <strong>avec des parenthèses</strong> si le nombre est négatif.</p>
+<p><code>3x − 5</code> pour <code>x = −2</code> : <code>3 × (−2) − 5 = −6 − 5 = −11</code>.</p>
+<p><code>x² − 4x + 1</code> pour <code>x = −1</code> : <code>(−1)² − 4 × (−1) + 1 = 1 + 4 + 1 = 6</code>.</p>
+<h3>2.1 Tester une égalité</h3>
+<p>Une égalité entre deux expressions est <strong>vraie pour une valeur</strong> de <code>x</code> si les deux membres donnent le même nombre.</p>
+<ul><li><code>2x + 3 = x + 7</code> pour <code>x = 4</code> : <code>11 = 11</code>, vrai.</li><li>Pour <code>x = 1</code> : <code>5 = 8</code>, faux.</li></ul>
+<h3>2.2 Nature d'une expression</h3>
+<p>La <strong>nature</strong> d'une expression est celle de sa <strong>dernière opération</strong> :</p>
+<ul><li><code>3x + 2</code> est une <strong>somme</strong> de <code>3x</code> et de <code>2</code> ;</li><li><code>5(x + 4)</code> est un <strong>produit</strong> de <code>5</code> par <code>(x + 4)</code> ;</li><li><code>(x + 4)²</code> est un <strong>carré</strong> (donc un produit <code>(x + 4)(x + 4)</code>).</li></ul></section>
+<section class=""><h2 id="s4">3. Réduire</h2><p><strong>Réduire</strong> une expression, c'est regrouper les termes de même nature (en <code>x²</code>, en <code>x</code>, constantes).</p>
+<pre><code>3x + 5 − x + 2 = (3x − x) + (5 + 2) = 2x + 7
+4x² + 3x − 2x² + x = 2x² + 4x</code></pre>
+<p><strong>On ne mélange pas</strong> : <code>2x + 3x² </code> ne se réduit pas ; <code>3x + 5</code> n'est pas <code>8x</code>.</p>
+<p><strong>Opposé d'une expression</strong> : <code>−(5 − 4x) = −5 + 4x</code>. Le signe <code>−</code> change tous les signes à l'intérieur.</p></section>
+<section class=""><h2 id="s5">4. Développer et factoriser</h2><h3>4.1 Distributivité simple</h3>
+<p><code>k(a + b) = ka + kb</code> et <code>k(a − b) = ka − kb</code>.</p>
+<ul><li><strong>Développer</strong> : <code>3(x + 4) = 3x + 12</code> ; <code>5(2x − 3) = 10x − 15</code>.</li><li><strong>Factoriser</strong> (sens inverse) : <code>6x + 9 = 3(2x + 3)</code> ; <code>x² + 5x = x(x + 5)</code>.</li></ul>
+<p>Pour factoriser, on cherche un <strong>facteur commun</strong> à tous les termes.</p>
+<h3>4.2 Double distributivité</h3>
+<p><code>(a + b)(c + d) = ac + ad + bc + bd</code>.</p>
+<p>Exemples :</p>
+<pre><code>(x + 3)(x + 5) = x² + 5x + 3x + 15 = x² + 8x + 15
+(x − 2)(x + 4) = x² + 4x − 2x − 8 = x² + 2x − 8</code></pre>
+<h3>4.3 Identités remarquables</h3>
+<p>Pour tous nombres <code>a</code> et <code>b</code> :</p>
+<div class="table-wrap"><table><thead><tr><th>Identité</th><th>Forme développée</th><th>Forme factorisée</th></tr></thead><tbody><tr><td>Carré d'une somme</td><td><code>a² + 2ab + b²</code></td><td><code>(a + b)²</code></td></tr><tr><td>Carré d'une différence</td><td><code>a² − 2ab + b²</code></td><td><code>(a − b)²</code></td></tr><tr><td>Différence de deux carrés</td><td><code>a² − b²</code></td><td><code>(a − b)(a + b)</code></td></tr></tbody></table></div>
+<p>Exemples :</p>
+<pre><code>(x + 3)² = x² + 6x + 9
+(x − 4)² = x² − 8x + 16
+(x + 7)(x − 7) = x² − 49
+x² − 25 = (x − 5)(x + 5)
+9x² − 12x + 4 = (3x − 2)²</code></pre>
+<p><strong>Preuve géométrique de <code>(a + b)² = a² + 2ab + b²</code></strong> : un carré de côté <code>a + b</code> se découpe en un carré <code>a²</code>, un carré <code>b²</code> et deux rectangles <code>ab</code>.</p>
+<p><strong>Calcul mental avec les identités</strong> :</p>
+<pre><code>101² = (100 + 1)² = 10 000 + 200 + 1 = 10 201
+99²  = (100 − 1)² = 10 000 − 200 + 1 = 9 801
+51 × 49 = (50 + 1)(50 − 1) = 2500 − 1 = 2499</code></pre>
+<h3>4.4 Piège majeur</h3>
+<p><code>(a + b)² ≠ a² + b²</code>. Contre-exemple : <code>a = b = 1</code> : <code>(1 + 1)² = 4</code> mais <code>1² + 1² = 2</code>. Il manque le <strong>double produit</strong> <code>2ab</code>.</p></section>
+<section class=""><h2 id="s6">5. Démontrer avec le calcul littéral</h2><p>Une lettre permet de traiter <strong>tous les nombres à la fois</strong> : un exemple ne prouve rien, un calcul littéral prouve.</p>
+<p><strong>Exemple 1.</strong> La somme de trois entiers consécutifs est un multiple de 3.<br><code>n + (n + 1) + (n + 2) = 3n + 3 = 3(n + 1)</code>.</p>
+<p><strong>Exemple 2.</strong> La somme de deux nombres impairs est paire.<br><code>(2n + 1) + (2m + 1) = 2n + 2m + 2 = 2(n + m + 1)</code>.</p>
+<p><strong>Exemple 3.</strong> Le carré d'un nombre impair est impair.<br><code>(2n + 1)² = 4n² + 4n + 1 = 2(2n² + 2n) + 1</code>.</p>
+<p><strong>Contre-exemple</strong> : pour <strong>réfuter</strong> une affirmation, un seul exemple suffit. « Tout nombre premier est impair » est faux : <code>2</code>.</p>
+<p><strong>Conjecturer</strong> : un tableur ou un algorithme permet de tester beaucoup de valeurs avant de chercher une preuve.</p></section>
+<section class=""><h2 id="s7">6. Problèmes types</h2><p><strong>Problème 1.</strong> Un rectangle a pour longueur <code>x + 3</code> et pour largeur <code>x</code>. Exprimer son aire. Calculer pour <code>x = 5</code>.<br><code>Aire = x(x + 3) = x² + 3x</code>. Pour <code>x = 5</code> : <code>25 + 15 = 40</code>.</p>
+<p><strong>Problème 2 (programme de calcul).</strong> Choisir un nombre, ajouter 3, élever au carré, retrancher le carré du nombre de départ. Montrer que le résultat vaut <code>6x + 9</code>.<br><code>(x + 3)² − x² = x² + 6x + 9 − x² = 6x + 9</code>.</p>
+<p><strong>Problème 3.</strong> Calculer <code>2023² − 2022²</code> sans calculatrice.<br><code>(2023 − 2022)(2023 + 2022) = 1 × 4045 = 4045</code>.</p></section>
+<section class="sec-didactic"><h2 id="s8">7. Erreurs types d'élèves (volet didactique)</h2><div class="table-wrap"><table><thead><tr><th>Erreur observée</th><th>Exemple</th><th>Cause probable</th><th>Remédiation possible</th></tr></thead><tbody><tr><td>Réduire des termes non semblables</td><td><code>3x + 5 = 8x</code></td><td>La lettre vue comme un nombre à « absorber »</td><td>Substituer une valeur : <code>x = 2</code> donne <code>11 ≠ 16</code></td></tr><tr><td><code>(a + b)² = a² + b²</code></td><td><code>(x + 3)² = x² + 9</code></td><td>Fausse linéarité du carré</td><td>Contre-exemple numérique, aire d'un carré découpé</td></tr><tr><td>Oublier de distribuer à tous les termes</td><td><code>3(x + 4) = 3x + 4</code></td><td>Distributivité partielle</td><td>Écrire <code>3(x + 4) = 3x + 3 × 4</code></td></tr><tr><td>Erreur de signe dans <code>−(…)</code></td><td><code>−(5 − 4x) = −5 − 4x</code></td><td>Signe non propagé</td><td>Calculer avec une valeur de <code>x</code></td></tr><tr><td>Confondre <code>2x</code> et <code>x²</code></td><td><code>x² = 2x</code></td><td>Notation</td><td>Calculer pour <code>x = 3</code> : <code>9</code> et <code>6</code></td></tr><tr><td>Perdre le signe du double produit</td><td><code>(x − 4)² = x² + 16</code></td><td>Identité mal apprise</td><td>Développer avec la double distributivité</td></tr><tr><td>Croire qu'un exemple prouve</td><td>« 4 + 6 = 10 pair donc impair + impair = pair »</td><td>Statut de la preuve</td><td>Exiger une preuve avec <code>2n + 1</code></td></tr></tbody></table></div>
+<p><strong>Outils</strong> : substitution pour tester, aires de rectangles et de carrés, tableur, tests avec plusieurs valeurs, programmes de calcul.</p></section>
+<section class="sec-retenir"><h2 id="s9">8. À retenir</h2><ul><li><code>3x</code> = <code>3 × x</code> ; <code>x²</code> = <code>x × x</code> ; <code>x + x = 2x</code>.</li><li>Substituer avec <strong>parenthèses</strong> pour les nombres négatifs.</li><li><code>k(a + b) = ka + kb</code> ; <code>(a + b)(c + d) = ac + ad + bc + bd</code>.</li><li><code>(a + b)² = a² + 2ab + b²</code> ; <code>(a − b)² = a² − 2ab + b²</code> ; <code>a² − b² = (a − b)(a + b)</code>.</li><li><code>(a + b)² ≠ a² + b²</code>.</li><li>Un calcul littéral <strong>prouve</strong> pour tous les nombres ; un exemple ne prouve pas, un contre-exemple réfute.</li></ul></section>
+<section class="sec-practice"><h2 id="s10">Pour s'entraîner</h2><div class="practice"><a class="mode-card blue" href="../../quiz/nombres-et-calculs/06-calcul-litteral.html"><h3>Quiz</h3><p>Questions courtes avec correction immédiate pour vérifier que c’est acquis.</p><span class="go">Lancer le quiz <span>→</span></span></a><a class="mode-card sky" href="../../exercices/nombres-et-calculs/06-calcul-litteral.html"><h3>Exercices</h3><p>Réponses à saisir, indices et corrections détaillées.</p><span class="go">Commencer <span>→</span></span></a></div></section>
+<section class="sec-extra"><h2 id="s11">Pistes de prolongement (culture mathématique)</h2><ul><li>Al-Khwarizmi et la « chose » qu'on cherche (origine du mot algèbre).</li><li>Identité de Sophie Germain.</li></ul></section>
+</article>
+<aside class="toc" aria-label="Sommaire"><h4>Sur cette page</h4><ol><li><a href="#s1">Objectifs</a></li><li><a href="#s2">1. La lettre en mathématiques</a></li><li><a href="#s3">2. Substitution</a></li><li><a href="#s4">3. Réduire</a></li><li><a href="#s5">4. Développer et factoriser</a></li><li><a href="#s6">5. Démontrer avec le calcul littéral</a></li><li><a href="#s7">6. Problèmes types</a></li><li><a href="#s8">7. Erreurs types d'élèves (volet didactique)</a></li><li><a href="#s9">8. À retenir</a></li><li><a href="#s10">Pour s'entraîner</a></li><li><a href="#s11">Pistes de prolongement (culture mathématique)</a></li></ol></aside>
+</div>
+</main>
+<script src="../../assets/nav-data.js"></script>
+<script src="../../assets/nav.js"></script>
+</body>
+</html>

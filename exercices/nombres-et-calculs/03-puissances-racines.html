@@ -1,0 +1,130 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Exercices 03 — Puissances et racines</title>
+<link rel="stylesheet" href="../../assets/style.css">
+</head>
+<body>
+<main>
+  <header>
+    <h1 id="title"></h1>
+    <p id="subtitle"></p>
+  </header>
+  <div id="app"></div>
+</main>
+<script>
+window.PAGE = {
+  id: "exo-03-puissances-racines",
+  title: "Exercices 03 — Puissances et racines",
+  subtitle: "Réponses : entiers, décimaux (0,25) ou fractions (1/8). Quand l'énoncé demande un exposant, donne seulement l'exposant. Leçon : lecons/nombres-et-calculs/03-puissances-racines.md",
+  sections: [
+    { title: "A. Calculer des puissances", items: [
+      { type: "num", q: "Calculer 7².", answer: "49", solution: "7 × 7 = 49." },
+      { type: "num", q: "Calculer 4³.", answer: "64", solution: "4 × 4 × 4 = 16 × 4 = 64." },
+      { type: "num", q: "Calculer 2⁵.", answer: "32",
+        hint: "Double 5 fois en partant de 1.",
+        solution: "2 × 2 × 2 × 2 × 2 = 32." },
+      { type: "num", q: "Calculer (−3)³.", answer: "-27",
+        hint: "Combien de facteurs négatifs ? Pair ou impair ?",
+        solution: "(−3) × (−3) × (−3) = 9 × (−3) = −27." },
+      { type: "num", q: "Calculer (−5)².", answer: "25", solution: "(−5) × (−5) = 25." },
+      { type: "num", q: "Calculer −5² (sans parenthèses).", answer: "-25",
+        hint: "La puissance s'applique avant le signe moins.",
+        solution: "−5² = −(5 × 5) = −25." },
+      { type: "num", q: "Calculer 2¹⁰.", answer: "1024",
+        hint: "2⁵ = 32, et 2¹⁰ = 2⁵ × 2⁵.",
+        solution: "32 × 32 = 1024." },
+      { type: "num", q: "Écrire 10⁴ en toutes lettres chiffrées (nombre entier).", answer: "10000",
+        solution: "10⁴ = 10 000 (1 suivi de 4 zéros)." }
+    ]},
+    { title: "B. Règles de calcul", items: [
+      { type: "num", q: "2³ × 2⁴ = 2ⁿ. Quelle est la valeur de n ?", answer: "7",
+        hint: "Même base : on additionne les exposants.",
+        solution: "n = 3 + 4 = 7." },
+      { type: "num", q: "3⁵ × 3⁻² = 3ⁿ. Quelle est la valeur de n ?", answer: "3",
+        hint: "5 + (−2).",
+        solution: "n = 5 + (−2) = 3." },
+      { type: "num", q: "5⁷ / 5⁴ = 5ⁿ. Quelle est la valeur de n ?", answer: "3",
+        hint: "Même base : on soustrait les exposants.",
+        solution: "n = 7 − 4 = 3." },
+      { type: "num", q: "Calculer 2³ × 5³.", answer: "1000",
+        hint: "aⁿ × bⁿ = (a × b)ⁿ.",
+        solution: "2³ × 5³ = (2 × 5)³ = 10³ = 1000." },
+      { type: "num", q: "Écrire 10⁻³ sous forme décimale.", answer: "0.001",
+        hint: "10⁻³ = 1/1000.",
+        solution: "10⁻³ = 1/10³ = 1/1000 = 0,001." },
+      { type: "num", q: "Écrire 2⁻³ sous forme de fraction.", answer: "1/8", irreducible: true,
+        hint: "a⁻ⁿ = 1/aⁿ.",
+        solution: "2⁻³ = 1/2³ = 1/8." },
+      { type: "num", q: "Calculer 10⁵ × 10⁻², sous forme d'un nombre entier.", answer: "1000",
+        hint: "Additionne les exposants : 5 + (−2).",
+        solution: "10⁵ × 10⁻² = 10³ = 1000." },
+      { type: "num", q: "Calculer 3² × 3⁻².", answer: "1",
+        solution: "3² × 3⁻² = 3⁰ = 1, ou 9 × 1/9 = 1." }
+    ]},
+    { title: "C. Notation scientifique", items: [
+      { type: "num", q: "45 000 000 = 4,5 × 10ⁿ. Quelle est la valeur de n ?", answer: "7",
+        hint: "Compte les rangs dont la virgule se déplace vers la gauche.",
+        solution: "4,5 × 10⁷ : la virgule se décale de 7 rangs." },
+      { type: "num", q: "0,00032 = 3,2 × 10ⁿ. Quelle est la valeur de n ?", answer: "-4",
+        hint: "Virgule déplacée vers la droite : exposant négatif.",
+        solution: "La virgule se décale de 4 rangs vers la droite : 3,2 × 10⁻⁴." },
+      { type: "num", q: "750 × 10⁵ = 7,5 × 10ⁿ. Quelle est la valeur de n ?", answer: "7",
+        hint: "750 = 7,5 × 10².",
+        solution: "750 × 10⁵ = 7,5 × 10² × 10⁵ = 7,5 × 10⁷." },
+      { type: "num", q: "Écrire 6,2 × 10⁻³ sous forme décimale.", answer: "0.0062",
+        solution: "Virgule décalée de 3 rangs vers la gauche : 0,0062." },
+      { type: "num", q: "(3 × 10⁴) × (2 × 10³) = 6 × 10ⁿ. Quelle est la valeur de n ?", answer: "7",
+        solution: "(3 × 2) × 10⁴⁺³ = 6 × 10⁷." },
+      { type: "num", q: "(4 × 10³) × (5 × 10²) = 2 × 10ⁿ. Quelle est la valeur de n ?", answer: "6",
+        hint: "4 × 5 = 20, qui n'est pas entre 1 et 10.",
+        solution: "20 × 10⁵ = 2 × 10 × 10⁵ = 2 × 10⁶." }
+    ]},
+    { title: "D. Racine carrée", items: [
+      { type: "num", q: "Calculer √81.", answer: "9", solution: "9² = 81 et 9 > 0." },
+      { type: "num", q: "Calculer √144.", answer: "12", solution: "12² = 144." },
+      { type: "num", q: "Calculer √0,25.", answer: "0.5",
+        hint: "0,5² = ?",
+        solution: "0,5 × 0,5 = 0,25, donc √0,25 = 0,5." },
+      { type: "num", q: "Quel est l'entier n tel que n < √50 < n + 1 ?", answer: "7",
+        hint: "Encadre 50 entre deux carrés parfaits consécutifs.",
+        solution: "49 < 50 < 64, soit 7² < 50 < 8² : n = 7." },
+      { type: "num", q: "Un carré a pour aire 49 cm². Quel est son côté (en cm) ?", answer: "7",
+        solution: "Côté = √49 = 7 cm." },
+      { type: "num", q: "Quelle est la plus petite solution de x² = 25 ?", answer: "-5",
+        hint: "Il y a deux solutions.",
+        solution: "x = 5 ou x = −5. La plus petite est −5." },
+      { type: "num", q: "Combien l'équation x² = 7 a-t-elle de solutions ?", answer: "2",
+        solution: "7 > 0 : deux solutions, √7 et −√7." },
+      { type: "num", q: "Combien l'équation x² = −4 a-t-elle de solutions ?", answer: "0",
+        solution: "Un carré est toujours positif ou nul : aucune solution." },
+      { type: "num", q: "Un triangle rectangle a des côtés de l'angle droit de 6 et 8. Quelle est la longueur de l'hypoténuse ?", answer: "10",
+        hint: "h² = 6² + 8².",
+        solution: "h² = 36 + 64 = 100, donc h = √100 = 10." },
+      { type: "qcm", q: "A-t-on √(9 + 16) = √9 + √16 ?",
+        options: ["Oui, la racine se distribue", "Non : √25 = 5 mais √9 + √16 = 7"], answer: 1,
+        explain: "Un seul contre-exemple suffit : la racine carrée ne se distribue pas sur une somme." }
+    ]},
+    { title: "E. Problèmes", items: [
+      { type: "num", q: "Sur la 1re case d'un échiquier on pose 1 grain, puis on double à chaque case. Combien de grains sur la 8e case ?", answer: "128",
+        hint: "Case 1 : 2⁰, case 2 : 2¹…",
+        solution: "Case n : 2ⁿ⁻¹. Case 8 : 2⁷ = 128 grains." },
+      { type: "num", q: "Une feuille de 0,1 mm d'épaisseur est pliée 10 fois en deux. Quelle épaisseur (en mm) ?", answer: "102.4",
+        hint: "Chaque pliage double l'épaisseur : 0,1 × 2¹⁰.",
+        solution: "0,1 × 1024 = 102,4 mm." },
+      { type: "num", q: "La lumière va à 3 × 10⁵ km/s. Le Soleil est à 1,5 × 10⁸ km. Combien de secondes met la lumière pour arriver ?", answer: "500",
+        hint: "Durée = distance ÷ vitesse.",
+        solution: "(1,5 × 10⁸)/(3 × 10⁵) = 0,5 × 10³ = 500 s." },
+      { type: "num", q: "Un fichier fait 5 Go. Combien de Mo cela représente-t-il ? (1 Go = 10⁹ octets, 1 Mo = 10⁶ octets)", answer: "5000",
+        solution: "5 × 10⁹ / 10⁶ = 5 × 10³ = 5000 Mo." }
+    ]}
+  ]
+};
+</script>
+<script src="../../assets/nav-data.js"></script>
+<script src="../../assets/nav.js"></script>
+<script src="../../assets/app.js"></script>
+</body>
+</html>

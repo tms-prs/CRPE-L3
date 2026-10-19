@@ -1,0 +1,113 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Quiz 03 — Puissances et racines</title>
+<link rel="stylesheet" href="../../assets/style.css">
+</head>
+<body>
+<main>
+  <header>
+    <h1 id="title"></h1>
+    <p id="subtitle"></p>
+  </header>
+  <div id="app"></div>
+</main>
+<script>
+window.PAGE = {
+  id: "quiz-03-puissances-racines",
+  title: "Quiz 03 — Puissances et racines",
+  subtitle: "20 questions, correction immédiate. Leçon : lecons/nombres-et-calculs/03-puissances-racines.md",
+  sections: [
+    { title: "Puissances", items: [
+      { type: "qcm", q: "Que vaut 2⁵ ?",
+        options: ["10", "25", "32", "64"], answer: 2,
+        explain: "2⁵ = 2 × 2 × 2 × 2 × 2 = 32. L'exposant compte les facteurs, il ne multiplie pas la base." },
+      { type: "qcm", q: "Que vaut −3² (sans parenthèses) ?",
+        options: ["9", "−9", "−6", "6"], answer: 1,
+        explain: "La puissance est prioritaire : −3² = −(3 × 3) = −9. Seul (−3)² vaut 9." },
+      { type: "qcm", q: "Que vaut (−2)³ ?",
+        options: ["8", "−8", "−6", "6"], answer: 1,
+        explain: "(−2)(−2)(−2) = 4 × (−2) = −8. Exposant impair : le résultat est négatif." },
+      { type: "qcm", q: "2³ × 2⁴ = ?",
+        options: ["4⁷", "2¹²", "2⁷", "4¹²"], answer: 2,
+        explain: "Même base : on additionne les exposants, 3 + 4 = 7, et la base reste 2." },
+      { type: "qcm", q: "3⁵ / 3² = ?",
+        options: ["3³", "3⁷", "1⁵", "3¹⁰"], answer: 0,
+        explain: "Même base : on soustrait les exposants, 5 − 2 = 3." },
+      { type: "qcm", q: "2³ × 5³ = ?",
+        options: ["7⁶", "10⁶", "10³", "7³"], answer: 2,
+        explain: "aⁿ × bⁿ = (ab)ⁿ, donc 2³ × 5³ = 10³ = 1000." },
+      { type: "qcm", q: "Que vaut 10⁻² ?",
+        options: ["−100", "−20", "0,01", "0,1"], answer: 2,
+        explain: "a⁻ⁿ = 1/aⁿ : 10⁻² = 1/100 = 0,01. Un exposant négatif ne rend pas le nombre négatif." },
+      { type: "qcm", q: "Pourquoi 2³ × 2⁴ = 4⁷ est-il faux ?",
+        options: [
+          "On additionne les exposants mais la base reste 2",
+          "Parce que 2 × 2 = 5",
+          "Parce qu'il faut soustraire les exposants",
+          "C'est correct"],
+        answer: 0,
+        explain: "Écrire le développement : (2×2×2) × (2×2×2×2) = 2⁷." },
+      { type: "qcm", q: "10⁶ est égal à…",
+        options: ["60", "un million", "dix mille", "un milliard"], answer: 1,
+        explain: "10⁶ = 1 000 000 : 1 suivi de 6 zéros." }
+    ]},
+    { title: "Notation scientifique", items: [
+      { type: "qcm", q: "Quelle est la notation scientifique de 45 000 000 ?",
+        options: ["45 × 10⁶", "4,5 × 10⁷", "0,45 × 10⁸", "4,5 × 10⁶"], answer: 1,
+        explain: "La virgule est déplacée de 7 rangs vers la gauche : 4,5 × 10⁷." },
+      { type: "qcm", q: "Quelle est la notation scientifique de 0,00032 ?",
+        options: ["3,2 × 10⁴", "3,2 × 10⁻⁴", "32 × 10⁻⁵", "3,2 × 10⁻³"], answer: 1,
+        explain: "La virgule est déplacée de 4 rangs vers la droite : 3,2 × 10⁻⁴." },
+      { type: "qcm", q: "Laquelle de ces écritures est en notation scientifique ?",
+        options: ["62 × 10⁴", "0,62 × 10⁶", "6,2 × 10⁵", "620 × 10³"], answer: 2,
+        explain: "La mantisse doit vérifier 1 ≤ a < 10. Seule 6,2 convient." },
+      { type: "qcm", q: "(3 × 10⁴) × (2 × 10³) = ?",
+        options: ["6 × 10⁷", "6 × 10¹²", "5 × 10⁷", "6 × 10¹"], answer: 0,
+        explain: "(3 × 2) × 10⁴⁺³ = 6 × 10⁷." }
+    ]},
+    { title: "Racine carrée", items: [
+      { type: "qcm", q: "√49 = ?",
+        options: ["7", "−7", "24,5", "7²"], answer: 0,
+        explain: "√49 est le nombre positif dont le carré est 49 : 7." },
+      { type: "qcm", q: "Entre quels entiers consécutifs se situe √50 ?",
+        options: ["6 et 7", "7 et 8", "8 et 9", "25 et 26"], answer: 1,
+        explain: "49 < 50 < 64, donc 7 < √50 < 8." },
+      { type: "qcm", q: "Quelles sont les solutions de l'équation x² = 9 ?",
+        options: ["3 uniquement", "−3 uniquement", "3 et −3", "9 et −9"], answer: 2,
+        explain: "x² = a avec a > 0 a deux solutions : √a et −√a." },
+      { type: "qcm", q: "Que dire de l'équation x² = −4 ?",
+        options: ["x = 2", "x = −2", "x = 2 ou x = −2", "Elle n'a aucune solution"], answer: 3,
+        explain: "Un carré n'est jamais négatif : pas de solution." },
+      { type: "qcm", q: "√(9 + 16) = ?",
+        options: ["7", "5", "25", "√9 + √16"], answer: 1,
+        explain: "√25 = 5. On a √9 + √16 = 7 : la racine ne se distribue pas sur une somme." }
+    ]},
+    { title: "Regard d'enseignant", items: [
+      { type: "qcm", q: "Un élève écrit √9 = ±3. D'où vient probablement cette erreur ?",
+        options: [
+          "Il confond la racine carrée avec les solutions de l'équation x² = 9",
+          "Il ne connaît pas ses tables",
+          "Il a oublié de calculer",
+          "Il a raison"],
+        answer: 0,
+        explain: "√9 est un nombre positif unique (3). Le ± apparaît pour résoudre x² = 9." },
+      { type: "qcm", q: "Un élève écrit 10⁻² = −100. Quelle remédiation est la plus pertinente ?",
+        options: [
+          "Lui répéter la règle a⁻ⁿ = 1/aⁿ",
+          "Compléter la suite 10³, 10², 10¹, 10⁰, … en divisant par 10 à chaque étape",
+          "Lui interdire la calculatrice",
+          "Lui faire apprendre le tableau des puissances par cœur"],
+        answer: 1,
+        explain: "La suite montre que l'exposant négatif prolonge la régularité vers les nombres inférieurs à 1." }
+    ]}
+  ]
+};
+</script>
+<script src="../../assets/nav-data.js"></script>
+<script src="../../assets/nav.js"></script>
+<script src="../../assets/app.js"></script>
+</body>
+</html>

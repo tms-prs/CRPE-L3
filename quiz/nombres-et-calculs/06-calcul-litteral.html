@@ -1,0 +1,115 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Quiz 06 — Calcul littéral</title>
+<link rel="stylesheet" href="../../assets/style.css">
+</head>
+<body>
+<main>
+  <header>
+    <h1 id="title"></h1>
+    <p id="subtitle"></p>
+  </header>
+  <div id="app"></div>
+</main>
+<script>
+window.PAGE = {
+  id: "quiz-06-calcul-litteral",
+  title: "Quiz 06 — Calcul littéral",
+  subtitle: "20 questions, correction immédiate. Leçon : lecons/nombres-et-calculs/06-calcul-litteral.md",
+  sections: [
+    { title: "Écriture, substitution, nature", items: [
+      { type: "qcm", q: "Que signifie 3x ?",
+        options: ["3 + x", "3 × x", "x³", "30 + x"], answer: 1,
+        explain: "On omet le signe × entre un nombre et une lettre : 3x = 3 × x." },
+      { type: "qcm", q: "Que vaut 3x − 5 pour x = −2 ?",
+        options: ["−11", "−1", "1", "−7"], answer: 0,
+        explain: "3 × (−2) − 5 = −6 − 5 = −11. On met des parenthèses pour substituer un nombre négatif." },
+      { type: "qcm", q: "Que vaut x² − 4x + 1 pour x = −1 ?",
+        options: ["−2", "6", "−4", "4"], answer: 1,
+        explain: "(−1)² − 4 × (−1) + 1 = 1 + 4 + 1 = 6." },
+      { type: "qcm", q: "Quelle est la nature de l'expression 5(x + 4) ?",
+        options: ["Une somme", "Un produit", "Une différence", "Un quotient"], answer: 1,
+        explain: "La dernière opération est la multiplication de 5 par (x + 4)." },
+      { type: "qcm", q: "L'égalité 2x + 3 = x + 7 est-elle vraie pour x = 4 ?",
+        options: ["Oui : 11 = 11", "Non : 11 ≠ 12", "Non : 8 ≠ 11", "On ne peut pas savoir"], answer: 0,
+        explain: "Membre de gauche : 2 × 4 + 3 = 11. Membre de droite : 4 + 7 = 11." }
+    ]},
+    { title: "Réduire, développer, factoriser", items: [
+      { type: "qcm", q: "Réduire 3x + 5 − x + 2.",
+        options: ["2x + 7", "4x + 7", "2x + 3", "9x"], answer: 0,
+        explain: "(3x − x) + (5 + 2) = 2x + 7." },
+      { type: "qcm", q: "3x + 5 est égal à…",
+        options: ["8x", "3x + 5 (ne se réduit pas)", "15x", "x + 8"], answer: 1,
+        explain: "On ne peut pas regrouper un terme en x et une constante." },
+      { type: "qcm", q: "Développer 5(2x − 3).",
+        options: ["10x − 3", "10x − 15", "7x − 8", "10x + 15"], answer: 1,
+        explain: "5 × 2x − 5 × 3 = 10x − 15." },
+      { type: "qcm", q: "Factoriser 6x + 9.",
+        options: ["3(2x + 3)", "6(x + 9)", "9(x + 1)", "3(2x + 9)"], answer: 0,
+        explain: "Facteur commun 3 : 6x = 3 × 2x et 9 = 3 × 3." },
+      { type: "qcm", q: "−(5 − 4x) = ?",
+        options: ["−5 − 4x", "5 − 4x", "−5 + 4x", "5 + 4x"], answer: 2,
+        explain: "Le signe − change tous les signes entre parenthèses : −5 + 4x." },
+      { type: "qcm", q: "Développer (x + 3)(x + 5).",
+        options: ["x² + 15", "x² + 8x + 15", "x² + 8x + 8", "2x + 8"], answer: 1,
+        explain: "x² + 5x + 3x + 15 = x² + 8x + 15." }
+    ]},
+    { title: "Identités remarquables", items: [
+      { type: "qcm", q: "(x − 4)² = ?",
+        options: ["x² − 16", "x² + 16", "x² − 8x + 16", "x² − 4x + 16"], answer: 2,
+        explain: "(a − b)² = a² − 2ab + b² avec a = x, b = 4." },
+      { type: "qcm", q: "(x + 7)(x − 7) = ?",
+        options: ["x² − 14x − 49", "x² + 49", "x² − 49", "x² − 14"], answer: 2,
+        explain: "(a + b)(a − b) = a² − b²." },
+      { type: "qcm", q: "Factoriser x² − 25.",
+        options: ["(x − 5)²", "(x − 5)(x + 5)", "(x − 25)(x + 1)", "Impossible"], answer: 1,
+        explain: "Différence de deux carrés : x² − 5² = (x − 5)(x + 5)." },
+      { type: "qcm", q: "Calculer 101² avec une identité remarquable.",
+        options: ["10 001", "10 201", "10 100", "10 202"], answer: 1,
+        explain: "(100 + 1)² = 10 000 + 2 × 100 × 1 + 1 = 10 201." },
+      { type: "qcm", q: "A-t-on (a + b)² = a² + b² pour tous nombres a et b ?",
+        options: [
+          "Oui, toujours",
+          "Non : par exemple, avec a = b = 1, (1 + 1)² = 4 alors que 1² + 1² = 2",
+          "Oui, si a et b sont positifs",
+          "Oui, si a = b"],
+        answer: 1,
+        explain: "Il manque le double produit : (a + b)² = a² + 2ab + b². Un contre-exemple suffit à réfuter." }
+    ]},
+    { title: "Preuves", items: [
+      { type: "qcm", q: "Quelle écriture générale représente un nombre impair ?",
+        options: ["2n", "2n + 1", "n + 2", "n²"], answer: 1,
+        explain: "Un impair est le successeur d'un pair : 2n + 1." },
+      { type: "qcm", q: "Pourquoi la somme de trois entiers consécutifs est-elle un multiple de 3 ?",
+        options: [
+          "n + (n + 1) + (n + 2) = 3n + 3 = 3(n + 1)",
+          "Parce que 1 + 2 + 3 = 6",
+          "Parce que l'exemple 4 + 5 + 6 = 15 fonctionne",
+          "Parce que 3 est impair"],
+        answer: 0,
+        explain: "La lettre généralise : le calcul littéral prouve pour tous les entiers. Un exemple ne prouve rien." },
+      { type: "qcm", q: "Que vaut 2023² − 2022² (sans calculatrice) ?",
+        options: ["1", "4045", "4044", "8090"], answer: 1,
+        explain: "a² − b² = (a − b)(a + b) = 1 × (2023 + 2022) = 4045." }
+    ]},
+    { title: "Regard d'enseignant", items: [
+      { type: "qcm", q: "Un élève écrit (x + 3)² = x² + 9. Quelle remédiation est la plus pertinente ?",
+        options: [
+          "Lui faire tester l'égalité avec x = 1 : 16 contre 10",
+          "Lui redonner la formule à apprendre",
+          "Lui faire refaire dix exercices identiques",
+          "Lui interdire les identités remarquables"],
+        answer: 0,
+        explain: "La substitution montre que l'égalité est fausse ; la représentation géométrique (carré de côté x + 3) donne le sens des termes." }
+    ]}
+  ]
+};
+</script>
+<script src="../../assets/nav-data.js"></script>
+<script src="../../assets/nav.js"></script>
+<script src="../../assets/app.js"></script>
+</body>
+</html>

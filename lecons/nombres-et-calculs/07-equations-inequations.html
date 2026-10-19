@@ -1,0 +1,91 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Leçon 07 — Équations et inéquations du premier degré</title>
+<link rel="stylesheet" href="../../assets/style.css">
+</head>
+<body class="lesson">
+<main>
+<div class="lesson-hero">
+<nav class="crumbs" aria-label="Fil d'Ariane"><a href="../../index.html">Accueil</a><span>›</span><span>Nombres et calculs</span><span>›</span><span>Leçon 07</span></nav>
+<span class="kicker">Leçon 07</span>
+<h1>Équations et inéquations du premier <em>degré</em></h1>
+<div class="meta-row"><span class="pill-tag blue">Nombres et calculs (calcul littéral et algébrique)</span><span class="pill-tag">⏱ 2 h (cours) + exercices</span></div>
+<div class="infos"><div class="info"><b>Programme</b>cycle 4 — équations <code>ax = c</code>, <code>x + b = c</code> (5e) ; <code>ax + b = c</code>, <code>ax + b = cx + d</code> et mise en équation (4e) ; inéquation <code>ax ≥ b</code>, équation produit nul, analyse-synthèse (3e) (BO du 5 mars 2026, annexe 2)</div><div class="info"><b>Prérequis</b>leçons 01, 05, 06</div></div>
+</div>
+<div class="lesson-layout">
+<article class="prose">
+<section class="sec-objectifs"><h2 id="s1">Objectifs</h2><p>À la fin de la leçon, l'étudiante sait :</p>
+<ul><li>tester si un nombre est solution ;</li><li>résoudre une équation du premier degré (formes <code>ax = c</code>, <code>ax + b = c</code>, <code>ax + b = cx + d</code>) ;</li><li>résoudre une équation produit nul et une équation <code>x² = a</code> ;</li><li>résoudre une inéquation du premier degré et représenter les solutions ;</li><li>mettre un problème en équation et le résoudre ;</li><li>repérer les erreurs types d'élèves.</li></ul></section>
+<section class=""><h2 id="s2">1. Équation : vocabulaire</h2><p>Une <strong>équation</strong> est une égalité contenant une <strong>inconnue</strong> (souvent <code>x</code>). <strong>Résoudre</strong> l'équation, c'est trouver <strong>toutes</strong> les valeurs de l'inconnue pour lesquelles l'égalité est vraie : ce sont les <strong>solutions</strong>.</p>
+<p><strong>Tester</strong> : <code>x = 4</code> est solution de <code>2x + 3 = 11</code> car <code>2 × 4 + 3 = 11</code>.</p>
+<p><strong>Équation à trous</strong> (cycle 3 → 5e) : <code>x + 3 = 7</code> revient à <code>? + 3 = 7</code>, que l'on résout avec l'opération inverse.</p></section>
+<section class=""><h2 id="s3">2. Résoudre une équation du premier degré</h2><h3>2.1 Principe</h3>
+<p>On <strong>ne change pas les solutions</strong> d'une équation en :</p>
+<ul><li>ajoutant ou retranchant le <strong>même nombre</strong> aux deux membres ;</li><li>multipliant ou divisant les deux membres par le <strong>même nombre non nul</strong>.</li></ul>
+<p>On isole <code>x</code> en « défaisant » les opérations dans l'ordre inverse.</p>
+<h3>2.2 Les formes à connaître</h3>
+<div class="table-wrap"><table><thead><tr><th>Forme</th><th>Méthode</th><th>Exemple</th></tr></thead><tbody><tr><td><code>x + b = c</code></td><td>Retrancher <code>b</code></td><td><code>x + 7 = 2</code> → <code>x = −5</code></td></tr><tr><td><code>ax = c</code> (<code>a ≠ 0</code>)</td><td>Diviser par <code>a</code></td><td><code>3x = 12</code> → <code>x = 4</code></td></tr><tr><td><code>ax + b = c</code></td><td>Retrancher <code>b</code>, puis diviser par <code>a</code></td><td><code>2x + 5 = 17</code> → <code>2x = 12</code> → <code>x = 6</code></td></tr><tr><td><code>ax + b = cx + d</code></td><td>Regrouper les <code>x</code> d'un côté, les nombres de l'autre</td><td>voir ci-dessous</td></tr></tbody></table></div>
+<p><strong>Exemple détaillé : <code>5x − 3 = 2x + 9</code></strong></p>
+<pre><code>5x − 3 = 2x + 9
+5x − 2x = 9 + 3        (on regroupe)
+3x = 12
+x = 4</code></pre>
+<p><strong>Vérification</strong> : <code>5 × 4 − 3 = 17</code> et <code>2 × 4 + 9 = 17</code>. ✓ Solution : <code>4</code>.</p>
+<p><strong>Autre exemple : <code>4 − 3x = 10</code></strong></p>
+<pre><code>−3x = 10 − 4 = 6
+x = 6 ÷ (−3) = −2</code></pre>
+<p><strong>Avec une fraction : <code>x/3 + 1 = 5</code></strong></p>
+<pre><code>x/3 = 4
+x = 12</code></pre>
+<h3>2.3 Cas particuliers</h3>
+<ul><li><code>0x = 5</code> : pas de solution ; <code>0x = 0</code> : tous les nombres sont solutions (cas rares au cycle 4).</li><li>On <strong>vérifie</strong> toujours la solution trouvée dans l'équation de départ.</li></ul></section>
+<section class=""><h2 id="s4">3. Équation produit nul</h2><p><strong>Propriété</strong> : un produit de facteurs est nul si et seulement si <strong>l'un au moins</strong> de ses facteurs est nul.</p>
+<p><code>(x − 2)(x + 5) = 0</code> ⇔ <code>x − 2 = 0</code> ou <code>x + 5 = 0</code> ⇔ <code>x = 2</code> ou <code>x = −5</code>.</p>
+<p>Deux solutions : <code>2</code> et <code>−5</code>.</p>
+<p><strong>Mise en œuvre</strong> : on factorise pour se ramener à un produit nul.<br><code>x² − 25 = 0</code> ⇔ <code>(x − 5)(x + 5) = 0</code> ⇔ <code>x = 5</code> ou <code>x = −5</code>.<br><code>x² + 3x = 0</code> ⇔ <code>x(x + 3) = 0</code> ⇔ <code>x = 0</code> ou <code>x = −3</code>.</p>
+<p><strong>Piège</strong> : <code>(x − 2)(x + 5) = 6</code> ne se résout <strong>pas</strong> en posant <code>x − 2 = 6</code>. La propriété ne marche que pour un produit <strong>égal à 0</strong>.</p></section>
+<section class=""><h2 id="s5">4. Équation <code>x² = a</code></h2><p>Rappel de la leçon 03 :</p>
+<ul><li><code>a &gt; 0</code> : deux solutions, <code>√a</code> et <code>−√a</code> ;</li><li><code>a = 0</code> : une solution, <code>0</code> ;</li><li><code>a &lt; 0</code> : aucune solution.</li></ul>
+<p>Exemple : <code>x² = 49</code> → <code>x = 7</code> ou <code>x = −7</code>.</p></section>
+<section class=""><h2 id="s6">5. Inéquations du premier degré</h2><h3>5.1 Principe</h3>
+<p>Une <strong>inéquation</strong> contient un signe <code>&lt;</code>, <code>≤</code>, <code>&gt;</code> ou <code>≥</code>. Ses solutions forment un <strong>intervalle</strong> de nombres.</p>
+<p>Mêmes règles que pour les équations, <strong>sauf</strong> :</p>
+<div class="callout"><span class="ic">i</span><div><p>Quand on multiplie ou divise les deux membres par un nombre <strong>négatif</strong>, on <strong>change le sens</strong> de l'inégalité.</p></div></div>
+<h3>5.2 Exemples</h3>
+<p><strong><code>3x ≥ 12</code></strong> : on divise par <code>3 &gt; 0</code> : <code>x ≥ 4</code>.</p>
+<p><strong><code>2x + 1 ≤ 9</code></strong> :</p>
+<pre><code>2x ≤ 8
+x ≤ 4</code></pre>
+<p><strong><code>−2x &lt; 6</code></strong> : on divise par <code>−2 &lt; 0</code> : on <strong>change le sens</strong> : <code>x &gt; −3</code>.</p>
+<h3>5.3 Représentation sur une droite graduée</h3>
+<ul><li><code>x ≥ 4</code> : crochet <strong>fermé</strong> en 4 (4 est solution), partie à droite.</li><li><code>x &gt; −3</code> : crochet <strong>ouvert</strong> en −3 (−3 n'est pas solution), partie à droite.</li></ul>
+<pre><code>x &gt; −3 :   ──────○════════►        (○ : −3 exclu)
+          −3     0
+x ≥ 4 :    ────────────●═══►       (● : 4 inclus)
+                       4</code></pre>
+<h3>5.4 Résolution graphique</h3>
+<p>On résout <code>f(x) = g(x)</code> ou <code>f(x) ≥ g(x)</code> en lisant les abscisses des points d'intersection ou de position relative de deux courbes (voir les fonctions).</p></section>
+<section class=""><h2 id="s7">6. Mettre un problème en équation</h2><p><strong>Méthode en 5 étapes</strong></p>
+<ol><li><strong>Choisir l'inconnue</strong> et la définir clairement (« Soit <code>x</code> le nombre de… »).</li><li><strong>Traduire</strong> les données en une équation.</li><li><strong>Résoudre</strong> l'équation.</li><li><strong>Vérifier</strong> dans l'énoncé (la solution a-t-elle un sens ?).</li><li><strong>Répondre</strong> par une phrase.</li></ol>
+<p><strong>Problème 1 (âges).</strong> Un père a 3 fois l'âge de son fils ; à eux deux, ils ont 48 ans. Quel âge a le fils ?<br>Soit <code>x</code> l'âge du fils. <code>x + 3x = 48</code> → <code>4x = 48</code> → <code>x = 12</code>. Le fils a 12 ans, le père 36.</p>
+<p><strong>Problème 2 (périmètre).</strong> Un rectangle de périmètre 36 cm a une longueur supérieure de 4 cm à sa largeur. Dimensions ?<br>Soit <code>x</code> la largeur : <code>2(x + x + 4) = 36</code> → <code>4x + 8 = 36</code> → <code>x = 7</code>. Largeur 7 cm, longueur 11 cm.</p>
+<p><strong>Problème 3 (tarifs).</strong> Tarif A : 12 € d'abonnement puis 2 € par entrée. Tarif B : 4 € par entrée. À partir de combien d'entrées A est-il plus avantageux ?<br><code>12 + 2x = 4x</code> → <code>12 = 2x</code> → <code>x = 6</code>. Pour 6 entrées, les deux tarifs coïncident ; au-delà de 6, A est moins cher (inéquation <code>12 + 2x &lt; 4x</code> ⇔ <code>x &gt; 6</code>).</p>
+<p><strong>Problème 4 (consécutifs).</strong> La somme de trois entiers consécutifs est 72. Le plus petit ?<br><code>n + (n + 1) + (n + 2) = 72</code> → <code>3n + 3 = 72</code> → <code>n = 23</code>.</p></section>
+<section class=""><h2 id="s8">7. Analyse-synthèse et conjecture</h2><p><strong>Analyse-synthèse</strong> (3e) : on suppose qu'une solution existe et on cherche ce qu'elle doit vérifier (analyse), puis on <strong>vérifie</strong> les candidats (synthèse). Cela évite d'oublier de contrôler les valeurs trouvées.</p>
+<p><strong>Conjecturer</strong> : avec un tableur, on teste des valeurs de <code>x</code> pour repérer où deux expressions deviennent égales ; avec un algorithme (boucle), on balaie des valeurs. On <strong>prouve</strong> ensuite par le calcul.</p></section>
+<section class="sec-didactic"><h2 id="s9">8. Erreurs types d'élèves (volet didactique)</h2><div class="table-wrap"><table><thead><tr><th>Erreur observée</th><th>Exemple</th><th>Cause probable</th><th>Remédiation possible</th></tr></thead><tbody><tr><td>Oublier de changer le signe en passant d'un membre à l'autre</td><td><code>x + 3 = 7</code> → <code>x = 7 + 3</code></td><td>Règle « on change de côté » sans sens</td><td>Retrancher 3 aux deux membres, schéma de balance</td></tr><tr><td>Opération faite d'un seul côté</td><td><code>2x = 8</code> → <code>x = 8</code></td><td>Division oubliée à gauche</td><td>Balance : « ce qu'on fait à gauche, on le fait à droite »</td></tr><tr><td>Ne pas changer le sens de l'inégalité</td><td><code>−2x &lt; 6</code> → <code>x &lt; −3</code></td><td>Règle non appliquée</td><td>Tester <code>x = 0</code> : <code>0 &lt; 6</code> est vrai alors que <code>0 &lt; −3</code> est faux</td></tr><tr><td>Appliquer produit nul à un produit non nul</td><td><code>(x − 2)(x + 5) = 6</code> → <code>x = 8</code> ou <code>x = 1</code></td><td>Propriété étendue abusivement</td><td>Tester les « solutions »</td></tr><tr><td>Ne pas vérifier la solution</td><td></td><td>Fin de l'exercice sans contrôle</td><td>Habitude de vérification systématique</td></tr><tr><td>Oublier la deuxième solution</td><td><code>x² = 25</code> → <code>x = 5</code></td><td>Confusion avec <code>√25</code></td><td>Rappeler : deux solutions si <code>a &gt; 0</code></td></tr><tr><td>Mettre en équation sans définir l'inconnue</td><td>« x = 12 » sans sens</td><td>Pas de modélisation explicite</td><td>Imposer « Soit <code>x</code> le nombre de… »</td></tr></tbody></table></div>
+<p><strong>Outils</strong> : balance de Roberval, schémas en barres, tableur, tests de valeurs, programmes de calcul à remonter.</p></section>
+<section class="sec-retenir"><h2 id="s10">9. À retenir</h2><ul><li>Solution = valeur qui rend l'égalité vraie ; toujours <strong>vérifier</strong>.</li><li>On fait la <strong>même opération</strong> aux deux membres.</li><li><code>ax + b = cx + d</code> : regrouper les <code>x</code> d'un côté, les nombres de l'autre.</li><li>Produit nul : <code>A × B = 0</code> ⇔ <code>A = 0</code> ou <code>B = 0</code>.</li><li>Inéquation : on change le sens quand on multiplie ou divise par un <strong>négatif</strong>.</li><li>Problème : inconnue, équation, résolution, vérification, phrase de réponse.</li></ul></section>
+<section class="sec-practice"><h2 id="s11">Pour s'entraîner</h2><div class="practice"><a class="mode-card blue" href="../../quiz/nombres-et-calculs/07-equations-inequations.html"><h3>Quiz</h3><p>Questions courtes avec correction immédiate pour vérifier que c’est acquis.</p><span class="go">Lancer le quiz <span>→</span></span></a><a class="mode-card sky" href="../../exercices/nombres-et-calculs/07-equations-inequations.html"><h3>Exercices</h3><p>Réponses à saisir, indices et corrections détaillées.</p><span class="go">Commencer <span>→</span></span></a></div></section>
+<section class="sec-extra"><h2 id="s12">Pistes de prolongement (culture mathématique)</h2><ul><li>Al-Khwarizmi : <code>x + b = c</code> (« Al-jabr ») et <code>ax = c</code> (« Al-hatt »).</li><li>Méthode de fausse position pour les équations <code>ax = c</code>.</li></ul></section>
+</article>
+<aside class="toc" aria-label="Sommaire"><h4>Sur cette page</h4><ol><li><a href="#s1">Objectifs</a></li><li><a href="#s2">1. Équation : vocabulaire</a></li><li><a href="#s3">2. Résoudre une équation du premier degré</a></li><li><a href="#s4">3. Équation produit nul</a></li><li><a href="#s5">4. Équation x² = a</a></li><li><a href="#s6">5. Inéquations du premier degré</a></li><li><a href="#s7">6. Mettre un problème en équation</a></li><li><a href="#s8">7. Analyse-synthèse et conjecture</a></li><li><a href="#s9">8. Erreurs types d'élèves (volet didactique)</a></li><li><a href="#s10">9. À retenir</a></li><li><a href="#s11">Pour s'entraîner</a></li><li><a href="#s12">Pistes de prolongement (culture mathématique)</a></li></ol></aside>
+</div>
+</main>
+<script src="../../assets/nav-data.js"></script>
+<script src="../../assets/nav.js"></script>
+</body>
+</html>

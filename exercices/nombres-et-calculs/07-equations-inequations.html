@@ -1,0 +1,96 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Exercices 07 — Équations et inéquations</title>
+<link rel="stylesheet" href="../../assets/style.css">
+</head>
+<body>
+<main>
+  <header>
+    <h1 id="title"></h1>
+    <p id="subtitle"></p>
+  </header>
+  <div id="app"></div>
+</main>
+<script>
+window.PAGE = {
+  id: "exo-07-equations-inequations",
+  title: "Exercices 07 — Équations et inéquations",
+  subtitle: "Les réponses sont des nombres (entiers, décimaux ou fractions). Leçon : lecons/nombres-et-calculs/07-equations-inequations.md",
+  sections: [
+    { title: "A. Équations simples", items: [
+      { type: "num", q: "Résoudre 3x = 12. Quelle est la solution ?", answer: "4", solution: "x = 12 ÷ 3 = 4." },
+      { type: "num", q: "Résoudre x + 7 = 2.", answer: "-5",
+        hint: "Retranche 7 aux deux membres.",
+        solution: "x = 2 − 7 = −5." },
+      { type: "num", q: "Résoudre 2x + 5 = 17.", answer: "6",
+        solution: "2x = 17 − 5 = 12 ; x = 6. Vérification : 2 × 6 + 5 = 17." },
+      { type: "num", q: "Résoudre 4 − 3x = 10.", answer: "-2",
+        hint: "Retranche 4, puis divise par −3.",
+        solution: "−3x = 10 − 4 = 6 ; x = 6 ÷ (−3) = −2. Vérification : 4 − 3 × (−2) = 10." },
+      { type: "num", q: "Résoudre x/3 + 1 = 5.", answer: "12",
+        solution: "x/3 = 4 ; x = 12." },
+      { type: "num", q: "Résoudre 7x − 2 = 3x + 10.", answer: "3",
+        hint: "Regroupe les x à gauche, les nombres à droite.",
+        solution: "7x − 3x = 10 + 2 ; 4x = 12 ; x = 3. Vérification : 19 = 19." },
+      { type: "num", q: "Résoudre 5x − 3 = 2x + 9.", answer: "4",
+        solution: "3x = 12 ; x = 4. Vérification : 5 × 4 − 3 = 17 et 2 × 4 + 9 = 17." },
+      { type: "num", q: "Résoudre 2(x − 3) = 10.", answer: "8",
+        hint: "Développe ou divise d'abord par 2.",
+        solution: "x − 3 = 5 ; x = 8." }
+    ]},
+    { title: "B. Produit nul et x² = a", items: [
+      { type: "num", q: "Quelle est la plus petite solution de (x − 2)(x + 5) = 0 ?", answer: "-5",
+        solution: "x = 2 ou x = −5. La plus petite est −5." },
+      { type: "num", q: "Quelle est la plus grande solution de x² − 25 = 0 ?", answer: "5",
+        hint: "x² − 25 = (x − 5)(x + 5).",
+        solution: "x = 5 ou x = −5. La plus grande est 5." },
+      { type: "num", q: "Quelle est la plus petite solution de x² + 3x = 0 ?", answer: "-3",
+        hint: "Factorise : x(x + 3).",
+        solution: "x(x + 3) = 0 : x = 0 ou x = −3. La plus petite est −3." },
+      { type: "num", q: "Combien l'équation x² = −4 a-t-elle de solutions ?", answer: "0",
+        solution: "Un carré est toujours positif ou nul : 0 solution." },
+      { type: "num", q: "Combien l'équation (x − 3)(x + 1) = 0 a-t-elle de solutions ?", answer: "2",
+        solution: "x = 3 et x = −1 : 2 solutions." }
+    ]},
+    { title: "C. Inéquations", items: [
+      { type: "num", q: "3x ≥ 12. Quel est le plus petit entier solution ?", answer: "4",
+        solution: "x ≥ 4 : le plus petit entier est 4." },
+      { type: "num", q: "2x + 1 ≤ 9. Quel est le plus grand entier solution ?", answer: "4",
+        hint: "Résous comme une équation.",
+        solution: "2x ≤ 8, x ≤ 4 : le plus grand entier est 4." },
+      { type: "num", q: "−2x < 6. Quel est le plus petit entier solution ?", answer: "-2",
+        hint: "Attention : on divise par un nombre négatif.",
+        solution: "x > −3 (le sens change). Le plus petit entier strictement supérieur à −3 est −2." },
+      { type: "num", q: "x − 5 > 2x − 12. Quel est le plus grand entier solution ?", answer: "6",
+        hint: "Regroupe les x : −x > −7.",
+        solution: "−x > −7, donc x < 7 : le plus grand entier solution est 6." },
+      { type: "qcm", q: "Pour résoudre −3x ≥ 9, on obtient…",
+        options: ["x ≥ −3", "x ≤ −3", "x ≥ 3", "x ≤ 3"], answer: 1,
+        explain: "On divise par −3 : le sens de l'inégalité change, x ≤ −3." }
+    ]},
+    { title: "D. Problèmes à mettre en équation", items: [
+      { type: "num", q: "Un père a 3 fois l'âge de son fils ; à eux deux, ils ont 48 ans. Quel est l'âge du fils ?", answer: "12",
+        hint: "Âge du fils x, âge du père 3x.",
+        solution: "x + 3x = 48 ; 4x = 48 ; x = 12. Le fils a 12 ans, le père 36 ans." },
+      { type: "num", q: "Un rectangle de périmètre 36 cm a une longueur supérieure de 4 cm à sa largeur. Quelle est la largeur (en cm) ?", answer: "7",
+        hint: "Périmètre = 2 × (largeur + longueur).",
+        solution: "2(x + x + 4) = 36 ; 4x + 8 = 36 ; x = 7. Largeur 7 cm, longueur 11 cm." },
+      { type: "num", q: "Tarif A : 12 € d'abonnement puis 2 € par entrée. Tarif B : 4 € par entrée. Pour combien d'entrées les deux tarifs sont-ils égaux ?", answer: "6",
+        solution: "12 + 2x = 4x ; 12 = 2x ; x = 6." },
+      { type: "num", q: "La somme de trois entiers consécutifs est 72. Quel est le plus petit des trois ?", answer: "23",
+        solution: "n + (n + 1) + (n + 2) = 72 ; 3n + 3 = 72 ; n = 23. Les nombres sont 23, 24, 25." },
+      { type: "num", q: "Léa a 3 fois plus de billes que Tom. Elle lui en donne 12 et elles en ont alors autant. Combien Tom avait-il de billes au départ ?", answer: "12",
+        hint: "Tom : x. Léa : 3x. Après le don : x + 12 et 3x − 12.",
+        solution: "x + 12 = 3x − 12 ; 24 = 2x ; x = 12. Vérification : après le don, 24 chacun. (Tom avait 12 billes.)" }
+    ]}
+  ]
+};
+</script>
+<script src="../../assets/nav-data.js"></script>
+<script src="../../assets/nav.js"></script>
+<script src="../../assets/app.js"></script>
+</body>
+</html>

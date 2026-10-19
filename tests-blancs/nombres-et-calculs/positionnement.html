@@ -1,0 +1,127 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Test de positionnement — Nombres et calculs</title>
+<link rel="stylesheet" href="../../assets/style.css">
+</head>
+<body>
+<main>
+  <header>
+    <h1 id="title"></h1>
+    <p id="subtitle"></p>
+  </header>
+  <div id="app"></div>
+</main>
+<script>
+window.PAGE = {
+  id: "placement-nombres-et-calculs",
+  title: "Test de positionnement — Nombres et calculs",
+  subtitle: "35 questions (exercices types et problèmes) sur les 7 sous-thèmes. Aucune correction pendant le test : tu la verras à la fin, avec ta note et ton pourcentage par sous-thème. Réponds sans notes ni calculatrice (durée conseillée : 40 min).",
+  test: true,
+  placement: { domain: "nombres-et-calculs" },
+  parts: {
+    "01": { label: "Nombres relatifs", lesson: "../../lecons/nombres-et-calculs/01-nombres-relatifs.html" },
+    "02": { label: "Fractions et rationnels", lesson: "../../lecons/nombres-et-calculs/02-fractions-rationnels.html" },
+    "03": { label: "Puissances et racines", lesson: "../../lecons/nombres-et-calculs/03-puissances-racines.html" },
+    "04": { label: "Multiples, diviseurs, premiers", lesson: "../../lecons/nombres-et-calculs/04-multiples-diviseurs-premiers.html" },
+    "05": { label: "Opérations et priorités", lesson: "../../lecons/nombres-et-calculs/05-operations-priorites-calcul-mental.html" },
+    "06": { label: "Calcul littéral", lesson: "../../lecons/nombres-et-calculs/06-calcul-litteral.html" },
+    "07": { label: "Équations et inéquations", lesson: "../../lecons/nombres-et-calculs/07-equations-inequations.html" }
+  },
+  sections: [
+    { title: "Nombres relatifs", part: "01", items: [
+      { type: "num", q: "Calculer (−12) + 7 − (−5).", answer: "0",
+        solution: "(−12) + 7 + 5 = −12 + 12 = 0." },
+      { type: "num", q: "Calculer (−3) × (−4) × (−2).", answer: "-24",
+        solution: "Trois facteurs négatifs : produit négatif. 3 × 4 × 2 = 24, donc −24." },
+      { type: "qcm", q: "Quel est le plus petit de ces nombres : −0,5 ; −5 ; −0,05 ; 0 ?",
+        options: ["−0,5", "−5", "−0,05", "0"], answer: 1,
+        explain: "Entre négatifs, le plus petit est celui qui a la plus grande valeur absolue : −5." },
+      { type: "num", q: "Calculer (−18) ÷ (−3) + 4 × (−2).", answer: "-2",
+        solution: "(−18) ÷ (−3) = 6 et 4 × (−2) = −8 ; 6 − 8 = −2." },
+      { type: "num", problem: true, q: "Problème : il fait −7 °C le matin. À midi la température a augmenté de 12 °C, puis elle baisse de 9 °C le soir. Quelle est la température du soir (en °C) ?", answer: "-4",
+        solution: "−7 + 12 − 9 = −4 °C." }
+    ]},
+    { title: "Fractions et rationnels", part: "02", items: [
+      { type: "num", q: "Calculer 5/6 − 1/4 (fraction irréductible).", answer: "7/12", irreducible: true,
+        solution: "10/12 − 3/12 = 7/12." },
+      { type: "num", q: "Calculer 3/4 × 8/9 (fraction irréductible).", answer: "2/3", irreducible: true,
+        solution: "24/36 = 2/3." },
+      { type: "num", q: "Calculer (2/5) ÷ (4/15) (fraction irréductible).", answer: "3/2", irreducible: true,
+        solution: "2/5 × 15/4 = 30/20 = 3/2." },
+      { type: "num", q: "Rendre irréductible la fraction 126/84.", answer: "3/2", irreducible: true,
+        solution: "126 = 2 × 3² × 7 et 84 = 2² × 3 × 7. On simplifie par 2 × 3 × 7 = 42 : 3/2." },
+      { type: "num", problem: true, q: "Problème : dans une classe de 28 élèves, les 3/7 font du sport. Parmi eux, la moitié fait du football. Combien d'élèves font du football ?", answer: "6",
+        solution: "3/7 de 28 = 12 sportifs ; la moitié : 6 élèves." }
+    ]},
+    { title: "Puissances et racines", part: "03", items: [
+      { type: "num", q: "Calculer 2⁻² × 2⁵.", answer: "8",
+        solution: "2⁻² × 2⁵ = 2³ = 8." },
+      { type: "num", q: "0,00045 = 4,5 × 10ⁿ. Quelle est la valeur de n ?", answer: "-4",
+        solution: "La virgule se décale de 4 rangs vers la droite : n = −4." },
+      { type: "num", q: "Calculer √121 + √(3² + 4²).", answer: "16",
+        solution: "√121 = 11 et √(9 + 16) = √25 = 5 ; 11 + 5 = 16." },
+      { type: "num", q: "Quelle est la plus petite solution de l'équation x² = 49 ?", answer: "-7",
+        solution: "x = 7 ou x = −7 : la plus petite est −7." },
+      { type: "num", problem: true, q: "Problème : une bactérie se double toutes les 20 minutes. Au départ, il y en a 1. Combien y en a-t-il au bout de 2 heures ?", answer: "64",
+        solution: "2 heures = 6 périodes de 20 min : 2⁶ = 64 bactéries." }
+    ]},
+    { title: "Multiples, diviseurs, premiers", part: "04", items: [
+      { type: "num", q: "Quel est le reste de la division euclidienne de 487 par 9 ?", answer: "1",
+        solution: "Somme des chiffres : 4 + 8 + 7 = 19, reste de 19 par 9 : 1. Vérification : 487 = 9 × 54 + 1." },
+      { type: "num", q: "Quel est le plus petit nombre premier strictement supérieur à 100 ?", answer: "101",
+        solution: "101 n'est divisible ni par 2, 3, 5, 7 (et 11² = 121 > 101) : il est premier." },
+      { type: "num", q: "Combien de diviseurs possède 60 = 2² × 3 × 5 ?", answer: "12",
+        solution: "(2 + 1) × (1 + 1) × (1 + 1) = 12 diviseurs." },
+      { type: "qcm", q: "Quelle est la décomposition de 252 en facteurs premiers ?",
+        options: ["2² × 3² × 7", "2 × 3 × 42", "4 × 9 × 7", "2³ × 3 × 7"], answer: 0,
+        explain: "252 = 4 × 63 = 2² × 3² × 7. Les autres écritures contiennent un facteur non premier ou donnent un autre nombre." },
+      { type: "num", problem: true, q: "Problème : deux guirlandes clignotent, l'une toutes les 8 secondes, l'autre toutes les 12 secondes. Elles s'allument ensemble à l'instant 0. Au bout de combien de secondes clignotent-elles de nouveau ensemble ?", answer: "24",
+        solution: "PPCM(8, 12) = 24 secondes." }
+    ]},
+    { title: "Opérations et priorités", part: "05", items: [
+      { type: "num", q: "Calculer 5 + 3 × (8 − 2)² ÷ 4.", answer: "32",
+        solution: "(8 − 2)² = 36 ; 3 × 36 = 108 ; 108 ÷ 4 = 27 ; 5 + 27 = 32." },
+      { type: "num", q: "Calculer 6,3 ÷ 0,07.", answer: "90",
+        solution: "630 ÷ 7 = 90." },
+      { type: "num", q: "Calculer 25 × 36 mentalement.", answer: "900",
+        solution: "25 × 36 = 100 × 9 = 900 (ou 3 600 ÷ 4)." },
+      { type: "num", q: "Programme : « ajouter 7, multiplier par 3, retrancher 10 ». Quel résultat avec le nombre de départ 5 ?", answer: "26",
+        solution: "5 + 7 = 12 ; 12 × 3 = 36 ; 36 − 10 = 26." },
+      { type: "num", problem: true, q: "Problème : on achète 4 stylos à 1,35 € et un cahier à 2,80 €, et on paie avec un billet de 10 €. Quelle monnaie (en €) doit-on rendre ?", answer: "1.8",
+        solution: "4 × 1,35 = 5,40 ; 5,40 + 2,80 = 8,20 ; 10 − 8,20 = 1,80 €." }
+    ]},
+    { title: "Calcul littéral", part: "06", items: [
+      { type: "num", q: "Calculer 3x² − 2x + 1 pour x = −2.", answer: "17",
+        solution: "3 × 4 − 2 × (−2) + 1 = 12 + 4 + 1 = 17." },
+      { type: "num", q: "(x + 4)(x − 3) = x² + bx + c. Quelle est la valeur de c ?", answer: "-12",
+        solution: "x² − 3x + 4x − 12 = x² + x − 12 : c = −12." },
+      { type: "num", q: "(3x − 5)² = 9x² + bx + 25. Quelle est la valeur de b ?", answer: "-30",
+        solution: "(a − b)² = a² − 2ab + b² : −2 × 3x × 5 = −30x." },
+      { type: "num", q: "x² − 49 = (x − 7)(x + a). Quelle est la valeur de a ?", answer: "7",
+        solution: "x² − 7² = (x − 7)(x + 7) : a = 7." },
+      { type: "num", problem: true, q: "Problème : un carré de côté x est transformé en rectangle : un côté augmente de 3, l'autre diminue de 3. De combien l'aire varie-t-elle (nouvelle aire − ancienne aire) ?", answer: "-9",
+        solution: "(x + 3)(x − 3) − x² = x² − 9 − x² = −9 : l'aire diminue de 9, quel que soit x." }
+    ]},
+    { title: "Équations et inéquations", part: "07", items: [
+      { type: "num", q: "Résoudre 4x − 7 = 2x + 9.", answer: "8",
+        solution: "2x = 16 ; x = 8." },
+      { type: "num", q: "Résoudre 3(x − 2) = 2x + 5.", answer: "11",
+        solution: "3x − 6 = 2x + 5 ; x = 11." },
+      { type: "num", q: "Quelle est la plus grande solution de (x − 5)(2x + 6) = 0 ?", answer: "5",
+        solution: "x = 5 ou 2x + 6 = 0, soit x = −3. La plus grande est 5." },
+      { type: "num", q: "Quel est le plus grand entier x vérifiant 5 − 2x > −3 ?", answer: "3",
+        solution: "−2x > −8, donc x < 4 (le sens change). Le plus grand entier est 3." },
+      { type: "num", problem: true, q: "Problème : un abonnement coûte 15 € par mois puis 3 € la séance ; le tarif libre est de 6 € la séance. À partir de combien de séances l'abonnement est-il strictement moins cher ?", answer: "6",
+        solution: "15 + 3x < 6x ⇔ 15 < 3x ⇔ x > 5. Il faut donc au moins 6 séances." }
+    ]}
+  ]
+};
+</script>
+<script src="../../assets/nav-data.js"></script>
+<script src="../../assets/nav.js"></script>
+<script src="../../assets/app.js"></script>
+</body>
+</html>

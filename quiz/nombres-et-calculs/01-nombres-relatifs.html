@@ -1,0 +1,116 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Quiz 01 — Nombres relatifs</title>
+<link rel="stylesheet" href="../../assets/style.css">
+</head>
+<body>
+<main>
+  <header>
+    <h1 id="title"></h1>
+    <p id="subtitle"></p>
+  </header>
+  <div id="app"></div>
+</main>
+<script>
+window.PAGE = {
+  id: "quiz-01-nombres-relatifs",
+  title: "Quiz 01 — Nombres relatifs",
+  subtitle: "20 questions, correction immédiate. Leçon : lecons/nombres-et-calculs/01-nombres-relatifs.md",
+  sections: [
+    { title: "Définitions et comparaison", items: [
+      { type: "qcm", q: "Quel est l'opposé de −7,5 ?",
+        options: ["−7,5", "7,5", "0", "1/7,5"], answer: 1,
+        explain: "L'opposé de a est le nombre qui, ajouté à a, donne 0 : −7,5 + 7,5 = 0." },
+      { type: "qcm", q: "Que vaut |−6| + |4| ?",
+        options: ["−2", "2", "10", "−10"], answer: 2,
+        explain: "Une valeur absolue est une distance à 0 : |−6| = 6 et |4| = 4, donc 6 + 4 = 10." },
+      { type: "qcm", q: "Quel est le plus grand de ces nombres : −2 ; −7 ; −0,5 ; −10 ?",
+        options: ["−2", "−7", "−0,5", "−10"], answer: 2,
+        explain: "Entre négatifs, le plus grand est celui qui a la plus petite valeur absolue : −0,5." },
+      { type: "qcm", q: "Laquelle de ces comparaisons est correcte ?",
+        options: ["−8 > −3", "−8 < −3", "|−8| < |−3|", "−8 = 3"], answer: 1,
+        explain: "−8 est à gauche de −3 sur la droite graduée, donc −8 < −3." },
+      { type: "qcm", q: "Vrai ou faux : 0 est à la fois positif et négatif.",
+        options: ["Vrai", "Faux"], answer: 0,
+        explain: "Positif signifie ≥ 0 et négatif signifie ≤ 0 : 0 est le seul nombre qui est les deux." }
+    ]},
+    { title: "Addition et soustraction", items: [
+      { type: "qcm", q: "(−3) + (−5) = ?",
+        options: ["8", "−8", "−2", "2"], answer: 1,
+        explain: "Même signe : on additionne les valeurs absolues (8) et on garde le signe commun (−)." },
+      { type: "qcm", q: "(−7) + 4 = ?",
+        options: ["3", "11", "−3", "−11"], answer: 2,
+        explain: "Signes différents : 7 − 4 = 3, signe du terme de plus grande valeur absolue (−7) donc −3." },
+      { type: "qcm", q: "5 − (−3) = ?",
+        options: ["2", "8", "−2", "−8"], answer: 1,
+        explain: "Soustraire un nombre, c'est ajouter son opposé : 5 + 3 = 8." },
+      { type: "qcm", q: "(−2) − 7 = ?",
+        options: ["5", "−5", "9", "−9"], answer: 3,
+        explain: "(−2) − 7 = (−2) + (−7) = −9." },
+      { type: "qcm", q: "Pour tous nombres a, b, c : a − (b − c) est égal à…",
+        options: ["a − b − c", "a − b + c", "a + b − c", "a + b + c"], answer: 1,
+        explain: "Le signe − devant la parenthèse change les signes de tous les termes : a − b + c." }
+    ]},
+    { title: "Multiplication et division", items: [
+      { type: "qcm", q: "(−4) × (−3) = ?",
+        options: ["−12", "−7", "7", "12"], answer: 3,
+        explain: "Deux facteurs de même signe : le produit est positif." },
+      { type: "qcm", q: "(−1) × (−2) × (−3) = ?",
+        options: ["6", "−6", "−5", "5"], answer: 1,
+        explain: "Trois facteurs négatifs (nombre impair) : produit négatif. 1 × 2 × 3 = 6, donc −6." },
+      { type: "qcm", q: "(−12) ÷ (−4) = ?",
+        options: ["3", "−3", "8", "−8"], answer: 0,
+        explain: "Même règle des signes que le produit : même signe, quotient positif." },
+      { type: "qcm", q: "Que vaut 5 ÷ 0 ?",
+        options: ["0", "5", "C'est impossible (division par 0)", "−5"], answer: 2,
+        explain: "Il n'existe aucun nombre x tel que 0 × x = 5 : la division par 0 n'est pas définie." },
+      { type: "qcm", q: "Que vaut −2² (sans parenthèses) ?",
+        options: ["4", "−4", "−2", "2"], answer: 1,
+        explain: "−2² = −(2²) = −4. Seul (−2)² vaut 4." }
+    ]},
+    { title: "Enchaînement et preuve", items: [
+      { type: "qcm", q: "Calculer 2 − 3 × (−4).",
+        options: ["14", "20", "−10", "−14"], answer: 0,
+        explain: "La multiplication est prioritaire : 3 × (−4) = −12, puis 2 − (−12) = 2 + 12 = 14." },
+      { type: "qcm", q: "Quelle propriété permet de démontrer que (−3) × (−2) = 6 ?",
+        options: ["La commutativité", "La distributivité, avec (−3) × [2 + (−2)] = 0", "L'associativité", "C'est une simple convention"],
+        answer: 1,
+        explain: "(−3)×2 + (−3)×(−2) = 0, donc (−3)×(−2) est l'opposé de −6, soit 6. Ce n'est pas une convention : c'est démontrable." }
+    ]},
+    { title: "Regard d'enseignant", items: [
+      { type: "qcm", q: "Un élève écrit 5 − (−3) = 2. Quelle est l'explication la plus probable ?",
+        options: [
+          "Il a lu « 5 − (−3) » comme « 5 − 3 » : il ignore le signe de la parenthèse",
+          "Il ne connaît pas ses tables de multiplication",
+          "Il a confondu avec une division",
+          "Il a appliqué correctement la règle"],
+        answer: 0,
+        explain: "Erreur classique. Remédiation : droite graduée et reformulation « soustraire, c'est ajouter l'opposé »." },
+      { type: "qcm", q: "Un élève écrit (−3) + (−5) = 8, en justifiant « moins et moins font plus ». Que s'est-il passé ?",
+        options: [
+          "Il a appliqué la règle des signes du produit à une somme",
+          "Il a mal posé l'opération",
+          "Il a commis une faute de calcul mental sans lien avec les signes",
+          "Il a raison"],
+        answer: 0,
+        explain: "Confusion entre règles de l'addition et de la multiplication. On revient à un contexte concret (dettes qui s'ajoutent)." },
+      { type: "qcm", q: "Pour introduire l'addition de relatifs en 5e, quel support est le plus pertinent ?",
+        options: [
+          "Apprendre d'abord le tableau des signes par cœur",
+          "Droite graduée et situations concrètes (températures, altitudes)",
+          "Uniquement la calculatrice",
+          "Une règle sans contexte, puis des exercices"],
+        answer: 1,
+        explain: "Le programme insiste sur le sens : droite graduée, grandeurs observables, puis formalisation." }
+    ]}
+  ]
+};
+</script>
+<script src="../../assets/nav-data.js"></script>
+<script src="../../assets/nav.js"></script>
+<script src="../../assets/app.js"></script>
+</body>
+</html>

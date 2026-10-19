@@ -1,0 +1,120 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Quiz 02 — Fractions et rationnels</title>
+<link rel="stylesheet" href="../../assets/style.css">
+</head>
+<body>
+<main>
+  <header>
+    <h1 id="title"></h1>
+    <p id="subtitle"></p>
+  </header>
+  <div id="app"></div>
+</main>
+<script>
+window.PAGE = {
+  id: "quiz-02-fractions-rationnels",
+  title: "Quiz 02 — Fractions et rationnels",
+  subtitle: "20 questions, correction immédiate. Leçon : lecons/nombres-et-calculs/02-fractions-rationnels.md",
+  sections: [
+    { title: "Sens et fractions égales", items: [
+      { type: "qcm", q: "3/7 est le nombre qui, multiplié par 7, donne…",
+        options: ["7", "3", "21", "10"], answer: 1,
+        explain: "Fraction-quotient : 7 × 3/7 = 3." },
+      { type: "qcm", q: "Compléter : 2/3 = ?/12",
+        options: ["6", "9", "8", "10"], answer: 2,
+        explain: "On multiplie dénominateur et numérateur par 4 : 2 × 4 = 8." },
+      { type: "qcm", q: "Laquelle de ces fractions est égale à 4/6 ?",
+        options: ["3/2", "2/3", "8/10", "4/3"], answer: 1,
+        explain: "On divise numérateur et dénominateur par 2 : 4/6 = 2/3." },
+      { type: "qcm", q: "17/5 peut s'écrire :",
+        options: ["3 + 2/5", "2 + 3/5", "5 + 17", "3 + 5/2"], answer: 0,
+        explain: "17 = 3 × 5 + 2, donc 17/5 = 3 + 2/5." },
+      { type: "qcm", q: "Quelle est la forme irréductible de 18/24 ?",
+        options: ["9/12", "6/8", "3/4", "2/3"], answer: 2,
+        explain: "PGCD = 6 : 18/24 = 3/4. Les réponses 9/12 et 6/8 sont égales mais pas irréductibles." }
+    ]},
+    { title: "Comparer", items: [
+      { type: "qcm", q: "Quelle est la plus grande : 5/7, 3/4, 2/3 ou 4/5 ?",
+        options: ["5/7", "3/4", "2/3", "4/5"], answer: 3,
+        explain: "En centièmes environ : 0,71 ; 0,75 ; 0,67 ; 0,80. Ou avec dénominateur 420 : 300 ; 315 ; 280 ; 336." },
+      { type: "qcm", q: "Parmi 8/21 et 8/12, laquelle est la plus grande ?",
+        options: ["8/21", "8/12", "Elles sont égales"], answer: 1,
+        explain: "Même numérateur : le plus petit dénominateur donne les parts les plus grosses." },
+      { type: "qcm", q: "Quel est l'ordre croissant de 2/3, 3/5 et 5/8 ?",
+        options: ["2/3 < 3/5 < 5/8", "3/5 < 5/8 < 2/3", "5/8 < 3/5 < 2/3", "3/5 < 2/3 < 5/8"], answer: 1,
+        explain: "Dénominateur 120 : 72/120 < 75/120 < 80/120." }
+    ]},
+    { title: "Opérations", items: [
+      { type: "qcm", q: "2/5 + 1/4 = ?",
+        options: ["3/9", "13/20", "3/20", "7/10"], answer: 1,
+        explain: "Dénominateur commun 20 : 8/20 + 5/20 = 13/20." },
+      { type: "qcm", q: "3/5 + 4/5 = ?",
+        options: ["7/10", "7/25", "7/5", "12/5"], answer: 2,
+        explain: "Même dénominateur : on additionne les numérateurs et on garde le dénominateur." },
+      { type: "qcm", q: "Pourquoi 1/2 + 1/3 = 2/5 est-il faux ?",
+        options: [
+          "Parce qu'on n'additionne pas les dénominateurs : 1/2 + 1/3 = 3/6 + 2/6 = 5/6",
+          "Parce qu'il faut multiplier les numérateurs",
+          "Parce que 1/2 + 1/3 = 1/5",
+          "C'est correct"],
+        answer: 0,
+        explain: "On ne peut additionner que des parts de même taille : il faut un dénominateur commun." },
+      { type: "qcm", q: "2/3 × 9/10 = ?",
+        options: ["11/13", "18/13", "3/5", "5/3"], answer: 2,
+        explain: "18/30 = 3/5 après simplification par 6." },
+      { type: "qcm", q: "Quel est l'inverse de 5/3 ?",
+        options: ["−5/3", "3/5", "5/3", "−3/5"], answer: 1,
+        explain: "5/3 × 3/5 = 1." },
+      { type: "qcm", q: "3/4 ÷ 9/8 = ?",
+        options: ["27/32", "2/3", "3/2", "6/5"], answer: 1,
+        explain: "3/4 × 8/9 = 24/36 = 2/3." },
+      { type: "qcm", q: "Que vaut les 3/4 de 20 ?",
+        options: ["15", "5", "80/3", "23"], answer: 0,
+        explain: "3/4 × 20 : on divise 20 par 4 (5) puis on multiplie par 3 : 15." },
+      { type: "qcm", q: "Diviser un nombre par 1/2 revient à…",
+        options: ["le diviser par 2", "le multiplier par 2", "lui retrancher 1/2", "ne rien changer"], answer: 1,
+        explain: "÷ 1/2 = × 2 (combien de moitiés dans ce nombre ?)." }
+    ]},
+    { title: "Rationnels, décimaux", items: [
+      { type: "qcm", q: "1/3 est-il un nombre décimal ?",
+        options: [
+          "Oui, il vaut 0,3",
+          "Non : il est rationnel mais pas décimal (0,333… indéfiniment)",
+          "Oui, il vaut 0,33",
+          "Non, ce n'est pas un nombre"],
+        answer: 1,
+        explain: "Un décimal a un nombre fini de chiffres après la virgule. 1/3 est rationnel, pas décimal." },
+      { type: "qcm", q: "Vrai ou faux : tout nombre décimal est rationnel.",
+        options: ["Vrai", "Faux"], answer: 0,
+        explain: "N ⊂ Z ⊂ D ⊂ Q. Par exemple 2,35 = 235/100." }
+    ]},
+    { title: "Regard d'enseignant", items: [
+      { type: "qcm", q: "Un élève écrit 2/5 > 2/3 « car 5 > 3 ». Quelle est l'origine probable de l'erreur ?",
+        options: [
+          "Il raisonne sur le numérateur et le dénominateur comme sur des entiers indépendants",
+          "Il ne sait pas additionner",
+          "Il confond avec la multiplication",
+          "Il a raison"],
+        answer: 0,
+        explain: "Erreur classique. Remédiation : partager la même bande en 3 puis en 5, placer sur une droite graduée." },
+      { type: "qcm", q: "Un élève écrit 1/2 + 1/3 = 2/5. Quelle remédiation est la plus pertinente ?",
+        options: [
+          "Lui redonner la règle à apprendre par cœur",
+          "Lui faire représenter 1/2 et 1/3 sur des bandes pour voir qu'il faut des parts de même taille",
+          "Lui interdire les fractions",
+          "Lui proposer la calculatrice uniquement"],
+        answer: 1,
+        explain: "On donne du sens au dénominateur commun avec une représentation avant de formaliser la règle." }
+    ]}
+  ]
+};
+</script>
+<script src="../../assets/nav-data.js"></script>
+<script src="../../assets/nav.js"></script>
+<script src="../../assets/app.js"></script>
+</body>
+</html>

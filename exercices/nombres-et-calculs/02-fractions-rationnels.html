@@ -1,0 +1,134 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Exercices 02 — Fractions et rationnels</title>
+<link rel="stylesheet" href="../../assets/style.css">
+</head>
+<body>
+<main>
+  <header>
+    <h1 id="title"></h1>
+    <p id="subtitle"></p>
+  </header>
+  <div id="app"></div>
+</main>
+<script>
+window.PAGE = {
+  id: "exo-02-fractions-rationnels",
+  title: "Exercices 02 — Fractions et rationnels",
+  subtitle: "Réponses : entiers, décimaux (0,5) ou fractions (3/4). Quand c'est demandé, la fraction doit être irréductible. Leçon : lecons/nombres-et-calculs/02-fractions-rationnels.md",
+  sections: [
+    { title: "A. Sens et fractions égales", items: [
+      { type: "num", q: "Calculer les 3/4 de 20.", answer: "15",
+        hint: "Divise 20 par 4, puis multiplie par 3.",
+        solution: "20 ÷ 4 = 5 ; 5 × 3 = 15." },
+      { type: "num", q: "Compléter : 2/3 = ?/15. Quel est le numérateur ?", answer: "10",
+        hint: "Par quel nombre a-t-on multiplié le dénominateur 3 pour obtenir 15 ?",
+        solution: "15 = 3 × 5, donc 2 × 5 = 10 : 2/3 = 10/15." },
+      { type: "num", q: "Écrire 7/4 sous forme décimale.", answer: "1.75",
+        hint: "7/4 = 175/100, ou pose la division de 7 par 4.",
+        solution: "7 ÷ 4 = 1,75." },
+      { type: "num", q: "17/5 = 3 + ?/5. Quel est le numérateur manquant ?", answer: "2",
+        hint: "17 = 3 × 5 + …",
+        solution: "17 = 3 × 5 + 2, donc 17/5 = 3 + 2/5." }
+    ]},
+    { title: "B. Simplifier, rendre irréductible", items: [
+      { type: "num", q: "Rendre irréductible 18/24.", answer: "3/4", irreducible: true,
+        hint: "Cherche le plus grand diviseur commun (ici 6).",
+        solution: "18 = 2 × 3², 24 = 2³ × 3. On simplifie par 2 × 3 = 6 : 18/24 = 3/4." },
+      { type: "num", q: "Rendre irréductible 63/14.", answer: "9/2", irreducible: true,
+        hint: "63 et 14 sont dans la table de 7.",
+        solution: "63 = 7 × 9, 14 = 7 × 2 : 63/14 = 9/2." },
+      { type: "num", q: "Rendre irréductible 84/36.", answer: "7/3", irreducible: true,
+        hint: "Décompose en facteurs premiers : 84 = 2² × 3 × 7.",
+        solution: "84 = 2² × 3 × 7, 36 = 2² × 3². On simplifie par 2² × 3 = 12 : 7/3." },
+      { type: "num", q: "Rendre irréductible 120/180.", answer: "2/3", irreducible: true,
+        hint: "Divise d'abord par 10, puis par 6.",
+        solution: "120/180 = 12/18 = 2/3." }
+    ]},
+    { title: "C. Comparer", items: [
+      { type: "qcm", q: "Quelle est la plus grande : 3/4 ou 5/7 ?",
+        options: ["3/4", "5/7", "Elles sont égales"], answer: 0,
+        explain: "Dénominateur commun 28 : 21/28 et 20/28, donc 3/4 > 5/7." },
+      { type: "qcm", q: "Ranger dans l'ordre croissant : 2/3 ; 3/5 ; 5/8.",
+        options: ["3/5 < 5/8 < 2/3", "2/3 < 3/5 < 5/8", "5/8 < 3/5 < 2/3"], answer: 0,
+        explain: "Dénominateur commun 120 : 72/120 < 75/120 < 80/120." },
+      { type: "qcm", q: "Comparer 8/21 et 8/12.",
+        options: ["8/21 < 8/12", "8/21 > 8/12", "8/21 = 8/12"], answer: 0,
+        explain: "Même numérateur : plus le dénominateur est grand, plus les parts sont petites." }
+    ]},
+    { title: "D. Addition et soustraction", items: [
+      { type: "num", q: "Calculer 3/5 + 4/5.", answer: "7/5", irreducible: true,
+        solution: "Même dénominateur : (3 + 4)/5 = 7/5." },
+      { type: "num", q: "Calculer 1 − 2/3.", answer: "1/3", irreducible: true,
+        hint: "Écris 1 sous la forme 3/3.",
+        solution: "3/3 − 2/3 = 1/3." },
+      { type: "num", q: "Calculer 2/5 + 1/4.", answer: "13/20", irreducible: true,
+        hint: "Dénominateur commun : 20.",
+        solution: "8/20 + 5/20 = 13/20." },
+      { type: "num", q: "Calculer 4/7 − 2/21.", answer: "10/21", irreducible: true,
+        hint: "21 est un multiple de 7.",
+        solution: "4/7 = 12/21 ; 12/21 − 2/21 = 10/21." },
+      { type: "num", q: "Calculer 5/6 − 3/4.", answer: "1/12", irreducible: true,
+        hint: "Dénominateur commun : 12.",
+        solution: "10/12 − 9/12 = 1/12." },
+      { type: "num", q: "Calculer 3/8 + 5/12.", answer: "19/24", irreducible: true,
+        hint: "Le plus petit multiple commun de 8 et 12 est 24.",
+        solution: "9/24 + 10/24 = 19/24." }
+    ]},
+    { title: "E. Multiplication, inverse, division", items: [
+      { type: "num", q: "Calculer 2/3 × 9/10.", answer: "3/5", irreducible: true,
+        hint: "Simplifie avant ou après le produit.",
+        solution: "18/30 = 3/5." },
+      { type: "num", q: "Calculer les 3/4 des 2/5.", answer: "3/10", irreducible: true,
+        hint: "« Les 3/4 de » signifie « 3/4 × ».",
+        solution: "3/4 × 2/5 = 6/20 = 3/10." },
+      { type: "num", q: "Quel est l'inverse de 5/3 ?", answer: "3/5", irreducible: true,
+        solution: "5/3 × 3/5 = 1." },
+      { type: "num", q: "Quel est l'inverse de −4/7 ?", answer: "-7/4", irreducible: true,
+        hint: "Garde le signe.",
+        solution: "(−4/7) × (−7/4) = 28/28 = 1 : l'inverse est −7/4." },
+      { type: "num", q: "Calculer (3/4) ÷ (9/8).", answer: "2/3", irreducible: true,
+        hint: "Diviser, c'est multiplier par l'inverse.",
+        solution: "3/4 × 8/9 = 24/36 = 2/3." },
+      { type: "num", q: "Calculer 5 ÷ 2/3.", answer: "15/2", irreducible: true,
+        solution: "5 × 3/2 = 15/2." },
+      { type: "num", q: "Calculer (7/2) ÷ 7.", answer: "1/2", irreducible: true,
+        hint: "÷ 7 revient à × 1/7.",
+        solution: "7/2 × 1/7 = 1/2." }
+    ]},
+    { title: "F. Enchaînements", items: [
+      { type: "num", q: "Calculer 1/2 + 1/3 × 3/4.", answer: "3/4", irreducible: true,
+        hint: "Multiplication d'abord.",
+        solution: "1/3 × 3/4 = 1/4 ; 1/2 + 1/4 = 3/4." },
+      { type: "num", q: "Calculer (2/3 − 1/2) ÷ 1/6.", answer: "1",
+        hint: "Calcule la parenthèse, puis divise.",
+        solution: "2/3 − 1/2 = 4/6 − 3/6 = 1/6 ; 1/6 ÷ 1/6 = 1." },
+      { type: "num", q: "Calculer 1 − 1/3 − 1/4.", answer: "5/12", irreducible: true,
+        hint: "Dénominateur commun : 12.",
+        solution: "12/12 − 4/12 − 3/12 = 5/12." }
+    ]},
+    { title: "G. Problèmes", items: [
+      { type: "num", q: "Léa lit les 2/5 d'un livre le lundi, puis 1/4 du livre le mardi. Quelle fraction du livre lui reste-t-il à lire ?", answer: "7/20", irreducible: true,
+        hint: "Additionne les deux fractions lues, puis soustrais à 1.",
+        solution: "2/5 + 1/4 = 13/20 lus ; 1 − 13/20 = 7/20." },
+      { type: "num", q: "Dans une école de 240 élèves, les 5/8 mangent à la cantine. Combien d'élèves mangent à la cantine ?", answer: "150",
+        hint: "5/8 × 240.",
+        solution: "240 ÷ 8 = 30 ; 30 × 5 = 150." },
+      { type: "num", q: "Un artisan utilise les 3/4 d'un rouleau, puis 1/3 de ce qui reste. Quelle fraction du rouleau reste-t-il ?", answer: "1/6", irreducible: true,
+        hint: "Après la première commande, il reste 1/4. Il en utilise 1/3.",
+        solution: "Reste : 1/4. Utilisé ensuite : 1/3 × 1/4 = 1/12. Reste : 1/4 − 1/12 = 3/12 − 1/12 = 2/12 = 1/6." },
+      { type: "qcm", q: "A-t-on toujours a/b + c/d = (a + c)/(b + d) ?",
+        options: ["Oui, toujours", "Non : par exemple 1/2 + 1/2 = 1, mais (1 + 1)/(2 + 2) = 1/2", "Oui, si a < c"], answer: 1,
+        explain: "Un seul contre-exemple suffit pour démontrer qu'une propriété est fausse." }
+    ]}
+  ]
+};
+</script>
+<script src="../../assets/nav-data.js"></script>
+<script src="../../assets/nav.js"></script>
+<script src="../../assets/app.js"></script>
+</body>
+</html>

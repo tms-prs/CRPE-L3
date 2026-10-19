@@ -1,0 +1,123 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Exercices 04 — Multiples, diviseurs, premiers</title>
+<link rel="stylesheet" href="../../assets/style.css">
+</head>
+<body>
+<main>
+  <header>
+    <h1 id="title"></h1>
+    <p id="subtitle"></p>
+  </header>
+  <div id="app"></div>
+</main>
+<script>
+window.PAGE = {
+  id: "exo-04-multiples-diviseurs-premiers",
+  title: "Exercices 04 — Multiples, diviseurs, premiers",
+  subtitle: "Réponses : nombres entiers (ou fractions irréductibles quand c'est demandé). Leçon : lecons/nombres-et-calculs/04-multiples-diviseurs-premiers.md",
+  sections: [
+    { title: "A. Division euclidienne, multiples, diviseurs", items: [
+      { type: "num", q: "Dans la division euclidienne de 157 par 12, quel est le quotient ?", answer: "13",
+        hint: "Cherche le plus grand multiple de 12 qui ne dépasse pas 157.",
+        solution: "12 × 13 = 156 ≤ 157 < 168 = 12 × 14. Quotient 13, reste 1 : 157 = 12 × 13 + 1." },
+      { type: "num", q: "Dans la division euclidienne de 157 par 12, quel est le reste ?", answer: "1",
+        solution: "157 − 156 = 1." },
+      { type: "num", q: "Quel est le reste de la division euclidienne de 250 par 7 ?", answer: "5",
+        hint: "7 × 35 = 245.",
+        solution: "250 = 7 × 35 + 5." },
+      { type: "num", q: "Quel est le plus petit multiple de 8 strictement supérieur à 100 ?", answer: "104",
+        hint: "8 × 12 = 96.",
+        solution: "8 × 13 = 104." },
+      { type: "num", q: "Combien 36 a-t-il de diviseurs ?", answer: "9",
+        hint: "Range-les par paires : 1×36, 2×18…",
+        solution: "1, 2, 3, 4, 6, 9, 12, 18, 36 : 9 diviseurs." },
+      { type: "num", q: "Quel est le plus grand diviseur de 48 qui soit strictement inférieur à 48 ?", answer: "24",
+        solution: "48 = 2 × 24 : le plus grand diviseur propre est 24." }
+    ]},
+    { title: "B. Critères de divisibilité", items: [
+      { type: "num", q: "Quel est le plus petit chiffre x tel que le nombre 52x soit divisible par 3 ?", answer: "2",
+        hint: "5 + 2 = 7 ; quelle somme voisine est multiple de 3 ?",
+        solution: "Il faut 7 + x multiple de 3. x = 2 donne 9. (x = 5 et x = 8 conviennent aussi, 2 est le plus petit.)" },
+      { type: "num", q: "Quel chiffre x faut-il pour que 3x4 soit divisible par 9 ?", answer: "2",
+        hint: "La somme des chiffres doit être un multiple de 9.",
+        solution: "3 + x + 4 = 7 + x. Il faut 9 : x = 2, d'où 324 = 9 × 36." },
+      { type: "num", q: "Combien y a-t-il de multiples de 5 entre 1 et 50 (inclus) ?", answer: "10",
+        solution: "5, 10, …, 50 : 50 ÷ 5 = 10." },
+      { type: "num", q: "Quel est le reste de la division de 1 000 000 par 9 ?", answer: "1",
+        hint: "Utilise la somme des chiffres.",
+        solution: "La somme des chiffres vaut 1, donc le reste est 1." },
+      { type: "qcm", q: "5 346 est-il divisible par 9 ?",
+        options: ["Oui", "Non"], answer: 0,
+        explain: "5 + 3 + 4 + 6 = 18, multiple de 9 : 5 346 = 9 × 594." },
+      { type: "qcm", q: "Un nombre est divisible par 6 si et seulement s'il est divisible par…",
+        options: ["2 ou 3", "2 et 3", "2 et 4", "3 et 9"], answer: 1,
+        explain: "6 = 2 × 3 avec 2 et 3 premiers entre eux : il faut les deux critères." }
+    ]},
+    { title: "C. Nombres premiers", items: [
+      { type: "num", q: "Combien y a-t-il de nombres premiers inférieurs ou égaux à 30 ?", answer: "10",
+        hint: "Liste-les : 2, 3, 5, 7…",
+        solution: "2, 3, 5, 7, 11, 13, 17, 19, 23, 29 : 10 nombres." },
+      { type: "num", q: "Quel est le plus petit nombre premier strictement supérieur à 90 ?", answer: "97",
+        hint: "Teste 91, 92, … en cherchant un diviseur 2, 3, 5 ou 7.",
+        solution: "91 = 7 × 13 ; 93 = 3 × 31 ; 95 = 5 × 19 ; 92, 94, 96 pairs. 97 est premier." },
+      { type: "num", q: "Quel est le plus grand nombre premier strictement inférieur à 50 ?", answer: "47",
+        solution: "49 = 7², 48 pair, 47 premier." },
+      { type: "qcm", q: "91 est-il un nombre premier ?",
+        options: ["Oui", "Non"], answer: 1,
+        explain: "91 = 7 × 13. Il passe les critères de 2, 3, 5 mais pas celui de 7." },
+      { type: "qcm", q: "Combien y a-t-il de nombres premiers pairs ?",
+        options: ["Aucun", "Un seul : 2", "Une infinité"], answer: 1,
+        explain: "Tout pair supérieur à 2 est divisible par 2, donc non premier." }
+    ]},
+    { title: "D. Décomposition en facteurs premiers", items: [
+      { type: "num", q: "60 = 2ⁿ × 3 × 5. Quelle est la valeur de n ?", answer: "2",
+        solution: "60 = 2 × 30 = 2 × 2 × 15 = 2² × 3 × 5." },
+      { type: "num", q: "Quel est le plus grand facteur premier de 84 ?", answer: "7",
+        solution: "84 = 2² × 3 × 7." },
+      { type: "num", q: "Quel est le plus grand facteur premier de 210 ?", answer: "7",
+        hint: "210 = 2 × 105.",
+        solution: "210 = 2 × 3 × 5 × 7." },
+      { type: "num", q: "360 = 2ⁿ × 3ᵐ × 5. Quelle est la valeur de n ?", answer: "3",
+        hint: "360 = 8 × 45.",
+        solution: "360 = 2³ × 45 = 2³ × 3² × 5." },
+      { type: "num", q: "Avec la même décomposition 360 = 2ⁿ × 3ᵐ × 5, quelle est la valeur de m ?", answer: "2",
+        solution: "45 = 3² × 5 donc m = 2." },
+      { type: "num", q: "Combien 72 = 2³ × 3² a-t-il de diviseurs ?", answer: "12",
+        hint: "Exposant de 2 : 0, 1, 2 ou 3 (4 choix). Exposant de 3 : 0, 1 ou 2 (3 choix).",
+        solution: "4 × 3 = 12 diviseurs : 1, 2, 3, 4, 6, 8, 9, 12, 18, 24, 36, 72." },
+      { type: "num", q: "Quel est le plus petit entier n > 1 tel que 24 × n soit un carré parfait ?", answer: "6",
+        hint: "24 = 2³ × 3. Dans un carré parfait, tous les exposants sont pairs.",
+        solution: "Il faut compléter 2³ × 3 en 2⁴ × 3² : n = 2 × 3 = 6, et 24 × 6 = 144 = 12²." }
+    ]},
+    { title: "E. Fractions et problèmes (PGCD, PPCM)", items: [
+      { type: "num", q: "Rendre irréductible 84/36.", answer: "7/3", irreducible: true,
+        hint: "84 = 2² × 3 × 7 et 36 = 2² × 3².",
+        solution: "On simplifie par 2² × 3 = 12 : 84/36 = 7/3." },
+      { type: "num", q: "Quel est le PGCD de 120 et 180 ?", answer: "60",
+        hint: "120 = 2³ × 3 × 5 et 180 = 2² × 3² × 5.",
+        solution: "Facteurs communs avec le plus petit exposant : 2² × 3 × 5 = 60." },
+      { type: "num", q: "Quel est le PPCM de 8 et 12 ?", answer: "24",
+        solution: "8 = 2³ et 12 = 2² × 3 : plus grands exposants → 2³ × 3 = 24." },
+      { type: "num", q: "Dans une classe, il y a 45 filles et 60 garçons. Combien d'équipes identiques (tout le monde est utilisé) peut-on former au maximum ?", answer: "15",
+        hint: "Cherche le plus grand diviseur commun de 45 et 60.",
+        solution: "PGCD(45, 60) = 15 : 15 équipes de 3 filles et 4 garçons." },
+      { type: "num", q: "Une plaque de 84 cm sur 60 cm est découpée en carrés identiques, sans perte, avec le plus grand côté possible. Quel est ce côté (en cm) ?", answer: "12",
+        solution: "PGCD(84, 60) = 12 : carrés de 12 cm, soit 7 × 5 = 35 carrés." },
+      { type: "num", q: "Deux bus partent ensemble. L'un repasse toutes les 12 min, l'autre toutes les 18 min. Au bout de combien de minutes repartent-ils ensemble pour la première fois ?", answer: "36",
+        hint: "Cherche le plus petit multiple commun non nul de 12 et 18.",
+        solution: "PPCM(12, 18) = 36 min." },
+      { type: "num", q: "Pour additionner 5/8 + 7/12, quel est le plus petit dénominateur commun possible ?", answer: "24",
+        solution: "PPCM(8, 12) = 24 : 15/24 + 14/24 = 29/24." }
+    ]}
+  ]
+};
+</script>
+<script src="../../assets/nav-data.js"></script>
+<script src="../../assets/nav.js"></script>
+<script src="../../assets/app.js"></script>
+</body>
+</html>

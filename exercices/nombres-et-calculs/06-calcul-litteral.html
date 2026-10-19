@@ -1,0 +1,103 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Exercices 06 — Calcul littéral</title>
+<link rel="stylesheet" href="../../assets/style.css">
+</head>
+<body>
+<main>
+  <header>
+    <h1 id="title"></h1>
+    <p id="subtitle"></p>
+  </header>
+  <div id="app"></div>
+</main>
+<script>
+window.PAGE = {
+  id: "exo-06-calcul-litteral",
+  title: "Exercices 06 — Calcul littéral",
+  subtitle: "Les réponses sont des nombres : valeurs, coefficients ou constantes demandés. Leçon : lecons/nombres-et-calculs/06-calcul-litteral.md",
+  sections: [
+    { title: "A. Substitution", items: [
+      { type: "num", q: "Calculer 3x − 5 pour x = −2.", answer: "-11",
+        hint: "Remplace x par (−2) avec des parenthèses.",
+        solution: "3 × (−2) − 5 = −6 − 5 = −11." },
+      { type: "num", q: "Calculer 2x² − x pour x = 3.", answer: "15",
+        hint: "x² se calcule avant le produit par 2.",
+        solution: "2 × 9 − 3 = 18 − 3 = 15." },
+      { type: "num", q: "Calculer x² − 4x + 1 pour x = −1.", answer: "6",
+        solution: "(−1)² − 4 × (−1) + 1 = 1 + 4 + 1 = 6." },
+      { type: "num", q: "Un rectangle a pour longueur x + 3 et pour largeur x. Quelle est son aire pour x = 5 ?", answer: "40",
+        hint: "Aire = longueur × largeur.",
+        solution: "x(x + 3) = 5 × 8 = 40 (ou x² + 3x = 25 + 15)." }
+    ]},
+    { title: "B. Réduire", items: [
+      { type: "num", q: "3x + 2x = ax. Quelle est la valeur de a ?", answer: "5", solution: "3x + 2x = 5x." },
+      { type: "num", q: "3x + 5 − x + 2 = ax + b. Quelle est la valeur de a ?", answer: "2",
+        solution: "(3x − x) + (5 + 2) = 2x + 7 : a = 2." },
+      { type: "num", q: "Dans la même expression 3x + 5 − x + 2 = ax + b, quelle est la valeur de b ?", answer: "7",
+        solution: "5 + 2 = 7." },
+      { type: "num", q: "4x² + 3x − 2x² + x = ax² + bx. Quelle est la valeur de a ?", answer: "2",
+        solution: "4x² − 2x² = 2x² et 3x + x = 4x : a = 2, b = 4." },
+      { type: "num", q: "−(5 − 4x) = c + 4x. Quelle est la valeur de c ?", answer: "-5",
+        hint: "Le signe − change tous les signes entre parenthèses.",
+        solution: "−(5 − 4x) = −5 + 4x : c = −5." }
+    ]},
+    { title: "C. Développer et factoriser", items: [
+      { type: "num", q: "3(x + 4) = 3x + c. Quelle est la valeur de c ?", answer: "12", solution: "3 × 4 = 12." },
+      { type: "num", q: "5(2x − 3) = 10x + c. Quelle est la valeur de c ?", answer: "-15", solution: "5 × (−3) = −15." },
+      { type: "num", q: "6x + 9 = k(2x + 3). Quelle est la valeur du facteur commun k ?", answer: "3",
+        hint: "Quel est le plus grand diviseur commun de 6 et 9 ?",
+        solution: "6x + 9 = 3 × 2x + 3 × 3 = 3(2x + 3)." },
+      { type: "num", q: "(x + 3)(x + 5) = x² + bx + c. Quelle est la valeur de b ?", answer: "8",
+        hint: "Double distributivité : x² + 5x + 3x + 15.",
+        solution: "x² + 5x + 3x + 15 = x² + 8x + 15 : b = 8, c = 15." },
+      { type: "num", q: "Dans (x + 3)(x + 5) = x² + bx + c, quelle est la valeur de c ?", answer: "15", solution: "3 × 5 = 15." },
+      { type: "num", q: "(x − 2)(x + 4) = x² + bx + c. Quelle est la valeur de c ?", answer: "-8",
+        hint: "(−2) × 4.",
+        solution: "x² + 4x − 2x − 8 = x² + 2x − 8 : c = −8." }
+    ]},
+    { title: "D. Identités remarquables", items: [
+      { type: "num", q: "(x − 4)² = x² + bx + c. Quelle est la valeur de b ?", answer: "-8",
+        hint: "(a − b)² = a² − 2ab + b².",
+        solution: "2 × x × 4 = 8x avec un signe moins : b = −8." },
+      { type: "num", q: "Dans (x − 4)² = x² + bx + c, quelle est la valeur de c ?", answer: "16", solution: "(−4)² = 16." },
+      { type: "num", q: "(x + 7)(x − 7) = x² + c. Quelle est la valeur de c ?", answer: "-49", solution: "(a + b)(a − b) = a² − b² : c = −49." },
+      { type: "num", q: "Calculer 101² mentalement.", answer: "10201",
+        hint: "(100 + 1)².",
+        solution: "10 000 + 200 + 1 = 10 201." },
+      { type: "num", q: "Calculer 99² mentalement.", answer: "9801",
+        solution: "(100 − 1)² = 10 000 − 200 + 1 = 9 801." },
+      { type: "num", q: "Calculer 51 × 49 mentalement.", answer: "2499",
+        hint: "51 = 50 + 1 et 49 = 50 − 1.",
+        solution: "50² − 1² = 2 500 − 1 = 2 499." },
+      { type: "num", q: "Calculer 2023² − 2022² sans calculatrice.", answer: "4045",
+        solution: "(2023 − 2022)(2023 + 2022) = 4 045." },
+      { type: "num", q: "9x² − 12x + 4 = (px − 2)². Quelle est la valeur de p ?", answer: "3",
+        hint: "9x² = (3x)².",
+        solution: "(3x − 2)² = 9x² − 12x + 4." }
+    ]},
+    { title: "E. Preuves et contre-exemples", items: [
+      { type: "qcm", q: "Quelle écriture générale représente un entier impair ?",
+        options: ["2n", "2n + 1", "n + 2"], answer: 1,
+        explain: "Un impair est le successeur d'un entier pair : 2n + 1." },
+      { type: "qcm", q: "La somme de trois entiers consécutifs n + (n+1) + (n+2) vaut…",
+        options: ["3n + 2", "3n + 3 = 3(n + 1) : multiple de 3", "3n"], answer: 1,
+        explain: "n + n + 1 + n + 2 = 3n + 3 = 3(n + 1)." },
+      { type: "qcm", q: "Pour réfuter « (a + b)² = a² + b² », il suffit de…",
+        options: ["Trouver un seul exemple où c'est faux, par exemple a = b = 1", "Montrer que c'est vrai pour a = 2 et b = 3", "Tester 10 exemples où c'est vrai"], answer: 0,
+        explain: "(1 + 1)² = 4 et 1² + 1² = 2. Un contre-exemple suffit." },
+      { type: "qcm", q: "(x + 3)² − x² est égal à…",
+        options: ["9", "6x + 9", "x² + 9"], answer: 1,
+        explain: "(x + 3)² = x² + 6x + 9, puis on soustrait x² : 6x + 9." }
+    ]}
+  ]
+};
+</script>
+<script src="../../assets/nav-data.js"></script>
+<script src="../../assets/nav.js"></script>
+<script src="../../assets/app.js"></script>
+</body>
+</html>
