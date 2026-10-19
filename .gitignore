@@ -1,0 +1,7 @@
+# Secrets et fichiers générés à partir des secrets
+creds.txt
+assets/admin-config.js
+
+# Divers
+__pycache__/
+*.pyc
