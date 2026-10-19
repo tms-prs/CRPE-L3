@@ -411,3 +411,9 @@ body.home main { width: min(1180px, 100% - 48px); }
 .fig text.b { fill: #2754d9; font-weight: 700; }
 .fig text.m { font-size: 13px; fill: #667295; }
 
+/* ===== énoncés de problèmes ===== */
+.statement { background: var(--sky-2); border: 2px solid var(--ink); border-radius: 22px; padding: 16px 22px 18px; margin: 12px 0 6px; }
+.statement b { display: inline-block; font-size: 12.5px; letter-spacing: .1em; text-transform: uppercase; color: var(--blue); margin-bottom: 6px; }
+.statement .stm-text { white-space: pre-line; font-size: 17px; line-height: 1.6; }
+section h2 + .statement { margin-top: 4px; }
+

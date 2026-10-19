@@ -37,7 +37,8 @@
     var v = toNumber(raw);
     if (isNaN(v)) return false;
     var targets = [].concat(item.answer).map(toNumber);
-    var ok = targets.some(function (t) { return Math.abs(t - v) < 1e-9; });
+    var tol = item.tol || 1e-9;
+    var ok = targets.some(function (t) { return Math.abs(t - v) <= tol; });
     if (ok && item.irreducible) {
       var m = /^([+-]?\d+)\/([+-]?\d+)$/.exec(norm(raw));
       if (m && (gcd(Math.abs(+m[1]), Math.abs(+m[2])) !== 1 || +m[2] < 0)) return "irr";
@@ -48,9 +49,22 @@
   function fr(n) { return String(n).replace(".", ","); }
 
   /* ---------- état ---------- */
+  function shuffle(a) {
+    for (var i = a.length - 1; i > 0; i--) { var j = Math.floor(Math.random() * (i + 1)); var t = a[i]; a[i] = a[j]; a[j] = t; }
+    return a;
+  }
+  if (P.mix) {
+    /* test « mélangé » : toutes les questions dans un seul ordre aléatoire, sans titre de sous-thème */
+    var pool = [];
+    P.sections.forEach(function (sec) {
+      sec.items.forEach(function (it) { if (!it.part && sec.part) it.part = sec.part; pool.push(it); });
+    });
+    P.sections = [{ title: "", items: shuffle(pool) }];
+  }
+  P.sections.forEach(function (sec) { if (sec.shuffle) shuffle(sec.items); });
   var items = [];
   P.sections.forEach(function (sec) {
-    sec.items.forEach(function (it) { it._part = sec.part || null; it._idx = items.length; items.push(it); });
+    sec.items.forEach(function (it) { it._part = it.part || sec.part || null; it._idx = items.length; items.push(it); });
   });
   var total = items.length;
   var done = 0, good = 0;
@@ -238,19 +252,27 @@
 
   /* ---------- construction de la page ---------- */
   $("#title").textContent = P.title;
-  $("#subtitle").textContent = P.subtitle.replace(/\s*Leçon : \S+\.md\s*$/, "");
+  $("#subtitle").textContent = P.subtitle.replace(/\s*Leçon : \S+\.md\s*$/, "").replace(/\b\d+ questions\b/, total + " questions");
   document.title = P.title;
 
   var n = 0;
   P.sections.forEach(function (sec) {
     var s = el("section");
-    var h2 = el("h2", null, sec.title);
-    h2.appendChild(el("small", null, sec.items.length + (sec.items.length > 1 ? " questions" : " question")));
-    s.appendChild(h2);
+    if (sec.title) {
+      var h2 = el("h2", null, sec.title);
+      h2.appendChild(el("small", null, sec.statement ? "problème · " + sec.items.length + (sec.items.length > 1 ? " questions" : " question") : sec.items.length + (sec.items.length > 1 ? " questions" : " question")));
+      s.appendChild(h2);
+    }
+    if (sec.statement) {
+      var stm = el("div", "statement");
+      stm.appendChild(el("b", null, "Énoncé"));
+      stm.appendChild(el("div", "stm-text", sec.statement));
+      s.appendChild(stm);
+    }
     sec.items.forEach(function (item) {
       n++;
       var card = el("div", "card");
-      var head = el("div", "qnum", "Question " + n);
+      var head = el("div", "qnum", "Question " + n + (item.label ? " · " + item.label : ""));
       if (isTest) {
         if (item.problem) head.appendChild(el("span", "ptag", "Problème"));
         head.appendChild(el("span", "qtag"));
