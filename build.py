@@ -461,10 +461,10 @@ def build_index(nav, stats):
             cards.append(
                 '<article class="lesson-card placement" data-domain="%s"><div class="top">Test de positionnement</div>'
                 '<h3><a href="%s">Où en es-tu ?</a></h3>'
-                '<p class="card-text">Un test de 35 questions pour repérer tes points forts et faibles, sous-thème par sous-thème.</p>'
+                '<p class="card-text">Un test de %d questions pour repérer tes points forts et faibles, sous-thème par sous-thème.</p>'
                 '<p class="card-text" data-placement-status></p>'
                 '<div class="chips"><a class="chip" data-id="%s" data-placement-chip href="%s">Faire le test</a></div></article>'
-                % (d["id"], pl["path"], pl["id"], pl["path"])
+                % (d["id"], pl["path"], pl["count"], pl["id"], pl["path"])
             )
         for c in d["chapters"]:
             quiz = '<a class="chip" data-id="%s" href="%s">Quiz</a>' % (c["quizId"], c["quiz"]) if c["quiz"] else ""
@@ -565,7 +565,7 @@ def main():
         placement = None
         pp = ROOT / "tests-blancs" / dom / "positionnement.html"
         if pp.exists():
-            placement = {"title": page_title(pp), "path": "tests-blancs/%s/positionnement.html" % dom, "id": page_id(pp)}
+            placement = {"title": page_title(pp), "path": "tests-blancs/%s/positionnement.html" % dom, "id": page_id(pp), "count": count_questions(pp)}
             n_questions += count_questions(pp)
             if inject_nav(pp):
                 n_injected += 1
