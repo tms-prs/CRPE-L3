@@ -421,6 +421,10 @@
           });
           var note = card.querySelector("[data-lock-note]");
           if (note) note.textContent = "🔒 Test de positionnement d'abord";
+        } else if (card.hasAttribute("data-first")) {
+          card.href = abs(card.getAttribute("data-first"));
+          var done2 = card.querySelector("[data-lock-note]");
+          if (done2 && r) done2.textContent = "Diagnostic : " + fr(note20(r)) + " / 20";
         } else if (card.getAttribute("data-num")) {
           var lv = partLevel(d, card.getAttribute("data-num"));
           var top = card.querySelector(".top");

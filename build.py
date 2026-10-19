@@ -415,9 +415,6 @@ INDEX_TEMPLATE = """<!doctype html>
 <div class="section-head"><h2>Cinq <span class="nw"><em>thèmes</em>,</span> un seul objectif.</h2><p>Chaque thème se termine par un bilan. Avance à ton rythme : ta progression est enregistrée dans ton navigateur.</p></div>
 <div class="levels">@CARDS@</div>
 </section>
-<section class="section" id="chapitres">
-@LISTS@
-</section>
 <div class="cta-band">
 <div class="cta-big">Chaque exercice te rapproche du <em>concours.</em></div>
 <div class="cta-row"><a class="btn" href="@FIRST@">C’est parti <span class="arr">→</span></a><small>@BILANS@ bilan(s) de thème · programme officiel de cycle 4</small></div>
@@ -453,11 +450,11 @@ def build_index(nav, stats):
             )
             continue
         domain_cards.append(
-            '<a class="level-card" href="%s" data-ids="%s" data-domain="%s"><div><div class="level-num">%02d</div><h3>%s</h3><p>%s</p></div>'
+            '<a class="level-card" href="%s" data-ids="%s" data-domain="%s" data-first="%s"><div><div class="level-num">%02d</div><h3>%s</h3><p>%s</p></div>'
             '<div><div class="level-meta"><span>%s</span><span class="level-arrow">→</span></div>'
             '<div class="dbar"><i></i></div><div class="level-meta" style="margin-top:8px;font-weight:500;font-size:13px">'
             '<span data-count>0 / %d activités</span><span data-lock-note></span></div></div></a>'
-            % (target, ",".join(ids), d["id"], i, esc(d["label"]), esc(desc), plural(len(d["chapters"]), "chapitre"), len(ids))
+            % (target, ",".join(ids), d["id"], d["chapters"][0]["lesson"] if d["chapters"] else target, i, esc(d["label"]), esc(desc), plural(len(d["chapters"]), "chapitre"), len(ids))
         )
         cards = []
         if pl:
