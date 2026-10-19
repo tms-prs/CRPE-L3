@@ -1,0 +1,81 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Leçon 03 — Parallélogrammes et quadrilatères particuliers</title>
+<link rel="stylesheet" href="../../assets/style.css">
+</head>
+<body class="lesson">
+<main>
+<div class="lesson-hero">
+<nav class="crumbs" aria-label="Fil d'Ariane"><a href="../../index.html">Accueil</a><span>›</span><span>Espace et géométrie</span><span>›</span><span>Leçon 03</span></nav>
+<span class="kicker">Leçon 03</span>
+<h1>Parallélogrammes et quadrilatères <em>particuliers</em></h1>
+<div class="meta-row"><span class="pill-tag blue">Espace et géométrie</span><span class="pill-tag">⏱ 1 h 30 (cours) + exercices</span></div>
+<div class="infos"><div class="info"><b>Programme</b>cycle 4 — parallélogrammes : définition, construction, propriétés caractéristiques des côtés et des diagonales, rectangle, losange, carré, aires, conversions longueurs / aires (5e) (BO du 5 mars 2026, annexe 2)</div><div class="info"><b>Prérequis</b>leçons 01 et 02 (angles, parallélisme, triangles, aires)</div></div>
+</div>
+<div class="lesson-layout">
+<article class="prose">
+<section class="sec-objectifs"><h2 id="s1">Objectifs</h2><p>À la fin de la leçon, l'étudiante sait :</p>
+<ul><li>définir le parallélogramme et connaître ses propriétés ;</li><li>utiliser les propriétés caractéristiques pour <strong>prouver</strong> qu'un quadrilatère est un parallélogramme, un rectangle, un losange ou un carré ;</li><li>calculer périmètres et aires, convertir les unités d'aire ;</li><li>repérer les erreurs types d'élèves.</li></ul></section>
+<section class=""><h2 id="s2">1. Le parallélogramme</h2><h3>1.1 Définition</h3>
+<p>Un <strong>parallélogramme</strong> est un quadrilatère dont les <strong>côtés opposés sont parallèles deux à deux</strong>.</p>
+<figure class="fig"><svg viewBox="0 0 360 220" width="360" role="img" aria-label="Parallélogramme et ses diagonales">
+  <path class="fs" d="M70 180L250 180L300 60L120 60Z"/>
+  <path class="sb d" d="M70 180L300 60M250 180L120 60"/>
+  <circle class="pb" cx="185" cy="120" r="5"/>
+  <circle class="pt" cx="70" cy="180" r="4"/><circle class="pt" cx="250" cy="180" r="4"/><circle class="pt" cx="300" cy="60" r="4"/><circle class="pt" cx="120" cy="60" r="4"/>
+  <text x="48" y="200">A</text><text x="252" y="200">B</text><text x="306" y="56">C</text><text x="104" y="52">D</text>
+  <text class="b" x="192" y="116">O</text>
+</svg><figcaption>Parallélogramme ABCD : ses diagonales se coupent en leur milieu O.</figcaption></figure>
+<h3>1.2 Propriétés</h3>
+<p>Si <code>ABCD</code> est un parallélogramme, alors :</p>
+<ul><li>les côtés opposés sont <strong>égaux</strong> : <code>AB = DC</code> et <code>AD = BC</code> ;</li><li>les angles opposés sont <strong>égaux</strong> et les angles consécutifs sont <strong>supplémentaires</strong> ;</li><li>les <strong>diagonales se coupent en leur milieu</strong> (le point d'intersection est le <strong>centre de symétrie</strong> du parallélogramme).</li></ul>
+<h3>1.3 Propriétés caractéristiques (pour prouver)</h3>
+<p>Un quadrilatère <strong>non croisé</strong> est un parallélogramme <strong>si et seulement si</strong> l'une de ces conditions est vérifiée :</p>
+<ol><li>ses côtés opposés sont parallèles deux à deux (définition) ;</li><li>ses côtés opposés sont égaux deux à deux ;</li><li>deux côtés opposés sont à la fois <strong>parallèles et égaux</strong> ;</li><li>ses diagonales se coupent en leur milieu.</li></ol>
+<p><strong>Exemple rédigé.</strong> <code>ABCD</code> a pour diagonales <code>[AC]</code> et <code>[BD]</code> de même milieu <code>O</code>. Une propriété caractéristique dit qu'un quadrilatère dont les diagonales se coupent en leur milieu est un parallélogramme. Donc <code>ABCD</code> est un parallélogramme.</p>
+<p><strong>Attention</strong> : « deux côtés opposés égaux » ne suffit pas (un trapèze isocèle a deux côtés égaux sans être un parallélogramme). Il faut <strong>parallèles ET égaux</strong>.</p></section>
+<section class=""><h2 id="s3">2. Parallélogrammes particuliers</h2><div class="table-wrap"><table><thead><tr><th>Quadrilatère</th><th>Définition</th><th>Propriétés caractéristiques</th></tr></thead><tbody><tr><td><strong>Rectangle</strong></td><td>parallélogramme avec un angle droit (donc 4 angles droits)</td><td>parallélogramme <strong>+ diagonales de même longueur</strong>, ou quadrilatère avec 3 angles droits</td></tr><tr><td><strong>Losange</strong></td><td>parallélogramme dont deux côtés consécutifs sont égaux (donc 4 côtés égaux)</td><td>parallélogramme <strong>+ diagonales perpendiculaires</strong>, ou quadrilatère à 4 côtés égaux</td></tr><tr><td><strong>Carré</strong></td><td>rectangle <strong>et</strong> losange</td><td>4 côtés égaux <strong>et</strong> 4 angles droits</td></tr></tbody></table></div>
+<p><strong>Propriétés supplémentaires</strong> :</p>
+<ul><li>rectangle : diagonales de même longueur, 2 axes de symétrie ;</li><li>losange : diagonales perpendiculaires, 2 axes de symétrie (les diagonales) ;</li><li>carré : 4 axes de symétrie, diagonales égales, perpendiculaires, se coupant en leur milieu.</li></ul>
+<figure class="fig"><svg viewBox="0 0 400 220" width="400" role="img" aria-label="Schéma d'inclusion des parallélogrammes">
+  <rect class="fc" x="10" y="10" width="380" height="200" rx="16"/>
+  <rect class="fs" x="30" y="50" width="210" height="140" rx="12"/>
+  <rect class="fb" x="160" y="50" width="210" height="140" rx="12" style="opacity:.45"/>
+  <text class="b" x="24" y="34">Parallélogrammes</text>
+  <text x="48" y="84">Rectangles</text>
+  <text x="272" y="84">Losanges</text>
+  <text class="b" x="188" y="134">Carrés</text>
+</svg><figcaption>Les quadrilatères particuliers : le carré est à la fois rectangle et losange.</figcaption></figure>
+<p><strong>Trapèze</strong> : quadrilatère ayant <strong>au moins</strong> deux côtés parallèles (les bases).</p></section>
+<section class=""><h2 id="s4">3. Constructions</h2><ul><li><strong>Parallélogramme</strong> <code>ABCD</code> : tracer <code>[AB]</code>, puis la parallèle à <code>(AB)</code> passant par <code>D</code>, et reporter <code>DC = AB</code> ; ou tracer deux diagonales de même milieu.</li><li><strong>Rectangle sans équerre</strong> : tracer deux segments de même longueur, de même milieu (les diagonales) ; leurs extrémités forment un rectangle.</li><li><strong>Losange sans équerre</strong> : tracer deux segments de longueurs différentes se coupant en leur milieu perpendiculairement.</li></ul></section>
+<section class=""><h2 id="s5">4. Périmètres et aires</h2><h3>4.1 Formules</h3>
+<div class="table-wrap"><table><thead><tr><th>Figure</th><th>Périmètre</th><th>Aire</th></tr></thead><tbody><tr><td>Rectangle</td><td><code>2 × (L + l)</code></td><td><code>L × l</code></td></tr><tr><td>Carré de côté <code>c</code></td><td><code>4c</code></td><td><code>c²</code></td></tr><tr><td>Parallélogramme (base <code>b</code>, hauteur <code>h</code>)</td><td>somme des côtés</td><td><code>b × h</code></td></tr><tr><td>Triangle</td><td>somme des côtés</td><td><code>(b × h) ÷ 2</code></td></tr><tr><td>Losange (diagonales <code>D</code> et <code>d</code>)</td><td><code>4c</code></td><td><code>(D × d) ÷ 2</code></td></tr><tr><td>Trapèze (bases <code>B</code>, <code>b</code>, hauteur <code>h</code>)</td><td>somme des côtés</td><td><code>((B + b) × h) ÷ 2</code></td></tr></tbody></table></div>
+<p><strong>Pourquoi <code>b × h</code> pour un parallélogramme ?</strong> On découpe un triangle rectangle à gauche et on le recolle à droite : on obtient un rectangle de dimensions <code>b</code> et <code>h</code>. <strong>Attention</strong> : <code>h</code> est la <strong>hauteur</strong> (perpendiculaire à la base), pas le côté oblique.</p>
+<h3>4.2 Figures complexes</h3>
+<p>On <strong>découpe</strong> la figure en rectangles, triangles, parallélogrammes, ou on la <strong>complète</strong> pour retrancher.</p>
+<h3>4.3 Conversions d'unités d'aire</h3>
+<p>On passe d'une unité à la suivante en multipliant par <code>100</code> (et non <code>10</code>) : <code>1 m² = 100 dm² = 10 000 cm²</code>.</p>
+<div class="table-wrap"><table><thead><tr><th>km²</th><th>hm²</th><th>dam²</th><th>m²</th><th>dm²</th><th>cm²</th><th>mm²</th></tr></thead><tbody><tr><td></td><td></td><td></td><td><code>1</code></td><td><code>100</code></td><td><code>10 000</code></td><td><code>1 000 000</code></td></tr></tbody></table></div>
+<p>Autres : <code>1 ha = 10 000 m²</code> et <code>1 are = 100 m²</code>.</p>
+<p><strong>Exemple.</strong> <code>3,5 m² = 350 dm² = 35 000 cm²</code>.</p></section>
+<section class=""><h2 id="s6">5. Problèmes types</h2><p><strong>Problème 1.</strong> Un parallélogramme a des côtés de <code>7 cm</code> et <code>4 cm</code>. Quel est son périmètre ?<br><code>2 × (7 + 4) = 22 cm</code>.</p>
+<p><strong>Problème 2.</strong> Un parallélogramme a une base de <code>9 cm</code> et une hauteur de <code>5 cm</code>. Calculer son aire.<br><code>9 × 5 = 45 cm²</code> (le côté oblique n'intervient pas).</p>
+<p><strong>Problème 3.</strong> Un losange a des diagonales de <code>12 cm</code> et <code>16 cm</code>. Calculer son aire et son côté.<br>Aire <code>= 12 × 16 ÷ 2 = 96 cm²</code>. Les diagonales se coupent perpendiculairement en leur milieu ; par Pythagore, <code>côté² = 6² + 8² = 100</code>, donc le côté vaut <code>10 cm</code>.</p>
+<p><strong>Problème 4.</strong> Convertir <code>0,25 m²</code> en <code>cm²</code>.<br><code>0,25 × 10 000 = 2 500 cm²</code>.</p></section>
+<section class="sec-didactic"><h2 id="s7">6. Erreurs types d'élèves (volet didactique)</h2><div class="table-wrap"><table><thead><tr><th>Erreur observée</th><th>Exemple</th><th>Cause probable</th><th>Remédiation possible</th></tr></thead><tbody><tr><td>Utiliser le côté oblique comme hauteur</td><td>aire <code>= 5 × 7</code> au lieu de <code>5 × 4</code></td><td>Hauteur non perpendiculaire à la base</td><td>Équerre, découpage-recollage en rectangle</td></tr><tr><td>Conclure « parallélogramme » avec deux côtés égaux seulement</td><td>cerf-volant pris pour parallélogramme</td><td>Propriété caractéristique incomplète</td><td>Contre-exemples (cerf-volant, trapèze isocèle)</td></tr><tr><td><code>1 m² = 10 dm²</code></td><td>conversion d'aire par 10</td><td>Transfert des longueurs</td><td>Quadriller un carré de <code>1 m</code> de côté en <code>dm</code> : 100 carreaux</td></tr><tr><td>Confondre rectangle et losange</td><td>« le losange a 4 angles droits »</td><td>Figures prototypiques</td><td>Tableau de propriétés par figure</td></tr><tr><td>Utiliser le périmètre pour une aire</td><td></td><td>Confusion de grandeurs</td><td>Carré de <code>2 cm</code> : périmètre <code>8 cm</code>, aire <code>4 cm²</code></td></tr><tr><td>Mesurer pour conclure</td><td>« les diagonales ont l'air perpendiculaires »</td><td>Perception</td><td>Citer la propriété caractéristique</td></tr></tbody></table></div>
+<p><strong>Outils</strong> : papier quadrillé, découpage de papier, logiciel de géométrie dynamique, géoplan.</p></section>
+<section class="sec-retenir"><h2 id="s8">7. À retenir</h2><ul><li>Parallélogramme : côtés opposés parallèles ⇒ côtés opposés égaux, diagonales de même milieu.</li><li>Pour prouver : côtés opposés parallèles, ou égaux deux à deux, ou deux côtés parallèles et égaux, ou diagonales de même milieu.</li><li>Rectangle : parallélogramme + diagonales égales (ou un angle droit). Losange : parallélogramme + diagonales perpendiculaires (ou deux côtés consécutifs égaux). Carré : les deux.</li><li>Aire du parallélogramme : <code>base × hauteur</code>. Unités d'aire : coefficient <code>100</code> d'une unité à la suivante.</li></ul></section>
+<section class="sec-practice"><h2 id="s9">Pour s'entraîner</h2><div class="practice"><a class="mode-card blue" href="../../quiz/espace-et-geometrie/03-parallelogrammes-quadrilateres.html"><h3>Quiz</h3><p>Questions courtes avec correction immédiate pour vérifier que c’est acquis.</p><span class="go">Lancer le quiz <span>→</span></span></a><a class="mode-card sky" href="../../exercices/espace-et-geometrie/03-parallelogrammes-quadrilateres.html"><h3>Exercices</h3><p>Réponses à saisir, indices et corrections détaillées.</p><span class="go">Commencer <span>→</span></span></a></div></section>
+<section class="sec-extra"><h2 id="s10">Pistes de prolongement (culture mathématique)</h2><ul><li>Théorème de Varignon : les milieux des côtés d'un quadrilatère forment un parallélogramme.</li><li>Tracés de pavages (Alhambra) et cerfs-volants.</li></ul></section>
+</article>
+<aside class="toc" aria-label="Sommaire"><h4>Sur cette page</h4><ol><li><a href="#s1">Objectifs</a></li><li><a href="#s2">1. Le parallélogramme</a></li><li><a href="#s3">2. Parallélogrammes particuliers</a></li><li><a href="#s4">3. Constructions</a></li><li><a href="#s5">4. Périmètres et aires</a></li><li><a href="#s6">5. Problèmes types</a></li><li><a href="#s7">6. Erreurs types d'élèves (volet didactique)</a></li><li><a href="#s8">7. À retenir</a></li><li><a href="#s9">Pour s'entraîner</a></li><li><a href="#s10">Pistes de prolongement (culture mathématique)</a></li></ol></aside>
+</div>
+</main>
+<script src="../../assets/admin-config.js"></script>
+<script src="../../assets/nav-data.js"></script>
+<script src="../../assets/nav.js"></script>
+</body>
+</html>

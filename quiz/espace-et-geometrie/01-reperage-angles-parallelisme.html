@@ -1,0 +1,110 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Quiz 01 — Repérage, angles et parallélisme</title>
+<link rel="stylesheet" href="../../assets/style.css">
+</head>
+<body>
+<main>
+  <header>
+    <h1 id="title"></h1>
+    <p id="subtitle"></p>
+  </header>
+  <div id="app"></div>
+</main>
+<script>
+window.PAGE = {
+  id: "quiz-geo-01",
+  title: "Quiz 01 — Repérage, angles et parallélisme",
+  subtitle: "20 questions, correction immédiate.",
+  sections: [
+    { title: "Repérage", items: [
+      { type: "qcm", q: "Dans un repère orthogonal, on note un point (x ; y). Que représente x ?",
+        options: ["L'ordonnée", "L'abscisse", "La distance à l'origine", "Le rayon"], answer: 1,
+        explain: "x est l'abscisse (axe horizontal), y est l'ordonnée (axe vertical). On donne toujours l'abscisse en premier." },
+      { type: "qcm", q: "Quelle est la distance entre les points A(−2) et B(3) sur une droite graduée ?",
+        options: ["1", "5", "−5", "6"], answer: 1,
+        explain: "AB = |3 − (−2)| = 5." },
+      { type: "qcm", q: "Dans un repère, A(−2 ; 1) et B(4 ; 1). Que peut-on dire de la droite (AB) ?",
+        options: ["Elle est verticale", "Elle est horizontale", "Elle passe par l'origine", "On ne peut rien dire"], answer: 1,
+        explain: "A et B ont la même ordonnée : la droite est horizontale." },
+      { type: "qcm", q: "Le point M(−3 ; 2) se trouve dans quelle zone du repère ?",
+        options: ["À droite de l'axe des ordonnées et au-dessus de l'axe des abscisses", "À gauche de l'axe des ordonnées et au-dessus de l'axe des abscisses", "À gauche et en dessous", "À droite et en dessous"], answer: 1,
+        explain: "x = −3 < 0 : à gauche de l'axe vertical ; y = 2 > 0 : au-dessus de l'axe horizontal." }
+    ]},
+    { title: "Angles : vocabulaire", items: [
+      { type: "qcm", q: "Un angle de 120° est un angle…",
+        options: ["aigu", "droit", "obtus", "plat"], answer: 2,
+        explain: "Obtus : entre 90° et 180°." },
+      { type: "qcm", q: "Deux angles supplémentaires ont pour somme…",
+        options: ["90°", "180°", "270°", "360°"], answer: 1,
+        explain: "Supplémentaires : 180°. Complémentaires : 90°." },
+      { type: "qcm", q: "Deux droites sécantes forment un angle de 40°. Quelle est la mesure de l'angle opposé par le sommet ?",
+        options: ["40°", "50°", "140°", "320°"], answer: 0,
+        explain: "Les angles opposés par le sommet sont égaux." },
+      { type: "qcm", q: "Deux droites sécantes forment un angle de 40°. Quelle est la mesure d'un angle adjacent ?",
+        options: ["40°", "50°", "140°", "180°"], answer: 2,
+        explain: "Adjacents et formant un angle plat : 180° − 40° = 140°." },
+      { type: "qcm", q: "La bissectrice d'un angle de 76° le partage en deux angles de…",
+        options: ["152°", "38°", "76°", "14°"], answer: 1,
+        explain: "76° ÷ 2 = 38°." },
+      { type: "qcm", q: "Deux angles complémentaires dont l'un mesure 35°. L'autre mesure…",
+        options: ["145°", "55°", "65°", "35°"], answer: 1,
+        explain: "90° − 35° = 55°." }
+    ]},
+    { title: "Droites parallèles et angles", items: [
+      { type: "qcm", q: "Les droites (d) et (d') sont parallèles. Que peut-on dire de deux angles alternes-internes ?",
+        options: ["Ils sont supplémentaires", "Ils sont égaux", "Ils sont complémentaires", "Ils sont toujours droits"], answer: 1,
+        explain: "Propriété : parallèles ⇒ alternes-internes égaux (et correspondants égaux)." },
+      { type: "qcm", q: "Deux droites coupées par une sécante forment des angles alternes-internes de 72° et 72°. Que conclut-on ?",
+        options: ["Elles sont sécantes", "Elles sont parallèles", "Elles sont perpendiculaires", "On ne peut pas conclure"], answer: 1,
+        explain: "Réciproque : alternes-internes égaux ⇒ droites parallèles." },
+      { type: "qcm", q: "Deux angles alternes-internes mesurent 72° et 70°. Que conclut-on ?",
+        options: ["Les droites sont parallèles", "Les droites ne sont pas parallèles", "Les droites sont perpendiculaires", "Les mesures sont fausses"], answer: 1,
+        explain: "Si les droites étaient parallèles, les angles seraient égaux. Contraposée : elles ne le sont pas." },
+      { type: "qcm", q: "(d) // (d'). Un angle correspondant mesure 65°. L'angle adjacent à celui-ci (supplémentaire) mesure…",
+        options: ["65°", "25°", "115°", "295°"], answer: 2,
+        explain: "180° − 65° = 115°." },
+      { type: "qcm", q: "Sur une figure, deux droites « semblent parallèles ». Peut-on affirmer qu'elles le sont ?",
+        options: ["Oui, la figure le montre", "Non : il faut le justifier par une propriété", "Oui, si on mesure à la règle", "Oui, si elles sont de même longueur"], answer: 1,
+        explain: "À partir du collège, la mesure et l'apparence ne sont pas des preuves." }
+    ]},
+    { title: "Raisonnement", items: [
+      { type: "qcm", q: "Quelle est la différence entre une propriété et sa réciproque ?",
+        options: [
+          "Aucune, c'est le même énoncé",
+          "La réciproque échange l'hypothèse et la conclusion, et elle n'est pas toujours vraie",
+          "La réciproque est toujours fausse",
+          "La réciproque est un exemple"],
+        answer: 1,
+        explain: "« Si P alors Q » devient « si Q alors P ». Ici les deux énoncés sont vrais, mais ce n'est pas automatique." }
+    ]},
+    { title: "Regard d'enseignant", items: [
+      { type: "qcm", q: "Un élève place le point A(3 ; 2) en (2 ; 3). Quelle remédiation est la plus pertinente ?",
+        options: [
+          "Utiliser « on avance (horizontalement), puis on monte » et un jeu type bataille navale",
+          "Lui faire recopier la définition",
+          "Lui interdire les coordonnées",
+          "Ne rien faire, c'est une étourderie"],
+        answer: 0,
+        explain: "On donne du sens à l'ordre des coordonnées avant de le formaliser." },
+      { type: "qcm", q: "Un élève affirme que deux droites sont parallèles « parce que les angles ont l'air égaux ». Que faire ?",
+        options: [
+          "Lui montrer une figure presque parallèle (angles de 72° et 70°) pour montrer les limites de l'œil",
+          "Valider sa réponse",
+          "Lui faire mesurer encore plus précisément",
+          "Lui dire qu'il a tort sans explication"],
+        answer: 0,
+        explain: "Il faut une propriété citée : la mesure et l'apparence ne prouvent rien." }
+    ]}
+  ]
+};
+</script>
+<script src="../../assets/admin-config.js"></script>
+<script src="../../assets/nav-data.js"></script>
+<script src="../../assets/nav.js"></script>
+<script src="../../assets/app.js"></script>
+</body>
+</html>

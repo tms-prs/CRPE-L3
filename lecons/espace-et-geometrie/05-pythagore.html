@@ -1,0 +1,83 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Leçon 05 — Théorème de Pythagore</title>
+<link rel="stylesheet" href="../../assets/style.css">
+</head>
+<body class="lesson">
+<main>
+<div class="lesson-hero">
+<nav class="crumbs" aria-label="Fil d'Ariane"><a href="../../index.html">Accueil</a><span>›</span><span>Espace et géométrie</span><span>›</span><span>Leçon 05</span></nav>
+<span class="kicker">Leçon 05</span>
+<h1>Théorème de <em>Pythagore</em></h1>
+<div class="meta-row"><span class="pill-tag blue">Espace et géométrie</span><span class="pill-tag">⏱ 2 h (cours) + exercices</span></div>
+<div class="infos"><div class="info"><b>Programme</b>cycle 4 — théorème de Pythagore, réciproque et contraposée ; travail de logique ; triangle rectangle et cercle circonscrit ; construire des rectangles sans équerre (4e) (BO du 5 mars 2026, annexe 2)</div><div class="info"><b>Prérequis</b>leçons 01 à 03 ; racine carrée et puissances (thème Nombres et calculs, leçon 03), calcul littéral (leçon 06)</div></div>
+</div>
+<div class="lesson-layout">
+<article class="prose">
+<section class="sec-objectifs"><h2 id="s1">Objectifs</h2><p>À la fin de la leçon, l'étudiante sait :</p>
+<ul><li>énoncer et utiliser le théorème de Pythagore pour calculer une longueur ;</li><li>utiliser la réciproque pour prouver qu'un triangle est rectangle, et la contraposée pour prouver qu'il ne l'est pas ;</li><li>connaître le lien entre triangle rectangle et cercle circonscrit ;</li><li>rédiger une démonstration rigoureuse ;</li><li>repérer les erreurs types d'élèves.</li></ul></section>
+<section class=""><h2 id="s2">1. Le théorème</h2><p><strong>Théorème de Pythagore.</strong> Si un triangle <code>ABC</code> est <strong>rectangle en <code>A</code></strong>, alors le carré de l'<strong>hypoténuse</strong> <code>[BC]</code> (le côté opposé à l'angle droit) est égal à la somme des carrés des deux autres côtés :</p>
+<p><code>BC² = AB² + AC²</code></p>
+<figure class="fig"><svg viewBox="0 0 400 300" width="400" role="img" aria-label="Figure du théorème de Pythagore avec un triangle 3-4-5">
+  <rect class="fs" x="78" y="118" width="72" height="72"/>
+  <rect class="fs" x="150" y="190" width="96" height="96"/>
+  <path class="fb" d="M246 190L150 118L222 22L318 94Z" style="opacity:.35"/>
+  <path class="fc" d="M150 190L246 190L150 118Z"/>
+  <path class="s" d="M150 190h-10v-10h10"/>
+  <text class="b" x="102" y="160">9</text><text class="b" x="192" y="244">16</text><text class="b" x="248" y="94">25</text>
+  <text x="118" y="206">A</text><text x="248" y="208">B</text><text x="136" y="112">C</text>
+  <text class="m" x="60" y="208">3</text><text class="m" x="196" y="206">4</text><text class="m" x="212" y="146">5</text>
+</svg><figcaption>Le carré construit sur l'hypoténuse a la même aire que la somme des carrés construits sur les deux autres côtés : 25 = 9 + 16.</figcaption></figure>
+<p><strong>Les trois étapes d'un calcul.</strong></p>
+<ol><li>Identifier l'angle droit et l'hypoténuse.</li><li>Écrire l'égalité de Pythagore.</li><li>Remplacer, calculer, puis prendre la racine carrée.</li></ol>
+<h3>1.1 Calculer l'hypoténuse</h3>
+<p><code>ABC</code> rectangle en <code>A</code>, <code>AB = 6</code> et <code>AC = 8</code>.</p>
+<pre><code>BC² = AB² + AC² = 6² + 8² = 36 + 64 = 100
+BC = √100 = 10</code></pre>
+<h3>1.2 Calculer un côté de l'angle droit</h3>
+<p><code>ABC</code> rectangle en <code>A</code>, <code>BC = 13</code> et <code>AB = 5</code>.</p>
+<pre><code>BC² = AB² + AC²  donc  AC² = BC² − AB² = 169 − 25 = 144
+AC = √144 = 12</code></pre>
+<p>On <strong>soustrait</strong> pour trouver un côté de l'angle droit, on <strong>additionne</strong> pour trouver l'hypoténuse.</p>
+<h3>1.3 Valeur approchée</h3>
+<p>Si le résultat n'est pas un carré parfait, on donne la valeur exacte puis une valeur approchée : <code>√50 ≈ 7,07</code>.</p>
+<h3>1.4 Triplets pythagoriciens</h3>
+<p>Des triplets d'entiers à connaître : <code>(3 ; 4 ; 5)</code>, <code>(5 ; 12 ; 13)</code>, <code>(8 ; 15 ; 17)</code>, <code>(7 ; 24 ; 25)</code>, et leurs multiples <code>(6 ; 8 ; 10)</code>, <code>(9 ; 12 ; 15)</code>.</p></section>
+<section class=""><h2 id="s3">2. Réciproque et contraposée</h2><h3>2.1 Réciproque</h3>
+<p><strong>Réciproque</strong> : si, dans un triangle <code>ABC</code>, on a <code>BC² = AB² + AC²</code>, alors le triangle est <strong>rectangle en <code>A</code></strong>.</p>
+<p><strong>Méthode</strong> : on compare le carré du <strong>plus grand côté</strong> avec la somme des carrés des deux autres.</p>
+<p><strong>Exemple.</strong> <code>ABC</code> avec <code>AB = 9</code>, <code>AC = 12</code>, <code>BC = 15</code>.<br><code>BC² = 225</code> et <code>AB² + AC² = 81 + 144 = 225</code>. Les deux sont égaux : d'après la réciproque, <code>ABC</code> est rectangle en <code>A</code>.</p>
+<h3>2.2 Contraposée</h3>
+<p><strong>Contraposée</strong> : si, dans un triangle <code>ABC</code>, on a <code>BC² ≠ AB² + AC²</code>, alors le triangle <strong>n'est pas rectangle en <code>A</code></strong>.</p>
+<p><strong>Exemple.</strong> <code>AB = 4</code>, <code>AC = 5</code>, <code>BC = 7</code>.<br><code>BC² = 49</code> et <code>AB² + AC² = 16 + 25 = 41</code> : l'égalité est fausse. D'après la contraposée, <code>ABC</code> n'est pas rectangle en <code>A</code>.</p>
+<div class="callout"><span class="ic">i</span><div><p>Le théorème et sa réciproque sont <strong>deux énoncés différents</strong> : l'un sert à calculer une longueur dans un triangle déjà rectangle, l'autre à prouver qu'un triangle est rectangle. La contraposée a la même valeur que le théorème : si un triangle n'est pas rectangle, l'égalité est fausse.</p></div></div></section>
+<section class=""><h2 id="s4">3. Triangle rectangle et cercle circonscrit</h2><p><strong>Propriété</strong> : si un triangle est rectangle en <code>A</code>, alors le <strong>milieu de l'hypoténuse</strong> <code>[BC]</code> est le <strong>centre de son cercle circonscrit</strong> ; la médiane issue de <code>A</code> mesure la moitié de l'hypoténuse.</p>
+<p><strong>Réciproque</strong> : si un point <code>A</code> est sur le cercle de <strong>diamètre</strong> <code>[BC]</code> (et distinct de <code>B</code> et <code>C</code>), alors <code>ABC</code> est rectangle en <code>A</code>.</p>
+<p><strong>Conséquences</strong> :</p>
+<ul><li>on trouve le centre du cercle circonscrit d'un triangle rectangle sans tracer de médiatrices ;</li><li>on <strong>construit un triangle rectangle sans équerre</strong> : choisir un diamètre <code>[BC]</code>, puis un point <code>A</code> du cercle ;</li><li>on <strong>construit un rectangle</strong> sans équerre avec deux diamètres : leurs extrémités forment un rectangle.</li></ul>
+<p><strong>Exemple.</strong> <code>ABC</code> est rectangle en <code>A</code> avec <code>BC = 10</code>. Le rayon du cercle circonscrit vaut <code>5</code>.</p></section>
+<section class=""><h2 id="s5">4. Démonstration du théorème (par les aires)</h2><p>On construit un grand carré de côté <code>a + b</code>. À l'intérieur : 4 triangles rectangles de côtés <code>a</code>, <code>b</code> et <code>c</code> placés dans les coins, et un carré central de côté <code>c</code>.</p>
+<ul><li>Aire du grand carré : <code>(a + b)² = a² + 2ab + b²</code>.</li><li>Aire des 4 triangles : <code>4 × (a × b ÷ 2) = 2ab</code>. Aire du carré central : <code>c²</code>.</li><li>Donc <code>a² + 2ab + b² = 2ab + c²</code>, soit <code>a² + b² = c²</code>.</li></ul>
+<p>(La démonstration historique d'Euclide utilise aussi les aires.)</p></section>
+<section class=""><h2 id="s6">5. Applications</h2><ul><li><strong>Diagonale d'un rectangle</strong> de côtés <code>a</code> et <code>b</code> : <code>d = √(a² + b²)</code>. Pour <code>6 × 8</code> : <code>d = 10</code>.</li><li><strong>Échelle</strong> : une échelle de <code>5 m</code> posée à <code>3 m</code> du mur atteint <code>√(25 − 9) = 4 m</code>.</li><li><strong>Hauteur d'un triangle isocèle</strong> de base <code>10</code> et côtés <code>13</code> : <code>h = √(13² − 5²) = 12</code>.</li><li><strong>Écran</strong> : diagonale d'un écran <code>16 cm × 12 cm</code> : <code>20 cm</code>.</li><li><strong>Distance entre deux points</strong> : si <code>A(1 ; 2)</code> et <code>B(4 ; 6)</code> (repère orthonormé), <code>AB² = 3² + 4² = 25</code>, donc <code>AB = 5</code>.</li></ul></section>
+<section class=""><h2 id="s7">6. Problèmes types</h2><p><strong>Problème 1.</strong> Un triangle <code>ABC</code> rectangle en <code>A</code> a <code>AB = 7 cm</code> et <code>AC = 24 cm</code>. Calculer <code>BC</code>.<br><code>BC² = 49 + 576 = 625</code>, donc <code>BC = 25 cm</code>.</p>
+<p><strong>Problème 2.</strong> Un champ rectangulaire de <code>40 m</code> sur <code>30 m</code> est traversé en diagonale. Quelle longueur ?<br><code>√(1600 + 900) = √2500 = 50 m</code>.</p>
+<p><strong>Problème 3.</strong> <code>ABC</code> : <code>AB = 5</code>, <code>AC = 12</code>, <code>BC = 14</code>. Le triangle est-il rectangle ?<br><code>BC² = 196</code> et <code>AB² + AC² = 25 + 144 = 169</code>. Les valeurs sont différentes : par la contraposée, il n'est pas rectangle.</p>
+<p><strong>Problème 4.</strong> Un carré de côté <code>4</code> a pour diagonale <code>d</code>. Calculer <code>d</code>.<br><code>d² = 16 + 16 = 32</code>, donc <code>d = √32 = 4√2 ≈ 5,66</code>.</p></section>
+<section class="sec-didactic"><h2 id="s8">7. Erreurs types d'élèves (volet didactique)</h2><div class="table-wrap"><table><thead><tr><th>Erreur observée</th><th>Exemple</th><th>Cause probable</th><th>Remédiation possible</th></tr></thead><tbody><tr><td>Oublier la racine</td><td><code>BC = 100</code> au lieu de <code>10</code></td><td>Arrêt au carré</td><td>Vérifier avec l'ordre de grandeur sur la figure</td></tr><tr><td>Additionner pour un côté de l'angle droit</td><td><code>AC² = 169 + 25</code></td><td>Formule appliquée sans repérer l'hypoténuse</td><td>Colorier l'hypoténuse avant de calculer</td></tr><tr><td>Appliquer le théorème à un triangle non rectangle</td><td>« le triangle <code>ABC</code>, donc… »</td><td>Pas de vérification de l'hypothèse</td><td>Rédaction : « <code>ABC</code> est rectangle en <code>A</code> » avant tout calcul</td></tr><tr><td>Confondre réciproque et théorème</td><td>utiliser <code>BC² = …</code> comme hypothèse</td><td>Statut des énoncés</td><td>Fiches « calculer / prouver »</td></tr><tr><td>Mauvaise comparaison dans la réciproque</td><td>comparer deux petits côtés au grand sans carrés</td><td>Carré oublié</td><td>Toujours écrire <code>BC²</code> et <code>AB² + AC²</code></td></tr><tr><td>Écrire <code>a² + b² = (a + b)²</code></td><td></td><td>Fausse distributivité</td><td>Contre-exemple <code>3² + 4² = 25</code> mais <code>(3 + 4)² = 49</code></td></tr><tr><td>Mesurer pour vérifier le rectangle</td><td>« l'angle a l'air droit »</td><td>Perception</td><td>Utiliser la réciproque avec des longueurs</td></tr></tbody></table></div>
+<p><strong>Outils</strong> : puzzles de Pythagore (découpage des carrés), cordes à 13 nœuds, tableur pour tester des triplets, logiciel de géométrie dynamique.</p></section>
+<section class="sec-retenir"><h2 id="s9">8. À retenir</h2><ul><li>Dans un triangle rectangle, <strong>hypoténuse² = somme des carrés des deux autres côtés</strong>.</li><li>On additionne pour l'hypoténuse, on soustrait pour un autre côté ; <strong>on prend la racine</strong> à la fin.</li><li>Réciproque : si <code>BC² = AB² + AC²</code>, le triangle est rectangle en <code>A</code> ; contraposée : si l'égalité est fausse, il ne l'est pas.</li><li>Triangle rectangle ⇔ inscrit dans un demi-cercle : le milieu de l'hypoténuse est le centre du cercle circonscrit.</li><li>Rédaction : <em>Données (le triangle est rectangle en…) → égalité de Pythagore → calcul → conclusion.</em></li></ul></section>
+<section class="sec-practice"><h2 id="s10">Pour s'entraîner</h2><div class="practice"><a class="mode-card blue" href="../../quiz/espace-et-geometrie/05-pythagore.html"><h3>Quiz</h3><p>Questions courtes avec correction immédiate pour vérifier que c’est acquis.</p><span class="go">Lancer le quiz <span>→</span></span></a><a class="mode-card sky" href="../../exercices/espace-et-geometrie/05-pythagore.html"><h3>Exercices</h3><p>Réponses à saisir, indices et corrections détaillées.</p><span class="go">Commencer <span>→</span></span></a></div></section>
+<section class="sec-extra"><h2 id="s11">Pistes de prolongement (culture mathématique)</h2><ul><li>Repères historiques autour de Pythagore, des tablettes babyloniennes (Plimpton 322) et des cordes à nœuds égyptiennes.</li><li>Triplets pythagoriciens et théorème de Fermat.</li></ul></section>
+</article>
+<aside class="toc" aria-label="Sommaire"><h4>Sur cette page</h4><ol><li><a href="#s1">Objectifs</a></li><li><a href="#s2">1. Le théorème</a></li><li><a href="#s3">2. Réciproque et contraposée</a></li><li><a href="#s4">3. Triangle rectangle et cercle circonscrit</a></li><li><a href="#s5">4. Démonstration du théorème (par les aires)</a></li><li><a href="#s6">5. Applications</a></li><li><a href="#s7">6. Problèmes types</a></li><li><a href="#s8">7. Erreurs types d'élèves (volet didactique)</a></li><li><a href="#s9">8. À retenir</a></li><li><a href="#s10">Pour s'entraîner</a></li><li><a href="#s11">Pistes de prolongement (culture mathématique)</a></li></ol></aside>
+</div>
+</main>
+<script src="../../assets/admin-config.js"></script>
+<script src="../../assets/nav-data.js"></script>
+<script src="../../assets/nav.js"></script>
+</body>
+</html>

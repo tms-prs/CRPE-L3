@@ -1,0 +1,100 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Exercices 07 — Trigonométrie</title>
+<link rel="stylesheet" href="../../assets/style.css">
+</head>
+<body>
+<main>
+  <header>
+    <h1 id="title"></h1>
+    <p id="subtitle"></p>
+  </header>
+  <div id="app"></div>
+</main>
+<script>
+window.PAGE = {
+  id: "exo-geo-07",
+  title: "Exercices 07 — Trigonométrie",
+  subtitle: "Réponses : nombres. Les valeurs approchées sont acceptées avec une petite marge (arrondi demandé). Calculatrice en mode degrés. Leçon : lecons/espace-et-geometrie/07-trigonometrie.md",
+  sections: [
+    { title: "A. Calculer une longueur", items: [
+      { type: "num", q: "ABC est rectangle en A, B̂ = 30° et BC = 10 cm. Calculer AC (en cm).", answer: "5",
+        hint: "AC est opposé à B̂ et BC est l'hypoténuse : sinus.",
+        solution: "AC = 10 × sin 30° = 10 × 0,5 = 5 cm." },
+      { type: "num", q: "ABC est rectangle en A, B̂ = 60° et AB = 7 cm. Calculer BC (en cm).", answer: "14",
+        hint: "AB est adjacent à B̂ et BC est l'hypoténuse : cosinus.",
+        solution: "cos 60° = 7 / BC donc BC = 7 ÷ 0,5 = 14 cm." },
+      { type: "num", q: "ABC est rectangle en A, B̂ = 35° et AB = 20 m. Calculer AC, arrondi au dixième (en m).", answer: "14", tol: 0.05,
+        hint: "Côté adjacent et côté opposé : tangente.",
+        solution: "AC = 20 × tan 35° ≈ 14,0 m." },
+      { type: "num", q: "ABC est rectangle en A, B̂ = 50° et BC = 12 cm. Calculer AB, arrondi au dixième (en cm).", answer: "7.7", tol: 0.05,
+        hint: "AB est adjacent, BC est l'hypoténuse : cosinus.",
+        solution: "AB = 12 × cos 50° ≈ 7,71 cm." },
+      { type: "num", q: "Une échelle de 6 m est appuyée contre un mur et fait un angle de 70° avec le sol. À quelle hauteur touche-t-elle le mur ? Arrondir au centième (en m).", answer: "5.64", tol: 0.005,
+        solution: "h = 6 × sin 70° ≈ 5,64 m." }
+    ]},
+    { title: "B. Calculer un angle", items: [
+      { type: "num", q: "ABC est rectangle en A, AB = 4 cm et BC = 5 cm. Calculer B̂, arrondi au degré (en °).", answer: "37", tol: 0.5,
+        hint: "cos B̂ = 4/5.",
+        solution: "B̂ = cos⁻¹(0,8) ≈ 36,9°, soit 37°." },
+      { type: "num", q: "ABC est rectangle en A, AC = 3 cm et AB = 4 cm. Calculer B̂, arrondi au degré (en °).", answer: "37", tol: 0.5,
+        hint: "tan B̂ = opposé / adjacent = 3/4.",
+        solution: "B̂ = tan⁻¹(0,75) ≈ 36,9°, soit 37°." },
+      { type: "num", q: "Dans un triangle rectangle, le côté adjacent à un angle mesure 3 cm et l'hypoténuse 6 cm. Quelle est la mesure de cet angle (en °) ?", answer: "60", tol: 0.5,
+        solution: "cos = 3/6 = 0,5, donc l'angle mesure 60°." },
+      { type: "num", q: "Un triangle rectangle a un angle aigu de 40°. Combien mesure l'autre angle aigu (en °) ?", answer: "50",
+        solution: "90° − 40° = 50°." },
+      { type: "num", q: "Dans un triangle rectangle, les deux côtés de l'angle droit sont égaux. Quelle est la mesure de chaque angle aigu (en °) ?", answer: "45",
+        solution: "tan = 1 donc 45°." }
+    ]},
+    { title: "C. Choisir la ligne trigonométrique", items: [
+      { type: "qcm", q: "On connaît l'angle B̂ et l'hypoténuse BC, on cherche le côté opposé AC. On utilise…",
+        options: ["sin B̂", "cos B̂", "tan B̂"], answer: 0,
+        explain: "Opposé et hypoténuse : sinus." },
+      { type: "qcm", q: "On connaît le côté adjacent AB et le côté opposé AC, on cherche l'angle B̂. On utilise…",
+        options: ["tan B̂", "cos B̂", "sin B̂"], answer: 0,
+        explain: "Opposé et adjacent : tangente (puis tan⁻¹)." },
+      { type: "qcm", q: "On connaît le côté adjacent AB et l'hypoténuse BC, on cherche l'angle B̂. On utilise…",
+        options: ["cos B̂", "sin B̂", "tan B̂"], answer: 0,
+        explain: "Adjacent et hypoténuse : cosinus (puis cos⁻¹)." }
+    ]},
+    { title: "D. Problèmes", items: [
+      { type: "num", q: "Un toit a une pente de 30° et une portée horizontale de 8 m. Quelle est la hauteur du faîtage, arrondie au dixième (en m) ?", answer: "4.6", tol: 0.05,
+        solution: "h = 8 × tan 30° ≈ 4,62 m." },
+      { type: "num", q: "On se place à 50 m du pied d'une tour et on voit son sommet sous un angle de 40°. Quelle est la hauteur de la tour, arrondie au mètre (en m) ?", answer: "42", tol: 0.5,
+        solution: "h = 50 × tan 40° ≈ 41,95 m, soit 42 m." },
+      { type: "num", q: "Une rampe de 5 m de long fait un angle de 10° avec l'horizontale. Quelle hauteur gagne-t-on, arrondie au centième (en m) ?", answer: "0.87", tol: 0.005,
+        solution: "h = 5 × sin 10° ≈ 0,87 m." },
+      { type: "num", q: "ABC est rectangle en A, B̂ = 30°, BC = 10 cm. Calculer AB, arrondi au centième (en cm).", answer: "8.66", tol: 0.005,
+        solution: "AB = 10 × cos 30° ≈ 8,66 cm (on peut vérifier avec Pythagore : √(100 − 25) ≈ 8,66)." }
+    ]},
+    { title: "Problème 1 · La rampe d'accès", statement: "On installe une rampe de 3 m de long pour rejoindre une terrasse située à 0,3 m au-dessus du sol horizontal.", items: [
+      { type: "num", label: "a)", q: "Quel angle la rampe forme-t-elle avec l'horizontale ? Arrondir au dixième (en °).", answer: "5.7", tol: 0.05,
+        hint: "On connaît la longueur de la rampe et la hauteur : quel côté est l'hypoténuse ? lequel est opposé à l'angle ?",
+        solution: "La rampe est l'hypoténuse (3 m), la hauteur est le côté opposé à l'angle : sin α = 0,3 ÷ 3 = 0,1, donc α = sin⁻¹(0,1) ≈ 5,7°." },
+      { type: "num", label: "b)", q: "Quelle est la distance horizontale parcourue ? Arrondir au centimètre (en m).", answer: "2.98", tol: 0.01,
+        solution: "Pythagore : d² = 3² − 0,3² = 8,91, d ≈ 2,98 m. (Avec la trigonométrie : 3 × cos 5,74° ≈ 2,98 m.)" },
+      { type: "qcm", label: "c)", q: "La norme impose un angle d'au plus 4,8°. La rampe est-elle conforme ?",
+        options: ["Oui", "Non : 5,7° est supérieur à 4,8°"], answer: 1,
+        explain: "5,7° > 4,8° : la pente est trop forte, la rampe n'est pas conforme." }
+    ]},
+    { title: "Problème 2 · Le cerf-volant", statement: "Un cerf-volant est retenu par un fil tendu de 60 m, qui fait un angle de 40° avec le sol horizontal. On suppose que la main est au niveau du sol.", items: [
+      { type: "num", label: "a)", q: "À quelle hauteur se trouve le cerf-volant ? Arrondir au dixième (en m).", answer: "38.6", tol: 0.05,
+        solution: "Le fil est l'hypoténuse, la hauteur est le côté opposé à l'angle de 40° : h = 60 × sin 40° ≈ 38,6 m." },
+      { type: "num", label: "b)", q: "Quelle est la distance horizontale entre la main et le point du sol situé sous le cerf-volant ? Arrondir au dixième (en m).", answer: "46", tol: 0.05,
+        solution: "Côté adjacent : d = 60 × cos 40° ≈ 46,0 m." },
+      { type: "num", label: "c)", q: "À la même hauteur (38,6 m), avec un fil de 45 m, quel angle le fil forme-t-il avec le sol ? Arrondir au degré (en °).", answer: "59", tol: 0.5,
+        solution: "sin α = 38,6 ÷ 45 ≈ 0,858, donc α = sin⁻¹(0,858) ≈ 59°." }
+    ]}
+  ]
+};
+</script>
+<script src="../../assets/admin-config.js"></script>
+<script src="../../assets/nav-data.js"></script>
+<script src="../../assets/nav.js"></script>
+<script src="../../assets/app.js"></script>
+</body>
+</html>

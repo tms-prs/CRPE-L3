@@ -1,0 +1,100 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Quiz 08 — Vecteurs et Chasles</title>
+<link rel="stylesheet" href="../../assets/style.css">
+</head>
+<body>
+<main>
+  <header>
+    <h1 id="title"></h1>
+    <p id="subtitle"></p>
+  </header>
+  <div id="app"></div>
+</main>
+<script>
+window.PAGE = {
+  id: "quiz-geo-08",
+  title: "Quiz 08 — Vecteurs et Chasles",
+  subtitle: "20 questions, correction immédiate. Notation : →AB se lit « vecteur AB ».",
+  sections: [
+    { title: "Vecteurs : définition", items: [
+      { type: "qcm", q: "Un vecteur est caractérisé par…",
+        options: ["sa direction, son sens et sa longueur", "seulement sa longueur", "sa position", "son milieu"], answer: 0,
+        explain: "Direction, sens et longueur (norme) : trois caractéristiques." },
+      { type: "qcm", q: "La translation de vecteur →AB envoie A sur…",
+        options: ["A", "B", "le milieu de [AB]", "le symétrique de B"], answer: 1,
+        explain: "La translation de vecteur →AB envoie A sur B." },
+      { type: "qcm", q: "Quel vecteur est opposé à →AB ?",
+        options: ["→AB", "→BA", "→AA", "→0"], answer: 1,
+        explain: "→BA a même direction, même longueur et sens contraire." },
+      { type: "qcm", q: "Que représente le vecteur →AA ?",
+        options: ["Le vecteur nul", "Un vecteur de longueur 1", "Le vecteur opposé de lui-même, non nul", "Un vecteur impossible"], answer: 0,
+        explain: "→AA = →0 : longueur nulle." },
+      { type: "qcm", q: "I est le milieu de [AB]. Quelle égalité vectorielle est vraie ?",
+        options: ["→AI = →IB", "→AI = →BI", "→AB = →AI", "→IA = →IB"], answer: 0,
+        explain: "I milieu de [AB] ⇔ →AI = →IB (même sens, même longueur)." }
+    ]},
+    { title: "Égalité de vecteurs et parallélogramme", items: [
+      { type: "qcm", q: "ABCD est un parallélogramme. Quel vecteur est égal à →AB ?",
+        options: ["→DC", "→CD", "→BC", "→AD"], answer: 0,
+        explain: "[AB] et [DC] sont parallèles, de même longueur ; de A vers B comme de D vers C : →AB = →DC." },
+      { type: "qcm", q: "→AB = →CD. Quel quadrilatère est un parallélogramme (éventuellement aplati) ?",
+        options: ["ABCD", "ABDC", "ACBD", "ADBC"], answer: 1,
+        explain: "→AB = →CD équivaut à ABDC parallélogramme." },
+      { type: "qcm", q: "Deux vecteurs ont même direction et même longueur mais des sens contraires. Ils sont…",
+        options: ["égaux", "opposés", "nuls", "perpendiculaires"], answer: 1,
+        explain: "Opposés : même direction, même longueur, sens contraire." },
+      { type: "qcm", q: "Pour prouver que ABCD est un parallélogramme, on peut montrer que…",
+        options: ["→AB = →DC", "AB = DC", "→AB = →CD", "A, B, C sont alignés"], answer: 0,
+        explain: "→AB = →DC : même direction, sens et longueur. L'égalité des longueurs seule ne suffit pas." }
+    ]},
+    { title: "Somme et relation de Chasles", items: [
+      { type: "qcm", q: "Que vaut →AB + →BC ?",
+        options: ["→AC", "→CA", "→AB", "→BC"], answer: 0,
+        explain: "Relation de Chasles : →AB + →BC = →AC." },
+      { type: "qcm", q: "Simplifier →AB + →BC + →CD.",
+        options: ["→AD", "→DA", "→BD", "→AC"], answer: 0,
+        explain: "→AB + →BC = →AC, puis →AC + →CD = →AD." },
+      { type: "qcm", q: "Que vaut →AB + →BA ?",
+        options: ["→0", "→AB", "2→AB", "→BA"], answer: 0,
+        explain: "Chasles : →AB + →BA = →AA = →0." },
+      { type: "qcm", q: "Dans un parallélogramme ABCD, →AB + →AD est égal à…",
+        options: ["→AC", "→BD", "→CA", "→DB"], answer: 0,
+        explain: "Règle du parallélogramme : la somme est la diagonale issue de A." },
+      { type: "qcm", q: "→AB − →AC est égal à…",
+        options: ["→CB", "→BC", "→AB + →AC", "→BA"], answer: 0,
+        explain: "→AB − →AC = →AB + →CA = →CB." },
+      { type: "qcm", q: "Si AB = 3 et BC = 4 (A, B, C non alignés), la norme de →AB + →BC est…",
+        options: ["7", "égale à AC, qui est < 7", "12", "1"], answer: 1,
+        explain: "→AB + →BC = →AC, de norme AC ; or AC < AB + BC dans un triangle." }
+    ]},
+    { title: "Regard d'enseignant", items: [
+      { type: "qcm", q: "Un élève écrit « →AB = 5 ». Que faire ?",
+        options: [
+          "Distinguer le vecteur →AB (une flèche) et sa longueur AB (un nombre)",
+          "Valider",
+          "Lui interdire les vecteurs",
+          "Lui demander de calculer →AB à la calculatrice"],
+        answer: 0,
+        explain: "Un vecteur n'est pas un nombre : on écrit AB = 5 pour la longueur." },
+      { type: "qcm", q: "Un élève écrit →AB + →CD = →AD. Quelle est l'origine de l'erreur ?",
+        options: [
+          "Chasles exige que l'extrémité du premier vecteur soit l'origine du second",
+          "Il a oublié la racine carrée",
+          "Il a confondu avec Pythagore",
+          "Il a raison"],
+        answer: 0,
+        explain: "On enchaîne : →AB + →BC. Dans →AB + →CD, B et C sont différents." }
+    ]}
+  ]
+};
+</script>
+<script src="../../assets/admin-config.js"></script>
+<script src="../../assets/nav-data.js"></script>
+<script src="../../assets/nav.js"></script>
+<script src="../../assets/app.js"></script>
+</body>
+</html>

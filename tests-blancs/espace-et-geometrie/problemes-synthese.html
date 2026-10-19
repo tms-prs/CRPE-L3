@@ -1,0 +1,77 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Problèmes de synthèse — Espace et géométrie</title>
+<link rel="stylesheet" href="../../assets/style.css">
+</head>
+<body>
+<main>
+  <header>
+    <h1 id="title"></h1>
+    <p id="subtitle"></p>
+  </header>
+  <div id="app"></div>
+</main>
+<script>
+window.PAGE = {
+  id: "synthese-espace-et-geometrie",
+  title: "Problèmes de synthèse — Espace et géométrie",
+  subtitle: "4 problèmes dans l'esprit du devoir ou du concours : plusieurs propriétés du thème se mêlent (Pythagore, Thalès, trigonométrie, aires, volumes…) et rien n'indique laquelle utiliser. À toi de repérer les informations utiles et la bonne propriété. Chaque question a un indice discret et une correction détaillée qui nomme la méthode. 16 questions. Calculatrice autorisée.",
+  sections: [
+    { title: "Problème 1 · Le toit du hangar", statement: "La façade d'un hangar est un triangle ABC isocèle en A, de base BC = 12 m. L'angle ABC mesure 30°. On note H le milieu de [BC].", items: [
+      { type: "num", label: "a)", q: "Quelle est la hauteur AH, arrondie au dixième (en m) ?", answer: "3.5", tol: 0.05,
+        hint: "Dans un triangle isocèle, que peut-on dire de la médiane issue du sommet ?",
+        solution: "Dans le triangle isocèle ABC, la médiane [AH] est aussi une hauteur : AHB est rectangle en H avec BH = 6 m. tan 30° = AH ÷ 6, donc AH = 6 × tan 30° ≈ 3,46 m, soit 3,5 m." },
+      { type: "num", label: "b)", q: "Quelle est la longueur du rampant AB, arrondie au dixième (en m) ?", answer: "6.9", tol: 0.05,
+        solution: "Dans AHB rectangle en H : cos 30° = BH ÷ AB, donc AB = 6 ÷ cos 30° ≈ 6,93 m (ou par Pythagore : √(36 + 3,46²) ≈ 6,93 m)." },
+      { type: "num", label: "c)", q: "Quelle est l'aire de la façade, arrondie au dixième (en m²) ?", answer: "20.8", tol: 0.05,
+        solution: "Aire = base × hauteur ÷ 2 = 12 × 3,46 ÷ 2 ≈ 20,8 m²." },
+      { type: "num", label: "d)", q: "Une gouttière longe les deux rampants. Quelle longueur de gouttière faut-il, arrondie au dixième (en m) ?", answer: "13.9", tol: 0.05,
+        solution: "2 × AB ≈ 2 × 6,93 ≈ 13,9 m." }
+    ]},
+    { title: "Problème 2 · La piscine ronde", statement: "Une piscine a la forme d'un cylindre de diamètre 6 m et de profondeur 1,2 m. On veut la remplir complètement d'eau et recouvrir le fond et la paroi d'un revêtement.", items: [
+      { type: "num", label: "a)", q: "Quel est le volume de la piscine, arrondi au dixième (en m³) ?", answer: "33.9", tol: 0.05,
+        hint: "Attention : on donne le diamètre.",
+        solution: "Rayon = 3 m. V = π × 3² × 1,2 = 10,8π ≈ 33,9 m³." },
+      { type: "num", label: "b)", q: "Combien de litres d'eau faut-il, arrondi au litre ?", answer: "33929", tol: 1,
+        solution: "1 m³ = 1 000 L : 33,929 × 1 000 ≈ 33 929 L." },
+      { type: "num", label: "c)", q: "Le robinet fournit 1,5 m³ par heure. Combien d'heures faut-il pour remplir la piscine, arrondi au dixième ?", answer: "22.6", tol: 0.05,
+        solution: "33,93 ÷ 1,5 ≈ 22,6 heures." },
+      { type: "num", label: "d)", q: "Quelle aire de revêtement faut-il pour le fond et la paroi, arrondie au dixième (en m²) ?", answer: "50.9", tol: 0.05,
+        hint: "La paroi, une fois dépliée, est un rectangle dont la longueur est le périmètre du cercle.",
+        solution: "Fond : π × 3² = 9π ≈ 28,27 m². Paroi : rectangle de 2π × 3 ≈ 18,85 m sur 1,2 m, soit ≈ 22,62 m². Total ≈ 50,9 m²." }
+    ]},
+    { title: "Problème 3 · Le mât haubané", statement: "Un mât vertical [AB] de hauteur 9 m est haubané par un câble tendu du sommet B à un point C du sol, avec AC = 12 m. Le sol est horizontal. On installe un tendeur horizontal [MN] qui relie le mât au câble, avec M sur [BA], N sur [BC] et BM = 3 m.", items: [
+      { type: "num", label: "a)", q: "Quelle est la longueur du câble BC (en m) ?", answer: "15",
+        solution: "Le mât est vertical et le sol horizontal : ABC est rectangle en A. BC² = 9² + 12² = 225 (Pythagore), BC = 15 m." },
+      { type: "num", label: "b)", q: "Quel angle le câble forme-t-il avec le sol ? Arrondir au degré (en °).", answer: "37", tol: 0.5,
+        solution: "tan ACB = AB ÷ AC = 9 ÷ 12 = 0,75, donc ACB = tan⁻¹(0,75) ≈ 37°." },
+      { type: "num", label: "c)", q: "Quelle est la longueur BN (en m) ?", answer: "5",
+        hint: "(MN) est horizontale comme le sol : que peut-on dire de (MN) et (AC) ?",
+        solution: "(MN) et (AC) sont toutes deux horizontales, donc parallèles. Thalès dans le triangle BAC : BM ÷ BA = BN ÷ BC, soit 3 ÷ 9 = BN ÷ 15, donc BN = 5 m." },
+      { type: "num", label: "d)", q: "Quelle est la longueur du tendeur MN (en m) ?", answer: "4",
+        solution: "Toujours avec Thalès : BM ÷ BA = MN ÷ AC, soit 3 ÷ 9 = MN ÷ 12, donc MN = 4 m." }
+    ]},
+    { title: "Problème 4 · Le trajet de Léa", statement: "Dans un repère orthonormé d'unité 100 m, la maison de Léa est en H(1 ; 1), la piscine en P(7 ; 1) et l'école en E(7 ; 9).", items: [
+      { type: "num", label: "a)", q: "Quelle est la distance à vol d'oiseau entre la maison et l'école (en m) ?", answer: "1000",
+        hint: "Que peut-on dire de (HP) et (PE) ?",
+        solution: "H et P ont la même ordonnée, P et E la même abscisse : (HP) est horizontale et (PE) verticale, donc HPE est rectangle en P. HP = 6 et PE = 8 (en unités), donc HE² = 36 + 64 = 100 (Pythagore) et HE = 10 unités, soit 1 000 m." },
+      { type: "num", label: "b)", q: "Quelle est la longueur du trajet qui passe par la piscine (en m) ?", answer: "1400",
+        solution: "HP + PE = 6 + 8 = 14 unités, soit 1 400 m." },
+      { type: "num", label: "c)", q: "De combien ce trajet est-il plus long que le trajet direct (en m) ?", answer: "400",
+        solution: "1 400 − 1 000 = 400 m." },
+      { type: "num", label: "d)", q: "La boulangerie B est le symétrique de la maison H par rapport à la droite (PE). Quelle est son abscisse ?", answer: "13",
+        hint: "La droite (PE) est verticale : elle a pour équation x = 7.",
+        solution: "La droite (PE) est la droite d'abscisse 7. Le symétrique de H(1 ; 1) a la même ordonnée et une abscisse à la même distance de 7 de l'autre côté : 7 + (7 − 1) = 13. B(13 ; 1)." }
+    ]}
+  ]
+};
+</script>
+<script src="../../assets/admin-config.js"></script>
+<script src="../../assets/nav-data.js"></script>
+<script src="../../assets/nav.js"></script>
+<script src="../../assets/app.js"></script>
+</body>
+</html>

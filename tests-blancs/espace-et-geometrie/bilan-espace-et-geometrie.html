@@ -1,0 +1,127 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Bilan — Espace et géométrie</title>
+<link rel="stylesheet" href="../../assets/style.css">
+</head>
+<body>
+<main>
+  <header>
+    <h1 id="title"></h1>
+    <p id="subtitle"></p>
+  </header>
+  <div id="app"></div>
+</main>
+<script>
+window.PAGE = {
+  mix: true,
+  id: "bilan-espace-et-geometrie",
+  title: "Bilan — Espace et géométrie",
+  subtitle: "36 questions mêlant les leçons 01 à 09, à faire sans notes (durée conseillée : 50 min). Les corrections sont disponibles question par question.",
+  sections: [
+    { title: "Repérage, angles et parallélisme (leçon 01)", items: [
+      { type: "num", q: "Quelle est la distance entre les points A(−5) et B(7) sur une droite graduée ?", answer: "12", solution: "|7 − (−5)| = 12." },
+      { type: "num", q: "Deux angles sont complémentaires. L'un mesure 28°. Combien mesure l'autre (en °) ?", answer: "62", solution: "90° − 28° = 62°." },
+      { type: "num", q: "(d) // (d'). Deux angles alternes-internes mesurent 2x + 10 et x + 45 (en °). Quelle est la valeur de x ?", answer: "35",
+        hint: "Alternes-internes égaux.", solution: "2x + 10 = x + 45 donc x = 35." },
+      { type: "num", q: "Deux droites sécantes forment un angle de 115°. Quelle est la mesure d'un angle adjacent (en °) ?", answer: "65", solution: "180° − 115° = 65°." }
+    ]},
+    { title: "Triangles et droites remarquables (leçon 02)", items: [
+      { type: "num", q: "Un triangle isocèle a un angle à la base de 52°. Combien mesure l'angle au sommet (en °) ?", answer: "76", solution: "180° − 2 × 52° = 76°." },
+      { type: "num", q: "Quelle est l'aire d'un triangle de base 14 cm et de hauteur 9 cm (en cm²) ?", answer: "63", solution: "14 × 9 ÷ 2 = 63 cm²." },
+      { type: "qcm", q: "Les trois médiatrices d'un triangle se coupent au centre…",
+        options: ["du cercle inscrit", "du cercle circonscrit", "de gravité", "d'un parallélogramme"], answer: 1,
+        explain: "Ce point est équidistant des trois sommets." }
+    ]},
+    { title: "Parallélogrammes et quadrilatères (leçon 03)", items: [
+      { type: "num", q: "Quelle est l'aire d'un parallélogramme de base 12 cm et de hauteur 7 cm (en cm²) ?", answer: "84", solution: "12 × 7 = 84 cm²." },
+      { type: "qcm", q: "Un parallélogramme dont les diagonales sont perpendiculaires est…",
+        options: ["un rectangle", "un losange", "un trapèze", "un cerf-volant"], answer: 1,
+        explain: "Parallélogramme + diagonales perpendiculaires ⇒ losange." },
+      { type: "num", q: "Convertir 2,4 m² en dm².", answer: "240", solution: "2,4 × 100 = 240 dm²." }
+    ]},
+    { title: "Symétries et translations (leçon 04)", items: [
+      { type: "num", q: "Le point A(−4 ; 7) a pour symétrique A' par rapport à l'axe des abscisses. Quelle est l'ordonnée de A' ?", answer: "-7",
+        solution: "On change le signe de l'ordonnée : A'(−4 ; −7)." },
+      { type: "num", q: "O est le milieu de [AA'] et OA = 9 cm. Quelle est la longueur AA' (en cm) ?", answer: "18", solution: "AA' = 2 × 9 = 18 cm." },
+      { type: "qcm", q: "Quelle figure n'a pas de centre de symétrie ?",
+        options: ["Le losange", "Le rectangle", "Le triangle équilatéral"], answer: 2,
+        explain: "Un triangle n'a pas de centre de symétrie." }
+    ]},
+    { title: "Théorème de Pythagore (leçon 05)", items: [
+      { type: "num", q: "ABC est rectangle en A, AB = 9 cm et AC = 12 cm. Calculer BC (en cm).", answer: "15", solution: "BC² = 81 + 144 = 225, BC = 15 cm." },
+      { type: "num", q: "ABC est rectangle en A, BC = 17 cm et AB = 8 cm. Calculer AC (en cm).", answer: "15", solution: "AC² = 289 − 64 = 225, AC = 15 cm." },
+      { type: "qcm", q: "Un triangle a pour côtés 7 cm, 24 cm et 25 cm. Est-il rectangle ?",
+        options: ["Oui", "Non"], answer: 0,
+        explain: "25² = 625 = 49 + 576 : réciproque de Pythagore." },
+      { type: "num", q: "Un rectangle mesure 12 cm sur 5 cm. Quelle est la longueur de sa diagonale (en cm) ?", answer: "13", solution: "√(144 + 25) = 13 cm." }
+    ]},
+    { title: "Droite des milieux et Thalès (leçon 06)", items: [
+      { type: "num", q: "I et J sont les milieux de [AB] et [AC]. BC = 18 cm. Calculer IJ (en cm).", answer: "9", solution: "IJ = 18 ÷ 2 = 9 cm." },
+      { type: "num", q: "(MN) // (BC), AM = 2, AB = 8, AN = 3. Calculer AC.", answer: "12", solution: "AC = AN × AB ÷ AM = 3 × 8 ÷ 2 = 12." },
+      { type: "qcm", q: "AM = 4, AB = 6, AN = 6, AC = 9 (M sur [AB], N sur [AC]). (MN) est-elle parallèle à (BC) ?",
+        options: ["Oui", "Non"], answer: 0,
+        explain: "4/6 = 2/3 = 6/9 : réciproque de Thalès." },
+      { type: "num", q: "(MN) // (BC), AM = 3, AB = 9, MN = 4. Calculer BC.", answer: "12", solution: "BC = MN × AB ÷ AM = 4 × 9 ÷ 3 = 12." }
+    ]},
+    { title: "Trigonométrie (leçon 07)", items: [
+      { type: "num", q: "ABC est rectangle en A, B̂ = 60° et BC = 8 cm. Calculer AB (en cm).", answer: "4", solution: "AB = 8 × cos 60° = 4 cm." },
+      { type: "num", q: "ABC est rectangle en A, AB = 5 cm et B̂ = 45°. Calculer AC (en cm).", answer: "5", solution: "AC = 5 × tan 45° = 5 cm." },
+      { type: "num", q: "Un angle aigu d'un triangle rectangle a pour sinus 0,5. Combien mesure-t-il (en °) ?", answer: "30", tol: 0.5, solution: "sin⁻¹(0,5) = 30°." },
+      { type: "num", q: "ABC est rectangle en A, B̂ = 25° et BC = 15 cm. Calculer AC, arrondi au dixième (en cm).", answer: "6.3", tol: 0.05, solution: "AC = 15 × sin 25° ≈ 6,34 cm." }
+    ]},
+    { title: "Vecteurs et Chasles (leçon 08)", items: [
+      { type: "qcm", q: "Que vaut →AB + →BC + →CA ?",
+        options: ["→0", "→AC", "→AB", "→CA"], answer: 0,
+        explain: "→AB + →BC = →AC, puis →AC + →CA = →0." },
+      { type: "qcm", q: "ABCD est un parallélogramme. Quel vecteur est égal à →BC ?",
+        options: ["→AD", "→DA", "→CD", "→DC"], answer: 0,
+        explain: "[BC] et [AD] sont parallèles, de même longueur et de même sens : →BC = →AD." },
+      { type: "qcm", q: "ABCD est un parallélogramme. →AB + →AD est égal à…",
+        options: ["→AC", "→BD", "→CA"], answer: 0,
+        explain: "Règle du parallélogramme." }
+    ]},
+    { title: "Solides, volumes et sections (leçon 09)", items: [
+      { type: "num", q: "Quel est le volume d'un cube de 5 cm d'arête (en cm³) ?", answer: "125", solution: "5³ = 125 cm³." },
+      { type: "num", q: "Un cylindre a pour rayon 2 cm et pour hauteur 6 cm. Son volume vaut k π cm³. Quelle est la valeur de k ?", answer: "24", solution: "π × 2² × 6 = 24π cm³." },
+      { type: "num", q: "Un cône a pour rayon 6 cm et pour hauteur 5 cm. Son volume vaut k π cm³. Quelle est la valeur de k ?", answer: "60", solution: "(1/3) × π × 36 × 5 = 60π cm³." },
+      { type: "num", q: "Convertir 1,2 m³ en litres.", answer: "1200", solution: "1 m³ = 1 000 L : 1,2 × 1 000 = 1 200 L." },
+      { type: "num", q: "Une pyramide a pour base un rectangle de 6 cm sur 8 cm et pour hauteur 9 cm. Quel est son volume (en cm³) ?", answer: "144", solution: "(1/3) × 48 × 9 = 144 cm³." }
+    ]},
+    { title: "Regard d'enseignant", items: [
+      { type: "qcm", q: "Un élève écrit BC = 100 au lieu de BC = 10 en utilisant Pythagore. Quelle est l'origine de l'erreur ?",
+        options: [
+          "Il a oublié la racine carrée",
+          "Il ne connaît pas Thalès",
+          "Il a confondu aire et volume",
+          "Aucune erreur"],
+        answer: 0,
+        explain: "Remédiation : contrôle de vraisemblance sur la figure (l'hypoténuse est un peu plus longue que les côtés, pas dix fois)." },
+      { type: "qcm", q: "Un élève calcule l'aire d'un triangle par b × h. Quelle remédiation est la plus pertinente ?",
+        options: [
+          "Montrer qu'un rectangle se découpe en deux triangles identiques",
+          "Lui redonner la formule",
+          "Lui faire refaire dix calculs",
+          "Passer à autre chose"],
+        answer: 0,
+        explain: "Le découpage donne le sens du « ÷ 2 »." },
+      { type: "qcm", q: "Un élève affirme que deux droites sont parallèles parce qu'elles « ont l'air parallèles ». Que faire ?",
+        options: [
+          "Montrer qu'une figure presque parallèle trompe l'œil et exiger une propriété (angles égaux, Thalès…)",
+          "Valider sa réponse",
+          "Lui faire mesurer à la règle",
+          "Lui dire qu'il a tort sans expliquer"],
+        answer: 0,
+        explain: "La mesure et l'apparence ne sont pas des preuves en géométrie de collège." }
+    ]}
+  ]
+};
+</script>
+<script src="../../assets/admin-config.js"></script>
+<script src="../../assets/nav-data.js"></script>
+<script src="../../assets/nav.js"></script>
+<script src="../../assets/app.js"></script>
+</body>
+</html>

@@ -1,0 +1,100 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Leçon 01 — Repérage, angles et droites parallèles</title>
+<link rel="stylesheet" href="../../assets/style.css">
+</head>
+<body class="lesson">
+<main>
+<div class="lesson-hero">
+<nav class="crumbs" aria-label="Fil d'Ariane"><a href="../../index.html">Accueil</a><span>›</span><span>Espace et géométrie</span><span>›</span><span>Leçon 01</span></nav>
+<span class="kicker">Leçon 01</span>
+<h1>Repérage, angles et droites <em>parallèles</em></h1>
+<div class="meta-row"><span class="pill-tag blue">Espace et géométrie</span><span class="pill-tag">⏱ 1 h 30 (cours) + exercices</span></div>
+<div class="infos"><div class="info"><b>Programme</b>cycle 4 — repérage sur une droite et dans le plan (5e à 3e) ; angles : vocabulaire, bissectrice, caractérisation du parallélisme par les angles (5e) (BO du 5 mars 2026, annexe 2)</div><div class="info"><b>Prérequis</b>nombres relatifs (thème Nombres et calculs, leçon 01), vocabulaire de base de la géométrie (points, droites, segments)</div></div>
+</div>
+<div class="lesson-layout">
+<article class="prose">
+<section class="sec-objectifs"><h2 id="s1">Objectifs</h2><p>À la fin de la leçon, l'étudiante sait :</p>
+<ul><li>repérer un point sur une droite graduée et dans un repère orthogonal du plan ;</li><li>nommer les angles (nul, aigu, droit, obtus, plat, plein) et reconnaître angles adjacents, supplémentaires, complémentaires, opposés par le sommet ;</li><li>utiliser la bissectrice et les mesures usuelles (30°, 45°, 60°, 90°) ;</li><li>caractériser le parallélisme par les angles correspondants et alternes-internes, et l'utiliser dans une démonstration ;</li><li>repérer les erreurs types d'élèves.</li></ul>
+<div class="callout"><span class="ic">i</span><div><p>En géométrie, à partir du collège, <strong>la mesure n'est plus une preuve</strong> : on justifie avec des propriétés, on ne mesure pas pour conclure.</p></div></div></section>
+<section class=""><h2 id="s2">1. Repérage</h2><h3>1.1 Sur une droite graduée</h3>
+<p>Une droite graduée a une origine <code>O</code> (abscisse <code>0</code>) et une unité. L'<strong>abscisse</strong> d'un point est le nombre relatif qui le repère. Les positifs sont à droite de l'origine, les négatifs à gauche.</p>
+<ul><li>Lire l'abscisse d'un point donné ; placer un point d'abscisse donnée.</li><li>La <strong>distance</strong> entre deux points d'abscisses <code>a</code> et <code>b</code> vaut <code>|a − b|</code>.</li></ul>
+<pre><code> ◄──┼────┼────┼────┼────┼────┼────┼────►
+   −3   −2   −1    0   +1   +2   +3
+                  O</code></pre>
+<p>Exemple : <code>A(−2)</code> et <code>B(3)</code> : <code>AB = |3 − (−2)| = 5</code>.</p>
+<h3>1.2 Dans le plan</h3>
+<p>On utilise un <strong>repère orthogonal</strong> : deux axes perpendiculaires qui se coupent en <code>O</code>. Un point <code>M</code> a deux coordonnées <code>(x ; y)</code> :</p>
+<ul><li>l'<strong>abscisse</strong> <code>x</code> se lit sur l'axe horizontal ;</li><li>l'<strong>ordonnée</strong> <code>y</code> se lit sur l'axe vertical.</li></ul>
+<figure class="fig"><svg viewBox="0 0 360 280" width="360" role="img" aria-label="Repère orthogonal avec trois points">
+  <line class="g" x1="30" y1="140" x2="330" y2="140"/>
+  <line class="g" x1="180" y1="20" x2="180" y2="260"/>
+  <g class="g">
+    <path d="M90 136v8M120 136v8M150 136v8M210 136v8M240 136v8M270 136v8M300 136v8M176 110h8M176 80h8M176 50h8M176 170h8M176 200h8M176 230h8"/>
+  </g>
+  <path class="s" d="M30 140H330M180 260V20"/>
+  <path class="s" d="M322 134l8 6-8 6M174 28l6-8 6 8"/>
+  <path class="g d" d="M240 140V50M180 50H240M90 140V110M180 110H90M120 140V200M180 200H120"/>
+  <circle class="pb" cx="240" cy="50" r="5"/><circle class="pb" cx="90" cy="110" r="5"/><circle class="pb" cx="120" cy="200" r="5"/>
+  <text class="b" x="248" y="46">A(2 ; 3)</text><text class="b" x="30" y="104">B(−3 ; 1)</text><text class="b" x="52" y="222">C(−2 ; −2)</text>
+  <text x="318" y="160">x</text><text x="190" y="30">y</text><text x="164" y="158">O</text>
+  <text class="m" x="236" y="160">2</text><text class="m" x="84" y="160">−3</text><text class="m" x="190" y="54">3</text><text class="m" x="190" y="204">−2</text>
+</svg><figcaption>Les points A(2 ; 3), B(−3 ; 1) et C(−2 ; −2) dans un repère orthogonal.</figcaption></figure>
+<ul><li>On écrit toujours l'<strong>abscisse d'abord</strong> : <code>(x ; y)</code>.</li><li>Les axes partagent le plan en quatre zones ; le signe de <code>x</code> et de <code>y</code> indique dans quelle zone se trouve le point.</li><li>L'abscisse de <code>A</code> est <code>2</code>, son ordonnée est <code>3</code>.</li></ul>
+<p><strong>Sens à l'école</strong> : le repérage sur quadrillage (cycles 2-3) prépare le repère du collège : « on avance puis on monte ».</p></section>
+<section class=""><h2 id="s3">2. Angles : vocabulaire</h2><p>Un <strong>angle</strong> est formé de deux demi-droites de même origine (le <strong>sommet</strong>). On le mesure avec un rapporteur, en <strong>degrés</strong> (°).</p>
+<div class="table-wrap"><table><thead><tr><th>Nom</th><th>Mesure</th><th>Exemple</th></tr></thead><tbody><tr><td>Angle nul</td><td><code>0°</code></td><td>demi-droites confondues</td></tr><tr><td>Angle aigu</td><td>entre <code>0°</code> et <code>90°</code></td><td><code>35°</code></td></tr><tr><td>Angle droit</td><td><code>90°</code></td><td>coin d'une équerre</td></tr><tr><td>Angle obtus</td><td>entre <code>90°</code> et <code>180°</code></td><td><code>120°</code></td></tr><tr><td>Angle plat</td><td><code>180°</code></td><td>demi-droites opposées</td></tr><tr><td>Angle plein</td><td><code>360°</code></td><td>un tour complet</td></tr></tbody></table></div>
+<h3>2.1 Paires d'angles</h3>
+<ul><li><strong>Adjacents</strong> : même sommet, un côté commun, pas de partie commune à l'intérieur.</li><li><strong>Supplémentaires</strong> : somme <code>180°</code> (un angle plat). <strong>Complémentaires</strong> : somme <code>90°</code>.</li><li><strong>Opposés par le sommet</strong> : formés par deux droites sécantes, face à face ; ils sont <strong>égaux</strong>.</li></ul>
+<figure class="fig"><svg viewBox="0 0 320 200" width="320" role="img" aria-label="Deux droites sécantes et les angles formés">
+  <path class="s" d="M40 160L280 40M60 40L260 160"/>
+  <circle class="pt" cx="160" cy="100" r="4"/>
+  <text x="168" y="124">O</text>
+  <text class="b" x="196" y="96">α</text><text class="b" x="112" y="112">α</text>
+  <text x="156" y="68">β</text><text x="156" y="146">β</text>
+  <text class="m" x="20" y="190">α + β = 180°</text>
+</svg><figcaption>Deux droites sécantes : les angles opposés par le sommet sont égaux, deux angles adjacents sont supplémentaires.</figcaption></figure>
+<h3>2.2 Bissectrice</h3>
+<p>La <strong>bissectrice</strong> d'un angle est la demi-droite issue du sommet qui le partage en <strong>deux angles égaux</strong>. Si l'angle mesure <code>80°</code>, chaque moitié mesure <code>40°</code>.</p>
+<h3>2.3 Mesures à connaître</h3>
+<p>L'équerre de l'élève a des angles de <code>90°</code>, et <code>30°-60°</code> ou <code>45°-45°</code>. Savoir ces mesures sert à <strong>estimer</strong> avant de mesurer.</p></section>
+<section class=""><h2 id="s4">3. Droites parallèles et angles</h2><p>Soit une droite (<strong>sécante</strong>) qui coupe deux autres droites. On étudie les angles formés :</p>
+<ul><li><strong>angles correspondants</strong> : situés du même côté de la sécante, l'un dans la « zone extérieure », l'autre dans la « zone intérieure », dans des positions analogues ;</li><li><strong>angles alternes-internes</strong> : situés entre les deux droites, de part et d'autre de la sécante.</li></ul>
+<figure class="fig"><svg viewBox="0 0 340 260" width="340" role="img" aria-label="Deux droites parallèles et une sécante">
+  <path class="s" d="M20 80H320M20 180H320"/>
+  <path class="sb" d="M80 230L260 30"/>
+  <circle class="pt" cx="215" cy="80" r="4"/><circle class="pt" cx="125" cy="180" r="4"/>
+  <text class="b" x="228" y="70">α</text><text class="b" x="186" y="104">α</text><text class="b" x="138" y="170">α</text>
+  <text x="228" y="102">β</text><text x="176" y="70">β</text><text x="100" y="170">β</text><text x="138" y="202">β</text>
+  <text class="m" x="24" y="72">(d)</text><text class="m" x="24" y="172">(d')</text>
+</svg><figcaption>Deux droites parallèles coupées par une sécante : les angles marqués α sont égaux (correspondants et alternes-internes).</figcaption></figure>
+<h3>3.1 Propriété et réciproque</h3>
+<ul><li><strong>Propriété</strong> : si deux droites sont <strong>parallèles</strong>, alors les angles correspondants sont égaux et les angles alternes-internes sont égaux.</li><li><strong>Réciproque</strong> : si deux droites coupées par une sécante forment des angles correspondants égaux (ou alternes-internes égaux), alors elles sont <strong>parallèles</strong>.</li></ul>
+<p>La propriété et sa réciproque sont deux énoncés <strong>différents</strong> : l'un sert à calculer un angle, l'autre à prouver un parallélisme.</p>
+<h3>3.2 Exemple rédigé</h3>
+<div class="callout"><span class="ic">i</span><div><p>Les droites <code>(d)</code> et <code>(d')</code> sont parallèles. Un angle correspondant mesure <code>65°</code>. Quelle est la mesure de l'angle alterne-interne correspondant ?</p></div></div>
+<p><code>(d) // (d')</code> : les angles alternes-internes sont égaux. Donc l'angle cherché vaut <code>65°</code>. Son supplémentaire (angle adjacent) vaut <code>180° − 65° = 115°</code>.</p>
+<h3>3.3 Prouver un parallélisme</h3>
+<p>Deux angles alternes-internes mesurent <code>72°</code> et <code>72°</code> : <strong>ils sont égaux</strong>, donc les droites sont <strong>parallèles</strong> (réciproque). Si on trouve <code>72°</code> et <code>70°</code>, on conclut que les droites <strong>ne sont pas parallèles</strong> (contraposée).</p></section>
+<section class=""><h2 id="s5">4. Raisonner en géométrie</h2><ul><li>Une <strong>définition</strong> nomme un objet ; une <strong>propriété</strong> énonce une conséquence ; une <strong>propriété caractéristique</strong> donne une équivalence.</li><li>On distingue ce qu'on <strong>observe</strong> sur la figure (hypothèse de l'œil) et ce qu'on <strong>démontre</strong>.</li><li>Rédaction type : <em>Données → propriété utilisée → conclusion.</em> (« On sait que… ; or, d'après la propriété… ; donc… »)</li></ul></section>
+<section class=""><h2 id="s6">5. Problèmes types</h2><p><strong>Problème 1.</strong> Deux droites se coupent en formant un angle de <code>40°</code>. Quelles sont les mesures des trois autres angles ?<br>Opposé par le sommet : <code>40°</code>. Adjacents supplémentaires : <code>180° − 40° = 140°</code> (deux angles).</p>
+<p><strong>Problème 2.</strong> L'angle <code>x̂</code> est la moitié d'un angle plat et la bissectrice d'un angle de <code>76°</code> le coupe en deux angles égaux. Quelle est la mesure de chaque moitié ?<br><code>76° ÷ 2 = 38°</code>.</p>
+<p><strong>Problème 3.</strong> Dans un repère, <code>A(−2 ; 1)</code>, <code>B(4 ; 1)</code> et <code>C(4 ; 5)</code>. Montrer que <code>(AB)</code> est horizontale et que <code>ABC</code> est rectangle en <code>B</code> sans mesurer.<br><code>A</code> et <code>B</code> ont la même ordonnée : <code>(AB)</code> est horizontale. <code>B</code> et <code>C</code> ont la même abscisse : <code>(BC)</code> est verticale. Une droite horizontale et une droite verticale sont perpendiculaires : <code>ABC</code> est rectangle en <code>B</code>.</p></section>
+<section class="sec-didactic"><h2 id="s7">6. Erreurs types d'élèves (volet didactique)</h2><div class="table-wrap"><table><thead><tr><th>Erreur observée</th><th>Exemple</th><th>Cause probable</th><th>Remédiation possible</th></tr></thead><tbody><tr><td>Inverser abscisse et ordonnée</td><td><code>A(3 ; 2)</code> placé en <code>(2 ; 3)</code></td><td>Ordre des coordonnées non automatisé</td><td>« On avance, puis on monte » ; jeu de bataille navale</td></tr><tr><td>Lire un angle avec la mauvaise graduation du rapporteur</td><td><code>130°</code> lu <code>50°</code></td><td>Double graduation, pas d'estimation</td><td>Estimer d'abord : aigu ou obtus ?</td></tr><tr><td>Conclure à partir de la mesure</td><td>« les angles semblent égaux donc parallèles »</td><td>Preuve perceptive</td><td>Montrer des figures « presque parallèles » (angles <code>72°</code> et <code>70°</code>)</td></tr><tr><td>Confondre supplémentaires et complémentaires</td><td><code>180°</code> / <code>90°</code> inversés</td><td>Vocabulaire proche</td><td>Associer : complémentaires = coin d'équerre, supplémentaires = droite</td></tr><tr><td>Croire que tous les angles d'un « Z » sont égaux</td><td>alternes-internes pris pour opposés par le sommet</td><td>Pas de justification du parallélisme</td><td>Colorier les angles égaux, exiger la propriété citée</td></tr><tr><td>Confondre propriété et réciproque</td><td>utiliser « angles égaux » pour calculer alors qu'on veut prouver</td><td>Statut des énoncés</td><td>Fiches « sens de la phrase »</td></tr></tbody></table></div>
+<p><strong>Outils</strong> : rapporteur, équerre, quadrillage, logiciel de géométrie dynamique (déplacer un point pour tester une conjecture).</p></section>
+<section class="sec-retenir"><h2 id="s8">7. À retenir</h2><ul><li>Abscisse d'abord : <code>(x ; y)</code>. Distance sur une droite graduée : <code>|a − b|</code>.</li><li>Angles opposés par le sommet : égaux. Supplémentaires : <code>180°</code>. Complémentaires : <code>90°</code>.</li><li>Bissectrice : partage l'angle en deux angles égaux.</li><li>Droites parallèles ⇔ angles correspondants (ou alternes-internes) égaux : la propriété sert à calculer, la réciproque à prouver.</li><li>En géométrie, on justifie avec des propriétés, jamais avec la mesure.</li></ul></section>
+<section class="sec-practice"><h2 id="s9">Pour s'entraîner</h2><div class="practice"><a class="mode-card blue" href="../../quiz/espace-et-geometrie/01-reperage-angles-parallelisme.html"><h3>Quiz</h3><p>Questions courtes avec correction immédiate pour vérifier que c’est acquis.</p><span class="go">Lancer le quiz <span>→</span></span></a><a class="mode-card sky" href="../../exercices/espace-et-geometrie/01-reperage-angles-parallelisme.html"><h3>Exercices</h3><p>Réponses à saisir, indices et corrections détaillées.</p><span class="go">Commencer <span>→</span></span></a></div></section>
+<section class="sec-extra"><h2 id="s10">Pistes de prolongement (culture mathématique)</h2><ul><li>Éléments d'Euclide, livre I, propositions 27 et 28 (droites parallèles et angles alternes).</li><li>Histoire du rapporteur et de la division du cercle en 360°.</li></ul></section>
+</article>
+<aside class="toc" aria-label="Sommaire"><h4>Sur cette page</h4><ol><li><a href="#s1">Objectifs</a></li><li><a href="#s2">1. Repérage</a></li><li><a href="#s3">2. Angles : vocabulaire</a></li><li><a href="#s4">3. Droites parallèles et angles</a></li><li><a href="#s5">4. Raisonner en géométrie</a></li><li><a href="#s6">5. Problèmes types</a></li><li><a href="#s7">6. Erreurs types d'élèves (volet didactique)</a></li><li><a href="#s8">7. À retenir</a></li><li><a href="#s9">Pour s'entraîner</a></li><li><a href="#s10">Pistes de prolongement (culture mathématique)</a></li></ol></aside>
+</div>
+</main>
+<script src="../../assets/admin-config.js"></script>
+<script src="../../assets/nav-data.js"></script>
+<script src="../../assets/nav.js"></script>
+</body>
+</html>

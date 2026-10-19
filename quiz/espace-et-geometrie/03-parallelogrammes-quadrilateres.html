@@ -1,0 +1,100 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Quiz 03 — Parallélogrammes et quadrilatères</title>
+<link rel="stylesheet" href="../../assets/style.css">
+</head>
+<body>
+<main>
+  <header>
+    <h1 id="title"></h1>
+    <p id="subtitle"></p>
+  </header>
+  <div id="app"></div>
+</main>
+<script>
+window.PAGE = {
+  id: "quiz-geo-03",
+  title: "Quiz 03 — Parallélogrammes et quadrilatères",
+  subtitle: "20 questions, correction immédiate.",
+  sections: [
+    { title: "Parallélogramme : définition et propriétés", items: [
+      { type: "qcm", q: "Un parallélogramme est un quadrilatère dont…",
+        options: ["deux côtés sont égaux", "les côtés opposés sont parallèles deux à deux", "les quatre angles sont droits", "les diagonales sont perpendiculaires"], answer: 1,
+        explain: "C'est la définition. Les autres propriétés en découlent ou caractérisent des cas particuliers." },
+      { type: "qcm", q: "Dans un parallélogramme ABCD, les diagonales [AC] et [BD]…",
+        options: ["sont perpendiculaires", "ont même longueur", "se coupent en leur milieu", "sont parallèles"], answer: 2,
+        explain: "Les diagonales d'un parallélogramme se coupent en leur milieu (centre de symétrie)." },
+      { type: "qcm", q: "Dans un parallélogramme, deux angles consécutifs sont…",
+        options: ["égaux", "complémentaires", "supplémentaires", "droits"], answer: 2,
+        explain: "Somme égale à 180° (angles co-intérieurs entre parallèles)." },
+      { type: "qcm", q: "Dans un parallélogramme ABCD, AB = 7 cm et AD = 4 cm. Quel est son périmètre ?",
+        options: ["11 cm", "22 cm", "28 cm", "44 cm"], answer: 1,
+        explain: "2 × (7 + 4) = 22 cm." }
+    ]},
+    { title: "Prouver une nature de quadrilatère", items: [
+      { type: "qcm", q: "ABCD est un quadrilatère non croisé dont les diagonales ont le même milieu. Que peut-on conclure ?",
+        options: ["C'est un rectangle", "C'est un losange", "C'est un parallélogramme", "C'est un trapèze"], answer: 2,
+        explain: "Propriété caractéristique : diagonales de même milieu ⇒ parallélogramme." },
+      { type: "qcm", q: "Un quadrilatère a deux côtés opposés égaux. Est-ce forcément un parallélogramme ?",
+        options: ["Oui", "Non : il faut qu'ils soient aussi parallèles", "Oui s'il est convexe", "Oui s'il a un angle droit"], answer: 1,
+        explain: "Un trapèze isocèle a deux côtés opposés égaux sans être un parallélogramme." },
+      { type: "qcm", q: "Un parallélogramme dont les diagonales ont la même longueur est…",
+        options: ["un losange", "un rectangle", "un carré obligatoirement", "un trapèze"], answer: 1,
+        explain: "Parallélogramme + diagonales égales ⇒ rectangle." },
+      { type: "qcm", q: "Un parallélogramme dont les diagonales sont perpendiculaires est…",
+        options: ["un rectangle", "un losange", "un trapèze", "un cerf-volant"], answer: 1,
+        explain: "Parallélogramme + diagonales perpendiculaires ⇒ losange." },
+      { type: "qcm", q: "Un quadrilatère avec 4 côtés égaux est…",
+        options: ["un rectangle", "un losange", "un trapèze", "un parallélogramme seulement"], answer: 1,
+        explain: "Quatre côtés égaux ⇒ losange (qui est un parallélogramme)." },
+      { type: "qcm", q: "Quel quadrilatère est à la fois un rectangle et un losange ?",
+        options: ["Le trapèze", "Le carré", "Le cerf-volant", "Le parallélogramme"], answer: 1,
+        explain: "Quatre angles droits et quatre côtés égaux : le carré." }
+    ]},
+    { title: "Aires et unités", items: [
+      { type: "qcm", q: "Quelle est l'aire d'un parallélogramme de base 9 cm et de hauteur 5 cm ?",
+        options: ["14 cm²", "45 cm²", "22,5 cm²", "28 cm²"], answer: 1,
+        explain: "Aire = base × hauteur = 45 cm². Le côté oblique n'intervient pas." },
+      { type: "qcm", q: "Un losange a des diagonales de 12 cm et 16 cm. Son aire est…",
+        options: ["192 cm²", "96 cm²", "28 cm²", "48 cm²"], answer: 1,
+        explain: "(12 × 16) ÷ 2 = 96 cm²." },
+      { type: "qcm", q: "1 m² est égal à…",
+        options: ["10 dm²", "100 dm²", "1 000 dm²", "10 000 dm²"], answer: 1,
+        explain: "Pour les aires, on passe d'une unité à la suivante par un facteur 100." },
+      { type: "qcm", q: "0,25 m² représente combien de cm² ?",
+        options: ["25 cm²", "250 cm²", "2 500 cm²", "25 000 cm²"], answer: 2,
+        explain: "0,25 × 10 000 = 2 500 cm²." },
+      { type: "qcm", q: "Un trapèze a pour bases 8 cm et 4 cm et pour hauteur 5 cm. Son aire est…",
+        options: ["30 cm²", "60 cm²", "17 cm²", "160 cm²"], answer: 0,
+        explain: "(8 + 4) × 5 ÷ 2 = 30 cm²." }
+    ]},
+    { title: "Regard d'enseignant", items: [
+      { type: "qcm", q: "Un élève calcule l'aire d'un parallélogramme (base 9, côté oblique 7, hauteur 5) par 9 × 7. Quelle remédiation est la plus pertinente ?",
+        options: [
+          "Découper un triangle rectangle et le recoller pour obtenir un rectangle de dimensions 9 et 5",
+          "Redonner la formule sans explication",
+          "Lui interdire les parallélogrammes",
+          "Faire mesurer le périmètre à la place"],
+        answer: 0,
+        explain: "Le découpage-recollage donne le sens de la hauteur perpendiculaire à la base." },
+      { type: "qcm", q: "Un élève écrit « 1 m² = 10 dm² ». Quelle remédiation est la plus pertinente ?",
+        options: [
+          "Quadriller un carré de 1 m de côté en carrés de 1 dm : 10 × 10 = 100 carrés",
+          "Refaire dix conversions identiques",
+          "Lui faire apprendre le tableau par cœur sans explication",
+          "Passer à autre chose"],
+        answer: 0,
+        explain: "Le quadrillage montre que l'aire est un produit de deux longueurs, donc un facteur 100." }
+    ]}
+  ]
+};
+</script>
+<script src="../../assets/admin-config.js"></script>
+<script src="../../assets/nav-data.js"></script>
+<script src="../../assets/nav.js"></script>
+<script src="../../assets/app.js"></script>
+</body>
+</html>

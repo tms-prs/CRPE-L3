@@ -1,0 +1,102 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Exercices 04 — Symétries et translations</title>
+<link rel="stylesheet" href="../../assets/style.css">
+</head>
+<body>
+<main>
+  <header>
+    <h1 id="title"></h1>
+    <p id="subtitle"></p>
+  </header>
+  <div id="app"></div>
+</main>
+<script>
+window.PAGE = {
+  id: "exo-geo-04",
+  title: "Exercices 04 — Symétries et translations",
+  subtitle: "Réponses : nombres (coordonnées, longueurs, nombre d'axes). Leçon : lecons/espace-et-geometrie/04-symetries-translations.md",
+  sections: [
+    { title: "A. Symétrie axiale et coordonnées", items: [
+      { type: "num", q: "Le point A(2 ; 3) a pour symétrique A' par rapport à l'axe des ordonnées. Quelle est l'abscisse de A' ?", answer: "-2",
+        hint: "L'axe des ordonnées est l'axe vertical : l'abscisse change de signe.",
+        solution: "A'(−2 ; 3)." },
+      { type: "num", q: "Le point A(2 ; 3) a pour symétrique A'' par rapport à l'axe des abscisses. Quelle est l'ordonnée de A'' ?", answer: "-3",
+        hint: "L'axe des abscisses est l'axe horizontal : l'ordonnée change de signe.",
+        solution: "A''(2 ; −3)." },
+      { type: "num", q: "A et A' sont symétriques par rapport à une droite (d). La distance de A à (d) vaut 4 cm. Quelle est la longueur AA' (en cm) ?", answer: "8",
+        solution: "(d) est la médiatrice de [AA'] : AA' = 2 × 4 = 8 cm." },
+      { type: "num", q: "Combien d'axes de symétrie possède un carré ?", answer: "4",
+        solution: "Deux médiatrices et deux diagonales : 4 axes." },
+      { type: "num", q: "Combien d'axes de symétrie possède un triangle équilatéral ?", answer: "3",
+        solution: "Un axe par sommet : 3 axes." }
+    ]},
+    { title: "B. Symétrie centrale", items: [
+      { type: "num", q: "O est le milieu de [AA'] et AA' = 12 cm. Quelle est la distance OA (en cm) ?", answer: "6",
+        solution: "12 ÷ 2 = 6 cm." },
+      { type: "num", q: "Le point A(3 ; 4) a pour symétrique A' par rapport à l'origine O. Quelle est l'abscisse de A' ?", answer: "-3",
+        hint: "O est le milieu de [AA'] : x' = −x et y' = −y.",
+        solution: "A'(−3 ; −4)." },
+      { type: "num", q: "Un segment [AB] mesure 7 cm. Quelle est la longueur de son image [A'B'] par une symétrie centrale (en cm) ?", answer: "7",
+        solution: "La symétrie centrale conserve les longueurs." },
+      { type: "num", q: "ABCD est un parallélogramme de centre O avec AC = 10 cm. Quelle est la distance OC (en cm) ?", answer: "5",
+        solution: "Le symétrique de A par rapport à O est C, donc O est le milieu de [AC] : OC = 5 cm." },
+      { type: "qcm", q: "Laquelle de ces figures n'a pas de centre de symétrie ?",
+        options: ["Le rectangle", "Le triangle équilatéral", "Le losange"], answer: 1,
+        explain: "Un triangle n'a jamais de centre de symétrie." }
+    ]},
+    { title: "C. Translation", items: [
+      { type: "num", q: "Une translation envoie A(1 ; 2) sur A'(4 ; 6). Quelle est l'abscisse de l'image de B(0 ; 0) ?", answer: "3",
+        hint: "Le déplacement est (+3 ; +4).",
+        solution: "B'(0 + 3 ; 0 + 4) = (3 ; 4)." },
+      { type: "num", q: "Avec la même translation, quelle est l'ordonnée de l'image de B(0 ; 0) ?", answer: "4",
+        solution: "B'(3 ; 4)." },
+      { type: "num", q: "ABCD est un parallélogramme avec AB = 6 cm. La translation qui envoie A sur B envoie D sur D'. Quelle est la longueur DD' (en cm) ?", answer: "6",
+        hint: "Tous les points sont déplacés de la même longueur.",
+        solution: "Tous les points glissent de la même longueur que A vers B : DD' = AB = 6 cm (D' = C)." },
+      { type: "qcm", q: "L'image d'une droite par une translation est…",
+        options: ["une droite parallèle à la première", "une droite perpendiculaire", "un point"], answer: 0,
+        explain: "La translation conserve le parallélisme." }
+    ]},
+    { title: "D. Problèmes", items: [
+      { type: "num", q: "Un triangle ABC a pour aire 12 cm². Quelle est l'aire de son image par une symétrie axiale (en cm²) ?", answer: "12",
+        solution: "Les symétries conservent les aires." },
+      { type: "num", q: "Un angle de 35° est transformé par une translation. Quelle est la mesure de son image (en °) ?", answer: "35",
+        solution: "La translation conserve les angles." },
+      { type: "num", q: "Une frise répète un motif par translations successives de 8 cm. Quelle est la distance entre le 1er et le 6e motif (en cm) ?", answer: "40",
+        hint: "Entre le 1er et le 6e, il y a 5 pas.",
+        solution: "5 × 8 = 40 cm." },
+      { type: "num", q: "Combien d'axes de symétrie possède un rectangle qui n'est pas un carré ?", answer: "2",
+        solution: "Les deux médiatrices des côtés : 2 axes (les diagonales ne sont pas des axes)." }
+    ]},
+    { title: "Problème 1 · Le triangle et ses images", statement: "Dans un repère orthonormé d'unité 1 cm, on considère les points A(2 ; 3), B(6 ; 3) et C(4 ; 7). On note A'B'C' l'image de ABC par la symétrie d'axe l'axe des ordonnées, puis A''B''C'' l'image de ABC par la translation de vecteur (3 ; −2) (on se déplace de 3 vers la droite et de 2 vers le bas).", items: [
+      { type: "num", label: "a)", q: "Quelle est l'abscisse de A' ?", answer: "-2",
+        solution: "Symétrie par rapport à l'axe des ordonnées : l'abscisse change de signe, A'(−2 ; 3)." },
+      { type: "num", label: "b)", q: "Quelle est la longueur A'B' (en cm) ?", answer: "4",
+        hint: "Qu'est-ce qui est conservé par une symétrie axiale ?",
+        solution: "La symétrie conserve les longueurs : A'B' = AB = 4 cm." },
+      { type: "num", label: "c)", q: "Quelle est l'aire du triangle A'B'C' (en cm²) ?", answer: "8",
+        solution: "La symétrie conserve les aires. Aire de ABC : base AB = 4, hauteur = 7 − 3 = 4, donc 4 × 4 ÷ 2 = 8 cm²." },
+      { type: "num", label: "d)", q: "Quelle est l'abscisse de C'' ?", answer: "7",
+        solution: "La translation ajoute 3 aux abscisses : C''(4 + 3 ; 7 − 2) = (7 ; 5)." }
+    ]},
+    { title: "Problème 2 · La frise décorative", statement: "Une frise est obtenue en répétant un motif par translations successives de 12 cm vers la droite. Chaque motif mesure 9 cm de largeur.", items: [
+      { type: "num", label: "a)", q: "Quelle distance sépare le début du 1er motif du début du 10e motif (en cm) ?", answer: "108",
+        solution: "Il y a 9 translations entre le 1er et le 10e : 9 × 12 = 108 cm." },
+      { type: "num", label: "b)", q: "Quelle est la largeur totale de la frise de 10 motifs (en cm) ?", answer: "117",
+        solution: "Début du 10e motif à 108 cm, plus sa largeur de 9 cm : 117 cm." },
+      { type: "num", label: "c)", q: "Quel est l'espace entre deux motifs consécutifs (en cm) ?", answer: "3",
+        solution: "12 − 9 = 3 cm." }
+    ]}
+  ]
+};
+</script>
+<script src="../../assets/admin-config.js"></script>
+<script src="../../assets/nav-data.js"></script>
+<script src="../../assets/nav.js"></script>
+<script src="../../assets/app.js"></script>
+</body>
+</html>

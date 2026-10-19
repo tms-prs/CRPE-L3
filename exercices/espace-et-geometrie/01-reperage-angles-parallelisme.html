@@ -1,0 +1,108 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Exercices 01 — Repérage, angles et parallélisme</title>
+<link rel="stylesheet" href="../../assets/style.css">
+</head>
+<body>
+<main>
+  <header>
+    <h1 id="title"></h1>
+    <p id="subtitle"></p>
+  </header>
+  <div id="app"></div>
+</main>
+<script>
+window.PAGE = {
+  id: "exo-geo-01",
+  title: "Exercices 01 — Repérage, angles et parallélisme",
+  subtitle: "Les réponses sont des nombres (mesures en degrés, distances, coordonnées). Leçon : lecons/espace-et-geometrie/01-reperage-angles-parallelisme.md",
+  sections: [
+    { title: "A. Repérage", items: [
+      { type: "num", q: "Quelle est la distance entre les points A(−4) et B(5) sur une droite graduée ?", answer: "9",
+        hint: "Distance = |a − b|.",
+        solution: "|5 − (−4)| = 9." },
+      { type: "num", q: "Quelle est l'ordonnée du point A(2 ; −5) ?", answer: "-5",
+        solution: "Le point s'écrit (abscisse ; ordonnée) : l'ordonnée est −5." },
+      { type: "num", q: "Dans un repère, A(−2 ; 1), B(4 ; 1) et C(4 ; 5). Quelle est la longueur AB (en unités) ?", answer: "6",
+        hint: "A et B ont la même ordonnée : on regarde les abscisses.",
+        solution: "AB = |4 − (−2)| = 6." },
+      { type: "num", q: "Dans le même repère, quelle est la longueur BC (en unités) ?", answer: "4",
+        hint: "B et C ont la même abscisse : on regarde les ordonnées.",
+        solution: "BC = |5 − 1| = 4." },
+      { type: "num", q: "Dans ce repère, le point D(x ; y) complète le rectangle ABCD. Quelle est son abscisse ?", answer: "-2",
+        hint: "D est au-dessus de A et à gauche de C.",
+        solution: "D a l'abscisse de A (−2) et l'ordonnée de C (5) : D(−2 ; 5)." }
+    ]},
+    { title: "B. Angles : calculs", items: [
+      { type: "num", q: "Deux angles sont supplémentaires. L'un mesure 115°. Combien mesure l'autre (en °) ?", answer: "65",
+        solution: "180° − 115° = 65°." },
+      { type: "num", q: "Deux angles sont complémentaires. L'un mesure 35°. Combien mesure l'autre (en °) ?", answer: "55",
+        solution: "90° − 35° = 55°." },
+      { type: "num", q: "Deux droites sécantes forment un angle de 40°. Quelle est la mesure d'un angle adjacent (en °) ?", answer: "140",
+        solution: "180° − 40° = 140°." },
+      { type: "num", q: "La bissectrice d'un angle de 76° le coupe en deux angles égaux. Combien mesure chacun (en °) ?", answer: "38",
+        solution: "76° ÷ 2 = 38°." },
+      { type: "num", q: "Trois angles consécutifs forment un angle plat. Deux mesurent 50° et 70°. Combien mesure le troisième (en °) ?", answer: "60",
+        hint: "Un angle plat mesure 180°.",
+        solution: "180° − 50° − 70° = 60°." },
+      { type: "num", q: "Une aiguille d'horloge tourne d'un quart de tour. De combien de degrés ?", answer: "90",
+        solution: "Un tour complet vaut 360° : 360° ÷ 4 = 90°." }
+    ]},
+    { title: "C. Parallélisme et angles", items: [
+      { type: "num", q: "(d) // (d'). Une sécante forme un angle de 65° avec (d). L'angle correspondant avec (d') mesure (en °) ?", answer: "65",
+        solution: "Droites parallèles : les angles correspondants sont égaux." },
+      { type: "num", q: "(d) // (d'). Deux angles alternes-internes : l'un mesure 3x + 5°, l'autre 2x + 25°. Quelle est la valeur de x ?", answer: "20",
+        hint: "Alternes-internes égaux : 3x + 5 = 2x + 25.",
+        solution: "3x + 5 = 2x + 25 ⇒ x = 20. Les angles mesurent 65° chacun." },
+      { type: "qcm", q: "Deux angles correspondants mesurent 72° et 72°. Que peut-on affirmer ?",
+        options: ["Les droites sont parallèles", "Les droites sont perpendiculaires", "Les droites sont sécantes en un angle droit", "On ne peut rien dire"], answer: 0,
+        explain: "Réciproque : angles correspondants égaux ⇒ droites parallèles." },
+      { type: "qcm", q: "Deux angles alternes-internes mesurent 108° et 106°. Que peut-on affirmer ?",
+        options: ["Les droites sont parallèles", "Les droites ne sont pas parallèles", "Les droites sont confondues", "Il y a une erreur de mesure obligatoirement"], answer: 1,
+        explain: "Si elles étaient parallèles, les angles seraient égaux. Contraposée : elles ne sont pas parallèles." },
+      { type: "num", q: "(d) // (d'). Un angle aigu formé avec la sécante mesure 50°. Quelle est la mesure de l'angle obtus adjacent (en °) ?", answer: "130",
+        solution: "Supplémentaires : 180° − 50° = 130°." }
+    ]},
+    { title: "D. Problèmes", items: [
+      { type: "num", q: "Dans un triangle, le sommet A est placé en A(0 ; 0), B(6 ; 0) et C(6 ; 8). Quelle est la longueur BC (en unités) ?", answer: "8",
+        solution: "B et C ont la même abscisse : BC = |8 − 0| = 8." },
+      { type: "num", q: "Un rapporteur indique 130° pour un angle que l'on estime aigu. Quelle est sa vraie mesure (en °) ? (l'élève a lu la mauvaise graduation)", answer: "50",
+        hint: "Les deux graduations donnent des angles supplémentaires.",
+        solution: "L'angle est aigu : sa mesure est 180° − 130° = 50°." },
+      { type: "num", q: "Deux routes parallèles sont coupées par une troisième qui forme avec la première un angle de 54°. Quel angle forme-t-elle avec la seconde, du même côté et en position correspondante (en °) ?", answer: "54",
+        solution: "Angles correspondants entre parallèles : égaux, soit 54°." },
+      { type: "qcm", q: "Pour prouver que deux droites sont parallèles, on peut…",
+        options: ["Les mesurer à la règle", "Montrer que des angles correspondants (ou alternes-internes) sont égaux", "Vérifier qu'elles se ressemblent sur la figure", "Tracer une troisième droite au hasard"], answer: 1,
+        explain: "On utilise la réciproque de la propriété sur les angles. La mesure et l'apparence ne sont pas des preuves." }
+    ]},
+    { title: "Problème 1 · Le triangle dans le repère", statement: "Dans un repère orthonormé d'unité 1 cm, on place les points A(1 ; 1), B(7 ; 1) et C(7 ; 9).", items: [
+      { type: "num", label: "a)", q: "Quelle est la longueur AB (en cm) ?", answer: "6",
+        solution: "A et B ont la même ordonnée : AB = |7 − 1| = 6 cm." },
+      { type: "num", label: "b)", q: "Quelle est la longueur BC (en cm) ?", answer: "8",
+        solution: "B et C ont la même abscisse : BC = |9 − 1| = 8 cm." },
+      { type: "num", label: "c)", q: "Quelle est la longueur AC (en cm) ?", answer: "10",
+        hint: "(AB) est horizontale et (BC) verticale : que peut-on dire de l'angle en B ?",
+        solution: "(AB) est horizontale et (BC) verticale : elles sont perpendiculaires. ABC est rectangle en B ; par Pythagore, AC² = 36 + 64 = 100, AC = 10 cm." },
+      { type: "num", label: "d)", q: "Quelle est l'aire du triangle ABC (en cm²) ?", answer: "24",
+        solution: "Les côtés de l'angle droit sont base et hauteur : 6 × 8 ÷ 2 = 24 cm²." }
+    ]},
+    { title: "Problème 2 · Les routes parallèles", statement: "Deux routes (d) et (d') sont parallèles. Une troisième route (s) les coupe. L'angle aigu formé par (s) et (d) mesure 2x + 10 degrés ; l'angle correspondant formé par (s) et (d') mesure 3x − 20 degrés.", items: [
+      { type: "num", label: "a)", q: "Quelle est la valeur de x ?", answer: "30",
+        solution: "(d) // (d') : les angles correspondants sont égaux. 2x + 10 = 3x − 20, donc x = 30." },
+      { type: "num", label: "b)", q: "Quelle est la mesure de cet angle aigu (en °) ?", answer: "70",
+        solution: "2 × 30 + 10 = 70° (et 3 × 30 − 20 = 70° : vérifié)." },
+      { type: "num", label: "c)", q: "Quelle est la mesure de l'angle obtus formé par (s) et (d), adjacent à l'angle aigu (en °) ?", answer: "110",
+        solution: "Les deux angles forment un angle plat : 180° − 70° = 110°." }
+    ]}
+  ]
+};
+</script>
+<script src="../../assets/admin-config.js"></script>
+<script src="../../assets/nav-data.js"></script>
+<script src="../../assets/nav.js"></script>
+<script src="../../assets/app.js"></script>
+</body>
+</html>

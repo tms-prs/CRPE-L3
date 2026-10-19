@@ -1,0 +1,80 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Leçon 02 — Triangles et droites remarquables</title>
+<link rel="stylesheet" href="../../assets/style.css">
+</head>
+<body class="lesson">
+<main>
+<div class="lesson-hero">
+<nav class="crumbs" aria-label="Fil d'Ariane"><a href="../../index.html">Accueil</a><span>›</span><span>Espace et géométrie</span><span>›</span><span>Leçon 02</span></nav>
+<span class="kicker">Leçon 02</span>
+<h1>Triangles et droites <em>remarquables</em></h1>
+<div class="meta-row"><span class="pill-tag blue">Espace et géométrie</span><span class="pill-tag">⏱ 2 h (cours) + exercices</span></div>
+<div class="infos"><div class="info"><b>Programme</b>cycle 4 — triangles : triangles particuliers, somme des angles (démonstration), construction, médiatrices, cercle circonscrit, hauteurs, médianes, aire (5e) (BO du 5 mars 2026, annexe 2)</div><div class="info"><b>Prérequis</b>leçon 01 (angles, parallélisme), vocabulaire de base (milieu, perpendiculaire, rayon)</div></div>
+</div>
+<div class="lesson-layout">
+<article class="prose">
+<section class="sec-objectifs"><h2 id="s1">Objectifs</h2><p>À la fin de la leçon, l'étudiante sait :</p>
+<ul><li>reconnaître et caractériser les triangles particuliers ;</li><li>démontrer et utiliser la somme des angles d'un triangle ;</li><li>construire un triangle à partir de données partielles ;</li><li>définir et construire médiatrices, cercle circonscrit, hauteurs, médianes ;</li><li>calculer l'aire d'un triangle ;</li><li>repérer les erreurs types d'élèves.</li></ul></section>
+<section class=""><h2 id="s2">1. Triangles particuliers</h2><div class="table-wrap"><table><thead><tr><th>Triangle</th><th>Définition</th><th>Propriété utile</th></tr></thead><tbody><tr><td><strong>Isocèle</strong> en <code>A</code></td><td><code>AB = AC</code> (deux côtés égaux)</td><td>angles à la base égaux : <code>B̂ = Ĉ</code></td></tr><tr><td><strong>Équilatéral</strong></td><td>trois côtés égaux</td><td>trois angles de <code>60°</code></td></tr><tr><td><strong>Rectangle</strong> en <code>A</code></td><td>un angle droit en <code>A</code></td><td>les deux autres angles sont complémentaires</td></tr><tr><td><strong>Isocèle rectangle</strong></td><td>angle droit et deux côtés égaux</td><td>angles <code>90°</code>, <code>45°</code>, <code>45°</code></td></tr></tbody></table></div>
+<p>On code les figures : traits identiques pour les longueurs égales, arcs identiques pour les angles égaux, petit carré pour l'angle droit.</p></section>
+<section class=""><h2 id="s3">2. Somme des angles d'un triangle</h2><p><strong>Propriété</strong> : dans un triangle, la somme des mesures des trois angles est <code>180°</code>.</p>
+<p><strong>Démonstration</strong> (attendue d'un futur enseignant). Soit <code>ABC</code> un triangle. On trace la parallèle à <code>(BC)</code> passant par <code>A</code>.</p>
+<ul><li>L'angle <code>B̂</code> et l'angle formé à gauche de <code>A</code> sont <strong>alternes-internes</strong> : ils sont égaux.</li><li>L'angle <code>Ĉ</code> et l'angle formé à droite de <code>A</code> sont <strong>alternes-internes</strong> : ils sont égaux.</li><li>Ces deux angles, avec <code>Â</code>, forment un angle plat : <code>180°</code>.</li></ul>
+<p>Donc <code>Â + B̂ + Ĉ = 180°</code>.</p>
+<p><strong>Conséquences</strong> :</p>
+<ul><li>le troisième angle se calcule : <code>Ĉ = 180° − Â − B̂</code> ;</li><li>triangle équilatéral : <code>180° ÷ 3 = 60°</code> ;</li><li>triangle rectangle : <code>B̂ + Ĉ = 90°</code> ;</li><li>triangle isocèle de sommet <code>A</code> : <code>B̂ = Ĉ = (180° − Â) ÷ 2</code>.</li></ul>
+<p><strong>Exemple.</strong> Triangle isocèle avec un angle au sommet de <code>40°</code>. Chaque angle à la base mesure <code>(180° − 40°) ÷ 2 = 70°</code>.</p></section>
+<section class=""><h2 id="s4">3. Construire un triangle</h2><p>On construit à la règle graduée, à l'équerre, au rapporteur et au compas.</p>
+<div class="table-wrap"><table><thead><tr><th>Données</th><th>Méthode</th></tr></thead><tbody><tr><td>Trois côtés</td><td>tracer un côté, puis deux arcs de cercle aux deux extrémités : le troisième sommet est à l'intersection</td></tr><tr><td>Deux côtés et l'angle compris</td><td>tracer l'angle au rapporteur, reporter les longueurs sur les côtés</td></tr><tr><td>Un côté et les deux angles adjacents</td><td>tracer le côté, puis les deux angles à ses extrémités</td></tr></tbody></table></div>
+<p><strong>Remarque</strong> : trois longueurs ne forment pas toujours un triangle. Il faut que le plus grand côté soit <strong>plus petit que la somme des deux autres</strong> (ex. <code>2 ; 3 ; 8</code> est impossible, <code>5 ; 6 ; 7</code> est possible).</p></section>
+<section class=""><h2 id="s5">4. Médiatrices et cercle circonscrit</h2><h3>4.1 Médiatrice</h3>
+<p>La <strong>médiatrice</strong> d'un segment est la droite <strong>perpendiculaire</strong> au segment en son <strong>milieu</strong>.</p>
+<p><strong>Propriété caractéristique</strong> : un point est sur la médiatrice de <code>[AB]</code> <strong>si et seulement si</strong> il est à égale distance de <code>A</code> et de <code>B</code>.</p>
+<h3>4.2 Cercle circonscrit</h3>
+<p>Les trois médiatrices d'un triangle sont <strong>concourantes</strong> en un point <code>O</code>, équidistant des trois sommets. <code>O</code> est le centre du <strong>cercle circonscrit</strong> au triangle (le cercle qui passe par les trois sommets).</p>
+<figure class="fig"><svg viewBox="0 20 360 300" width="360" role="img" aria-label="Triangle, médiatrices et cercle circonscrit">
+  <circle class="s" cx="180" cy="181.4" r="121.4" style="stroke:#667295"/>
+  <path class="fs" d="M60 200L300 200L180 60Z"/>
+  <path class="sb d" d="M180 200L180 181.4M120 130L180 181.4M240 130L180 181.4"/>
+  <circle class="pb" cx="180" cy="181.4" r="5"/>
+  <circle class="pt" cx="60" cy="200" r="4"/><circle class="pt" cx="300" cy="200" r="4"/><circle class="pt" cx="180" cy="60" r="4"/>
+  <circle class="pt" cx="180" cy="200" r="3"/><circle class="pt" cx="120" cy="130" r="3"/><circle class="pt" cx="240" cy="130" r="3"/>
+  <text x="38" y="216">A</text><text x="304" y="216">B</text><text x="176" y="50">C</text>
+  <text class="b" x="188" y="176">O</text>
+</svg><figcaption>Les médiatrices du triangle se coupent en O, centre du cercle circonscrit.</figcaption></figure>
+<p><strong>Construction</strong> : tracer deux médiatrices (compas) ; leur intersection est <code>O</code> ; le cercle de centre <code>O</code> passant par <code>A</code> passe aussi par <code>B</code> et <code>C</code>.</p></section>
+<section class=""><h2 id="s6">5. Hauteurs, médianes, bissectrices</h2><div class="table-wrap"><table><thead><tr><th>Droite</th><th>Définition</th><th>Propriété</th></tr></thead><tbody><tr><td><strong>Hauteur</strong> issue de <code>A</code></td><td>droite passant par <code>A</code> et <strong>perpendiculaire</strong> à <code>(BC)</code></td><td>les trois hauteurs sont <strong>concourantes</strong> (orthocentre)</td></tr><tr><td><strong>Médiane</strong> issue de <code>A</code></td><td>droite (ou segment) joignant <code>A</code> au <strong>milieu</strong> de <code>[BC]</code></td><td>les trois médianes sont concourantes (centre de gravité)</td></tr><tr><td><strong>Bissectrice</strong> de <code>Â</code></td><td>demi-droite qui coupe <code>Â</code> en deux angles égaux</td><td>les trois bissectrices sont concourantes (centre du cercle inscrit)</td></tr></tbody></table></div>
+<p><strong>Propriété de la médiane</strong> : une médiane partage le triangle en <strong>deux triangles de même aire</strong> (même base car <code>M</code> est le milieu, même hauteur).</p>
+<p>Dans un triangle <strong>isocèle</strong> en <code>A</code>, la hauteur, la médiane, la bissectrice issues de <code>A</code> et la médiatrice de <code>[BC]</code> sont <strong>confondues</strong>.</p></section>
+<section class=""><h2 id="s7">6. Aire d'un triangle</h2><p>On choisit un côté comme <strong>base</strong> <code>b</code>, et la <strong>hauteur</strong> <code>h</code> correspondante (perpendiculaire à la base, issue du sommet opposé) :</p>
+<p><code>Aire = (b × h) ÷ 2</code></p>
+<figure class="fig"><svg viewBox="0 0 340 220" width="340" role="img" aria-label="Triangle avec sa hauteur">
+  <path class="fs" d="M50 170L290 170L200 40Z"/>
+  <path class="sb d" d="M200 40V170"/>
+  <path class="s" d="M200 170h-12v-12h12"/>
+  <text class="b" x="160" y="196">base b</text><text class="b" x="208" y="112">h</text>
+</svg><figcaption>Le triangle de base b et de hauteur h a pour aire (b × h) ÷ 2.</figcaption></figure>
+<ul><li>La hauteur peut tomber <strong>hors</strong> du triangle (triangle obtus) : on prolonge la base.</li><li>Les trois couples (base, hauteur) donnent la même aire.</li></ul>
+<p><strong>Exemple.</strong> <code>b = 8 cm</code>, <code>h = 5 cm</code> : aire <code>= 8 × 5 ÷ 2 = 20 cm²</code>.</p></section>
+<section class=""><h2 id="s8">7. Problèmes types</h2><p><strong>Problème 1.</strong> Un triangle isocèle a un angle à la base de <code>65°</code>. Quel est l'angle au sommet ?<br><code>180° − 2 × 65° = 50°</code>.</p>
+<p><strong>Problème 2.</strong> Les angles d'un triangle mesurent <code>x</code>, <code>2x</code> et <code>3x</code>. Calculer <code>x</code>.<br><code>x + 2x + 3x = 180°</code> donc <code>6x = 180°</code> et <code>x = 30°</code>. Les angles sont <code>30°</code>, <code>60°</code>, <code>90°</code> : triangle rectangle.</p>
+<p><strong>Problème 3.</strong> Montrer que dans un triangle rectangle <code>ABC</code> en <code>A</code>, les angles <code>B̂</code> et <code>Ĉ</code> sont complémentaires.<br><code>Â = 90°</code> et <code>Â + B̂ + Ĉ = 180°</code>, donc <code>B̂ + Ĉ = 90°</code>.</p>
+<p><strong>Problème 4.</strong> Un triangle a une base de <code>12 cm</code> et une aire de <code>30 cm²</code>. Quelle est la hauteur ?<br><code>h = 2 × 30 ÷ 12 = 5 cm</code>.</p></section>
+<section class="sec-didactic"><h2 id="s9">8. Erreurs types d'élèves (volet didactique)</h2><div class="table-wrap"><table><thead><tr><th>Erreur observée</th><th>Exemple</th><th>Cause probable</th><th>Remédiation possible</th></tr></thead><tbody><tr><td>Hauteur non perpendiculaire</td><td>hauteur « penchée » le long d'un côté</td><td>Confusion hauteur / médiane / côté</td><td>Utiliser l'équerre, tracer sur papier calque</td></tr><tr><td>Oublier le <code>÷ 2</code></td><td>aire <code>= b × h</code></td><td>Assimilation au rectangle</td><td>Découper le rectangle en deux triangles</td></tr><tr><td>Confondre médiane et médiatrice</td><td>« médiatrice issue d'un sommet »</td><td>Vocabulaire proche</td><td>Tableau comparatif, schémas colorés</td></tr><tr><td>Mesurer au lieu de justifier</td><td>« 62° + 70° + 48° = 180° car j'ai mesuré »</td><td>Perception comme preuve</td><td>Calculer le 3e angle, demander la propriété</td></tr><tr><td>Croire que la hauteur est toujours à l'intérieur</td><td>triangle obtus mal traité</td><td>Figures prototypiques</td><td>Varier les orientations et triangles obtus</td></tr><tr><td>Confondre angle droit et côtés égaux</td><td>isocèle ≠ rectangle</td><td>Statut des propriétés</td><td>Cartes de classement, contre-exemples</td></tr></tbody></table></div>
+<p><strong>Outils</strong> : papier calque, équerre, compas, logiciel de géométrie dynamique, plis (médiatrice par pliage), découpage.</p></section>
+<section class="sec-retenir"><h2 id="s10">9. À retenir</h2><ul><li>Somme des angles d'un triangle : <code>180°</code> (preuve avec la parallèle et les angles alternes-internes).</li><li>Isocèle : deux angles égaux ; équilatéral : trois angles de <code>60°</code> ; rectangle : deux angles complémentaires.</li><li>Médiatrices concourantes : centre du cercle circonscrit. Hauteurs concourantes. Médianes concourantes.</li><li>Une médiane partage le triangle en deux triangles de même aire.</li><li>Aire du triangle : <code>(base × hauteur) ÷ 2</code>.</li></ul></section>
+<section class="sec-practice"><h2 id="s11">Pour s'entraîner</h2><div class="practice"><a class="mode-card blue" href="../../quiz/espace-et-geometrie/02-triangles-droites-remarquables.html"><h3>Quiz</h3><p>Questions courtes avec correction immédiate pour vérifier que c’est acquis.</p><span class="go">Lancer le quiz <span>→</span></span></a><a class="mode-card sky" href="../../exercices/espace-et-geometrie/02-triangles-droites-remarquables.html"><h3>Exercices</h3><p>Réponses à saisir, indices et corrections détaillées.</p><span class="go">Commencer <span>→</span></span></a></div></section>
+<section class="sec-extra"><h2 id="s12">Pistes de prolongement (culture mathématique)</h2><ul><li>Droite d'Euler et cercle des neuf points.</li><li>Construction d'un pentagone régulier à la règle et au compas.</li><li>Ogives gothiques, triangle de Reuleaux.</li></ul></section>
+</article>
+<aside class="toc" aria-label="Sommaire"><h4>Sur cette page</h4><ol><li><a href="#s1">Objectifs</a></li><li><a href="#s2">1. Triangles particuliers</a></li><li><a href="#s3">2. Somme des angles d'un triangle</a></li><li><a href="#s4">3. Construire un triangle</a></li><li><a href="#s5">4. Médiatrices et cercle circonscrit</a></li><li><a href="#s6">5. Hauteurs, médianes, bissectrices</a></li><li><a href="#s7">6. Aire d'un triangle</a></li><li><a href="#s8">7. Problèmes types</a></li><li><a href="#s9">8. Erreurs types d'élèves (volet didactique)</a></li><li><a href="#s10">9. À retenir</a></li><li><a href="#s11">Pour s'entraîner</a></li><li><a href="#s12">Pistes de prolongement (culture mathématique)</a></li></ol></aside>
+</div>
+</main>
+<script src="../../assets/admin-config.js"></script>
+<script src="../../assets/nav-data.js"></script>
+<script src="../../assets/nav.js"></script>
+</body>
+</html>

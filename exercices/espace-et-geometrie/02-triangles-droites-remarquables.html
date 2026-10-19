@@ -1,0 +1,103 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Exercices 02 — Triangles et droites remarquables</title>
+<link rel="stylesheet" href="../../assets/style.css">
+</head>
+<body>
+<main>
+  <header>
+    <h1 id="title"></h1>
+    <p id="subtitle"></p>
+  </header>
+  <div id="app"></div>
+</main>
+<script>
+window.PAGE = {
+  id: "exo-geo-02",
+  title: "Exercices 02 — Triangles et droites remarquables",
+  subtitle: "Réponses : nombres (angles en degrés, aires, longueurs). Leçon : lecons/espace-et-geometrie/02-triangles-droites-remarquables.md",
+  sections: [
+    { title: "A. Angles", items: [
+      { type: "num", q: "Un triangle a deux angles de 50° et 70°. Combien mesure le troisième (en °) ?", answer: "60",
+        solution: "180° − 50° − 70° = 60°." },
+      { type: "num", q: "Un triangle isocèle a un angle au sommet de 40°. Combien mesure un angle à la base (en °) ?", answer: "70",
+        solution: "(180° − 40°) ÷ 2 = 70°." },
+      { type: "num", q: "Un triangle isocèle a un angle à la base de 65°. Combien mesure l'angle au sommet (en °) ?", answer: "50",
+        solution: "180° − 2 × 65° = 50°." },
+      { type: "num", q: "Dans un triangle rectangle, un angle aigu mesure 35°. Combien mesure l'autre (en °) ?", answer: "55",
+        solution: "90° − 35° = 55°." },
+      { type: "num", q: "Les angles d'un triangle mesurent x, 2x et 3x. Quelle est la valeur de x (en °) ?", answer: "30",
+        hint: "x + 2x + 3x = 180°.",
+        solution: "6x = 180°, donc x = 30°. Le triangle est rectangle (30°, 60°, 90°)." },
+      { type: "num", q: "Un triangle isocèle rectangle : combien mesure chacun de ses angles aigus (en °) ?", answer: "45",
+        solution: "Les deux angles aigus sont égaux et complémentaires : 90° ÷ 2 = 45°." }
+    ]},
+    { title: "B. Aires", items: [
+      { type: "num", q: "Quelle est l'aire (en cm²) d'un triangle de base 8 cm et de hauteur 5 cm ?", answer: "20",
+        solution: "8 × 5 ÷ 2 = 20 cm²." },
+      { type: "num", q: "Un triangle a une aire de 30 cm² et une base de 12 cm. Quelle est sa hauteur (en cm) ?", answer: "5",
+        hint: "Aire = base × hauteur ÷ 2.",
+        solution: "h = 2 × 30 ÷ 12 = 5 cm." },
+      { type: "num", q: "Un triangle rectangle a des côtés de l'angle droit de 6 cm et 9 cm. Quelle est son aire (en cm²) ?", answer: "27",
+        hint: "Les deux côtés de l'angle droit sont base et hauteur.",
+        solution: "6 × 9 ÷ 2 = 27 cm²." },
+      { type: "num", q: "Un triangle ABC a pour aire 24 cm². M est le milieu de [BC]. Quelle est l'aire du triangle ABM (en cm²) ?", answer: "12",
+        hint: "Une médiane partage le triangle en deux triangles de même aire.",
+        solution: "24 ÷ 2 = 12 cm²." }
+    ]},
+    { title: "C. Droites remarquables et constructions", items: [
+      { type: "qcm", q: "Les trois médiatrices d'un triangle se coupent en un point. Il est le centre…",
+        options: ["du cercle circonscrit", "du cercle inscrit", "de gravité", "d'un parallélogramme"], answer: 0,
+        explain: "Ce point est équidistant des trois sommets." },
+      { type: "qcm", q: "Peut-on construire un triangle de côtés 5 cm, 6 cm et 7 cm ?",
+        options: ["Oui : 7 < 5 + 6", "Non", "Seulement s'il est rectangle"], answer: 0,
+        explain: "Le plus grand côté (7) est inférieur à la somme des deux autres (11)." },
+      { type: "qcm", q: "Peut-on construire un triangle de côtés 2 cm, 3 cm et 8 cm ?",
+        options: ["Oui", "Non : 8 est plus grand que 2 + 3", "Oui avec un compas"], answer: 1,
+        explain: "Les deux petits côtés ne peuvent pas se rejoindre." },
+      { type: "qcm", q: "La hauteur issue de A dans un triangle ABC est…",
+        options: ["la perpendiculaire à (BC) passant par A", "le segment qui joint A au milieu de [BC]", "la parallèle à (BC) passant par A"], answer: 0,
+        explain: "Hauteur = perpendiculaire." }
+    ]},
+    { title: "D. Problèmes", items: [
+      { type: "num", q: "Dans un triangle isocèle de périmètre 40 cm, la base mesure 16 cm. Quelle est la longueur d'un côté égal (en cm) ?", answer: "12",
+        solution: "(40 − 16) ÷ 2 = 12 cm." },
+      { type: "num", q: "Un toit a la forme d'un triangle isocèle de base 10 m et de hauteur 3,6 m. Quelle est l'aire de cette façade (en m²) ?", answer: "18",
+        solution: "10 × 3,6 ÷ 2 = 18 m²." },
+      { type: "num", q: "Dans un triangle ABC, l'angle Â mesure 80° et la bissectrice de Â coupe [BC] en D. Combien mesure l'angle BÂD (en °) ?", answer: "40",
+        solution: "La bissectrice partage l'angle en deux angles égaux : 80° ÷ 2 = 40°." },
+      { type: "num", q: "Dans un triangle ABC, B̂ = 52° et Ĉ = 38°. Combien mesure Â (en °) ?", answer: "90",
+        solution: "180° − 52° − 38° = 90° : le triangle est rectangle en A." }
+    ]},
+    { title: "Problème 1 · Le pignon de la maison", statement: "Le pignon d'une maison a la forme d'un triangle ABC isocèle en A, de base BC = 10 m. L'angle au sommet Â mesure 80°. La hauteur issue de A mesure 5,95 m.", items: [
+      { type: "num", label: "a)", q: "Quelle est la mesure de l'angle B̂ (en °) ?", answer: "50",
+        solution: "ABC est isocèle en A : B̂ = Ĉ. Somme des angles : 180° − 80° = 100°, donc B̂ = 50°." },
+      { type: "num", label: "b)", q: "Quelle est l'aire du pignon (en m²) ?", answer: "29.75",
+        solution: "Aire = base × hauteur ÷ 2 = 10 × 5,95 ÷ 2 = 29,75 m²." },
+      { type: "num", label: "c)", q: "Un litre de peinture couvre 5 m². Combien de litres entiers faut-il acheter au minimum pour une couche ?", answer: "6",
+        solution: "29,75 ÷ 5 = 5,95 : il faut arrondir au litre supérieur, soit 6 litres." }
+    ]},
+    { title: "Problème 2 · Le triangle rectangle et son cercle", statement: "Dans un triangle ABC rectangle en B, on a AB = 6 cm et BC = 8 cm.", items: [
+      { type: "num", label: "a)", q: "Quelle est la longueur AC (en cm) ?", answer: "10",
+        solution: "ABC est rectangle en B : AC² = AB² + BC² = 36 + 64 = 100 (Pythagore), AC = 10 cm." },
+      { type: "num", label: "b)", q: "Quel est le rayon du cercle circonscrit à ABC (en cm) ?", answer: "5",
+        hint: "Où se trouve le centre du cercle circonscrit d'un triangle rectangle ?",
+        solution: "Dans un triangle rectangle, le centre du cercle circonscrit est le milieu de l'hypoténuse : rayon = 10 ÷ 2 = 5 cm." },
+      { type: "num", label: "c)", q: "Quelle est l'aire du triangle ABC (en cm²) ?", answer: "24",
+        solution: "6 × 8 ÷ 2 = 24 cm²." },
+      { type: "num", label: "d)", q: "Quelle est la longueur de la hauteur issue de B (en cm) ?", answer: "4.8",
+        hint: "Calcule l'aire une seconde fois, avec AC comme base.",
+        solution: "Aire = AC × h ÷ 2 = 24, donc h = 2 × 24 ÷ 10 = 4,8 cm." }
+    ]}
+  ]
+};
+</script>
+<script src="../../assets/admin-config.js"></script>
+<script src="../../assets/nav-data.js"></script>
+<script src="../../assets/nav.js"></script>
+<script src="../../assets/app.js"></script>
+</body>
+</html>

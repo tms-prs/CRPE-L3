@@ -1,0 +1,100 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Quiz 07 — Trigonométrie</title>
+<link rel="stylesheet" href="../../assets/style.css">
+</head>
+<body>
+<main>
+  <header>
+    <h1 id="title"></h1>
+    <p id="subtitle"></p>
+  </header>
+  <div id="app"></div>
+</main>
+<script>
+window.PAGE = {
+  id: "quiz-geo-07",
+  title: "Quiz 07 — Trigonométrie",
+  subtitle: "20 questions, correction immédiate.",
+  sections: [
+    { title: "Vocabulaire et définitions", items: [
+      { type: "qcm", q: "ABC est rectangle en A. Pour l'angle B̂, quel est le côté adjacent ?",
+        options: ["[AC]", "[AB]", "[BC]", "[AB] et [AC]"], answer: 1,
+        explain: "Le côté adjacent touche l'angle B̂ et n'est pas l'hypoténuse : [AB]." },
+      { type: "qcm", q: "ABC est rectangle en A. Pour l'angle B̂, quel est le côté opposé ?",
+        options: ["[AC]", "[AB]", "[BC]", "[BA]"], answer: 0,
+        explain: "Le côté opposé est en face de l'angle B̂ : [AC]." },
+      { type: "qcm", q: "Dans un triangle rectangle, le cosinus d'un angle aigu est égal à…",
+        options: ["opposé ÷ hypoténuse", "adjacent ÷ hypoténuse", "opposé ÷ adjacent", "hypoténuse ÷ adjacent"], answer: 1,
+        explain: "CAH : Cosinus = Adjacent / Hypoténuse." },
+      { type: "qcm", q: "Le sinus d'un angle aigu est égal à…",
+        options: ["opposé ÷ hypoténuse", "adjacent ÷ hypoténuse", "opposé ÷ adjacent", "adjacent ÷ opposé"], answer: 0,
+        explain: "SOH : Sinus = Opposé / Hypoténuse." },
+      { type: "qcm", q: "La tangente d'un angle aigu est égale à…",
+        options: ["opposé ÷ hypoténuse", "adjacent ÷ hypoténuse", "opposé ÷ adjacent", "hypoténuse ÷ opposé"], answer: 2,
+        explain: "TOA : Tangente = Opposé / Adjacent." },
+      { type: "qcm", q: "Le cosinus d'un angle aigu peut-il valoir 1,25 ?",
+        options: ["Oui", "Non : l'hypoténuse est le plus grand côté, donc cos est entre 0 et 1", "Oui si le triangle est grand", "Oui pour 60°"], answer: 1,
+        explain: "adjacent < hypoténuse, donc cos < 1." }
+    ]},
+    { title: "Calculs de longueurs", items: [
+      { type: "qcm", q: "ABC est rectangle en A, B̂ = 30° et BC = 10. Que vaut AC ?",
+        options: ["5", "8,66", "20", "17,3"], answer: 0,
+        explain: "AC est opposé et BC l'hypoténuse : AC = 10 × sin 30° = 5." },
+      { type: "qcm", q: "ABC est rectangle en A, B̂ = 60° et AB = 7. Que vaut BC ?",
+        options: ["3,5", "14", "12,1", "7"], answer: 1,
+        explain: "cos 60° = AB / BC donc BC = 7 ÷ 0,5 = 14." },
+      { type: "qcm", q: "À 20 m du pied d'un arbre, on voit son sommet avec un angle de 35°. Quelle est sa hauteur (arrondie au mètre) ?",
+        options: ["11 m", "14 m", "16 m", "28 m"], answer: 1,
+        explain: "tan 35° = h / 20 donc h = 20 × tan 35° ≈ 14 m." },
+      { type: "qcm", q: "Pour calculer l'hypoténuse connaissant un angle et le côté opposé, on utilise…",
+        options: ["le cosinus", "le sinus", "la tangente", "Pythagore seulement"], answer: 1,
+        explain: "Opposé et hypoténuse : le sinus." },
+      { type: "qcm", q: "Pour calculer le côté opposé connaissant un angle et le côté adjacent, on utilise…",
+        options: ["le cosinus", "le sinus", "la tangente", "aucune des trois"], answer: 2,
+        explain: "Opposé et adjacent : la tangente." }
+    ]},
+    { title: "Calculs d'angles", items: [
+      { type: "qcm", q: "AB = 4 et BC = 5 (ABC rectangle en A). Quelle est la mesure de B̂, arrondie au degré ?",
+        options: ["27°", "37°", "53°", "80°"], answer: 1,
+        explain: "cos B̂ = 4/5 = 0,8 donc B̂ = cos⁻¹(0,8) ≈ 37°." },
+      { type: "qcm", q: "Dans un triangle rectangle, un angle aigu a pour tangente 1. Il mesure…",
+        options: ["30°", "45°", "60°", "90°"], answer: 1,
+        explain: "tan 45° = 1 (côtés opposé et adjacent égaux : triangle isocèle rectangle)." },
+      { type: "qcm", q: "Un triangle rectangle a un angle aigu de 40°. L'autre mesure…",
+        options: ["40°", "50°", "140°", "130°"], answer: 1,
+        explain: "Les angles aigus sont complémentaires : 90° − 40° = 50°." },
+      { type: "qcm", q: "Pour trouver la mesure d'un angle à partir de son cosinus, on utilise sur la calculatrice…",
+        options: ["la touche cos", "la touche cos⁻¹ (arccos)", "la touche tan", "la touche √"], answer: 1,
+        explain: "cos⁻¹ donne l'angle dont le cosinus est donné." }
+    ]},
+    { title: "Regard d'enseignant", items: [
+      { type: "qcm", q: "Un élève trouve sin 30° = −0,988 à la calculatrice. Quelle est la cause probable ?",
+        options: [
+          "La calculatrice est en mode radians au lieu de degrés",
+          "Le sinus est négatif",
+          "Il a tapé 30 au carré",
+          "C'est correct"],
+        answer: 0,
+        explain: "On vérifie le mode degrés : sin 30° doit donner 0,5." },
+      { type: "qcm", q: "Un élève écrit cos B̂ = BC / AB. Quelle remédiation est la plus pertinente ?",
+        options: [
+          "Faire colorier l'angle, l'hypoténuse puis l'adjacent, et rappeler que cos < 1",
+          "Lui redonner CAH-SOH-TOA sans plus",
+          "Lui interdire la calculatrice",
+          "Ne rien faire"],
+        answer: 0,
+        explain: "Le contrôle de vraisemblance (cos < 1) détecte le rapport inversé." }
+    ]}
+  ]
+};
+</script>
+<script src="../../assets/admin-config.js"></script>
+<script src="../../assets/nav-data.js"></script>
+<script src="../../assets/nav.js"></script>
+<script src="../../assets/app.js"></script>
+</body>
+</html>

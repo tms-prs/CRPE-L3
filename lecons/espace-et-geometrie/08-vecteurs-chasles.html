@@ -1,0 +1,80 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Leçon 08 — Vecteurs et relation de Chasles</title>
+<link rel="stylesheet" href="../../assets/style.css">
+</head>
+<body class="lesson">
+<main>
+<div class="lesson-hero">
+<nav class="crumbs" aria-label="Fil d'Ariane"><a href="../../index.html">Accueil</a><span>›</span><span>Espace et géométrie</span><span>›</span><span>Leçon 08</span></nav>
+<span class="kicker">Leçon 08</span>
+<h1>Vecteurs et relation de <em>Chasles</em></h1>
+<div class="meta-row"><span class="pill-tag blue">Espace et géométrie</span><span class="pill-tag">⏱ 1 h 30 (cours) + exercices</span></div>
+<div class="infos"><div class="info"><b>Programme</b>cycle 4 — translations et vecteurs : définir et utiliser la translation, les vecteurs égaux, le vecteur nul, l'opposé d'un vecteur, la somme de deux vecteurs par enchaînement de deux translations, la relation de Chasles (3e) (BO du 5 mars 2026, annexe 2)</div><div class="info"><b>Prérequis</b>leçon 03 (parallélogrammes), leçon 04 (translations)</div></div>
+</div>
+<div class="lesson-layout">
+<article class="prose">
+<section class="sec-objectifs"><h2 id="s1">Objectifs</h2><p>À la fin de la leçon, l'étudiante sait :</p>
+<ul><li>définir un vecteur (direction, sens, longueur) et la translation associée ;</li><li>reconnaître des vecteurs égaux, opposés, le vecteur nul ;</li><li>utiliser le lien entre égalité de vecteurs et parallélogramme ;</li><li>additionner des vecteurs et utiliser la relation de Chasles ;</li><li>repérer les erreurs types d'élèves.</li></ul>
+<div class="callout"><span class="ic">i</span><div><p>Notation : le vecteur d'origine <code>A</code> et d'extrémité <code>B</code> est noté <code>→AB</code> (« vecteur AB »). Sa longueur est <code>AB</code>.</p></div></div></section>
+<section class=""><h2 id="s2">1. Vecteur et translation</h2><p>Une <strong>translation</strong> est caractérisée par une <strong>direction</strong>, un <strong>sens</strong> et une <strong>longueur</strong>. Un <strong>vecteur</strong> est cet objet : on le représente par une flèche. La translation de vecteur <code>→AB</code> envoie <code>A</code> sur <code>B</code>, et tout point <code>M</code> sur le point <code>M'</code> tel que <code>→MM' = →AB</code>.</p>
+<p>Un vecteur a trois caractéristiques :</p>
+<ul><li>sa <strong>direction</strong> (celle de la droite <code>(AB)</code>) ;</li><li>son <strong>sens</strong> (de <code>A</code> vers <code>B</code>) ;</li><li>sa <strong>norme</strong> (longueur <code>AB</code>).</li></ul></section>
+<section class=""><h2 id="s3">2. Égalité de vecteurs</h2><p><strong>Définition</strong> : deux vecteurs sont <strong>égaux</strong> s'ils ont la même direction, le même sens et la même longueur.</p>
+<p><strong>Propriété</strong> : <code>→AB = →CD</code> si et seulement si <code>ABDC</code> est un <strong>parallélogramme</strong> (éventuellement aplati).</p>
+<figure class="fig"><svg viewBox="0 0 400 240" width="400" role="img" aria-label="Vecteurs égaux dans un parallélogramme">
+  <defs><marker id="av" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0 0L10 5L0 10z" fill="#2754d9"/></marker>
+  <marker id="av2" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0 0L10 5L0 10z" fill="#0f2350"/></marker></defs>
+  <path class="fs" d="M60 190L200 190L260 70L120 70Z" style="opacity:.6"/>
+  <path class="sb" d="M60 190L196 190" marker-end="url(#av)"/>
+  <path class="sb" d="M120 70L256 70" marker-end="url(#av)"/>
+  <path class="s" d="M60 190L117 74" marker-end="url(#av2)"/>
+  <path class="s" d="M200 190L257 74" marker-end="url(#av2)"/>
+  <circle class="pt" cx="60" cy="190" r="4"/><circle class="pt" cx="200" cy="190" r="4"/><circle class="pt" cx="260" cy="70" r="4"/><circle class="pt" cx="120" cy="70" r="4"/>
+  <text x="38" y="210">A</text><text x="204" y="210">B</text><text x="268" y="66">D</text><text x="104" y="62">C</text>
+  <text class="b" x="112" y="212">→AB</text><text class="b" x="168" y="60">→CD</text>
+</svg><figcaption>Si →AB = →CD, alors ABDC est un parallélogramme ; on a aussi →AC = →BD.</figcaption></figure>
+<p><strong>Méthode pour prouver qu'un quadrilatère est un parallélogramme</strong> : montrer que <code>→AB = →DC</code> (ou que les diagonales ont le même milieu).</p></section>
+<section class=""><h2 id="s4">3. Vecteur nul et vecteur opposé</h2><ul><li>Le <strong>vecteur nul</strong> <code>→0</code> est le vecteur <code>→AA</code> : longueur nulle, la translation ne déplace rien.</li><li>Le <strong>vecteur opposé</strong> de <code>→AB</code> est <code>→BA</code> : même direction, même longueur, <strong>sens contraire</strong>. On note <code>→BA = −→AB</code>.</li><li><code>I</code> est le <strong>milieu</strong> de <code>[AB]</code> si et seulement si <code>→AI = →IB</code>.</li></ul></section>
+<section class=""><h2 id="s5">4. Somme de vecteurs</h2><h3>4.1 Enchaînement de deux translations</h3>
+<p>Effectuer d'abord la translation de vecteur <code>→AB</code>, puis celle de vecteur <code>→BC</code>, revient à effectuer la translation de vecteur <code>→AC</code>. On note :</p>
+<p><code>→AB + →BC = →AC</code></p>
+<p>C'est la <strong>relation de Chasles</strong>.</p>
+<figure class="fig"><svg viewBox="0 0 400 220" width="400" role="img" aria-label="Relation de Chasles">
+  <defs><marker id="av3" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0 0L10 5L0 10z" fill="#2754d9"/></marker>
+  <marker id="av4" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0 0L10 5L0 10z" fill="#0f2350"/></marker></defs>
+  <path class="sb" d="M60 170L190 60" marker-end="url(#av3)"/>
+  <path class="sb" d="M190 60L340 150" marker-end="url(#av3)"/>
+  <path class="s" d="M60 170L336 152" marker-end="url(#av4)"/>
+  <circle class="pt" cx="60" cy="170" r="4"/><circle class="pt" cx="190" cy="60" r="4"/><circle class="pt" cx="340" cy="150" r="4"/>
+  <text x="38" y="190">A</text><text x="186" y="50">B</text><text x="344" y="150">C</text>
+  <text class="b" x="100" y="100">→AB</text><text class="b" x="276" y="90">→BC</text><text x="170" y="186">→AC</text>
+</svg><figcaption>Relation de Chasles : →AB + →BC = →AC.</figcaption></figure>
+<p><strong>Conséquences</strong> :</p>
+<ul><li><code>→AB + →BA = →AA = →0</code> : un vecteur plus son opposé donne le vecteur nul ;</li><li><code>→AB + →BC + →CD = →AD</code> (enchaînement) ;</li><li>si <code>→u = →AB</code>, alors <code>→u + →0 = →u</code>.</li></ul>
+<h3>4.2 Règle du parallélogramme</h3>
+<p>Si <code>ABCD</code> est un parallélogramme, alors <code>→AB + →AD = →AC</code> (la diagonale issue de <code>A</code>).</p>
+<h3>4.3 Différence</h3>
+<p>Soustraire un vecteur, c'est ajouter son opposé : <code>→AB − →AC = →AB + →CA = →CB</code>.</p></section>
+<section class=""><h2 id="s6">5. Problèmes types</h2><p><strong>Problème 1.</strong> <code>ABCD</code> est un parallélogramme. Quel vecteur est égal à <code>→AB</code> ?<br><code>→DC</code> : même direction, même sens, même longueur.</p>
+<p><strong>Problème 2.</strong> Simplifier <code>→AB + →BC + →CD</code>.<br>Par Chasles : <code>→AB + →BC = →AC</code>, puis <code>→AC + →CD = →AD</code>. Résultat : <code>→AD</code>.</p>
+<p><strong>Problème 3.</strong> <code>I</code> est le milieu de <code>[AB]</code>. Écrire <code>→AI</code> en fonction de <code>→IB</code>.<br><code>→AI = →IB</code>.</p>
+<p><strong>Problème 4.</strong> Montrer que <code>→AB + →BA = →0</code>.<br>Chasles : <code>→AB + →BA = →AA = →0</code>.</p>
+<p><strong>Problème 5.</strong> <code>A</code>, <code>B</code>, <code>C</code>, <code>D</code> sont tels que <code>→AB = →DC</code>. Quelle est la nature de <code>ABCD</code> ?<br><code>→AB = →DC</code> équivaut à <code>ABCD</code> parallélogramme (les côtés opposés <code>[AB]</code> et <code>[DC]</code> sont parallèles, de même longueur, de même sens).</p></section>
+<section class="sec-didactic"><h2 id="s7">6. Erreurs types d'élèves (volet didactique)</h2><div class="table-wrap"><table><thead><tr><th>Erreur observée</th><th>Exemple</th><th>Cause probable</th><th>Remédiation possible</th></tr></thead><tbody><tr><td>Confondre <code>→AB</code> et <code>AB</code> (la longueur)</td><td><code>→AB = 5</code></td><td>Vecteur non distingué du nombre</td><td>Dessiner la flèche ; la longueur est <code>AB</code>, un nombre</td></tr><tr><td>Écrire <code>→AB = →BA</code></td><td></td><td>Sens oublié</td><td>Le sens est essentiel : <code>→BA</code> est l'opposé</td></tr><tr><td>Mauvais ordre des lettres dans le parallélogramme</td><td><code>→AB = →CD</code> ⇒ <code>ABCD</code> parallélogramme</td><td>Ordre cyclique non respecté</td><td>Tracer les flèches : <code>ABDC</code> est le bon quadrilatère</td></tr><tr><td>Chasles mal utilisée</td><td><code>→AB + →CD = →AD</code></td><td>Origine / extrémité non enchaînées</td><td>Chasles exige que l'extrémité du premier soit l'origine du second</td></tr><tr><td>Additionner les longueurs</td><td><code>→AB + →BC</code> de norme <code>AB + BC</code></td><td>Confusion norme / vecteur</td><td>Triangle <code>ABC</code> : <code>AC &lt; AB + BC</code></td></tr><tr><td>Confondre translation et symétrie</td><td></td><td>Pas de notion de glissement</td><td>Faire glisser un calque sans le tourner</td></tr></tbody></table></div>
+<p><strong>Outils</strong> : papier quadrillé (flèches), calque, logiciel de géométrie dynamique, jeux de déplacements.</p></section>
+<section class="sec-retenir"><h2 id="s8">7. À retenir</h2><ul><li>Un vecteur : direction, sens, longueur ; la translation de vecteur <code>→AB</code> envoie <code>A</code> sur <code>B</code>.</li><li><code>→AB = →CD</code> ⇔ <code>ABDC</code> est un parallélogramme (éventuellement aplati).</li><li>Chasles : <code>→AB + →BC = →AC</code> (l'extrémité du premier est l'origine du second).</li><li>Opposé : <code>→BA = −→AB</code>. <code>I</code> milieu de <code>[AB]</code> ⇔ <code>→AI = →IB</code>.</li><li>Règle du parallélogramme : <code>→AB + →AD = →AC</code>.</li></ul></section>
+<section class="sec-practice"><h2 id="s9">Pour s'entraîner</h2><div class="practice"><a class="mode-card blue" href="../../quiz/espace-et-geometrie/08-vecteurs-chasles.html"><h3>Quiz</h3><p>Questions courtes avec correction immédiate pour vérifier que c’est acquis.</p><span class="go">Lancer le quiz <span>→</span></span></a><a class="mode-card sky" href="../../exercices/espace-et-geometrie/08-vecteurs-chasles.html"><h3>Exercices</h3><p>Réponses à saisir, indices et corrections détaillées.</p><span class="go">Commencer <span>→</span></span></a></div></section>
+<section class="sec-extra"><h2 id="s10">Pistes de prolongement (culture mathématique)</h2><ul><li>Hexagone obtenu à partir de triangles équilatéraux, flocon de Von Koch, triangle de Sierpinski.</li><li>Les vecteurs en physique : forces, vitesses.</li></ul></section>
+</article>
+<aside class="toc" aria-label="Sommaire"><h4>Sur cette page</h4><ol><li><a href="#s1">Objectifs</a></li><li><a href="#s2">1. Vecteur et translation</a></li><li><a href="#s3">2. Égalité de vecteurs</a></li><li><a href="#s4">3. Vecteur nul et vecteur opposé</a></li><li><a href="#s5">4. Somme de vecteurs</a></li><li><a href="#s6">5. Problèmes types</a></li><li><a href="#s7">6. Erreurs types d'élèves (volet didactique)</a></li><li><a href="#s8">7. À retenir</a></li><li><a href="#s9">Pour s'entraîner</a></li><li><a href="#s10">Pistes de prolongement (culture mathématique)</a></li></ol></aside>
+</div>
+</main>
+<script src="../../assets/admin-config.js"></script>
+<script src="../../assets/nav-data.js"></script>
+<script src="../../assets/nav.js"></script>
+</body>
+</html>

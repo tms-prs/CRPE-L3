@@ -1,0 +1,95 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Leçon 06 — Droite des milieux et théorème de Thalès</title>
+<link rel="stylesheet" href="../../assets/style.css">
+</head>
+<body class="lesson">
+<main>
+<div class="lesson-hero">
+<nav class="crumbs" aria-label="Fil d'Ariane"><a href="../../index.html">Accueil</a><span>›</span><span>Espace et géométrie</span><span>›</span><span>Leçon 06</span></nav>
+<span class="kicker">Leçon 06</span>
+<h1>Droite des milieux et théorème de <em>Thalès</em></h1>
+<div class="meta-row"><span class="pill-tag blue">Espace et géométrie</span><span class="pill-tag">⏱ 2 h (cours) + exercices</span></div>
+<div class="infos"><div class="info"><b>Programme</b>cycle 4 — les trois théorèmes relatifs à la droite des milieux (4e) ; théorème de Thalès, réciproque et contraposée, configurations des triangles emboîtés et du papillon (3e) (BO du 5 mars 2026, annexe 2)</div><div class="info"><b>Prérequis</b>leçons 01 à 05, proportionnalité (thème Proportionnalité et fonctions), équations (thème Nombres et calculs, leçon 07)</div></div>
+</div>
+<div class="lesson-layout">
+<article class="prose">
+<section class="sec-objectifs"><h2 id="s1">Objectifs</h2><p>À la fin de la leçon, l'étudiante sait :</p>
+<ul><li>utiliser les théorèmes de la droite des milieux pour prouver un parallélisme ou calculer une longueur ;</li><li>reconnaître les deux configurations de Thalès (triangles emboîtés, papillon) ;</li><li>calculer une longueur avec le théorème de Thalès ;</li><li>prouver un parallélisme avec la réciproque, ou son contraire avec la contraposée ;</li><li>repérer les erreurs types d'élèves.</li></ul></section>
+<section class=""><h2 id="s2">1. Droite des milieux</h2><p>Dans un triangle <code>ABC</code>, soit <code>I</code> le milieu de <code>[AB]</code> et <code>J</code> le milieu de <code>[AC]</code>.</p>
+<figure class="fig"><svg viewBox="0 0 400 280" width="400" role="img" aria-label="Droite des milieux dans un triangle">
+  <path class="fs" d="M200 40L60 240L340 240Z"/>
+  <path class="sb" d="M130 140L270 140"/>
+  <circle class="pt" cx="200" cy="40" r="4"/><circle class="pt" cx="60" cy="240" r="4"/><circle class="pt" cx="340" cy="240" r="4"/>
+  <circle class="pb" cx="130" cy="140" r="5"/><circle class="pb" cx="270" cy="140" r="5"/>
+  <text x="196" y="30">A</text><text x="40" y="258">B</text><text x="344" y="258">C</text>
+  <text class="b" x="108" y="136">I</text><text class="b" x="278" y="136">J</text>
+  <text class="m" x="168" y="130">IJ = BC ÷ 2</text>
+</svg><figcaption>I et J sont les milieux de [AB] et [AC] : (IJ) est parallèle à (BC) et IJ = BC ÷ 2.</figcaption></figure>
+<p><strong>Les trois théorèmes</strong> :</p>
+<ol><li><strong>Parallélisme</strong> : la droite <code>(IJ)</code> qui joint les milieux de deux côtés est <strong>parallèle</strong> au troisième côté <code>(BC)</code>.</li><li><strong>Longueur</strong> : <code>IJ = BC ÷ 2</code>.</li><li><strong>Réciproque</strong> : si une droite passe par le milieu <code>I</code> de <code>[AB]</code> et est <strong>parallèle</strong> à <code>(BC)</code>, alors elle coupe <code>[AC]</code> en son <strong>milieu</strong>.</li></ol>
+<p><strong>Exemple.</strong> <code>BC = 10 cm</code>, <code>I</code> et <code>J</code> milieux de <code>[AB]</code> et <code>[AC]</code> : <code>IJ = 5 cm</code>, et <code>(IJ) // (BC)</code>.</p>
+<p><strong>Conséquence</strong> : le triangle <code>AIJ</code> est une réduction de <code>ABC</code> de rapport <code>1/2</code> : <code>AI = AB/2</code>, <code>AJ = AC/2</code> et <code>IJ = BC/2</code>. Son périmètre vaut donc la moitié de celui de <code>ABC</code>.</p></section>
+<section class=""><h2 id="s3">2. Le théorème de Thalès</h2><h3>2.1 Les deux configurations</h3>
+<p>On a deux droites sécantes en <code>A</code>, et deux points <code>M</code> sur la première, <code>N</code> sur la seconde. La droite <code>(MN)</code> est <strong>parallèle</strong> à la droite <code>(BC)</code> où <code>B</code> est sur la première droite, <code>C</code> sur la seconde.</p>
+<p><strong>Triangles emboîtés</strong> : <code>M</code> est sur <code>[AB]</code> et <code>N</code> sur <code>[AC]</code> (du même côté de <code>A</code>).</p>
+<figure class="fig"><svg viewBox="0 0 400 280" width="400" role="img" aria-label="Configuration de Thalès à triangles emboîtés">
+  <path class="fs" d="M200 40L60 240L340 240Z"/>
+  <path class="sb" d="M144 120L256 120"/>
+  <circle class="pt" cx="200" cy="40" r="4"/><circle class="pt" cx="60" cy="240" r="4"/><circle class="pt" cx="340" cy="240" r="4"/>
+  <circle class="pb" cx="144" cy="120" r="5"/><circle class="pb" cx="256" cy="120" r="5"/>
+  <text x="196" y="30">A</text><text x="40" y="258">B</text><text x="344" y="258">C</text>
+  <text class="b" x="118" y="116">M</text><text class="b" x="264" y="116">N</text>
+  <text class="m" x="154" y="260">(MN) // (BC)</text>
+</svg><figcaption>Triangles emboîtés : (MN) // (BC).</figcaption></figure>
+<p><strong>Papillon</strong> : <code>A</code> est <strong>entre</strong> <code>M</code> et <code>B</code>, et entre <code>N</code> et <code>C</code>.</p>
+<figure class="fig"><svg viewBox="0 0 400 280" width="400" role="img" aria-label="Configuration de Thalès en papillon">
+  <path class="s" d="M110 60L254 204M260 80L164 192"/>
+  <path class="sb" d="M110 60L260 80M254 204L164 192"/>
+  <circle class="pb" cx="200" cy="150" r="5"/>
+  <circle class="pt" cx="110" cy="60" r="4"/><circle class="pt" cx="260" cy="80" r="4"/><circle class="pt" cx="254" cy="204" r="4"/><circle class="pt" cx="164" cy="192" r="4"/>
+  <text class="b" x="210" y="146">A</text><text x="90" y="56">M</text><text x="268" y="76">N</text><text x="260" y="222">B</text><text x="144" y="210">C</text>
+</svg><figcaption>Papillon : A est entre M et B, et entre N et C ; (MN) // (BC).</figcaption></figure>
+<h3>2.2 Énoncé</h3>
+<p><strong>Théorème de Thalès.</strong> Si les droites <code>(BM)</code> et <code>(CN)</code> sont sécantes en <code>A</code> et si <code>(MN) // (BC)</code>, alors :</p>
+<p><code>AM / AB = AN / AC = MN / BC</code></p>
+<p><strong>Lecture</strong> : on compare les longueurs de <strong>deux triangles</strong> (le petit <code>AMN</code>, le grand <code>ABC</code>) côté par côté : les rapports sont <strong>égaux</strong>. Le premier rapport utilise les deux côtés sur la <strong>même droite</strong> à partir de <code>A</code>.</p>
+<h3>2.3 Calculer une longueur</h3>
+<p>On écrit les rapports, puis on utilise le <strong>produit en croix</strong>.</p>
+<p><strong>Exemple (triangles emboîtés).</strong> <code>(MN) // (BC)</code>, <code>AM = 3</code>, <code>AB = 5</code>, <code>AN = 4,5</code>, <code>BC = 8</code>.</p>
+<pre><code>AM/AB = AN/AC = MN/BC
+3/5   = 4,5/AC = MN/8
+AC = 4,5 × 5 ÷ 3 = 7,5
+MN = 8 × 3 ÷ 5 = 4,8</code></pre>
+<p><strong>Rapport de réduction / d'agrandissement</strong> <code>k = AM/AB = 3/5</code> : les longueurs du petit triangle sont celles du grand multipliées par <code>k</code>.</p></section>
+<section class=""><h2 id="s4">3. Réciproque et contraposée</h2><h3>3.1 Réciproque</h3>
+<p>Si, dans la configuration (avec <code>A, M, B</code> alignés et <code>A, N, C</code> alignés <strong>dans le même ordre</strong>), on a :</p>
+<p><code>AM / AB = AN / AC</code></p>
+<p>alors <code>(MN) // (BC)</code>.</p>
+<p><strong>Exemple.</strong> <code>AM = 2</code>, <code>AB = 5</code>, <code>AN = 2,4</code>, <code>AC = 6</code>. <code>2/5 = 0,4</code> et <code>2,4/6 = 0,4</code> : les rapports sont égaux, donc d'après la réciproque de Thalès, <code>(MN) // (BC)</code>.</p>
+<h3>3.2 Contraposée</h3>
+<p>Si <code>AM/AB ≠ AN/AC</code> (avec les mêmes alignements), alors <code>(MN)</code> n'est <strong>pas</strong> parallèle à <code>(BC)</code>.</p>
+<p><strong>Exemple.</strong> <code>AM = 2</code>, <code>AB = 5</code>, <code>AN = 3</code>, <code>AC = 8</code>. <code>2/5 = 0,4</code> et <code>3/8 = 0,375</code> : rapports différents, donc <code>(MN)</code> n'est pas parallèle à <code>(BC)</code>.</p>
+<div class="callout"><span class="ic">i</span><div><p>Le théorème sert à <strong>calculer</strong> une longueur quand on <strong>sait</strong> que les droites sont parallèles. La réciproque sert à <strong>prouver</strong> le parallélisme. Il faut vérifier l'<strong>ordre des points</strong> : <code>A</code> entre <code>M</code> et <code>B</code> dans le cas du papillon, <code>M</code> entre <code>A</code> et <code>B</code> dans le cas emboîté.</p></div></div></section>
+<section class=""><h2 id="s5">4. Applications</h2><ul><li><strong>Hauteur d'un arbre</strong> : à la même heure, un bâton de <code>1,5 m</code> donne une ombre de <code>2 m</code> ; l'arbre donne une ombre de <code>12 m</code>. Hauteur de l'arbre : <code>1,5 × 12 ÷ 2 = 9 m</code>.</li><li><strong>Largeur d'une rivière</strong> : configuration papillon avec deux triangles aux côtés parallèles.</li><li><strong>Agrandissement et réduction</strong> : si les longueurs sont multipliées par <code>k</code>, les aires sont multipliées par <code>k²</code> (et les volumes par <code>k³</code>).</li></ul></section>
+<section class=""><h2 id="s6">5. Problèmes types</h2><p><strong>Problème 1.</strong> <code>I</code> et <code>J</code> sont les milieux de <code>[AB]</code> et <code>[AC]</code>. <code>BC = 14 cm</code>. Calculer <code>IJ</code>.<br><code>IJ = 14 ÷ 2 = 7 cm</code>.</p>
+<p><strong>Problème 2.</strong> <code>(MN) // (BC)</code>, <code>AM = 4</code>, <code>AB = 10</code>, <code>MN = 6</code>. Calculer <code>BC</code>.<br><code>AM/AB = MN/BC</code>, donc <code>BC = 6 × 10 ÷ 4 = 15</code>.</p>
+<p><strong>Problème 3.</strong> Papillon : <code>(MN) // (BC)</code>, <code>AM = 3</code>, <code>AB = 5</code>, <code>AN = 2,4</code>. Calculer <code>AC</code>.<br><code>AM/AB = AN/AC</code> donc <code>AC = 2,4 × 5 ÷ 3 = 4</code>.</p>
+<p><strong>Problème 4.</strong> <code>AM = 6</code>, <code>AB = 9</code>, <code>AN = 8</code>, <code>AC = 12</code> (emboîtés). <code>(MN)</code> est-elle parallèle à <code>(BC)</code> ?<br><code>6/9 = 2/3</code> et <code>8/12 = 2/3</code> : rapports égaux, donc d'après la réciproque, <code>(MN) // (BC)</code>.</p></section>
+<section class="sec-didactic"><h2 id="s7">6. Erreurs types d'élèves (volet didactique)</h2><div class="table-wrap"><table><thead><tr><th>Erreur observée</th><th>Exemple</th><th>Cause probable</th><th>Remédiation possible</th></tr></thead><tbody><tr><td>Rapport mal construit</td><td><code>AM/MB</code> au lieu de <code>AM/AB</code></td><td>Mélange parties / totalités</td><td>Colorier petit et grand triangle ; écrire « petit sur grand »</td></tr><tr><td>Utiliser Thalès sans parallélisme</td><td></td><td>Hypothèse oubliée</td><td>Rédaction obligatoire : « on sait que (MN) // (BC) »</td></tr><tr><td>Confondre théorème et réciproque</td><td>prouver un parallélisme avec Thalès</td><td>Statut des énoncés</td><td>Fiches « calculer / prouver »</td></tr><tr><td>Ne pas vérifier l'ordre des points (réciproque)</td><td><code>A</code> pas entre <code>M</code> et <code>B</code></td><td>Alignement non vérifié</td><td>Refaire la figure à l'échelle</td></tr><tr><td>Rapports inversés</td><td><code>AB/AM = AN/AC</code></td><td>Perte de la cohérence</td><td>Toujours « petit sur grand » dans les trois rapports</td></tr><tr><td>Produit en croix faux</td><td><code>AC = 3 × 5 ÷ 4,5</code> au lieu de <code>4,5 × 5 ÷ 3</code></td><td>Procédure sans sens</td><td>Tableau de proportionnalité</td></tr><tr><td>Confondre papillon et emboîtés</td><td></td><td>Figures prototypiques</td><td>Orienter et tourner les figures</td></tr></tbody></table></div>
+<p><strong>Outils</strong> : tableau de proportionnalité, couleurs, papier calque, logiciel de géométrie dynamique (déplacer <code>M</code> en gardant le parallélisme).</p></section>
+<section class="sec-retenir"><h2 id="s8">7. À retenir</h2><ul><li>Droite des milieux : <code>(IJ) // (BC)</code> et <code>IJ = BC ÷ 2</code> ; une parallèle à <code>(BC)</code> passant par le milieu de <code>[AB]</code> coupe <code>[AC]</code> en son milieu.</li><li>Thalès : <code>AM/AB = AN/AC = MN/BC</code> si <code>(MN) // (BC)</code> (emboîtés ou papillon).</li><li>Réciproque : rapports égaux (même ordre des points) ⇒ parallèles ; contraposée : rapports différents ⇒ non parallèles.</li><li>Thalès sert à calculer ; la réciproque sert à prouver le parallélisme.</li></ul></section>
+<section class="sec-practice"><h2 id="s9">Pour s'entraîner</h2><div class="practice"><a class="mode-card blue" href="../../quiz/espace-et-geometrie/06-droite-milieux-thales.html"><h3>Quiz</h3><p>Questions courtes avec correction immédiate pour vérifier que c’est acquis.</p><span class="go">Lancer le quiz <span>→</span></span></a><a class="mode-card sky" href="../../exercices/espace-et-geometrie/06-droite-milieux-thales.html"><h3>Exercices</h3><p>Réponses à saisir, indices et corrections détaillées.</p><span class="go">Commencer <span>→</span></span></a></div></section>
+<section class="sec-extra"><h2 id="s10">Pistes de prolongement (culture mathématique)</h2><ul><li>Repères historiques autour de Thalès (mesure de la hauteur d'une pyramide), théorème « de l'intercepte » dans les autres pays.</li><li>Mesures indirectes : arpentage, hauteur d'un bâtiment, largeur d'une rivière.</li></ul></section>
+</article>
+<aside class="toc" aria-label="Sommaire"><h4>Sur cette page</h4><ol><li><a href="#s1">Objectifs</a></li><li><a href="#s2">1. Droite des milieux</a></li><li><a href="#s3">2. Le théorème de Thalès</a></li><li><a href="#s4">3. Réciproque et contraposée</a></li><li><a href="#s5">4. Applications</a></li><li><a href="#s6">5. Problèmes types</a></li><li><a href="#s7">6. Erreurs types d'élèves (volet didactique)</a></li><li><a href="#s8">7. À retenir</a></li><li><a href="#s9">Pour s'entraîner</a></li><li><a href="#s10">Pistes de prolongement (culture mathématique)</a></li></ol></aside>
+</div>
+</main>
+<script src="../../assets/admin-config.js"></script>
+<script src="../../assets/nav-data.js"></script>
+<script src="../../assets/nav.js"></script>
+</body>
+</html>

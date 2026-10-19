@@ -1,0 +1,103 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Exercices 03 — Parallélogrammes et quadrilatères</title>
+<link rel="stylesheet" href="../../assets/style.css">
+</head>
+<body>
+<main>
+  <header>
+    <h1 id="title"></h1>
+    <p id="subtitle"></p>
+  </header>
+  <div id="app"></div>
+</main>
+<script>
+window.PAGE = {
+  id: "exo-geo-03",
+  title: "Exercices 03 — Parallélogrammes et quadrilatères",
+  subtitle: "Réponses : nombres (longueurs, aires, angles). Leçon : lecons/espace-et-geometrie/03-parallelogrammes-quadrilateres.md",
+  sections: [
+    { title: "A. Périmètres et aires", items: [
+      { type: "num", q: "Un parallélogramme a des côtés de 7 cm et 4 cm. Quel est son périmètre (en cm) ?", answer: "22",
+        solution: "2 × (7 + 4) = 22 cm." },
+      { type: "num", q: "Un parallélogramme a une base de 9 cm et une hauteur de 5 cm. Quelle est son aire (en cm²) ?", answer: "45",
+        solution: "9 × 5 = 45 cm². Le côté oblique n'intervient pas." },
+      { type: "num", q: "Un losange a des diagonales de 12 cm et 16 cm. Quelle est son aire (en cm²) ?", answer: "96",
+        solution: "12 × 16 ÷ 2 = 96 cm²." },
+      { type: "num", q: "Un trapèze a pour bases 8 cm et 4 cm et pour hauteur 5 cm. Quelle est son aire (en cm²) ?", answer: "30",
+        solution: "(8 + 4) × 5 ÷ 2 = 30 cm²." },
+      { type: "num", q: "Un losange a des diagonales de 12 cm et 16 cm. Quel est le périmètre (en cm) ?", answer: "40",
+        hint: "Les diagonales se coupent en leur milieu perpendiculairement : Pythagore dans un petit triangle (6 et 8).",
+        solution: "Côté² = 6² + 8² = 100, côté = 10 cm. Périmètre = 4 × 10 = 40 cm." },
+      { type: "num", q: "Un carré a pour périmètre 36 cm. Quelle est son aire (en cm²) ?", answer: "81",
+        solution: "Côté = 36 ÷ 4 = 9 cm, aire = 9² = 81 cm²." }
+    ]},
+    { title: "B. Conversions d'unités d'aire", items: [
+      { type: "num", q: "Convertir 3,5 m² en dm².", answer: "350",
+        solution: "1 m² = 100 dm² : 3,5 × 100 = 350 dm²." },
+      { type: "num", q: "Convertir 0,25 m² en cm².", answer: "2500",
+        solution: "1 m² = 10 000 cm² : 0,25 × 10 000 = 2 500 cm²." },
+      { type: "num", q: "Convertir 4 500 cm² en m².", answer: "0.45",
+        solution: "4 500 ÷ 10 000 = 0,45 m²." },
+      { type: "num", q: "Un terrain de 2,5 hectares représente combien de m² ?", answer: "25000",
+        hint: "1 ha = 10 000 m².",
+        solution: "2,5 × 10 000 = 25 000 m²." }
+    ]},
+    { title: "C. Propriétés et preuves", items: [
+      { type: "num", q: "Dans un parallélogramme, un angle mesure 70°. Combien mesure l'angle consécutif (en °) ?", answer: "110",
+        solution: "Angles consécutifs : supplémentaires, 180° − 70° = 110°." },
+      { type: "num", q: "Dans un parallélogramme ABCD, les diagonales se coupent en O et AC = 14 cm. Quelle est la longueur OA (en cm) ?", answer: "7",
+        solution: "O est le milieu de [AC] : OA = 14 ÷ 2 = 7 cm." },
+      { type: "qcm", q: "ABCD est un quadrilatère non croisé dont les diagonales ont le même milieu. C'est…",
+        options: ["un parallélogramme", "un rectangle obligatoirement", "un losange obligatoirement"], answer: 0,
+        explain: "Propriété caractéristique du parallélogramme." },
+      { type: "qcm", q: "Pour prouver qu'un parallélogramme est un rectangle, il suffit de montrer que…",
+        options: ["ses diagonales ont la même longueur", "ses diagonales sont perpendiculaires", "deux côtés sont égaux"], answer: 0,
+        explain: "Parallélogramme + diagonales égales ⇒ rectangle." },
+      { type: "qcm", q: "Pour prouver qu'un parallélogramme est un losange, il suffit de montrer que…",
+        options: ["ses diagonales sont perpendiculaires", "ses diagonales sont égales", "ses angles sont droits"], answer: 0,
+        explain: "Parallélogramme + diagonales perpendiculaires ⇒ losange." }
+    ]},
+    { title: "D. Problèmes", items: [
+      { type: "num", q: "Une pièce rectangulaire de 5 m sur 4 m est recouverte de carrelage carré de 20 cm de côté. Combien de carreaux (sans perte) ?", answer: "500",
+        hint: "Aire de la pièce en cm² : 500 × 400. Aire d'un carreau : 400 cm².",
+        solution: "500 × 400 ÷ 400 = 500 carreaux (25 × 20)." },
+      { type: "num", q: "Un parallélogramme a une aire de 54 cm² et une hauteur de 6 cm. Quelle est sa base (en cm) ?", answer: "9",
+        solution: "Base = 54 ÷ 6 = 9 cm." },
+      { type: "num", q: "Un rectangle a un périmètre de 30 cm et une longueur de 9 cm. Quelle est son aire (en cm²) ?", answer: "54",
+        solution: "Largeur = 30 ÷ 2 − 9 = 6 cm, aire = 9 × 6 = 54 cm²." },
+      { type: "num", q: "Un jardin en forme de parallélogramme a une base de 20 m et une hauteur de 12 m. On sème du gazon à 25 g par m². Quelle masse de graines (en g) ?", answer: "6000",
+        solution: "Aire = 20 × 12 = 240 m² ; 240 × 25 = 6 000 g." }
+    ]},
+    { title: "Problème 1 · Le champ de blé", statement: "Un champ a la forme d'un parallélogramme ABCD avec AB = 120 m et AD = 80 m. La distance entre les droites (AB) et (DC) est de 60 m.", items: [
+      { type: "num", label: "a)", q: "Quelle est l'aire du champ (en m²) ?", answer: "7200",
+        solution: "Aire du parallélogramme = base × hauteur = 120 × 60 = 7 200 m² (et non 120 × 80 : AD est un côté oblique)." },
+      { type: "num", label: "b)", q: "Le blé rapporte 8 tonnes par hectare. Quelle récolte attend-on (en tonnes) ? (1 ha = 10 000 m²)", answer: "5.76",
+        solution: "7 200 m² = 0,72 ha ; 0,72 × 8 = 5,76 tonnes." },
+      { type: "num", label: "c)", q: "On clôture tout le champ avec du grillage à 4 € le mètre. Combien coûte la clôture (en €) ?", answer: "1600",
+        solution: "Périmètre = 2 × (120 + 80) = 400 m ; 400 × 4 = 1 600 €." }
+    ]},
+    { title: "Problème 2 · Le losange de carrelage", statement: "ABCD est un losange de diagonales AC = 16 cm et BD = 12 cm.", items: [
+      { type: "num", label: "a)", q: "Quelle est l'aire du losange (en cm²) ?", answer: "96",
+        solution: "Aire du losange = (D × d) ÷ 2 = 16 × 12 ÷ 2 = 96 cm²." },
+      { type: "num", label: "b)", q: "Quelle est la longueur d'un côté du losange (en cm) ?", answer: "10",
+        hint: "Que peut-on dire des diagonales d'un losange ? Où se coupent-elles ?",
+        solution: "Les diagonales d'un losange sont perpendiculaires et se coupent en leur milieu O. Dans le triangle rectangle AOB : AO = 8, BO = 6, donc AB² = 64 + 36 = 100 et AB = 10 cm (Pythagore)." },
+      { type: "num", label: "c)", q: "Quel est son périmètre (en cm) ?", answer: "40",
+        solution: "4 côtés égaux : 4 × 10 = 40 cm." },
+      { type: "num", label: "d)", q: "Quelle est la distance entre deux côtés opposés (la hauteur du losange) (en cm) ?", answer: "9.6",
+        hint: "Un losange est un parallélogramme : aire = base × hauteur.",
+        solution: "Aire = côté × hauteur donc hauteur = 96 ÷ 10 = 9,6 cm." }
+    ]}
+  ]
+};
+</script>
+<script src="../../assets/admin-config.js"></script>
+<script src="../../assets/nav-data.js"></script>
+<script src="../../assets/nav.js"></script>
+<script src="../../assets/app.js"></script>
+</body>
+</html>

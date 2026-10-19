@@ -1,0 +1,145 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Test de positionnement — Espace et géométrie</title>
+<link rel="stylesheet" href="../../assets/style.css">
+</head>
+<body>
+<main>
+  <header>
+    <h1 id="title"></h1>
+    <p id="subtitle"></p>
+  </header>
+  <div id="app"></div>
+</main>
+<script>
+window.PAGE = {
+  mix: true,
+  id: "placement-espace-et-geometrie",
+  title: "Test de positionnement — Espace et géométrie",
+  subtitle: "36 questions (exercices types et problèmes) sur les 9 sous-thèmes. Aucune correction pendant le test : tu la verras à la fin, avec ta note et ton pourcentage par sous-thème. Réponds sans notes ; la calculatrice est autorisée pour la trigonométrie et les arrondis (durée conseillée : 45 min).",
+  test: true,
+  placement: { domain: "espace-et-geometrie" },
+  parts: {
+    "01": { label: "Repérage, angles et parallélisme", lesson: "../../lecons/espace-et-geometrie/01-reperage-angles-parallelisme.html" },
+    "02": { label: "Triangles et droites remarquables", lesson: "../../lecons/espace-et-geometrie/02-triangles-droites-remarquables.html" },
+    "03": { label: "Parallélogrammes et quadrilatères", lesson: "../../lecons/espace-et-geometrie/03-parallelogrammes-quadrilateres.html" },
+    "04": { label: "Symétries et translations", lesson: "../../lecons/espace-et-geometrie/04-symetries-translations.html" },
+    "05": { label: "Théorème de Pythagore", lesson: "../../lecons/espace-et-geometrie/05-pythagore.html" },
+    "06": { label: "Droite des milieux et Thalès", lesson: "../../lecons/espace-et-geometrie/06-droite-milieux-thales.html" },
+    "07": { label: "Trigonométrie", lesson: "../../lecons/espace-et-geometrie/07-trigonometrie.html" },
+    "08": { label: "Vecteurs et Chasles", lesson: "../../lecons/espace-et-geometrie/08-vecteurs-chasles.html" },
+    "09": { label: "Solides, volumes et sections", lesson: "../../lecons/espace-et-geometrie/09-solides-volumes.html" }
+  },
+  sections: [
+    { title: "Repérage, angles et parallélisme", part: "01", items: [
+      { type: "num", q: "Quelle est la distance entre les points A(−3) et B(8) sur une droite graduée ?", answer: "11",
+        solution: "|8 − (−3)| = 11." },
+      { type: "num", q: "Deux angles sont complémentaires. L'un mesure 37°. Combien mesure l'autre (en °) ?", answer: "53",
+        solution: "90° − 37° = 53°." },
+      { type: "qcm", q: "Deux droites coupées par une sécante forment des angles correspondants égaux. On peut conclure que…",
+        options: ["les droites sont parallèles", "les droites sont perpendiculaires", "les droites sont confondues", "on ne peut rien conclure"], answer: 0,
+        explain: "Réciproque : angles correspondants égaux ⇒ droites parallèles." },
+      { type: "num", problem: true, q: "Problème : deux droites parallèles sont coupées par une sécante. Deux angles alternes-internes mesurent 4x − 10 et x + 50 (en degrés). Quelle est la mesure de chacun de ces angles (en °) ?", answer: "70",
+        solution: "Alternes-internes égaux : 4x − 10 = x + 50 donc x = 20. Chaque angle mesure 70°." }
+    ]},
+    { title: "Triangles et droites remarquables", part: "02", items: [
+      { type: "num", q: "Un triangle a deux angles de 48° et 67°. Combien mesure le troisième (en °) ?", answer: "65",
+        solution: "180° − 48° − 67° = 65°." },
+      { type: "num", q: "Quelle est l'aire d'un triangle de base 15 cm et de hauteur 8 cm (en cm²) ?", answer: "60",
+        solution: "15 × 8 ÷ 2 = 60 cm²." },
+      { type: "qcm", q: "La droite qui passe par un sommet d'un triangle et qui est perpendiculaire au côté opposé s'appelle…",
+        options: ["la médiane", "la hauteur", "la médiatrice", "la bissectrice"], answer: 1,
+        explain: "Hauteur : perpendiculaire au côté opposé et passant par le sommet." },
+      { type: "num", problem: true, q: "Problème : un triangle isocèle a un périmètre de 50 cm et sa base mesure 14 cm. Quelle est la longueur de chacun des deux côtés égaux (en cm) ?", answer: "18",
+        solution: "(50 − 14) ÷ 2 = 18 cm." }
+    ]},
+    { title: "Parallélogrammes et quadrilatères", part: "03", items: [
+      { type: "num", q: "Quelle est l'aire d'un parallélogramme de base 10 cm et de hauteur 6 cm (en cm²) ?", answer: "60",
+        solution: "10 × 6 = 60 cm²." },
+      { type: "num", q: "Convertir 0,8 m² en dm².", answer: "80",
+        solution: "1 m² = 100 dm² : 0,8 × 100 = 80 dm²." },
+      { type: "qcm", q: "Un parallélogramme dont les diagonales ont la même longueur est…",
+        options: ["un losange", "un rectangle", "un trapèze", "un cerf-volant"], answer: 1,
+        explain: "Parallélogramme + diagonales égales ⇒ rectangle." },
+      { type: "num", problem: true, q: "Problème : un losange a des diagonales de 10 cm et 24 cm. Quel est son périmètre (en cm) ?", answer: "52",
+        solution: "Les diagonales se coupent perpendiculairement en leur milieu : côté² = 5² + 12² = 169, côté = 13 cm. Périmètre : 4 × 13 = 52 cm." }
+    ]},
+    { title: "Symétries et translations", part: "04", items: [
+      { type: "num", q: "Le point A(5 ; −2) a pour symétrique A' par rapport à l'origine. Quelle est l'abscisse de A' ?", answer: "-5",
+        solution: "L'origine est le milieu de [AA'] : A'(−5 ; 2)." },
+      { type: "qcm", q: "Laquelle de ces figures n'a pas de centre de symétrie ?",
+        options: ["Le parallélogramme", "Le losange", "Le triangle isocèle", "Le rectangle"], answer: 2,
+        explain: "Un triangle n'a jamais de centre de symétrie." },
+      { type: "num", q: "Combien d'axes de symétrie possède un carré ?", answer: "4",
+        solution: "Deux médiatrices des côtés et deux diagonales." },
+      { type: "num", problem: true, q: "Problème : sur une frise, un motif est répété par translations de 15 cm. Quelle est la distance entre le 1er et le 9e motif (en cm) ?", answer: "120",
+        solution: "Entre le 1er et le 9e, il y a 8 pas de 15 cm : 8 × 15 = 120 cm." }
+    ]},
+    { title: "Théorème de Pythagore", part: "05", items: [
+      { type: "num", q: "ABC est rectangle en A, AB = 5 cm et AC = 12 cm. Calculer BC (en cm).", answer: "13",
+        solution: "BC² = 25 + 144 = 169, BC = 13 cm." },
+      { type: "num", q: "ABC est rectangle en A, BC = 25 cm et AC = 7 cm. Calculer AB (en cm).", answer: "24",
+        solution: "AB² = 625 − 49 = 576, AB = 24 cm." },
+      { type: "qcm", q: "Un triangle a pour côtés 6 cm, 8 cm et 11 cm. Est-il rectangle ?",
+        options: ["Oui", "Non : 11² = 121 est différent de 6² + 8² = 100"], answer: 1,
+        explain: "Contraposée : l'égalité de Pythagore est fausse." },
+      { type: "num", problem: true, q: "Problème : une échelle de 2,5 m est posée contre un mur, son pied est à 1,5 m du mur. À quelle hauteur touche-t-elle le mur (en m) ?", answer: "2",
+        solution: "h² = 2,5² − 1,5² = 6,25 − 2,25 = 4, h = 2 m." }
+    ]},
+    { title: "Droite des milieux et Thalès", part: "06", items: [
+      { type: "num", q: "I et J sont les milieux de [AB] et [AC]. BC = 9 cm. Calculer IJ (en cm).", answer: "4.5",
+        solution: "IJ = BC ÷ 2 = 4,5 cm." },
+      { type: "num", q: "(MN) // (BC), M sur [AB], N sur [AC]. AM = 4, AB = 6, AN = 5. Calculer AC.", answer: "7.5",
+        solution: "AM/AB = AN/AC donc AC = 5 × 6 ÷ 4 = 7,5." },
+      { type: "qcm", q: "AM = 3, AB = 5, AN = 4, AC = 7 (M sur [AB], N sur [AC]). (MN) est-elle parallèle à (BC) ?",
+        options: ["Oui", "Non : 3/5 ≠ 4/7"], answer: 1,
+        explain: "3/5 = 0,6 et 4/7 ≈ 0,571 : rapports différents, contraposée." },
+      { type: "num", problem: true, q: "Problème : à la même heure, un bâton de 2 m a une ombre de 3 m et un arbre une ombre de 15 m. Quelle est la hauteur de l'arbre (en m) ?", answer: "10",
+        solution: "2/h = 3/15 donc h = 2 × 15 ÷ 3 = 10 m." }
+    ]},
+    { title: "Trigonométrie", part: "07", items: [
+      { type: "num", q: "ABC est rectangle en A, B̂ = 30° et BC = 12 cm. Calculer AC (en cm).", answer: "6",
+        solution: "AC = 12 × sin 30° = 6 cm." },
+      { type: "num", q: "ABC est rectangle en A, AB = 3 cm et BC = 6 cm. Quelle est la mesure de B̂ (en °) ?", answer: "60", tol: 0.5,
+        solution: "cos B̂ = 3/6 = 0,5, donc B̂ = 60°." },
+      { type: "qcm", q: "On connaît le côté opposé et le côté adjacent à un angle. Quelle ligne trigonométrique utiliser ?",
+        options: ["cosinus", "sinus", "tangente", "aucune"], answer: 2,
+        explain: "tan = opposé / adjacent." },
+      { type: "num", problem: true, q: "Problème : on voit le sommet d'un immeuble sous un angle de 40° depuis un point situé à 30 m de sa base. Quelle est la hauteur de l'immeuble, arrondie au mètre (en m) ?", answer: "25", tol: 0.5,
+        solution: "h = 30 × tan 40° ≈ 25,2 m, soit 25 m." }
+    ]},
+    { title: "Vecteurs et Chasles", part: "08", items: [
+      { type: "qcm", q: "Que vaut →AB + →BC ?",
+        options: ["→AC", "→CA", "→AB", "→BC"], answer: 0,
+        explain: "Relation de Chasles." },
+      { type: "qcm", q: "ABCD est un parallélogramme. Quel vecteur est égal à →AB ?",
+        options: ["→DC", "→CD", "→BC", "→AD"], answer: 0,
+        explain: "→AB = →DC." },
+      { type: "qcm", q: "I est le milieu de [AB]. Quelle égalité est vraie ?",
+        options: ["→AI = →IB", "→AI = →BI", "→AB = →AI"], answer: 0,
+        explain: "I milieu de [AB] ⇔ →AI = →IB." },
+      { type: "num", problem: true, q: "Problème : un bateau suit le vecteur →AB (6 km vers l'est) puis le vecteur →BC (8 km vers le nord). Quelle est la distance AC (en km) ?", answer: "10",
+        solution: "→AB + →BC = →AC et ABC est rectangle en B : AC = √(36 + 64) = 10 km." }
+    ]},
+    { title: "Solides, volumes et sections", part: "09", items: [
+      { type: "num", q: "Quel est le volume d'un pavé droit de 6 cm × 5 cm × 4 cm (en cm³) ?", answer: "120",
+        solution: "6 × 5 × 4 = 120 cm³." },
+      { type: "num", q: "Un cylindre a pour rayon 5 cm et pour hauteur 2 cm. Son volume vaut k π cm³. Quelle est la valeur de k ?", answer: "50",
+        solution: "V = π × 5² × 2 = 50π cm³." },
+      { type: "num", q: "Convertir 2 500 cm³ en litres.", answer: "2.5",
+        solution: "1 L = 1 000 cm³ : 2 500 ÷ 1 000 = 2,5 L." },
+      { type: "num", problem: true, q: "Problème : une boule a pour rayon 6 cm. Son volume vaut k π cm³. Quelle est la valeur de k ?", answer: "288",
+        solution: "V = (4/3) × π × 6³ = (4/3) × 216 × π = 288π cm³." }
+    ]}
+  ]
+};
+</script>
+<script src="../../assets/admin-config.js"></script>
+<script src="../../assets/nav-data.js"></script>
+<script src="../../assets/nav.js"></script>
+<script src="../../assets/app.js"></script>
+</body>
+</html>

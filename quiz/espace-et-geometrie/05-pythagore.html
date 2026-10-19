@@ -1,0 +1,108 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Quiz 05 — Théorème de Pythagore</title>
+<link rel="stylesheet" href="../../assets/style.css">
+</head>
+<body>
+<main>
+  <header>
+    <h1 id="title"></h1>
+    <p id="subtitle"></p>
+  </header>
+  <div id="app"></div>
+</main>
+<script>
+window.PAGE = {
+  id: "quiz-geo-05",
+  title: "Quiz 05 — Théorème de Pythagore",
+  subtitle: "20 questions, correction immédiate.",
+  sections: [
+    { title: "Énoncé et calculs", items: [
+      { type: "qcm", q: "ABC est rectangle en A. Quelle égalité est vraie ?",
+        options: ["AB² = BC² + AC²", "BC² = AB² + AC²", "AC² = AB² + BC²", "BC = AB + AC"], answer: 1,
+        explain: "L'hypoténuse est le côté opposé à l'angle droit : [BC]. Son carré est la somme des carrés des deux autres côtés." },
+      { type: "qcm", q: "ABC est rectangle en A, AB = 6 et AC = 8. Que vaut BC ?",
+        options: ["14", "10", "100", "48"], answer: 1,
+        explain: "BC² = 36 + 64 = 100, donc BC = 10." },
+      { type: "qcm", q: "ABC est rectangle en A, BC = 13 et AB = 5. Que vaut AC ?",
+        options: ["8", "12", "18", "144"], answer: 1,
+        explain: "AC² = 169 − 25 = 144, donc AC = 12." },
+      { type: "qcm", q: "Quel est le côté « hypoténuse » d'un triangle rectangle ?",
+        options: ["Le plus petit côté", "Le côté opposé à l'angle droit", "Le côté adjacent à l'angle droit", "Un côté quelconque"], answer: 1,
+        explain: "C'est le plus grand côté, en face de l'angle droit." },
+      { type: "qcm", q: "Pour calculer un côté de l'angle droit connaissant l'hypoténuse et l'autre côté, on…",
+        options: ["additionne les carrés", "soustrait les carrés", "multiplie les longueurs", "divise les longueurs"], answer: 1,
+        explain: "AC² = BC² − AB² : on soustrait." },
+      { type: "qcm", q: "Un rectangle de 6 cm sur 8 cm a une diagonale de…",
+        options: ["14 cm", "10 cm", "48 cm", "7 cm"], answer: 1,
+        explain: "d² = 36 + 64 = 100, d = 10 cm." },
+      { type: "qcm", q: "Lequel de ces triplets est pythagoricien ?",
+        options: ["(2 ; 3 ; 4)", "(5 ; 12 ; 13)", "(4 ; 5 ; 7)", "(6 ; 7 ; 8)"], answer: 1,
+        explain: "25 + 144 = 169 = 13²." }
+    ]},
+    { title: "Réciproque et contraposée", items: [
+      { type: "qcm", q: "AB = 9, AC = 12, BC = 15. Que peut-on conclure ?",
+        options: ["ABC n'est pas rectangle", "ABC est rectangle en A", "ABC est rectangle en B", "ABC est isocèle"], answer: 1,
+        explain: "BC² = 225 = 81 + 144 = AB² + AC² : réciproque, ABC est rectangle en A." },
+      { type: "qcm", q: "AB = 4, AC = 5, BC = 7. Que peut-on conclure ?",
+        options: ["ABC est rectangle en A", "ABC n'est pas rectangle en A", "ABC est équilatéral", "On ne peut pas conclure"], answer: 1,
+        explain: "BC² = 49 mais AB² + AC² = 41 : contraposée, le triangle n'est pas rectangle en A." },
+      { type: "qcm", q: "Pour utiliser la réciproque, on compare…",
+        options: ["la somme des côtés", "le carré du plus grand côté et la somme des carrés des deux autres", "les angles", "les périmètres"], answer: 1,
+        explain: "Le plus grand côté est l'hypoténuse potentielle." },
+      { type: "qcm", q: "Quelle est la nature des énoncés « théorème de Pythagore » et « sa réciproque » ?",
+        options: [
+          "Ce sont deux énoncés différents : calculer une longueur / prouver qu'un triangle est rectangle",
+          "Le même énoncé écrit autrement",
+          "Deux définitions",
+          "Deux exemples"],
+        answer: 0,
+        explain: "Le théorème s'utilise dans un triangle rectangle ; la réciproque permet de démontrer qu'il l'est." }
+    ]},
+    { title: "Cercle circonscrit et applications", items: [
+      { type: "qcm", q: "ABC est rectangle en A et BC = 10. Quel est le rayon de son cercle circonscrit ?",
+        options: ["10", "5", "20", "√10"], answer: 1,
+        explain: "Le centre est le milieu de l'hypoténuse : rayon = 10 ÷ 2 = 5." },
+      { type: "qcm", q: "A est un point du cercle de diamètre [BC], distinct de B et C. Que peut-on dire de ABC ?",
+        options: ["Il est équilatéral", "Il est rectangle en A", "Il est isocèle en A", "Il n'est pas rectangle"], answer: 1,
+        explain: "Un triangle inscrit dans un demi-cercle est rectangle (réciproque)." },
+      { type: "qcm", q: "Une échelle de 5 m est posée à 3 m d'un mur. Quelle hauteur atteint-elle ?",
+        options: ["2 m", "4 m", "8 m", "√34 m"], answer: 1,
+        explain: "h² = 25 − 9 = 16, h = 4 m." },
+      { type: "qcm", q: "Un carré de côté 4 a une diagonale de…",
+        options: ["8", "√32", "16", "4"], answer: 1,
+        explain: "d² = 16 + 16 = 32, d = √32 ≈ 5,66." },
+      { type: "qcm", q: "Un champ rectangulaire de 40 m sur 30 m : sa diagonale mesure…",
+        options: ["70 m", "50 m", "35 m", "1 200 m"], answer: 1,
+        explain: "√(1 600 + 900) = 50 m." }
+    ]},
+    { title: "Regard d'enseignant", items: [
+      { type: "qcm", q: "Un élève écrit BC = 100 au lieu de 10. Quelle est l'origine probable de l'erreur ?",
+        options: [
+          "Il s'est arrêté au carré et a oublié la racine carrée",
+          "Il ne connaît pas la table de 6",
+          "Il a confondu avec le périmètre",
+          "Aucune erreur"],
+        answer: 0,
+        explain: "Remédiation : contrôle de vraisemblance : l'hypoténuse (100) ne peut pas être dix fois plus longue que 6 et 8." },
+      { type: "qcm", q: "Un élève additionne les carrés pour trouver un côté de l'angle droit (AC² = 169 + 25). Que faire ?",
+        options: [
+          "Lui faire colorier l'hypoténuse avant de calculer : elle est toujours le plus grand côté",
+          "Lui redonner la formule sans autre explication",
+          "Lui interdire la calculatrice",
+          "Ne rien changer"],
+        answer: 0,
+        explain: "Identifier l'hypoténuse avant tout calcul évite de retourner la formule." }
+    ]}
+  ]
+};
+</script>
+<script src="../../assets/admin-config.js"></script>
+<script src="../../assets/nav-data.js"></script>
+<script src="../../assets/nav.js"></script>
+<script src="../../assets/app.js"></script>
+</body>
+</html>

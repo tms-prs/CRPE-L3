@@ -1,0 +1,68 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Leçon 07 — Trigonométrie du triangle rectangle</title>
+<link rel="stylesheet" href="../../assets/style.css">
+</head>
+<body class="lesson">
+<main>
+<div class="lesson-hero">
+<nav class="crumbs" aria-label="Fil d'Ariane"><a href="../../index.html">Accueil</a><span>›</span><span>Espace et géométrie</span><span>›</span><span>Leçon 07</span></nav>
+<span class="kicker">Leçon 07</span>
+<h1>Trigonométrie du triangle <em>rectangle</em></h1>
+<div class="meta-row"><span class="pill-tag blue">Espace et géométrie</span><span class="pill-tag">⏱ 1 h 30 (cours) + exercices</span></div>
+<div class="infos"><div class="info"><b>Programme</b>cycle 4 — lignes trigonométriques dans le triangle rectangle : cosinus, sinus, tangente (3e) (BO du 5 mars 2026, annexe 2)</div><div class="info"><b>Prérequis</b>leçons 02 et 05 (triangle rectangle, Pythagore), proportionnalité, équations (thème Nombres et calculs, leçon 07)</div></div>
+</div>
+<div class="lesson-layout">
+<article class="prose">
+<section class="sec-objectifs"><h2 id="s1">Objectifs</h2><p>À la fin de la leçon, l'étudiante sait :</p>
+<ul><li>nommer côté opposé, côté adjacent et hypoténuse par rapport à un angle aigu ;</li><li>définir cosinus, sinus et tangente ;</li><li>calculer une longueur ou un angle avec la calculatrice (mode degrés) ;</li><li>choisir la bonne ligne trigonométrique ;</li><li>repérer les erreurs types d'élèves.</li></ul></section>
+<section class=""><h2 id="s2">1. Vocabulaire</h2><p>On travaille dans un triangle <strong>rectangle en <code>A</code></strong>, et on regarde l'angle aigu <code>B̂</code>.</p>
+<ul><li>L'<strong>hypoténuse</strong> est <code>[BC]</code> (face à l'angle droit).</li><li>Le côté <strong>adjacent</strong> à <code>B̂</code> est <code>[AB]</code> (il touche <code>B̂</code>, hors hypoténuse).</li><li>Le côté <strong>opposé</strong> à <code>B̂</code> est <code>[AC]</code> (face à <code>B̂</code>).</li></ul>
+<figure class="fig"><svg viewBox="0 0 380 240" width="380" role="img" aria-label="Triangle rectangle avec côtés adjacent, opposé et hypoténuse">
+  <path class="fs" d="M70 200L310 200L70 70Z"/>
+  <path class="s" d="M70 200h12v-12h-12"/>
+  <path class="sb" d="M270 200A40 40 0 0 0 277 177"/>
+  <text x="44" y="216">A</text><text x="314" y="216">B</text><text x="56" y="62">C</text>
+  <text class="b" x="248" y="190">B̂</text>
+  <text class="b" x="150" y="224">adjacent à B̂</text>
+  <text class="b" x="8" y="140">opposé</text>
+  <text class="b" x="190" y="124">hypoténuse</text>
+</svg><figcaption>Pour l'angle B : AB est le côté adjacent, AC le côté opposé, BC l'hypoténuse.</figcaption></figure>
+<div class="callout"><span class="ic">i</span><div><p>Le côté « adjacent » et le côté « opposé » <strong>dépendent de l'angle</strong> choisi. Pour <code>Ĉ</code>, c'est <code>[AC]</code> l'adjacent et <code>[AB]</code> l'opposé.</p></div></div></section>
+<section class=""><h2 id="s3">2. Cosinus, sinus, tangente</h2><p>Pour un angle aigu <code>B̂</code> d'un triangle rectangle :</p>
+<div class="table-wrap"><table><thead><tr><th>Ligne</th><th>Définition</th><th>Pour <code>B̂</code> dans <code>ABC</code> rectangle en <code>A</code></th></tr></thead><tbody><tr><td><strong>cosinus</strong></td><td><code>côté adjacent ÷ hypoténuse</code></td><td><code>cos B̂ = AB / BC</code></td></tr><tr><td><strong>sinus</strong></td><td><code>côté opposé ÷ hypoténuse</code></td><td><code>sin B̂ = AC / BC</code></td></tr><tr><td><strong>tangente</strong></td><td><code>côté opposé ÷ côté adjacent</code></td><td><code>tan B̂ = AC / AB</code></td></tr></tbody></table></div>
+<p><strong>Mnémotechnique</strong> : <strong>CAH-SOH-TOA</strong> (Cosinus = Adjacent / Hypoténuse ; Sinus = Opposé / Hypoténuse ; Tangente = Opposé / Adjacent).</p>
+<p><strong>Remarques</strong> :</p>
+<ul><li>ces rapports ne dépendent <strong>que de l'angle</strong>, pas de la taille du triangle (conséquence de Thalès) ;</li><li><code>cos B̂</code> et <code>sin B̂</code> sont <strong>compris entre 0 et 1</strong> (l'hypoténuse est le plus grand côté) ;</li><li>la tangente peut dépasser <code>1</code>.</li></ul>
+<p><strong>Valeurs remarquables</strong> : <code>sin 30° = 0,5</code>, <code>cos 60° = 0,5</code>, <code>tan 45° = 1</code>.</p></section>
+<section class=""><h2 id="s4">3. Calculer une longueur</h2><p><strong>Méthode</strong> :</p>
+<ol><li>Repérer l'angle connu, la longueur connue et la longueur cherchée.</li><li>Choisir la ligne qui relie ces trois éléments (CAH-SOH-TOA).</li><li>Écrire l'égalité, puis la résoudre (produit en croix).</li><li>Calculer avec la calculatrice <strong>en mode degrés</strong>.</li></ol>
+<p><strong>Exemple 1.</strong> <code>ABC</code> rectangle en <code>A</code>, <code>B̂ = 30°</code>, <code>BC = 10</code>. Calculer <code>AC</code>.<br><code>AC</code> est opposé à <code>B̂</code>, <code>BC</code> est l'hypoténuse : on utilise le sinus.<br><code>sin 30° = AC / 10</code> donc <code>AC = 10 × sin 30° = 5</code>.</p>
+<p><strong>Exemple 2.</strong> <code>ABC</code> rectangle en <code>A</code>, <code>B̂ = 35°</code>, <code>AB = 20</code>. Calculer <code>AC</code>.<br><code>AB</code> est adjacent, <code>AC</code> est opposé : on utilise la tangente.<br><code>tan 35° = AC / 20</code> donc <code>AC = 20 × tan 35° ≈ 14,0</code>.</p>
+<p><strong>Exemple 3.</strong> <code>ABC</code> rectangle en <code>A</code>, <code>B̂ = 60°</code>, <code>AB = 7</code>. Calculer <code>BC</code>.<br><code>AB</code> adjacent, <code>BC</code> hypoténuse : cosinus. <code>cos 60° = 7 / BC</code> donc <code>BC = 7 ÷ cos 60° = 14</code>.</p></section>
+<section class=""><h2 id="s5">4. Calculer un angle</h2><p>On utilise la <strong>fonction réciproque</strong> de la calculatrice : <code>cos⁻¹</code> (ou arccos), <code>sin⁻¹</code>, <code>tan⁻¹</code>.</p>
+<p><strong>Exemple 1.</strong> <code>AB = 4</code> et <code>BC = 5</code> dans <code>ABC</code> rectangle en <code>A</code>.<br><code>cos B̂ = 4 / 5 = 0,8</code>, donc <code>B̂ = cos⁻¹(0,8) ≈ 36,9°</code>.</p>
+<p><strong>Exemple 2.</strong> <code>AC = 3</code> et <code>AB = 4</code>.<br><code>tan B̂ = 3 / 4 = 0,75</code>, donc <code>B̂ = tan⁻¹(0,75) ≈ 36,9°</code>.</p>
+<p>On peut ensuite trouver l'autre angle aigu : <code>Ĉ = 90° − B̂ ≈ 53,1°</code>.</p></section>
+<section class=""><h2 id="s6">5. Applications</h2><ul><li><strong>Hauteur d'un arbre ou d'un mât</strong> : on se place à <code>20 m</code> du pied, l'angle d'élévation est <code>35°</code> : <code>h = 20 × tan 35° ≈ 14 m</code>.</li><li><strong>Pente d'une rampe</strong> : une rampe de <code>5 m</code> fait un angle de <code>10°</code> avec l'horizontale : hauteur <code>5 × sin 10° ≈ 0,87 m</code>.</li><li><strong>Combiner avec Pythagore</strong> : après avoir trouvé une longueur avec la trigonométrie, on peut calculer la troisième avec Pythagore.</li></ul></section>
+<section class=""><h2 id="s7">6. Problèmes types</h2><p><strong>Problème 1.</strong> Une échelle de <code>6 m</code> est appuyée contre un mur et fait un angle de <code>70°</code> avec le sol. À quelle hauteur touche-t-elle le mur ?<br>La hauteur est le côté opposé à l'angle de <code>70°</code> ; l'échelle est l'hypoténuse : <code>h = 6 × sin 70° ≈ 5,64 m</code>.</p>
+<p><strong>Problème 2.</strong> Un toit a une pente de <code>30°</code> et une portée horizontale de <code>8 m</code>. Quelle est la hauteur du faîtage ?<br><code>h = 8 × tan 30° ≈ 4,62 m</code>.</p>
+<p><strong>Problème 3.</strong> Dans un triangle rectangle, le côté adjacent à un angle mesure <code>3</code> et l'hypoténuse <code>6</code>. Calculer l'angle.<br><code>cos = 3/6 = 0,5</code> donc l'angle vaut <code>60°</code>.</p>
+<p><strong>Problème 4.</strong> Un triangle rectangle a un angle aigu de <code>40°</code>. Combien mesure l'autre ?<br><code>90° − 40° = 50°</code>.</p></section>
+<section class="sec-didactic"><h2 id="s8">7. Erreurs types d'élèves (volet didactique)</h2><div class="table-wrap"><table><thead><tr><th>Erreur observée</th><th>Exemple</th><th>Cause probable</th><th>Remédiation possible</th></tr></thead><tbody><tr><td>Confondre côté adjacent et côté opposé</td><td><code>tan = adjacent / opposé</code></td><td>Rôle relatif à l'angle mal compris</td><td>Colorier l'angle, l'hypoténuse puis les côtés</td></tr><tr><td>Calculatrice en radians (RAD)</td><td><code>sin 30° = −0,988</code></td><td>Mode non vérifié</td><td>Contrôle systématique : <code>sin 30° = 0,5</code></td></tr><tr><td>Appliquer la trigonométrie à un triangle non rectangle</td><td></td><td>Hypothèse oubliée</td><td>Rédiger « ABC est rectangle en A » avant tout</td></tr><tr><td>Hypoténuse non identifiée</td><td><code>cos B̂ = BC / AB</code></td><td>Rapport inversé</td><td>Rappeler : l'hypoténuse est au dénominateur pour cos et sin</td></tr><tr><td>Résultat &gt; 1 pour un cosinus</td><td><code>cos B̂ = 1,25</code></td><td>Rapport inversé</td><td>Contrôle de vraisemblance : cos et sin sont entre 0 et 1</td></tr><tr><td>Oublier la fonction réciproque</td><td><code>B̂ = 0,8</code></td><td>Cosinus confondu avec l'angle</td><td>Distinguer le nombre <code>cos B̂</code> et la mesure <code>B̂</code></td></tr><tr><td>Division à la place de la multiplication</td><td><code>AC = 10 ÷ sin 30°</code></td><td>Équation mal résolue</td><td>Isoler l'inconnue par produit en croix</td></tr></tbody></table></div>
+<p><strong>Outils</strong> : triangles à construire et mesurer (on constate que le rapport dépend de l'angle), calculatrice, tableur, logiciel de géométrie dynamique.</p></section>
+<section class="sec-retenir"><h2 id="s9">8. À retenir</h2><ul><li><code>cos = adjacent / hypoténuse</code> ; <code>sin = opposé / hypoténuse</code> ; <code>tan = opposé / adjacent</code> (CAH-SOH-TOA).</li><li>Adjacent et opposé dépendent de l'angle choisi ; l'hypoténuse est fixe.</li><li>Calculer un angle : <code>cos⁻¹</code>, <code>sin⁻¹</code>, <code>tan⁻¹</code>. Calculatrice <strong>en degrés</strong>.</li><li><code>cos</code> et <code>sin</code> d'un angle aigu sont compris entre <code>0</code> et <code>1</code>.</li><li>Les deux angles aigus d'un triangle rectangle sont complémentaires : <code>sin B̂ = cos Ĉ</code>.</li></ul></section>
+<section class="sec-practice"><h2 id="s10">Pour s'entraîner</h2><div class="practice"><a class="mode-card blue" href="../../quiz/espace-et-geometrie/07-trigonometrie.html"><h3>Quiz</h3><p>Questions courtes avec correction immédiate pour vérifier que c’est acquis.</p><span class="go">Lancer le quiz <span>→</span></span></a><a class="mode-card sky" href="../../exercices/espace-et-geometrie/07-trigonometrie.html"><h3>Exercices</h3><p>Réponses à saisir, indices et corrections détaillées.</p><span class="go">Commencer <span>→</span></span></a></div></section>
+<section class="sec-extra"><h2 id="s11">Pistes de prolongement (culture mathématique)</h2><ul><li>Hipparque et les premières tables trigonométriques ; astronomie et navigation.</li><li>Arpentage et mesure de la hauteur d'une montagne.</li></ul></section>
+</article>
+<aside class="toc" aria-label="Sommaire"><h4>Sur cette page</h4><ol><li><a href="#s1">Objectifs</a></li><li><a href="#s2">1. Vocabulaire</a></li><li><a href="#s3">2. Cosinus, sinus, tangente</a></li><li><a href="#s4">3. Calculer une longueur</a></li><li><a href="#s5">4. Calculer un angle</a></li><li><a href="#s6">5. Applications</a></li><li><a href="#s7">6. Problèmes types</a></li><li><a href="#s8">7. Erreurs types d'élèves (volet didactique)</a></li><li><a href="#s9">8. À retenir</a></li><li><a href="#s10">Pour s'entraîner</a></li><li><a href="#s11">Pistes de prolongement (culture mathématique)</a></li></ol></aside>
+</div>
+</main>
+<script src="../../assets/admin-config.js"></script>
+<script src="../../assets/nav-data.js"></script>
+<script src="../../assets/nav.js"></script>
+</body>
+</html>

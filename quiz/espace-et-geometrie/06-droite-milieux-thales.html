@@ -1,0 +1,97 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Quiz 06 — Droite des milieux et Thalès</title>
+<link rel="stylesheet" href="../../assets/style.css">
+</head>
+<body>
+<main>
+  <header>
+    <h1 id="title"></h1>
+    <p id="subtitle"></p>
+  </header>
+  <div id="app"></div>
+</main>
+<script>
+window.PAGE = {
+  id: "quiz-geo-06",
+  title: "Quiz 06 — Droite des milieux et Thalès",
+  subtitle: "20 questions, correction immédiate.",
+  sections: [
+    { title: "Droite des milieux", items: [
+      { type: "qcm", q: "I et J sont les milieux de [AB] et [AC]. Que peut-on dire de (IJ) et (BC) ?",
+        options: ["Elles sont perpendiculaires", "Elles sont parallèles", "Elles sont confondues", "Elles se coupent en A"], answer: 1,
+        explain: "Théorème de la droite des milieux : (IJ) // (BC)." },
+      { type: "qcm", q: "I et J sont les milieux de [AB] et [AC], et BC = 14 cm. Que vaut IJ ?",
+        options: ["14 cm", "7 cm", "28 cm", "3,5 cm"], answer: 1,
+        explain: "IJ = BC ÷ 2 = 7 cm." },
+      { type: "qcm", q: "Une droite passe par le milieu I de [AB] et est parallèle à (BC). Elle coupe [AC] en J. Que peut-on dire de J ?",
+        options: ["J est le milieu de [AC]", "J est un sommet", "J est à la distance BC de A", "On ne peut rien dire"], answer: 0,
+        explain: "Troisième théorème de la droite des milieux (réciproque)." },
+      { type: "qcm", q: "I, J, K sont les milieux des trois côtés d'un triangle de périmètre 24 cm. Le périmètre de IJK est…",
+        options: ["24 cm", "12 cm", "6 cm", "48 cm"], answer: 1,
+        explain: "Chaque côté de IJK vaut la moitié du côté parallèle : périmètre = 24 ÷ 2 = 12 cm." }
+    ]},
+    { title: "Thalès : configurations et calculs", items: [
+      { type: "qcm", q: "(MN) // (BC), M sur [AB], N sur [AC]. Quelle égalité est vraie ?",
+        options: ["AM/AB = AN/AC = MN/BC", "AM/MB = AN/NC = BC/MN", "AM/AB = AC/AN", "AM × AB = AN × AC"], answer: 0,
+        explain: "On compare petit triangle / grand triangle : trois rapports égaux." },
+      { type: "qcm", q: "(MN) // (BC), AM = 3, AB = 5, AN = 4,5. Que vaut AC ?",
+        options: ["7,5", "2,7", "6", "9"], answer: 0,
+        explain: "AM/AB = AN/AC donc AC = 4,5 × 5 ÷ 3 = 7,5." },
+      { type: "qcm", q: "(MN) // (BC), AM = 3, AB = 5, BC = 8. Que vaut MN ?",
+        options: ["4,8", "13,3", "5", "2,4"], answer: 0,
+        explain: "MN = BC × AM/AB = 8 × 3 ÷ 5 = 4,8." },
+      { type: "qcm", q: "Dans la configuration en papillon, A est…",
+        options: ["entre M et B, et entre N et C", "à l'extérieur de [MB]", "le milieu de [MN]", "confondu avec M"], answer: 0,
+        explain: "Les deux triangles AMN et ABC sont opposés par le sommet A." },
+      { type: "qcm", q: "Un bâton de 1,5 m a une ombre de 2 m. Un arbre a une ombre de 12 m. Quelle est la hauteur de l'arbre ?",
+        options: ["9 m", "16 m", "18 m", "6 m"], answer: 0,
+        explain: "1,5 / h = 2 / 12 donc h = 1,5 × 12 ÷ 2 = 9 m." },
+      { type: "qcm", q: "Si les longueurs d'une figure sont multipliées par 2, ses aires sont multipliées par…",
+        options: ["2", "4", "8", "16"], answer: 1,
+        explain: "Rapport k = 2 : les aires sont multipliées par k² = 4." }
+    ]},
+    { title: "Réciproque et contraposée", items: [
+      { type: "qcm", q: "AM = 6, AB = 9, AN = 8, AC = 12 (M sur [AB], N sur [AC]). Que conclut-on ?",
+        options: ["(MN) // (BC)", "(MN) n'est pas parallèle à (BC)", "(MN) est perpendiculaire à (BC)", "On ne peut pas conclure"], answer: 0,
+        explain: "6/9 = 2/3 = 8/12 : rapports égaux, réciproque de Thalès." },
+      { type: "qcm", q: "AM = 2, AB = 5, AN = 3, AC = 8. Que conclut-on ?",
+        options: ["(MN) // (BC)", "(MN) n'est pas parallèle à (BC)", "M est le milieu de [AB]", "N est le milieu de [AC]"], answer: 1,
+        explain: "2/5 = 0,4 et 3/8 = 0,375 : rapports différents, contraposée." },
+      { type: "qcm", q: "Pour prouver que deux droites sont parallèles avec Thalès, on utilise…",
+        options: ["le théorème direct", "la réciproque", "les angles", "le théorème de Pythagore"], answer: 1,
+        explain: "La réciproque de Thalès : égalité de rapports ⇒ parallèles." },
+      { type: "qcm", q: "Quelle condition supplémentaire faut-il pour utiliser la réciproque ?",
+        options: ["Les points doivent être alignés dans le même ordre", "Le triangle doit être rectangle", "Les longueurs doivent être entières", "Aucune"], answer: 0,
+        explain: "A, M, B alignés et A, N, C alignés dans le même ordre (même disposition) : emboîtés ou papillon." }
+    ]},
+    { title: "Regard d'enseignant", items: [
+      { type: "qcm", q: "Un élève écrit AM/MB = AN/AC. Quelle est l'origine probable de l'erreur ?",
+        options: [
+          "Il mélange rapports « partie sur total » et « partie sur partie »",
+          "Il ne connaît pas la proportionnalité",
+          "Il a confondu avec Pythagore",
+          "Il a raison"],
+        answer: 0,
+        explain: "On travaille « petit triangle sur grand triangle » en colorant les deux triangles." },
+      { type: "qcm", q: "Un élève utilise Thalès pour prouver que deux droites sont parallèles. Que faire ?",
+        options: [
+          "Distinguer le théorème (calculer) et la réciproque (prouver) avec une fiche à deux colonnes",
+          "Valider son raisonnement",
+          "Lui interdire Thalès",
+          "Lui dire d'utiliser Pythagore"],
+        answer: 0,
+        explain: "Le statut de l'énoncé détermine ce qu'on a le droit de conclure." }
+    ]}
+  ]
+};
+</script>
+<script src="../../assets/admin-config.js"></script>
+<script src="../../assets/nav-data.js"></script>
+<script src="../../assets/nav.js"></script>
+<script src="../../assets/app.js"></script>
+</body>
+</html>

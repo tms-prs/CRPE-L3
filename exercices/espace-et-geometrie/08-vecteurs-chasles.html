@@ -1,0 +1,103 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Exercices 08 — Vecteurs et Chasles</title>
+<link rel="stylesheet" href="../../assets/style.css">
+</head>
+<body>
+<main>
+  <header>
+    <h1 id="title"></h1>
+    <p id="subtitle"></p>
+  </header>
+  <div id="app"></div>
+</main>
+<script>
+window.PAGE = {
+  id: "exo-geo-08",
+  title: "Exercices 08 — Vecteurs et Chasles",
+  subtitle: "Réponses : nombres (longueurs) ou choix. Notation : →AB se lit « vecteur AB ». Leçon : lecons/espace-et-geometrie/08-vecteurs-chasles.md",
+  sections: [
+    { title: "A. Relation de Chasles", items: [
+      { type: "qcm", q: "Simplifier →AB + →BC + →CD.",
+        options: ["→AD", "→DA", "→AC"], answer: 0,
+        explain: "Chasles deux fois : →AB + →BC = →AC puis →AC + →CD = →AD." },
+      { type: "qcm", q: "Simplifier →AB + →BA.",
+        options: ["→0 (le vecteur nul)", "2→AB", "→AB"], answer: 0,
+        explain: "→AB + →BA = →AA = →0." },
+      { type: "qcm", q: "Simplifier →AC + →CB.",
+        options: ["→AB", "→BA", "→AC"], answer: 0,
+        explain: "Chasles : →AC + →CB = →AB." },
+      { type: "qcm", q: "Simplifier →AB − →AC.",
+        options: ["→CB", "→BC", "→BA"], answer: 0,
+        explain: "→AB − →AC = →AB + →CA = →CB." },
+      { type: "qcm", q: "ABCD est un parallélogramme. →AB + →AD est égal à…",
+        options: ["→AC", "→BD", "→AB"], answer: 0,
+        explain: "Règle du parallélogramme : diagonale issue de A." }
+    ]},
+    { title: "B. Égalités de vecteurs et longueurs", items: [
+      { type: "num", q: "ABCD est un parallélogramme avec AB = 6 cm. Quelle est la longueur DC (en cm) ?", answer: "6",
+        solution: "→AB = →DC donc DC = AB = 6 cm." },
+      { type: "num", q: "I est le milieu de [AB] et AB = 12 cm. Quelle est la norme du vecteur →AI (en cm) ?", answer: "6",
+        solution: "→AI = →IB : AI = 12 ÷ 2 = 6 cm." },
+      { type: "num", q: "→AB = →CD avec AB = 7 cm. Quelle est la longueur CD (en cm) ?", answer: "7",
+        solution: "Vecteurs égaux : même longueur." },
+      { type: "num", q: "ABDC est un parallélogramme avec AC = 5 cm. Quelle est la longueur BD (en cm) ?", answer: "5",
+        hint: "→AC = →BD.",
+        solution: "Dans le parallélogramme ABDC, →AC = →BD, donc BD = AC = 5 cm." },
+      { type: "num", q: "A, B, C ne sont pas alignés, AB = 3 cm, BC = 4 cm, et le triangle ABC est rectangle en B. Quelle est la norme de →AB + →BC (en cm) ?", answer: "5",
+        hint: "→AB + →BC = →AC.",
+        solution: "→AB + →BC = →AC, de norme AC = √(9 + 16) = 5 cm." }
+    ]},
+    { title: "C. Parallélogrammes et milieux", items: [
+      { type: "qcm", q: "On sait que →AB = →DC. Quelle est la nature de ABCD ?",
+        options: ["Un parallélogramme", "Un trapèze quelconque", "Un cerf-volant"], answer: 0,
+        explain: "→AB = →DC ⇔ ABCD parallélogramme (éventuellement aplati)." },
+      { type: "qcm", q: "I est le milieu de [AB]. Quelle égalité est vraie ?",
+        options: ["→AI = →IB", "→AI = →BI", "→AB = →AI"], answer: 0,
+        explain: "I milieu de [AB] ⇔ →AI = →IB." },
+      { type: "qcm", q: "Quel est l'opposé du vecteur →AB ?",
+        options: ["→BA", "→AA", "→AB"], answer: 0,
+        explain: "Même direction, même longueur, sens contraire." }
+    ]},
+    { title: "D. Problèmes", items: [
+      { type: "num", q: "Un randonneur va du point A au point B (3 km vers l'est), puis de B à C (4 km vers le nord). Quelle est la distance AC à vol d'oiseau (en km) ?", answer: "5",
+        solution: "→AB + →BC = →AC et ABC est rectangle en B : AC = √(9 + 16) = 5 km." },
+      { type: "num", q: "Une translation envoie A(1 ; 2) sur B(4 ; 6). Quelle est la longueur du vecteur →AB ?", answer: "5",
+        hint: "Pythagore : déplacement (3 ; 4).",
+        solution: "AB = √(3² + 4²) = 5." },
+      { type: "qcm", q: "ABCD est un parallélogramme de centre O. Quel vecteur est égal à →AO ?",
+        options: ["→OC", "→OB", "→CO"], answer: 0,
+        explain: "Les diagonales se coupent en leur milieu : O est le milieu de [AC], donc →AO = →OC." }
+    ]},
+    { title: "Problème 1 · Le vol du drone", statement: "Un drone part d'un point A. Il se déplace de 30 m vers l'est jusqu'à B, puis de 40 m vers le nord jusqu'à C, puis de 30 m vers l'ouest jusqu'à D. Le sol est plan et horizontal.", items: [
+      { type: "num", label: "a)", q: "Quelle est la distance AC à vol d'oiseau (en m) ?", answer: "50",
+        solution: "→AB + →BC = →AC. Le triangle ABC est rectangle en B (est puis nord) : AC² = 30² + 40² = 2 500, AC = 50 m (Pythagore)." },
+      { type: "num", label: "b)", q: "Quelle est la distance AD (en m) ?", answer: "40",
+        hint: "Compare les déplacements →AB et →DC.",
+        solution: "Le drone repart de C vers D de 30 m vers l'ouest, c'est-à-dire →CD = −→AB. Donc →AB = →DC : ABCD est un parallélogramme (en fait un rectangle), et AD = BC = 40 m." },
+      { type: "qcm", label: "c)", q: "Quelle est la nature du quadrilatère ABCD ?",
+        options: ["Un rectangle", "Un losange non rectangle", "Un trapèze quelconque"], answer: 0,
+        explain: "→AB = →DC donc ABCD est un parallélogramme ; il a un angle droit en B (est puis nord) : c'est un rectangle." }
+    ]},
+    { title: "Problème 2 · Le parallélogramme et ses vecteurs", statement: "ABCD est un parallélogramme de centre O. On a AC = 14 cm.", items: [
+      { type: "qcm", label: "a)", q: "Quel vecteur est égal à →AB + →AD ?",
+        options: ["→AC", "→BD", "→CA"], answer: 0,
+        explain: "Règle du parallélogramme : →AB + →AD = →AC." },
+      { type: "qcm", label: "b)", q: "Quel vecteur est égal à →AO ?",
+        options: ["→OC", "→CO", "→OB"], answer: 0,
+        explain: "Les diagonales se coupent en leur milieu : O est le milieu de [AC], donc →AO = →OC." },
+      { type: "num", label: "c)", q: "Quelle est la longueur AO (en cm) ?", answer: "7",
+        solution: "O est le milieu de [AC] : AO = 14 ÷ 2 = 7 cm." }
+    ]}
+  ]
+};
+</script>
+<script src="../../assets/admin-config.js"></script>
+<script src="../../assets/nav-data.js"></script>
+<script src="../../assets/nav.js"></script>
+<script src="../../assets/app.js"></script>
+</body>
+</html>

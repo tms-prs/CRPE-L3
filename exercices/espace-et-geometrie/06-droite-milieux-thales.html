@@ -1,0 +1,95 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Exercices 06 — Droite des milieux et Thalès</title>
+<link rel="stylesheet" href="../../assets/style.css">
+</head>
+<body>
+<main>
+  <header>
+    <h1 id="title"></h1>
+    <p id="subtitle"></p>
+  </header>
+  <div id="app"></div>
+</main>
+<script>
+window.PAGE = {
+  id: "exo-geo-06",
+  title: "Exercices 06 — Droite des milieux et Thalès",
+  subtitle: "Réponses : nombres (longueurs). Leçon : lecons/espace-et-geometrie/06-droite-milieux-thales.md",
+  sections: [
+    { title: "A. Droite des milieux", items: [
+      { type: "num", q: "I et J sont les milieux de [AB] et [AC]. BC = 14 cm. Calculer IJ (en cm).", answer: "7",
+        solution: "IJ = 14 ÷ 2 = 7 cm." },
+      { type: "num", q: "I et J sont les milieux de [AB] et [AC]. IJ = 5,5 cm. Calculer BC (en cm).", answer: "11",
+        solution: "BC = 2 × IJ = 11 cm." },
+      { type: "num", q: "Un triangle ABC a un périmètre de 36 cm. Le triangle formé par les milieux des trois côtés a pour périmètre (en cm) :", answer: "18",
+        solution: "Chaque côté est divisé par 2 : 36 ÷ 2 = 18 cm." },
+      { type: "num", q: "Dans un triangle ABC, I est le milieu de [AB] et la parallèle à (BC) menée par I coupe [AC] en J. Si AC = 9 cm, calculer AJ (en cm).", answer: "4.5",
+        solution: "Réciproque de la droite des milieux : J est le milieu de [AC], AJ = 4,5 cm." }
+    ]},
+    { title: "B. Calculs avec Thalès", items: [
+      { type: "num", q: "(MN) // (BC), M sur [AB], N sur [AC]. AM = 3, AB = 5, AN = 4,5. Calculer AC.", answer: "7.5",
+        hint: "AM/AB = AN/AC.",
+        solution: "AC = 4,5 × 5 ÷ 3 = 7,5." },
+      { type: "num", q: "Même figure : AM = 3, AB = 5, BC = 8. Calculer MN.", answer: "4.8",
+        solution: "MN = 8 × 3 ÷ 5 = 4,8." },
+      { type: "num", q: "(MN) // (BC), AM = 4, AB = 10, MN = 6. Calculer BC.", answer: "15",
+        solution: "BC = MN × AB ÷ AM = 6 × 10 ÷ 4 = 15." },
+      { type: "num", q: "Papillon : (MN) // (BC), AM = 3, AB = 5, AN = 2,4. Calculer AC.", answer: "4",
+        hint: "Mêmes égalités de rapports qu'en configuration emboîtée.",
+        solution: "AM/AB = AN/AC donc AC = 2,4 × 5 ÷ 3 = 4." },
+      { type: "num", q: "(MN) // (BC), AM = 2, MB = 3, AN = 3. Calculer AC. (attention : AB = AM + MB)", answer: "7.5",
+        hint: "AB = 2 + 3 = 5.",
+        solution: "AM/AB = AN/AC : 2/5 = 3/AC donc AC = 3 × 5 ÷ 2 = 7,5." }
+    ]},
+    { title: "C. Réciproque et contraposée", items: [
+      { type: "qcm", q: "AM = 6, AB = 9, AN = 8, AC = 12. (MN) est-elle parallèle à (BC) ?",
+        options: ["Oui", "Non"], answer: 0,
+        explain: "6/9 = 2/3 = 8/12 : réciproque de Thalès." },
+      { type: "qcm", q: "AM = 2, AB = 5, AN = 3, AC = 8. (MN) est-elle parallèle à (BC) ?",
+        options: ["Oui", "Non"], answer: 1,
+        explain: "2/5 = 0,4 mais 3/8 = 0,375 : contraposée, non parallèles." },
+      { type: "qcm", q: "AM = 2,4, AB = 6, AN = 2, AC = 5 (M sur [AB], N sur [AC]). (MN) // (BC) ?",
+        options: ["Oui, 0,4 = 0,4", "Non"], answer: 0,
+        explain: "2,4/6 = 0,4 et 2/5 = 0,4 : réciproque, (MN) // (BC)." }
+    ]},
+    { title: "D. Problèmes", items: [
+      { type: "num", q: "À la même heure, un bâton de 1,5 m a une ombre de 2 m et un arbre une ombre de 12 m. Quelle est la hauteur de l'arbre (en m) ?", answer: "9",
+        solution: "1,5/h = 2/12 donc h = 1,5 × 12 ÷ 2 = 9 m." },
+      { type: "num", q: "Un triangle est réduit avec un rapport k = 1/3. Un côté de 12 cm devient (en cm) :", answer: "4",
+        solution: "12 × 1/3 = 4 cm." },
+      { type: "num", q: "Avec ce rapport de réduction k = 1/3, une aire de 54 cm² devient (en cm²) :", answer: "6",
+        hint: "Les aires sont multipliées par k².",
+        solution: "54 × (1/3)² = 54 ÷ 9 = 6 cm²." },
+      { type: "num", q: "Papillon : (EF) // (GH), les droites (EG) et (FH) se coupent en O. OE = 4, OG = 6, OF = 5. Calculer OH.", answer: "7.5",
+        hint: "OE/OG = OF/OH.",
+        solution: "4/6 = 5/OH donc OH = 5 × 6 ÷ 4 = 7,5." }
+    ]},
+    { title: "Problème 1 · La hauteur du lampadaire", statement: "À 18 h, un piquet vertical de 1,2 m projette une ombre de 0,8 m. Au même moment, un lampadaire vertical projette une ombre de 4,4 m. Le sol est plan et horizontal.", items: [
+      { type: "num", label: "a)", q: "Quelle est la hauteur du lampadaire (en m) ?", answer: "6.6",
+        hint: "Les rayons du soleil sont parallèles : cherche deux triangles dans la configuration de Thalès.",
+        solution: "Le piquet, son ombre et le rayon forment un triangle ; le lampadaire, son ombre et le rayon un triangle plus grand. Les rayons sont parallèles : Thalès donne 1,2 / h = 0,8 / 4,4, donc h = 1,2 × 4,4 ÷ 0,8 = 6,6 m." },
+      { type: "num", label: "b)", q: "Au même moment, quelle est la longueur de l'ombre d'un panneau de 2,5 m ? Arrondir au dixième (en m).", answer: "1.7", tol: 0.05,
+        solution: "0,8 / ombre = 1,2 / 2,5, donc ombre = 2,5 × 0,8 ÷ 1,2 ≈ 1,67 m, soit 1,7 m." }
+    ]},
+    { title: "Problème 2 · Le triangle des milieux", statement: "Dans un triangle ABC, on a AB = 10 cm, AC = 12 cm et BC = 14 cm. I, J et K sont les milieux respectifs de [AB], [AC] et [BC].", items: [
+      { type: "num", label: "a)", q: "Quelle est la longueur IJ (en cm) ?", answer: "7",
+        solution: "I et J sont les milieux de [AB] et [AC] : IJ = BC ÷ 2 = 7 cm (droite des milieux)." },
+      { type: "num", label: "b)", q: "Quel est le périmètre du triangle IJK (en cm) ?", answer: "18",
+        solution: "IJ = 7, JK = AB ÷ 2 = 5, IK = AC ÷ 2 = 6 : 7 + 5 + 6 = 18 cm." },
+      { type: "num", label: "c)", q: "Le triangle IJK est une réduction de ABC. Par quel nombre faut-il multiplier l'aire de ABC pour obtenir celle de IJK ?", answer: "0.25",
+        hint: "Le rapport des longueurs est 1/2. Et celui des aires ?",
+        solution: "Rapport de réduction k = 1/2 : les aires sont multipliées par k² = 1/4 = 0,25." }
+    ]}
+  ]
+};
+</script>
+<script src="../../assets/admin-config.js"></script>
+<script src="../../assets/nav-data.js"></script>
+<script src="../../assets/nav.js"></script>
+<script src="../../assets/app.js"></script>
+</body>
+</html>
