@@ -11,9 +11,11 @@ Usage :  python build.py
 Aucune dépendance externe. Les fichiers .md restent la source des leçons :
 relancer ce script après toute modification ou ajout.
 """
+import hashlib
 import html
 import json
 import re
+import secrets
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parent
@@ -26,9 +28,12 @@ DOMAINS = [
     ("pensee-informatique", "Pensée informatique"),
 ]
 
+ADMIN_TAG = '<script src="../../assets/admin-config.js"></script>\n'
+NAV_DATA_TAG = '<script src="../../assets/nav-data.js"></script>\n'
 NAV_TAGS = (
-    '<script src="../../assets/nav-data.js"></script>\n'
-    '<script src="../../assets/nav.js"></script>\n'
+    ADMIN_TAG
+    + NAV_DATA_TAG
+    + '<script src="../../assets/nav.js"></script>\n'
 )
 APP_TAG = '<script src="../../assets/app.js"></script>'
 
@@ -311,11 +316,49 @@ def page_id(path):
 def inject_nav(path):
     txt = path.read_text(encoding="utf-8")
     if "nav-data.js" in txt:
-        return False
+        if "admin-config.js" in txt:
+            return False
+        path.write_text(txt.replace(NAV_DATA_TAG, ADMIN_TAG + NAV_DATA_TAG, 1), encoding="utf-8", newline="\n")
+        return True
     if APP_TAG not in txt:
         warnings.append("%s : balise app.js introuvable, menu non ajouté" % path.relative_to(ROOT))
         return False
     path.write_text(txt.replace(APP_TAG, NAV_TAGS + APP_TAG), encoding="utf-8", newline="\n")
+    return True
+
+
+# ---------------------------------------------------------------- mode admin
+def sha256_hex(s):
+    return hashlib.sha256(s.encode("utf-8")).hexdigest()
+
+
+def write_admin_config():
+    """Lit creds.txt et écrit assets/admin-config.js (sel + empreinte du jeton).
+
+    Le mot de passe n'est jamais écrit dans le site : on publie seulement
+    check = SHA-256(SHA-256(sel + mot de passe)). Sans creds.txt, le mode admin
+    est désactivé et le fichier de configuration est supprimé.
+    """
+    cfg = ROOT / "assets" / "admin-config.js"
+    creds = ROOT / "creds.txt"
+    password = None
+    if creds.exists():
+        for line in creds.read_text(encoding="utf-8").splitlines():
+            line = line.strip()
+            if line.startswith("ADMIN_PASSWORD="):
+                password = line.split("=", 1)[1].strip()
+    if not password:
+        if cfg.exists():
+            cfg.unlink()
+        return False
+    salt = secrets.token_hex(16)
+    token = sha256_hex(salt + password)
+    cfg.write_text(
+        "/* Généré par build.py à partir de creds.txt : ne pas commiter (voir .gitignore). */\n"
+        'window.CRPE_ADMIN = { salt: "%s", check: "%s" };\n' % (salt, sha256_hex(token)),
+        encoding="utf-8",
+        newline="\n",
+    )
     return True
 
 
@@ -378,9 +421,10 @@ INDEX_TEMPLATE = """<!doctype html>
 <div class="cta-band">
 <div class="cta-big">Chaque exercice te rapproche du <em>concours.</em></div>
 <div class="cta-row"><a class="btn" href="@FIRST@">C’est parti <span class="arr">→</span></a><small>@BILANS@ bilan(s) de thème · programme officiel de cycle 4</small></div>
-<div class="foot"><span>Maths CRPE</span><span>Fait pour apprendre sans stress</span><button type="button" class="reset-btn" data-reset>Réinitialiser ma progression</button></div>
+<div class="foot"><span>Maths CRPE</span><span>Fait pour apprendre sans stress</span><span class="foot-btns"><button type="button" class="reset-btn" data-admin>Mode admin</button><button type="button" class="reset-btn" data-reset>Réinitialiser ma progression</button></span></div>
 </div>
 </main>
+<script src="assets/admin-config.js"></script>
 <script src="assets/nav-data.js"></script>
 <script src="assets/nav.js"></script>
 </body>
@@ -559,11 +603,13 @@ def main():
         ),
     }
     (ROOT / "index.html").write_text(build_index(nav, stats), encoding="utf-8", newline="\n")
+    admin_on = write_admin_config()
 
     print("Leçons converties : %d" % n_lessons)
     print("Pages avec menu ajouté : %d" % n_injected)
     print("Questions au total : %d" % n_questions)
     print("Accueil : index.html")
+    print("Mode admin : %s" % ("active (creds.txt)" if admin_on else "desactive (pas de creds.txt)"))
     for w in warnings:
         print("ATTENTION", w)
 

@@ -288,6 +288,39 @@
     qs.appendChild(s);
   });
 
+  /* ---------- outils du mode admin : répondre automatiquement ---------- */
+  if (window.CRPE_IS_ADMIN === true) {
+    var tools = el("span", "admin-tools");
+    function adminFill(right) {
+      var cards = qs.querySelectorAll("section .card");
+      items.forEach(function (it, k) {
+        var card = cards[k];
+        if (!card || card.classList.contains("ok") || card.classList.contains("ko") || card.classList.contains("answered")) return;
+        if (!right && isTest) { var sk = card.querySelector(".skip"); if (sk) sk.click(); return; }
+        if (it.type === "qcm") {
+          var opts = card.querySelectorAll(".opt");
+          var pick = right ? it.answer : (it.answer + 1) % opts.length;
+          if (opts[pick]) opts[pick].click();
+          return;
+        }
+        if (right) {
+          var inp = card.querySelector("input");
+          inp.value = it.type === "text" ? it.accept[0] : [].concat(it.answer)[0];
+          inp.dispatchEvent(new KeyboardEvent("keydown", { key: "Enter" }));
+        } else {
+          var btns = card.querySelectorAll("button");
+          for (var b = 0; b < btns.length; b++) { if (btns[b].textContent.indexOf("correction") !== -1) { btns[b].click(); break; } }
+        }
+      });
+    }
+    var okBtn = el("button", "admin-btn", "⚡ Tout juste"); okBtn.type = "button";
+    var koBtn = el("button", "admin-btn", "⚡ Tout faux"); koBtn.type = "button";
+    okBtn.addEventListener("click", function () { adminFill(true); });
+    koBtn.addEventListener("click", function () { adminFill(false); });
+    tools.appendChild(okBtn); tools.appendChild(koBtn);
+    bar.appendChild(tools);
+  }
+
   /* ---------- test de positionnement : résultats ---------- */
   var diag = el("div"); diag.id = "diag"; diag.hidden = true;
   var res = el("div", "card hidden"); res.id = "result";

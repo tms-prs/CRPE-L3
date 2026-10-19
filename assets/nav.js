@@ -30,14 +30,101 @@
   function fr(n) { return String(n).replace(".", ","); }
 
   /* ---------- test de positionnement : résultat et verrouillage ---------- */
-  if (/[?&]deverrouiller/.test(location.search)) {
-    data.domains.forEach(function (d) { store("crpe:unlock:" + d.id, "1"); });
-  }
   function placementOf(d) {
     try { return JSON.parse(load("crpe:placement:" + d.id) || "null"); } catch (e) { return null; }
   }
+  /* ---------- mode admin protégé par mot de passe ----------
+     assets/admin-config.js (généré par build.py depuis creds.txt, absent du dépôt) contient
+     un sel et check = SHA-256(jeton) avec jeton = SHA-256(sel + mot de passe). Le mot de passe
+     n'est jamais écrit dans le site ; sans ce fichier le mode admin n'existe pas. */
+  var ADMIN_CFG = window.CRPE_ADMIN || null;
+  var K256 = [
+    0x428a2f98, 0x71374491, 0xb5c0fbcf, 0xe9b5dba5, 0x3956c25b, 0x59f111f1, 0x923f82a4, 0xab1c5ed5,
+    0xd807aa98, 0x12835b01, 0x243185be, 0x550c7dc3, 0x72be5d74, 0x80deb1fe, 0x9bdc06a7, 0xc19bf174,
+    0xe49b69c1, 0xefbe4786, 0x0fc19dc6, 0x240ca1cc, 0x2de92c6f, 0x4a7484aa, 0x5cb0a9dc, 0x76f988da,
+    0x983e5152, 0xa831c66d, 0xb00327c8, 0xbf597fc7, 0xc6e00bf3, 0xd5a79147, 0x06ca6351, 0x14292967,
+    0x27b70a85, 0x2e1b2138, 0x4d2c6dfc, 0x53380d13, 0x650a7354, 0x766a0abb, 0x81c2c92e, 0x92722c85,
+    0xa2bfe8a1, 0xa81a664b, 0xc24b8b70, 0xc76c51a3, 0xd192e819, 0xd6990624, 0xf40e3585, 0x106aa070,
+    0x19a4c116, 0x1e376c08, 0x2748774c, 0x34b0bcb5, 0x391c0cb3, 0x4ed8aa4a, 0x5b9cca4f, 0x682e6ff3,
+    0x748f82ee, 0x78a5636f, 0x84c87814, 0x8cc70208, 0x90befffa, 0xa4506ceb, 0xbef9a3f7, 0xc67178f2
+  ];
+  function ror(x, n) { return (x >>> n) | (x << (32 - n)); }
+  function sha256hex(msg) {
+    var bytes = new TextEncoder().encode(msg);
+    var l = bytes.length, padded = Math.ceil((l + 9) / 64) * 64;
+    var buf = new Uint8Array(padded);
+    buf.set(bytes);
+    buf[l] = 0x80;
+    var dv = new DataView(buf.buffer);
+    dv.setUint32(padded - 4, (l * 8) >>> 0);
+    dv.setUint32(padded - 8, Math.floor((l * 8) / 4294967296));
+    var H = [0x6a09e667, 0xbb67ae85, 0x3c6ef372, 0xa54ff53a, 0x510e527f, 0x9b05688c, 0x1f83d9ab, 0x5be0cd19];
+    var w = new Uint32Array(64);
+    for (var o = 0; o < padded; o += 64) {
+      var i;
+      for (i = 0; i < 16; i++) w[i] = dv.getUint32(o + i * 4);
+      for (i = 16; i < 64; i++) {
+        var s0 = ror(w[i - 15], 7) ^ ror(w[i - 15], 18) ^ (w[i - 15] >>> 3);
+        var s1 = ror(w[i - 2], 17) ^ ror(w[i - 2], 19) ^ (w[i - 2] >>> 10);
+        w[i] = (w[i - 16] + s0 + w[i - 7] + s1) >>> 0;
+      }
+      var a = H[0], b = H[1], c = H[2], d = H[3], e = H[4], f = H[5], g = H[6], h = H[7];
+      for (i = 0; i < 64; i++) {
+        var S1 = ror(e, 6) ^ ror(e, 11) ^ ror(e, 25);
+        var ch = (e & f) ^ (~e & g);
+        var t1 = (h + S1 + ch + K256[i] + w[i]) >>> 0;
+        var S0 = ror(a, 2) ^ ror(a, 13) ^ ror(a, 22);
+        var maj = (a & b) ^ (a & c) ^ (b & c);
+        var t2 = (S0 + maj) >>> 0;
+        h = g; g = f; f = e; e = (d + t1) >>> 0; d = c; c = b; b = a; a = (t1 + t2) >>> 0;
+      }
+      H[0] = (H[0] + a) >>> 0; H[1] = (H[1] + b) >>> 0; H[2] = (H[2] + c) >>> 0; H[3] = (H[3] + d) >>> 0;
+      H[4] = (H[4] + e) >>> 0; H[5] = (H[5] + f) >>> 0; H[6] = (H[6] + g) >>> 0; H[7] = (H[7] + h) >>> 0;
+    }
+    return H.map(function (x) { return ("00000000" + x.toString(16)).slice(-8); }).join("");
+  }
+  var storedToken = load("crpe:admin");
+  var isAdmin = !!(ADMIN_CFG && storedToken && sha256hex(storedToken) === ADMIN_CFG.check);
+  window.CRPE_IS_ADMIN = isAdmin;
+  function cleanUrl() { return location.href.split("?")[0].split("#")[0]; }
+  function adminLogout() { store("crpe:admin", "0"); location.href = cleanUrl(); }
+  function openAdminLogin() {
+    if (!ADMIN_CFG || document.getElementById("admin-modal")) return;
+    var scrim = el("div", "modal-scrim");
+    scrim.id = "admin-modal";
+    var box = el("form", "modal");
+    box.setAttribute("autocomplete", "off");
+    box.appendChild(el("h2", null, "Mode admin"));
+    box.appendChild(el("p", null, "Saisis le mot de passe administrateur."));
+    var inp = el("input"); inp.type = "password"; inp.setAttribute("aria-label", "Mot de passe administrateur"); inp.autocomplete = "off";
+    var err = el("p", "modal-err"); err.setAttribute("role", "alert");
+    var row = el("div", "row");
+    var ok = el("button", "btn", "Valider"); ok.type = "submit";
+    var cancel = el("button", "btn ghost", "Annuler"); cancel.type = "button";
+    row.appendChild(ok); row.appendChild(cancel);
+    box.appendChild(inp); box.appendChild(err); box.appendChild(row);
+    scrim.appendChild(box);
+    document.body.appendChild(scrim);
+    inp.focus();
+    function close() { scrim.remove(); if (/[?&]admin/.test(location.search)) { try { history.replaceState(null, "", cleanUrl()); } catch (e) { /* ignore */ } } }
+    cancel.addEventListener("click", close);
+    scrim.addEventListener("click", function (ev) { if (ev.target === scrim) close(); });
+    box.addEventListener("keydown", function (ev) { if (ev.key === "Escape") close(); });
+    box.addEventListener("submit", function (ev) {
+      ev.preventDefault();
+      var token = sha256hex(ADMIN_CFG.salt + inp.value);
+      if (sha256hex(token) === ADMIN_CFG.check) {
+        store("crpe:admin", token);
+        location.href = cleanUrl();
+      } else {
+        err.textContent = "Mot de passe incorrect.";
+        inp.value = "";
+        inp.focus();
+      }
+    });
+  }
   function unlocked(d) {
-    return !d.placement || !!placementOf(d) || load("crpe:unlock:" + d.id) === "1";
+    return isAdmin || !d.placement || !!placementOf(d);
   }
   function note20(r) { return Math.round((r.correct / r.total) * 200) / 10; }
   function partLevel(d, num) {
@@ -204,6 +291,14 @@
   });
   nav.appendChild(links);
 
+  if (isAdmin) {
+    var badge0 = el("button", "admin-badge", "ADMIN ✕");
+    badge0.type = "button";
+    badge0.title = "Mode admin actif : tout est déverrouillé. Cliquer pour quitter.";
+    badge0.addEventListener("click", adminLogout);
+    nav.appendChild(badge0);
+  }
+
   var prog = el("div", "nav-progress");
   prog.title = "Quiz, exercices et tests commencés";
   var circ = 2 * Math.PI * 16;
@@ -214,6 +309,13 @@
   header.appendChild(nav);
   header.appendChild(mega);
   document.body.insertBefore(header, document.body.firstChild);
+
+  /* ?admin ouvre la saisie du mot de passe ; ?admin=0 ferme la session admin */
+  var qAdmin = /[?&]admin(=([^&]*))?(&|$)/.exec(location.search);
+  if (qAdmin && ADMIN_CFG) {
+    if (qAdmin[2] === "0" || qAdmin[2] === "off") { if (isAdmin) adminLogout(); }
+    else if (!isAdmin) openAdminLogin();
+  }
 
   document.addEventListener("click", function (ev) {
     if (openKind && !header.contains(ev.target)) setOpen(null);
@@ -252,12 +354,21 @@
 
   /* ---------- accueil : reprise, progression, verrous ---------- */
   if (isHome) {
+    var adminBtn = document.querySelector("[data-admin]");
+    if (adminBtn) {
+      if (!ADMIN_CFG) {
+        adminBtn.hidden = true;   /* pas de creds.txt au build : le mode admin n'existe pas */
+      } else {
+        adminBtn.textContent = isAdmin ? "Quitter le mode admin" : "Mode admin";
+        adminBtn.addEventListener("click", function () { if (isAdmin) adminLogout(); else openAdminLogin(); });
+      }
+    }
     var resetBtn = document.querySelector("[data-reset]");
     if (resetBtn) {
       resetBtn.addEventListener("click", function () {
         if (!window.confirm("Effacer toute ta progression (scores, tests de positionnement, déverrouillages) ? Cette action est définitive.")) return;
         try {
-          Object.keys(localStorage).filter(function (k) { return k.indexOf("crpe:") === 0; }).forEach(function (k) { localStorage.removeItem(k); });
+          Object.keys(localStorage).filter(function (k) { return k.indexOf("crpe:") === 0 && k !== "crpe:admin"; }).forEach(function (k) { localStorage.removeItem(k); });
         } catch (e) { /* ignore */ }
         location.reload();
       });
