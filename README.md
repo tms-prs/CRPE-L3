@@ -107,6 +107,9 @@ Les dossiers `lecons/`, `exercices/` et `quiz/` sont triés par **domaine du pro
 CRPE/
 ├── README.md
 ├── lancer.bat                       # double-clic : build + serveur local + navigateur
+├── serve.py                         # serveur local sécurisé (127.0.0.1, creds.txt non servi)
+├── creds.txt                        # mot de passe admin (ignoré par git)
+├── .gitignore
 ├── index.html                       # accueil et point d'entrée (généré)
 ├── build.py                         # génère les pages HTML des leçons, le menu et l'accueil
 ├── assets/                          # style.css, app.js (quiz), nav.js + nav-data.js (menu)
@@ -152,17 +155,25 @@ Le script (sans dépendance externe) régénère les pages HTML des leçons, le 
 
 Chaque thème commence par un **test de positionnement** (`tests-blancs/<thème>/positionnement.html`). Tant qu'il n'est pas terminé, les leçons, quiz, exercices et le bilan du thème sont **verrouillés** (cadenas dans les menus, page de verrouillage qui renvoie vers le test).
 
-- Le test mêle exercices types et problèmes, répartis par sous-thème (une leçon = un sous-thème). Une seule tentative par question, aucune correction pendant le test.
+- Le test mêle exercices types et problèmes **dans un ordre aléatoire, sans titre de sous-thème** : à l'élève de reconnaître la propriété à utiliser. Chaque question est rattachée en interne à un sous-thème (une leçon = un sous-thème) pour calculer le diagnostic. Une seule tentative par question, aucune correction pendant le test. Les bilans sont mélangés de la même façon.
 - À la fin : **note sur 20**, **pourcentage par sous-thème** (Acquis ≥ 80 %, À consolider 50-79 %, À travailler < 50 %), **priorités** à travailler avec lien vers les leçons, et correction des questions ratées.
 - Le niveau de chaque sous-thème s'affiche ensuite en pastille (vert / jaune / rouge) dans les menus et sur l'accueil, et dans l'en-tête de chaque chapitre.
 - Le test peut être refait (le résultat est remplacé, les leçons restent ouvertes). Résultats enregistrés dans le navigateur.
 - Tout remettre à zéro : bouton **« Réinitialiser ma progression »** en bas de la page d'accueil (efface scores, résultats des tests et déverrouillages de ce navigateur). Les données sont propres à chaque adresse : si tu ouvres le site de plusieurs façons (lancer.bat, index.html directement), chacune a sa propre progression.
-- Déverrouillage manuel (enseignant) : ajouter `?deverrouiller` à l'adresse d'une page, par exemple `index.html?deverrouiller`.
+- **Mode admin** (pour tester sans passer les tests), **protégé par mot de passe** : bouton « Mode admin » en bas de la page d'accueil, ou `?admin` ajouté à l'adresse d'une page (`?admin=0` pour quitter). Une fenêtre demande le mot de passe. Une fois connecté : tous les thèmes sont déverrouillés, un badge rouge « ADMIN ✕ » apparaît dans l'en-tête (clic = quitter) et chaque quiz / exercices / test reçoit deux boutons « ⚡ Tout juste » et « ⚡ Tout faux » qui répondent à toutes les questions. La session est mémorisée dans le navigateur et n'est pas effacée par « Réinitialiser ma progression ».
+
+### Mot de passe admin et sécurité
+
+- Le mot de passe est dans **`creds.txt`** (ligne `ADMIN_PASSWORD=…`), à la racine. Ce fichier et `assets/admin-config.js` sont listés dans **`.gitignore`** : ils ne sont jamais commités.
+- `python build.py` (ou `lancer.bat`) lit `creds.txt` et génère `assets/admin-config.js`, qui contient seulement un sel et une empreinte SHA-256 : le mot de passe lui-même n'est écrit nulle part dans le site. Pour le changer : modifier `creds.txt`, relancer `lancer.bat`, puis se reconnecter.
+- **Sans `creds.txt`, le mode admin n'existe pas** (le bouton est caché, `?admin` est ignoré). Un site publié depuis le dépôt (sans ces deux fichiers) n'a donc aucun mode admin.
+- `lancer.bat` démarre `serve.py` : un serveur local limité à `127.0.0.1` qui refuse de servir `creds.txt`, `.git`, `build.py` et `.gitignore`.
+- Limite à connaître : le site est statique, tout s'exécute dans le navigateur. Le mot de passe protège l'accès normal au mode admin et l'empreinte publiée ne permet pas de le deviner facilement, mais ce n'est pas une sécurité de serveur : quelqu'un qui connaît JavaScript et dispose du fichier `admin-config.js` peut tenter de retrouver un mot de passe faible. Utilise un mot de passe long (celui de `creds.txt` est généré au hasard).
 - Pour un nouveau thème : créer `tests-blancs/<thème>/positionnement.html` sur le modèle de celui de « nombres-et-calculs » (`test: true`, `placement`, `parts`, une section par sous-thème avec `part: "NN"` égal au numéro de la leçon), puis `python build.py`. Sans ce fichier, le thème n'est pas verrouillé.
 
 ## Avancement
 
-- **Nombres et calculs** : thème complet (7 leçons, 7 quiz, 7 séries d'exercices, 1 bilan)
+- **Nombres et calculs** : thème complet (7 leçons, 7 quiz, 7 séries d'exercices, 1 bilan, 1 test de positionnement)
   - [x] 01 Nombres relatifs
   - [x] 02 Fractions et nombres rationnels
   - [x] 03 Puissances, notation scientifique, racine carrée
@@ -171,7 +182,17 @@ Chaque thème commence par un **test de positionnement** (`tests-blancs/<thème>
   - [x] 06 Calcul littéral
   - [x] 07 Équations et inéquations
   - [x] Bilan : `tests-blancs/nombres-et-calculs/bilan-nombres-et-calculs.html` (33 questions, leçons 01 à 07)
-- Espace et géométrie : à faire
+- **Espace et géométrie** : thème complet (9 leçons avec figures, 9 quiz, 9 séries d'exercices, 1 bilan, 1 test de positionnement)
+  - [x] 01 Repérage, angles et parallélisme
+  - [x] 02 Triangles et droites remarquables
+  - [x] 03 Parallélogrammes et quadrilatères
+  - [x] 04 Symétries et translations
+  - [x] 05 Théorème de Pythagore
+  - [x] 06 Droite des milieux et théorème de Thalès
+  - [x] 07 Trigonométrie du triangle rectangle
+  - [x] 08 Vecteurs et relation de Chasles
+  - [x] 09 Solides, volumes et sections
+  - [x] Test de positionnement (36 questions) et bilan (36 questions)
 - Données et probabilités : à faire
 - Proportionnalité et fonctions : à faire
 - Pensée informatique : à faire
@@ -182,3 +203,17 @@ Chaque thème commence par un **test de positionnement** (`tests-blancs/<thème>
 - [ ] Faire un test de positionnement initial
 - [ ] Définir le calendrier jusqu'à la date du concours
 - [ ] Rédiger les premières leçons et exercices
+
+## Conventions pour écrire du contenu
+
+- **Figures dans les leçons** : un bloc ` ```svg Légende de la figure ` suivi du code SVG inline, fermé par ` ``` `, devient une figure légendée. Classes utiles : `s` (trait), `sb` (trait bleu), `fs` (remplissage bleu clair), `fc` (crème), `fb` (bleu), `d` (pointillés), `pt` / `pb` (points), `b` / `m` (texte bleu / gris).
+- **Réponses approchées** : dans un exercice, `tol: 0.05` accepte toute valeur à 0,05 près de la réponse (arrondis demandés).
+- **Fraction irréductible** : `irreducible: true` refuse une fraction non simplifiée.
+- **Vecteurs** : notés `→AB` dans le texte.
+
+## Exercices classiques et problèmes
+
+- Chaque série d'exercices (`exercices/<thème>/NN-….html`) commence par des **exercices classiques** (une notion, une méthode) et se termine par des **problèmes** de type devoir / CRPE : un énoncé (carte bleue « Énoncé »), puis des questions a), b), c)… qui s'enchaînent, sans nommer la propriété à employer. Un indice discret est disponible, la correction détaillée nomme la méthode utilisée.
+- Chaque thème a aussi une page **« Problèmes de synthèse »** (`tests-blancs/<thème>/problemes-synthese.html`, onglet Tests) : 4 problèmes mêlant plusieurs notions du thème.
+- Format d'un problème dans une page : `{ title: "Problème 1 · …", statement: "énoncé", items: [ { type: "num", label: "a)", q: "…", answer: "…", hint: "…", solution: "…" } ] }`.
+- Options de page : `mix: true` mélange toutes les questions d'un test (sans titres) ; `shuffle: true` sur une section mélange ses questions.
