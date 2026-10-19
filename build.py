@@ -410,7 +410,7 @@ INDEX_TEMPLATE = """<!doctype html>
 </div>
 <div class="sticker"><div class="disc">π</div>@STICKER@</div>
 </section>
-<div class="marquee" aria-hidden="true"><div class="marquee-track">@MARQ@@MARQ@</div></div>
+<div class="marquee" aria-hidden="true"><div class="marquee-track">@MARQ@@MARQ@@MARQ@@MARQ@@MARQ@@MARQ@@MARQ@@MARQ@</div></div>
 <section class="section">
 <div class="section-head"><h2>Cinq <span class="nw"><em>thèmes</em>,</span> un seul objectif.</h2><p>Chaque thème se termine par un bilan. Avance à ton rythme : ta progression est enregistrée dans ton navigateur.</p></div>
 <div class="levels">@CARDS@</div>

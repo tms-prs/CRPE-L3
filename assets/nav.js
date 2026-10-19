@@ -143,7 +143,7 @@
   if (!document.querySelector("link[rel~=icon]")) {
     var ic = el("link");
     ic.rel = "icon";
-    ic.href = "data:image/svg+xml," + encodeURIComponent("<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'><circle cx='32' cy='32' r='32' fill='#2754d9'/><text x='32' y='45' font-size='38' text-anchor='middle' fill='#f6f0e1' font-family='Georgia,serif' font-style='italic'>π</text></svg>");
+    ic.href = "data:image/svg+xml," + encodeURIComponent("<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'><circle cx='32' cy='32' r='32' fill='#2754d9'/><text x='32' y='41' font-size='38' text-anchor='middle' fill='#f6f0e1' font-family='Georgia,serif' font-style='italic'>π</text></svg>");
     document.head.appendChild(ic);
   }
 
