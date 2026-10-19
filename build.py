@@ -428,7 +428,7 @@ INDEX_TEMPLATE = """<!doctype html>
 <div class="cta-band">
 <div class="cta-big">Chaque exercice te rapproche du <em>concours.</em></div>
 <div class="cta-row"><a class="btn" href="@FIRST@">C’est parti <span class="arr">→</span></a><small>@BILANS@ bilan(s) de thème · programme officiel de cycle 4</small></div>
-<div class="foot"><span>Maths CRPE</span><span>Fait pour apprendre sans stress</span><span class="foot-btns"><button type="button" class="reset-btn" data-admin>Mode admin</button><button type="button" class="reset-btn" data-reset>Réinitialiser ma progression</button></span></div>
+<div class="foot"><span>Maths CRPE</span><span>Fait pour apprendre sans stress</span><span class="foot-btns"><button type="button" class="reset-btn" data-export>Exporter ma progression</button><button type="button" class="reset-btn" data-import>Importer…</button><input type="file" accept="application/json,.json" data-import-file hidden aria-label="Fichier de progression à importer"><button type="button" class="reset-btn" data-admin>Mode admin</button><button type="button" class="reset-btn" data-reset>Réinitialiser ma progression</button></span></div>
 </div>
 </main>
 <script src="assets/admin-config.js"></script>

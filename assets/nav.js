@@ -363,6 +363,59 @@
         adminBtn.addEventListener("click", function () { if (isAdmin) adminLogout(); else openAdminLogin(); });
       }
     }
+    /* sauvegarde de la progression : export / import d'un fichier JSON (le jeton admin n'est jamais exporté) */
+    function progressKeys() {
+      try {
+        return Object.keys(localStorage).filter(function (k) { return k.indexOf("crpe:") === 0 && k !== "crpe:admin"; });
+      } catch (e) { return []; }
+    }
+    var expBtn = document.querySelector("[data-export]");
+    if (expBtn) {
+      expBtn.addEventListener("click", function () {
+        var dataOut = {};
+        progressKeys().forEach(function (k) { dataOut[k] = load(k); });
+        var payload = { app: "maths-crpe", version: 1, exportedAt: new Date().toISOString(), data: dataOut };
+        var blob = new Blob([JSON.stringify(payload, null, 1)], { type: "application/json" });
+        var url = URL.createObjectURL(blob);
+        var a = el("a");
+        a.href = url;
+        a.download = "maths-crpe-progression-" + new Date().toISOString().slice(0, 10) + ".json";
+        document.body.appendChild(a);
+        a.click();
+        a.remove();
+        setTimeout(function () { URL.revokeObjectURL(url); }, 1000);
+      });
+    }
+    var impBtn = document.querySelector("[data-import]");
+    var impFile = document.querySelector("[data-import-file]");
+    if (impBtn && impFile) {
+      impBtn.addEventListener("click", function () { impFile.click(); });
+      impFile.addEventListener("change", function () {
+        var file = impFile.files && impFile.files[0];
+        impFile.value = "";
+        if (!file) return;
+        if (file.size > 1000000) { window.alert("Fichier trop volumineux : ce n'est pas une sauvegarde de progression."); return; }
+        var reader = new FileReader();
+        reader.onload = function () {
+          var parsed = null;
+          try { parsed = JSON.parse(String(reader.result)); } catch (e) { parsed = null; }
+          var entries = [];
+          if (parsed && parsed.app === "maths-crpe" && parsed.data && typeof parsed.data === "object") {
+            Object.keys(parsed.data).forEach(function (k) {
+              var v = parsed.data[k];
+              if (k.indexOf("crpe:") === 0 && k !== "crpe:admin" && typeof v === "string" && v.length < 200000) entries.push([k, v]);
+            });
+          }
+          if (!entries.length) { window.alert("Ce fichier n'est pas une sauvegarde valide de Maths CRPE."); return; }
+          if (!window.confirm("Importer " + entries.length + " éléments de progression ? Ta progression actuelle sera remplacée.")) return;
+          progressKeys().forEach(function (k) { try { localStorage.removeItem(k); } catch (e) { /* ignore */ } });
+          entries.forEach(function (e) { store(e[0], e[1]); });
+          location.reload();
+        };
+        reader.onerror = function () { window.alert("Impossible de lire ce fichier."); };
+        reader.readAsText(file);
+      });
+    }
     var resetBtn = document.querySelector("[data-reset]");
     if (resetBtn) {
       resetBtn.addEventListener("click", function () {
