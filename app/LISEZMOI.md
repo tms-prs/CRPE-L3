@@ -66,3 +66,10 @@ npm run publier
 Cela construit l'installateur et crée la release `v1.1.0` avec `Cartable-Installation-1.1.0.exe` et `latest.yml`.
 Les utilisateurs déjà installés se mettent à jour tout seuls. Ne jamais commiter le jeton.
 Les nouveaux utilisateurs téléchargent l'exe depuis la page Releases. La 1re installation reste manuelle.
+
+### Nettoyage automatique des anciennes versions
+- `npm run dist` et `npm run publier` vident d'abord `app/release/` : un seul installateur reste dans ce dossier.
+- `npm run publier` crée la release GitHub avant l'envoi (plus de releases en double), puis supprime les anciennes :
+  seules les 2 dernières versions sont gardées (modifier `KEEP` dans `scripts/clean-releases.js`).
+  Les utilisateurs ne sont pas touchés : l'app lit uniquement la dernière release.
+- `npm run nettoyer` (avec `GH_TOKEN`) lance ce nettoyage seul ; `node scripts/clean-releases.js --dry` montre ce qui serait supprimé sans rien supprimer.

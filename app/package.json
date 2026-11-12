@@ -11,8 +11,9 @@
     "icon": "electron scripts/make-icon.js",
     "start": "npm run sync && electron .",
     "dev": "electron .",
-    "dist": "npm run sync && electron-builder --win nsis",
-    "publier": "npm run sync && node scripts/tag.js && electron-builder --win nsis --publish always"
+    "dist": "npm run sync && node scripts/clean-local.js && electron-builder --win nsis",
+    "publier": "npm run sync && node scripts/tag.js && node scripts/clean-local.js && electron-builder --win nsis --publish always && node scripts/clean-releases.js",
+    "nettoyer": "node scripts/clean-releases.js"
   },
   "devDependencies": {
     "@fontsource-variable/bricolage-grotesque": "^5.3.0",
