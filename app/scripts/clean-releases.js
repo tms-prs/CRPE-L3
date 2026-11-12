@@ -16,7 +16,26 @@ const cmp = (a, b) => { const x = semver(a), y = semver(b); for (let i = 0; i < 
 (async () => {
   const res = await api("/releases?per_page=100");
   if (!res.ok) { console.error("Liste des releases impossible :", res.status); process.exit(1); }
-  const all = (await res.json()).filter((r) => /^v\d+\.\d+\.\d+$/.test(r.tag_name) && !r.draft);
+  let all = (await res.json()).filter((r) => /^v\d+\.\d+\.\d+$/.test(r.tag_name) && !r.draft);
+
+  /* 1. Doublons : plusieurs releases pour un même tag. Le tag pointe vers l'une d'elles ; si elle n'a pas latest.yml,
+        la mise à jour automatique échoue (404). On garde celle qui contient latest.yml (sinon celle qui a le plus de fichiers). */
+  const dups = [];
+  for (const t of new Set(all.map((r) => r.tag_name))) {
+    const group = all.filter((r) => r.tag_name === t);
+    if (group.length < 2) continue;
+    const score = (r) => (r.assets.some((a) => a.name === "latest.yml") ? 1000 : 0) + r.assets.length;
+    group.sort((a, b) => score(b) - score(a));
+    dups.push(...group.slice(1));
+  }
+  for (const r of dups) {
+    const files = r.assets.map((a) => a.name).join(", ");
+    if (dry) console.log("[dry] doublon : supprimerait la release", r.id, r.tag_name, `(${files})`);
+    else console.log("Doublon supprimé", r.tag_name, r.id, (await api(`/releases/${r.id}`, { method: "DELETE" })).status);
+  }
+  all = all.filter((r) => !dups.includes(r));
+
+  /* 2. Anciennes versions */
   const tags = [...new Set(all.map((r) => r.tag_name))].sort(cmp); // une version peut avoir plusieurs releases (doublons)
   const keep = tags.slice(0, KEEP);
   const old = all.filter((r) => !keep.includes(r.tag_name));
