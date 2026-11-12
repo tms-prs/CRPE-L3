@@ -1,0 +1,43 @@
+
+/* ===== Thème pastel Cartable (ajouté par scripts/sync-cours.js, le site web d'origine n'est pas modifié) ===== */
+:root {
+  --cream: #fff6ec;
+  --cream-2: #f7e8ea;
+  --paper: #fffaf6;
+  --ink: #5b4a6b;
+  --ink-2: #7a6a8c;
+  --muted: #9a8ba8;
+  --blue: #a08de6;
+  --blue-d: #7b66c9;
+  --sky: #d5e5f7;
+  --sky-2: #ece6fb;
+  --sand: #ead7c6;
+  --line: rgba(91, 74, 107, 0.16);
+  --ok: #4f9d7b;
+  --ok-soft: #d8f0e4;
+  --bad: #d27285;
+  --bad-soft: #fcdfe4;
+  --hint: #fdf0c6;
+}
+html { background: var(--cream); }
+body {
+  background:
+    radial-gradient(1100px 700px at 12% 6%, #f3ecfb, transparent 60%),
+    radial-gradient(1000px 700px at 92% 94%, #e6f3f1, transparent 60%),
+    radial-gradient(700px 500px at 95% 10%, #e4effb, transparent 60%),
+    linear-gradient(160deg, #fff4e8, #fdeef0) fixed;
+  background-attachment: fixed;
+}
+body::before { opacity: .12; }
+.nav-tab:hover, .chapbar a.tab:hover { background: rgba(143, 121, 220, .14); }
+.dbar, .reset-btn { background-color: rgba(143, 121, 220, .16); }
+.modal-scrim { background: rgba(91, 74, 107, .4); }
+.prose tr:nth-child(even) td { background: rgba(215, 201, 242, .3); }
+.site-header { background: color-mix(in srgb, #fff6ec 80%, transparent); }
+.btn.blue, .pill-tag.blue, .nav-tab.open, .ptag, .callout .ic, .opt.picked .k, .mode-card.blue { color: #fff; }
+.admin-badge { background: #d27285; }
+.level-card:nth-child(5n+3) { background: #dcd0f6; color: var(--ink); }
+.level-card:nth-child(5n+5) { background: #cdeadb; color: var(--ink); }
+.level-card:nth-child(5n+3) .dbar, .level-card:nth-child(5n+5) .dbar { background: rgba(91, 74, 107, .16); }
+.level-card:nth-child(5n+3) .dbar > i, .level-card:nth-child(5n+5) .dbar > i { background: var(--ink); }
+.level-card.soon { opacity: .75; }

@@ -1,0 +1,9 @@
+{
+  "id": "maths-crpe",
+  "titre": "Maths CRPE",
+  "sousTitre": "Leçons, quiz, exercices",
+  "icone": "pi",
+  "couleur": "#b9d7f2",
+  "couleurDos": "#8fbbe3",
+  "entree": "index.html"
+}

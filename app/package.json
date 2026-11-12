@@ -1,0 +1,75 @@
+{
+  "name": "cartable",
+  "productName": "Cartable",
+  "version": "1.0.0",
+  "description": "Cartable : tous tes cours au même endroit, hors ligne.",
+  "main": "main.js",
+  "author": "Cartable",
+  "private": true,
+  "scripts": {
+    "sync": "node scripts/sync-cours.js",
+    "icon": "electron scripts/make-icon.js",
+    "start": "npm run sync && electron .",
+    "dev": "electron .",
+    "dist": "npm run sync && electron-builder --win nsis",
+    "publier": "npm run sync && electron-builder --win nsis --publish always"
+  },
+  "devDependencies": {
+    "@fontsource-variable/bricolage-grotesque": "^5.3.0",
+    "@fontsource-variable/dm-sans": "^5.3.0",
+    "@fontsource/instrument-serif": "^5.3.0",
+    "@fontsource/jetbrains-mono": "^5.3.0",
+    "electron": "^45.3.1",
+    "electron-builder": "^26.18.0"
+  },
+  "build": {
+    "appId": "fr.cartable.app",
+    "productName": "Cartable",
+    "copyright": "Cartable",
+    "directories": {
+      "output": "release",
+      "buildResources": "build"
+    },
+    "files": [
+      "main.js",
+      "preload.js",
+      "shell/**/*",
+      "cours/**/*",
+      "build/icon.png",
+      "package.json",
+      "scripts/smoke.js"
+    ],
+    "win": {
+      "target": [
+        {
+          "target": "nsis",
+          "arch": [
+            "x64"
+          ]
+        }
+      ],
+      "icon": "build/icon.png"
+    },
+    "nsis": {
+      "oneClick": false,
+      "allowToChangeInstallationDirectory": true,
+      "perMachine": false,
+      "createDesktopShortcut": true,
+      "createStartMenuShortcut": true,
+      "shortcutName": "Cartable",
+      "language": "1036"
+    },
+    "artifactName": "Cartable-Installation-${version}.${ext}",
+    "publish": [
+      {
+        "provider": "github",
+        "owner": "tms-prs",
+        "repo": "CRPE-L3",
+        "releaseType": "release"
+      }
+    ]
+  },
+  "dependencies": {
+    "electron-updater": "^6.8.11"
+  }
+}

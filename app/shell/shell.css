@@ -1,0 +1,102 @@
+@font-face{font-family:'Bricolage Grotesque';font-weight:200 800;font-display:swap;src:url('fonts/bricolage-grotesque-latin-wght-normal.woff2') format('woff2');}
+@font-face{font-family:'Instrument Serif';font-style:italic;font-weight:400;font-display:swap;src:url('fonts/instrument-serif-latin-400-italic.woff2') format('woff2');}
+@font-face{font-family:'Instrument Serif';font-style:normal;font-weight:400;font-display:swap;src:url('fonts/instrument-serif-latin-400-normal.woff2') format('woff2');}
+
+:root{
+  --bg1:#fff4e8; --bg2:#f3ecfb; --bg3:#e6f3f1;
+  --ink:#5b4a6b; --muted:#9a8ba8;
+  --rose:#f8c8d4; --peach:#fcd9bd; --butter:#fbeaa8; --mint:#c4e8d4; --sky:#bddcf5; --lilac:#d7c9f2;
+  --wood1:#efd3b8; --wood2:#e2bf9f; --wood3:#cfa683;
+  --ease:cubic-bezier(.2,.8,.2,1);
+}
+*{box-sizing:border-box}
+html,body{height:100%;margin:0}
+body{
+  font-family:'Bricolage Grotesque',system-ui,sans-serif; color:var(--ink); overflow:hidden;
+  background:radial-gradient(1200px 700px at 15% 10%,var(--bg2),transparent 60%),
+             radial-gradient(1000px 700px at 90% 90%,var(--bg3),transparent 60%),
+             linear-gradient(160deg,var(--bg1),#fdeef0);
+  user-select:none; -webkit-user-select:none;
+}
+.blobs{position:fixed;inset:0;pointer-events:none;overflow:hidden}
+.blobs i{position:absolute;border-radius:50%;filter:blur(46px);opacity:.55;animation:drift 18s ease-in-out infinite alternate}
+.blobs i:nth-child(1){width:380px;height:380px;background:var(--rose);left:-90px;top:-70px}
+.blobs i:nth-child(2){width:340px;height:340px;background:var(--sky);right:-60px;top:10%;animation-delay:-6s;animation-duration:22s}
+.blobs i:nth-child(3){width:420px;height:420px;background:var(--mint);left:30%;bottom:-170px;animation-delay:-3s;animation-duration:26s}
+.blobs i:nth-child(4){width:260px;height:260px;background:var(--butter);right:12%;bottom:6%;animation-delay:-10s}
+@keyframes drift{to{transform:translate(50px,-40px) scale(1.15)}}
+
+/* ------------------------------------------------------------------ splash */
+.splash{position:fixed;inset:0;display:grid;place-items:center;transition:opacity .6s ease,transform .6s ease}
+.splash.out{opacity:0;transform:scale(1.04)}
+.stage{display:flex;flex-direction:column;align-items:center;gap:6px;position:relative}
+.scene{width:min(520px,80vw);height:auto;overflow:visible}
+.book{transform-box:fill-box;transform-origin:50% 100%;opacity:0;animation:drop .8s var(--ease) forwards}
+.b1{animation-delay:.25s}.b2{animation-delay:.45s}.b3{animation-delay:.65s}
+.b4{animation-delay:.85s}.b5{animation-delay:1.05s}
+.b6{animation:drop .8s var(--ease) 1.25s forwards,lean 1s var(--ease) 2.3s forwards}
+@keyframes drop{0%{opacity:0;transform:translateY(-190px) rotate(-14deg)}
+  55%{opacity:1;transform:translateY(8px) rotate(2deg)}75%{transform:translateY(-5px) rotate(-1deg)}
+  100%{opacity:1;transform:none}}
+@keyframes lean{to{transform:rotate(14deg) translateX(8px)}}
+.shelf-board{transform-box:fill-box;transform-origin:50% 50%;animation:grow .7s var(--ease) both}
+@keyframes grow{from{transform:scaleX(0);opacity:0}to{transform:none;opacity:1}}
+.spark{opacity:0;transform-box:fill-box;transform-origin:center;animation:twinkle 1.6s ease-in-out infinite}
+.sp1{animation-delay:2.1s}.sp2{animation-delay:2.5s}.sp3{animation-delay:2.9s}
+@keyframes twinkle{0%,100%{opacity:0;transform:scale(.3) rotate(0)}50%{opacity:1;transform:scale(1) rotate(45deg)}}
+.title{font-weight:800;font-size:clamp(54px,9vw,92px);letter-spacing:-.04em;line-height:1;margin:6px 0 0;display:flex}
+.title span{display:inline-block;opacity:0;transform:translateY(28px) rotate(4deg);animation:letter .7s var(--ease) forwards;
+  background:linear-gradient(120deg,#e58aa5,#9d86e0 55%,#6fb3e0);-webkit-background-clip:text;background-clip:text;color:transparent}
+@keyframes letter{to{opacity:1;transform:none}}
+.tag{font-family:'Instrument Serif',serif;font-style:italic;font-size:clamp(20px,2.6vw,28px);color:var(--muted);opacity:0;animation:fade .8s ease 2.1s forwards}
+@keyframes fade{to{opacity:1}}
+.loadbar{width:220px;height:6px;border-radius:99px;background:rgba(155,139,168,.2);margin-top:26px;overflow:hidden;opacity:0;animation:fade .4s ease .3s forwards}
+.loadbar b{display:block;height:100%;width:0;border-radius:99px;background:linear-gradient(90deg,var(--rose),var(--lilac),var(--sky));animation:load 3.1s cubic-bezier(.5,0,.3,1) .4s forwards}
+@keyframes load{to{width:100%}}
+.hint{position:fixed;bottom:22px;left:0;right:0;text-align:center;font-size:13px;color:var(--muted);opacity:0;animation:fade .6s ease 1.2s forwards}
+
+/* ------------------------------------------------------------------ étagère */
+.app{position:relative;height:100%;display:flex;flex-direction:column;padding:34px 56px 20px;opacity:0;animation:fade .7s ease .05s forwards}
+header{display:flex;align-items:flex-end;justify-content:space-between;gap:24px;flex:none}
+.brand{font-weight:800;font-size:22px;letter-spacing:-.03em;display:flex;align-items:center;gap:10px}
+.brand i{width:34px;height:34px;border-radius:11px;background:linear-gradient(135deg,var(--rose),var(--lilac));display:grid;place-items:center;box-shadow:0 4px 12px rgba(157,134,224,.3)}
+.brand svg{width:20px;height:20px}
+h1{margin:18px 0 0;font-weight:800;font-size:clamp(34px,4.2vw,52px);letter-spacing:-.035em;line-height:1.02}
+h1 em{font-family:'Instrument Serif',serif;font-weight:400;color:#9d86e0}
+.sub{margin:8px 0 0;color:var(--muted);font-size:17px}
+.shelves{flex:1;min-height:0;overflow-y:auto;overflow-x:hidden;margin:18px -20px 0;padding:22px 20px 40px;display:flex;flex-direction:column;gap:38px;scrollbar-width:thin;scrollbar-color:var(--lilac) transparent}
+.row{position:relative;display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:30px;align-items:end;padding:0 26px;min-height:268px}
+.row::after{content:"";position:absolute;left:0;right:0;bottom:-18px;height:20px;border-radius:5px 5px 10px 10px;
+  background:linear-gradient(var(--wood1),var(--wood2) 55%,var(--wood3));box-shadow:0 14px 22px -8px rgba(160,120,90,.4),inset 0 2px 0 rgba(255,255,255,.55)}
+.slot{position:relative;display:flex;justify-content:center;align-items:flex-end;height:248px;z-index:1}
+
+.cours{--c:#bddcf5;--d:#8fbbe3;appearance:none;border:0;padding:0;background:none;font:inherit;color:inherit;cursor:pointer;
+  position:relative;width:min(100%,190px);height:240px;perspective:900px;opacity:0;transform:translateY(40px);
+  animation:rise .7s var(--ease) forwards;animation-delay:calc(.25s + var(--i)*.12s);outline:none}
+@keyframes rise{to{opacity:1;transform:none}}
+.cours .body{position:absolute;inset:0;border-radius:6px 16px 16px 6px;padding:20px 18px 18px 34px;display:flex;flex-direction:column;gap:6px;text-align:left;
+  background:linear-gradient(135deg,rgba(255,255,255,.35),transparent 45%),var(--c);
+  box-shadow:inset -3px 0 0 rgba(0,0,0,.05),inset 0 -6px 0 rgba(255,255,255,.25),0 12px 22px -10px var(--d);
+  transform-origin:left center;transition:transform .45s var(--ease),box-shadow .45s var(--ease)}
+.cours .body::before{content:"";position:absolute;left:0;top:0;bottom:0;width:22px;border-radius:6px 0 0 6px;background:linear-gradient(90deg,var(--d),transparent 140%);opacity:.75}
+.cours .body::after{content:"";position:absolute;left:10px;top:18px;bottom:18px;width:2px;background:rgba(255,255,255,.7);border-radius:2px}
+.cours .ico{width:62px;height:62px;border-radius:18px;background:rgba(255,255,255,.65);display:grid;place-items:center;font-family:'Instrument Serif',serif;font-size:44px;line-height:1;color:var(--ink);box-shadow:0 4px 10px -4px var(--d)}
+.cours .ico svg{width:34px;height:34px}
+.cours .t{margin-top:auto;font-weight:800;font-size:22px;letter-spacing:-.03em;line-height:1.05}
+.cours .s{font-size:13.5px;color:rgba(91,74,107,.78);line-height:1.25}
+.cours:hover .body,.cours:focus-visible .body{transform:translateY(-14px) rotateY(-16deg) rotate(-1.5deg);box-shadow:inset -3px 0 0 rgba(0,0,0,.05),0 28px 30px -12px var(--d)}
+.cours:focus-visible .body{outline:3px solid #9d86e0;outline-offset:4px}
+.cours:active .body{transform:translateY(-8px) rotateY(-24deg) scale(.98)}
+.cours.open{animation:openbook .55s var(--ease) forwards;z-index:5}
+@keyframes openbook{to{transform:scale(2.4) translateY(-10px);opacity:0}}
+
+.ghost{width:min(100%,190px);height:240px;border-radius:6px 16px 16px 6px;border:2.5px dashed rgba(157,134,224,.38);display:flex;flex-direction:column;align-items:center;justify-content:center;gap:8px;
+  color:rgba(154,139,168,.75);font-size:15px;font-weight:600;background:rgba(255,255,255,.28);opacity:0;animation:rise .7s var(--ease) forwards;animation-delay:calc(.25s + var(--i)*.12s)}
+.ghost b{font-size:34px;font-weight:300;line-height:1}
+footer{flex:none;text-align:center;color:var(--muted);font-size:13px;padding-top:6px}
+@media (max-width:1100px){.row{grid-template-columns:repeat(3,minmax(0,1fr))}}
+@media (prefers-reduced-motion:reduce){*{animation-duration:.01s!important;animation-delay:0s!important}}
+
+/* sortie de l'étagère : le reste s'efface, le livre choisi grandit */
+.app.leaving header,.app.leaving footer{opacity:0;transform:translateY(-10px);transition:opacity .35s ease,transform .35s ease}
+.app.leaving .cours:not(.open),.app.leaving .ghost,.app.leaving .row::after{opacity:0!important;transform:scale(.94);transition:opacity .3s ease,transform .3s ease;animation:none}

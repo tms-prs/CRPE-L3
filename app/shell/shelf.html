@@ -1,0 +1,24 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<title>Cartable</title>
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; style-src 'self' 'unsafe-inline'; script-src 'self'; img-src 'self' data:">
+<link rel="stylesheet" href="shell.css">
+</head>
+<body>
+<div class="blobs"><i></i><i></i><i></i><i></i></div>
+<div class="app">
+  <header>
+    <div>
+      <div class="brand"><i><svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 20V7M10 20V4M15 20V9"/><path d="M19.500 20.500l2.500-9"/></svg></i>Cartable</div>
+      <h1>Que veux-tu <em>apprendre</em> aujourd’hui ?</h1>
+      <p class="sub">Choisis un livre sur l’étagère pour l’ouvrir.</p>
+    </div>
+  </header>
+  <section class="shelves" id="shelves" aria-label="Mes cours"></section>
+  <footer id="foot">Ta progression est enregistrée sur cet ordinateur.</footer>
+</div>
+<script src="shelf.js"></script>
+</body>
+</html>

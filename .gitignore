@@ -8,3 +8,9 @@ dist/
 # Divers
 __pycache__/
 *.pyc
+
+# App Cartable (Electron)
+app/node_modules/
+app/release/
+app/cours/*/site/
+app/shell/fonts/
