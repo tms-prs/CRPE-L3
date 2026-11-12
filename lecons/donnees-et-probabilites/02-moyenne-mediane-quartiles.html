@@ -1,0 +1,100 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Leçon 02 — Moyenne, médiane, étendue et quartiles</title>
+<link rel="stylesheet" href="../../assets/style.css">
+</head>
+<body class="lesson">
+<main>
+<div class="lesson-hero">
+<nav class="crumbs" aria-label="Fil d'Ariane"><a href="../../index.html">Accueil</a><span>›</span><span>Données et probabilités</span><span>›</span><span>Leçon 02</span></nav>
+<span class="kicker">Leçon 02</span>
+<h1>Moyenne, médiane, étendue et <em>quartiles</em></h1>
+<div class="meta-row"><span class="pill-tag blue">Données et probabilités</span><span class="pill-tag">⏱ 1 h 30 (cours) + exercices</span></div>
+<div class="infos"><div class="info"><b>Programme</b>cycle 4 — moyenne (5e, 4e), médiane et étendue (4e), quartiles et écart interquartile (3e) (BO du 5 mars 2026, annexe 2)</div><div class="info"><b>Prérequis</b>chapitre 01 de ce domaine (vocabulaire, effectifs, fréquences), fractions et pourcentages, calcul avec les décimaux</div></div>
+</div>
+<div class="lesson-layout">
+<article class="prose">
+<section class="sec-objectifs"><h2 id="s1">Objectifs</h2><p>À la fin de la leçon, l'étudiante sait :</p>
+<ul><li>calculer une moyenne simple, une moyenne pondérée (effectifs, fréquences, classes) ;</li><li>utiliser les propriétés de la moyenne et <strong>ne pas</strong> faire une moyenne de moyennes sans pondération ;</li><li>déterminer une médiane (effectif pair ou impair, tableau d'effectifs cumulés) ;</li><li>calculer étendue, quartiles <code>Q1</code> et <code>Q3</code> selon la définition du programme, et l'écart interquartile ;</li><li>lire et construire une boîte à moustaches ;</li><li>comparer deux séries par une mesure de <strong>position</strong> et une mesure de <strong>dispersion</strong> ;</li><li>repérer les erreurs types d'élèves et proposer une remédiation.</li></ul></section>
+<section class=""><h2 id="s2">1. Moyenne</h2><h3>1.1 Moyenne simple</h3>
+<p>La <strong>moyenne</strong> d'une série de <code>n</code> valeurs est la somme des valeurs divisée par <code>n</code>.</p>
+<p><code>moyenne = (x₁ + x₂ + … + xₙ) ÷ n</code></p>
+<p><strong>Exemple.</strong> Notes : <code>12 ; 8 ; 15 ; 10 ; 5</code>. Somme : <code>50</code>, effectif : <code>5</code>, moyenne : <code>50 ÷ 5 = 10</code>.</p>
+<div class="callout"><span class="ic">i</span><div><p><strong>Interprétation</strong> : la moyenne est la valeur que <strong>tous</strong> les individus auraient si la somme totale était répartie équitablement. C'est ce qui lui donne son sens (voir le volet didactique) : <code>n × moyenne = somme</code>. La moyenne n'est pas forcément une valeur de la série, ni même une valeur possible (<code>2,4</code> enfants par famille).</p></div></div>
+<h3>1.2 Moyenne pondérée avec effectifs</h3>
+<p>Quand des valeurs se répètent, on <strong>pondère</strong> par les effectifs <code>nᵢ</code> : <code>moyenne = (n₁x₁ + n₂x₂ + …) ÷ N</code>, où <code>N</code> est l'effectif total.</p>
+<p><strong>Exemple.</strong> 20 notes :</p>
+<div class="table-wrap"><table><thead><tr><th>Note <code>xᵢ</code></th><th>8</th><th>10</th><th>12</th><th>15</th><th>Total</th></tr></thead><tbody><tr><td>Effectif <code>nᵢ</code></td><td>3</td><td>5</td><td>7</td><td>5</td><td>20</td></tr></tbody></table></div>
+<p><code>moyenne = (8×3 + 10×5 + 12×7 + 15×5) ÷ 20 = (24 + 50 + 84 + 75) ÷ 20 = 233 ÷ 20 = 11,65</code>.</p>
+<h3>1.3 Avec les fréquences</h3>
+<p>Comme <code>fᵢ = nᵢ ÷ N</code>, on a <code>moyenne = x₁f₁ + x₂f₂ + …</code>. Avec les fréquences <code>15 % ; 25 % ; 35 % ; 25 %</code> de l'exemple précédent :<br><code>8×0,15 + 10×0,25 + 12×0,35 + 15×0,25 = 1,2 + 2,5 + 4,2 + 3,75 = 11,65</code>. Même résultat.</p>
+<h3>1.4 Données regroupées en classes</h3>
+<p>On ne connaît plus les valeurs exactes : on remplace chaque classe par son <strong>centre</strong> (milieu de l'intervalle). Le résultat est une <strong>estimation</strong>.</p>
+<p><strong>Exemple.</strong> Âge de 40 personnes :</p>
+<div class="table-wrap"><table><thead><tr><th>Classe</th><th>[0 ; 10[</th><th>[10 ; 20[</th><th>[20 ; 30[</th><th>[30 ; 40[</th></tr></thead><tbody><tr><td>Centre</td><td>5</td><td>15</td><td>25</td><td>35</td></tr><tr><td>Effectif</td><td>4</td><td>10</td><td>16</td><td>10</td></tr></tbody></table></div>
+<p><code>(5×4 + 15×10 + 25×16 + 35×10) ÷ 40 = 920 ÷ 40 = 23</code> ans (environ).</p>
+<h3>1.5 Propriétés de la moyenne</h3>
+<ul><li><strong>Ajouter</strong> un même nombre <code>a</code> à toutes les valeurs ajoute <code>a</code> à la moyenne.</li><li><strong>Multiplier</strong> toutes les valeurs par <code>k</code> multiplie la moyenne par <code>k</code>.</li><li><strong>Moyenne de moyennes</strong> : on pondère par les effectifs. Classe A : 20 élèves, moyenne <code>12</code> ; classe B : 30 élèves, moyenne <code>14</code>. Moyenne des 50 élèves : <code>(20×12 + 30×14) ÷ 50 = 660 ÷ 50 = 13,2</code>, et <strong>non</strong> <code>(12 + 14) ÷ 2 = 13</code>.</li></ul>
+<div class="callout"><span class="ic">i</span><div><p><strong>Astuce de calcul</strong> : pour retrouver une valeur manquante, on passe par la somme. Pour obtenir une moyenne <code>m</code> sur <code>n</code> notes, il faut une somme de <code>n × m</code>.</p></div></div></section>
+<section class=""><h2 id="s3">2. Médiane</h2><h3>2.1 Définition</h3>
+<p>La <strong>médiane</strong> partage la série <strong>rangée par ordre croissant</strong> en deux groupes de même effectif : au moins la moitié des valeurs sont inférieures ou égales à elle, au moins la moitié lui sont supérieures ou égales.</p>
+<ul><li><strong>Effectif impair</strong> (<code>n = 2k + 1</code>) : c'est la valeur de rang <code>k + 1</code>.</li><li><strong>Effectif pair</strong> (<code>n = 2k</code>) : toute valeur entre les rangs <code>k</code> et <code>k + 1</code> convient ; par convention on prend leur <strong>demi-somme</strong>.</li></ul>
+<p><strong>Exemples.</strong></p>
+<ul><li><code>12 ; 5 ; 9 ; 15 ; 7 ; 11 ; 3</code> : rangée <code>3 ; 5 ; 7 ; 9 ; 11 ; 12 ; 15</code>, <code>n = 7</code>, rang 4 : médiane <code>9</code>.</li><li><code>4 ; 9 ; 6 ; 12 ; 8 ; 15</code> : rangée <code>4 ; 6 ; 8 ; 9 ; 12 ; 15</code>, <code>n = 6</code>, rangs 3 et 4 : médiane <code>(8 + 9) ÷ 2 = 8,5</code>.</li></ul>
+<div class="callout"><span class="ic">i</span><div><p><strong>Piège</strong> : il faut <strong>toujours ranger</strong> avant de chercher la médiane.</p></div></div>
+<h3>2.2 Avec un tableau d'effectifs cumulés</h3>
+<p>On ajoute une ligne d'effectifs cumulés croissants et on cherche à quelle valeur correspondent les rangs voulus.</p>
+<div class="table-wrap"><table><thead><tr><th>Note</th><th>8</th><th>10</th><th>12</th><th>15</th></tr></thead><tbody><tr><td>Effectif</td><td>3</td><td>5</td><td>7</td><td>5</td></tr><tr><td>Effectif cumulé</td><td>3</td><td>8</td><td>15</td><td>20</td></tr></tbody></table></div>
+<p><code>N = 20</code> : rangs 10 et 11. Les rangs 9 à 15 correspondent à la note <code>12</code> : médiane <code>12</code>.</p></section>
+<section class=""><h2 id="s4">3. Étendue</h2><p><code>étendue = valeur maximale − valeur minimale</code>. C'est une mesure de <strong>dispersion</strong>, très sensible aux valeurs extrêmes. Pour les notes ci-dessus : <code>15 − 8 = 7</code>.</p></section>
+<section class=""><h2 id="s5">4. Quartiles et écart interquartile</h2><h3>4.1 Définition (programme)</h3>
+<p>Série rangée de <code>n</code> valeurs :</p>
+<ul><li><code>Q1</code> : <strong>plus petite valeur</strong> de la série telle qu'<strong>au moins 25 %</strong> des données lui sont inférieures ou égales ;</li><li><code>Q3</code> : <strong>plus petite valeur</strong> de la série telle qu'<strong>au moins 75 %</strong> des données lui sont inférieures ou égales.</li></ul>
+<p><strong>Méthode pratique</strong> : <code>Q1</code> est la valeur de rang <code>⌈n ÷ 4⌉</code> et <code>Q3</code> la valeur de rang <code>⌈3n ÷ 4⌉</code> (on arrondit <strong>au rang supérieur</strong>).</p>
+<p><strong>Écart interquartile</strong> : <code>Q3 − Q1</code>. Il contient environ la moitié centrale des données.</p>
+<h3>4.2 Exemple résolu</h3>
+<p>Série de 12 valeurs : <code>3 ; 5 ; 6 ; 8 ; 9 ; 10 ; 12 ; 13 ; 14 ; 16 ; 18 ; 21</code> (déjà rangée).</p>
+<ul><li><code>n ÷ 4 = 3</code> : <code>Q1</code> est de rang 3, soit <code>6</code>.</li><li>Médiane : rangs 6 et 7, <code>(10 + 12) ÷ 2 = 11</code>.</li><li><code>3n ÷ 4 = 9</code> : <code>Q3</code> est de rang 9, soit <code>14</code>.</li><li>Étendue <code>21 − 3 = 18</code> ; écart interquartile <code>14 − 6 = 8</code>.</li></ul>
+<h3>4.3 Boîte à moustaches</h3>
+<p>On représente sur un axe gradué : le minimum, <code>Q1</code>, la médiane, <code>Q3</code>, le maximum. La <strong>boîte</strong> va de <code>Q1</code> à <code>Q3</code> (avec un trait pour la médiane), les <strong>moustaches</strong> vont jusqu'au minimum et au maximum.</p>
+<figure class="fig"><svg viewBox="0 0 460 140" width="460" role="img" aria-label="Boîte à moustaches : min 3, Q1 6, médiane 11, Q3 14, max 21">
+  <path class="s" d="M30 100H426"/>
+  <path class="s" d="M30 96V104M66 96V104M102 96V104M138 96V104M174 96V104M210 96V104M246 96V104M282 96V104M318 96V104M354 96V104M390 96V104M426 96V104"/>
+  <text class="m" x="26" y="120">0</text><text class="m" x="62" y="120">2</text><text class="m" x="98" y="120">4</text><text class="m" x="134" y="120">6</text><text class="m" x="170" y="120">8</text><text class="m" x="202" y="120">10</text><text class="m" x="238" y="120">12</text><text class="m" x="274" y="120">14</text><text class="m" x="310" y="120">16</text><text class="m" x="346" y="120">18</text><text class="m" x="382" y="120">20</text><text class="m" x="418" y="120">22</text>
+  <path class="s" d="M84 55H138M282 55H408M84 45V65M408 45V65"/>
+  <rect class="fs" x="138" y="35" width="144" height="40"/>
+  <path class="sb" d="M228 35V75"/>
+  <text x="76" y="30">min 3</text><text class="b" x="132" y="26">Q1 = 6</text><text class="b" x="204" y="26">méd. 11</text><text class="b" x="268" y="26">Q3 = 14</text><text x="396" y="30">max 21</text>
+</svg><figcaption>Boîte à moustaches de la série 3 ; 5 ; 6 ; 8 ; … ; 21 : minimum 3, Q1 = 6, médiane 11, Q3 = 14, maximum 21.</figcaption></figure>
+<p><strong>Lecture</strong> : au moins 25 % des valeurs sont <code>≤ 6</code>, au moins 50 % sont <code>≤ 11</code>, au moins 75 % sont <code>≤ 14</code>. La longueur de la boîte est l'écart interquartile. <strong>Attention</strong> : la boîte ne montre pas la moyenne, et chacun des quatre « quarts » contient environ le même nombre de données, quelle que soit sa longueur sur le dessin.</p>
+<h3>4.4 Valeurs de <code>Q1</code> : une convention à connaître</h3>
+<p>Il existe d'autres définitions de <code>Q1</code> et <code>Q3</code> (interpolation linéaire). Pour la série ci-dessus, le tableur renvoie <code>7,5</code> et <code>14,5</code> avec <code>QUARTILE</code> ou <code>QUARTILE.INC</code>, au lieu de <code>6</code> et <code>14</code>. <strong>À l'épreuve, on utilise la définition du programme.</strong></p></section>
+<section class=""><h2 id="s6">5. Comparer deux séries</h2><p>Pour comparer deux séries, on donne <strong>toujours</strong> une mesure de <strong>position</strong> (moyenne ou médiane) <strong>et</strong> une mesure de <strong>dispersion</strong> (étendue ou écart interquartile).</p>
+<p><strong>Exemple.</strong> Deux classes, notes sur 20 (10 élèves chacune) :</p>
+<div class="table-wrap"><table><thead><tr><th></th><th>Moyenne</th><th>Médiane</th><th>Étendue</th><th>Écart interquartile</th></tr></thead><tbody><tr><td>Classe X : <code>9 ; 10 ; 11 ; 11 ; 12 ; 12 ; 12 ; 13 ; 15 ; 15</code></td><td>12</td><td>12</td><td>6</td><td>2 (<code>Q1 = 11</code>, <code>Q3 = 13</code>)</td></tr><tr><td>Classe Y : <code>4 ; 7 ; 9 ; 10 ; 12 ; 12 ; 14 ; 15 ; 16 ; 21</code></td><td>12</td><td>12</td><td>17</td><td>6 (<code>Q1 = 9</code>, <code>Q3 = 15</code>)</td></tr></tbody></table></div>
+<p><strong>Conclusion</strong> : même niveau moyen, mais la classe X est beaucoup plus <strong>homogène</strong>, la classe Y plus <strong>dispersée</strong>. La moyenne seule cache cette différence.</p></section>
+<section class=""><h2 id="s7">6. Valeurs extrêmes</h2><p>La moyenne est <strong>sensible</strong> aux valeurs extrêmes, la médiane et les quartiles beaucoup moins (on parle de caractéristique <strong>robuste</strong>).</p>
+<p><strong>Exemple.</strong> Salaires : <code>1500 ; 1600 ; 1700 ; 1800 ; 2000</code> : moyenne <code>1720</code>, médiane <code>1700</code>. On ajoute un salaire de <code>9000</code> : moyenne <code>2933,33</code>, médiane <code>1750</code>. La moyenne a augmenté de plus de 70 %, la médiane de moins de 3 %.</p>
+<div class="callout"><span class="ic">i</span><div><p>Pour des données avec valeurs aberrantes (revenus, prix de l'immobilier), la médiane est plus représentative.</p></div></div></section>
+<section class=""><h2 id="s8">7. Tableur</h2><div class="table-wrap"><table><thead><tr><th>But</th><th>Fonction</th></tr></thead><tbody><tr><td>Moyenne</td><td><code>=MOYENNE(A1:A12)</code></td></tr><tr><td>Médiane</td><td><code>=MEDIANE(A1:A12)</code></td></tr><tr><td>Quartile</td><td><code>=QUARTILE(A1:A12;1)</code> ou <code>QUARTILE.INC</code> / <code>QUARTILE.EXC</code></td></tr><tr><td>Étendue</td><td><code>=MAX(A1:A12)-MIN(A1:A12)</code></td></tr></tbody></table></div>
+<div class="callout"><span class="ic">i</span><div><p><strong>Attention</strong> : <code>QUARTILE</code> utilise une <strong>interpolation</strong> qui peut donner une valeur absente de la série (<code>7,5</code> au lieu de <code>6</code>). Elle diffère de la définition du programme. Avant d'utiliser le tableur, on <strong>vérifie à la main</strong> avec la définition du cours, et on le dit explicitement en classe.</p></div></div></section>
+<section class=""><h2 id="s9">8. Moyenne et médiane à l'école et au collège</h2><p><strong>Moyenne à l'école.</strong></p>
+<ul><li><strong>Partage équitable</strong> : « 4 enfants ont 3, 5, 6 et 2 billes. On les met en commun (16) puis on partage : 4 chacun. » La moyenne est le résultat d'un <strong>nivellement</strong>.</li><li><strong>Équilibre</strong> : sur une droite graduée, la moyenne est le point d'équilibre des valeurs (le « centre de gravité »).</li><li><strong>Du concret à la formule</strong> : on manipule d'abord (cubes qu'on réorganise en colonnes égales), puis on formalise <code>somme ÷ effectif</code>.</li></ul>
+<p><strong>Médiane</strong> : on utilise la situation « partage en deux groupes de même effectif » : ranger des cartes ou des élèves par taille, puis prendre celui du milieu.</p></section>
+<section class="sec-didactic"><h2 id="s10">9. Erreurs types d'élèves (volet didactique)</h2><div class="table-wrap"><table><thead><tr><th>Erreur observée</th><th>Exemple</th><th>Cause probable</th><th>Remédiation possible</th></tr></thead><tbody><tr><td>Moyenne de moyennes sans pondération</td><td>Classes 20 élèves (12) et 30 élèves (14) : « moyenne = 13 »</td><td>La moyenne est vue comme une opération sur deux nombres</td><td>Revenir à la somme totale ; cas extrême : 1 élève à 20 et 99 élèves à 10</td></tr><tr><td>Médiane sans ranger</td><td>Médiane de <code>5 ; 12 ; 3 ; 9 ; 7</code> : « 3 » (valeur du milieu de la liste)</td><td>On lit la position dans la liste donnée</td><td>Ranger sur bandelettes de papier ; verbaliser « autant de valeurs de chaque côté »</td></tr><tr><td>Médiane pour un effectif pair</td><td>Médiane de <code>4 ; 6 ; 8 ; 9 ; 12 ; 15</code> : « 8 » ou « 9 »</td><td>Pas de valeur centrale unique</td><td>Montrer que 3 valeurs sont à gauche et 3 à droite, d'où la demi-somme</td></tr><tr><td>Confusion moyenne / médiane / mode</td><td>« La médiane, c'est la valeur la plus fréquente »</td><td>Vocabulaire proche, trois « valeurs centrales »</td><td>Fiche de trois définitions illustrées sur une même série</td></tr><tr><td>Oublier les effectifs</td><td>Moyenne de <code>8 ; 10 ; 12 ; 15</code> : <code>11,25</code> au lieu de <code>11,65</code></td><td>On moyenne la ligne des valeurs</td><td>Reconstituer la liste complète des 20 valeurs</td></tr><tr><td>Moyenne d'une classe = centre</td><td>« Moyenne de [10 ; 20[ vaut exactement 15 »</td><td>Confusion estimation / calcul exact</td><td>Rappeler que les centres donnent une <strong>estimation</strong></td></tr><tr><td>Confondre <code>Q1</code>, <code>Q3</code> et pourcentages</td><td>« <code>Q1</code> est la valeur 25 % »</td><td>Confusion rang / valeur</td><td>Distinguer rang <code>⌈n ÷ 4⌉</code> et valeur à ce rang</td></tr><tr><td>Ne regarder que la moyenne</td><td>« Même moyenne, donc mêmes séries »</td><td>Pas de notion de dispersion</td><td>Deux séries de même moyenne, boîtes différentes</td></tr></tbody></table></div>
+<p><strong>Outils pour enseigner</strong> : cubes emboîtables (nivellement), bandelettes à ranger, diagrammes en barres, boîte à moustaches tracée à partir de données de la classe (taille, pointure, temps de trajet).</p></section>
+<section class="sec-retenir"><h2 id="s11">10. À retenir</h2><ul><li>Moyenne = <code>somme ÷ effectif</code> ; pondérée : <code>Σ nᵢxᵢ ÷ N</code> ; classes : on utilise les centres (estimation).</li><li>Ajouter <code>a</code> / multiplier par <code>k</code> : la moyenne subit la même opération. Moyenne de moyennes : <strong>pondérer</strong> par les effectifs.</li><li>Médiane : série <strong>rangée</strong> ; impair → valeur centrale ; pair → demi-somme des deux valeurs centrales.</li><li><code>Q1</code> de rang <code>⌈n ÷ 4⌉</code>, <code>Q3</code> de rang <code>⌈3n ÷ 4⌉</code> ; écart interquartile <code>Q3 − Q1</code> ; étendue <code>max − min</code>.</li><li>Comparer : une mesure de <strong>position</strong> et une mesure de <strong>dispersion</strong>.</li><li>La moyenne est sensible aux valeurs extrêmes, la médiane non.</li><li>Tableur : attention aux conventions de <code>QUARTILE</code>.</li></ul></section>
+<section class="sec-practice"><h2 id="s12">Pour s'entraîner</h2><div class="practice"><a class="mode-card blue" href="../../quiz/donnees-et-probabilites/02-moyenne-mediane-quartiles.html"><h3>Quiz</h3><p>Questions courtes avec correction immédiate pour vérifier que c’est acquis.</p><span class="go">Lancer le quiz <span>→</span></span></a><a class="mode-card sky" href="../../exercices/donnees-et-probabilites/02-moyenne-mediane-quartiles.html"><h3>Exercices</h3><p>Réponses à saisir, indices et corrections détaillées.</p><span class="go">Commencer <span>→</span></span></a></div></section>
+<section class="sec-extra"><h2 id="s13">Pistes de prolongement (culture mathématique)</h2><ul><li>Adolphe Quetelet (XIXe siècle) et « l'homme moyen » ; John Tukey invente la boîte à moustaches en 1970.</li></ul></section>
+</article>
+<aside class="toc" aria-label="Sommaire"><h4>Sur cette page</h4><ol><li><a href="#s1">Objectifs</a></li><li><a href="#s2">1. Moyenne</a></li><li><a href="#s3">2. Médiane</a></li><li><a href="#s4">3. Étendue</a></li><li><a href="#s5">4. Quartiles et écart interquartile</a></li><li><a href="#s6">5. Comparer deux séries</a></li><li><a href="#s7">6. Valeurs extrêmes</a></li><li><a href="#s8">7. Tableur</a></li><li><a href="#s9">8. Moyenne et médiane à l'école et au collège</a></li><li><a href="#s10">9. Erreurs types d'élèves (volet didactique)</a></li><li><a href="#s11">10. À retenir</a></li><li><a href="#s12">Pour s'entraîner</a></li><li><a href="#s13">Pistes de prolongement (culture mathématique)</a></li></ol></aside>
+</div>
+</main>
+<script src="../../assets/admin-config.js"></script>
+<script src="../../assets/nav-data.js"></script>
+<script src="../../assets/nav.js"></script>
+</body>
+</html>

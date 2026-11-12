@@ -1,0 +1,126 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Exercices 04 — Deux épreuves, fréquences, simulation</title>
+<link rel="stylesheet" href="../../assets/style.css">
+</head>
+<body>
+<main>
+  <header>
+    <h1 id="title"></h1>
+    <p id="subtitle"></p>
+  </header>
+  <div id="app"></div>
+</main>
+<script>
+window.PAGE = {
+  id: "exo-04-deux-epreuves-frequences-simulation",
+  title: "Exercices 04 — Deux épreuves, fréquences, simulation",
+  subtitle: "Tape ta réponse (fraction comme 1/6 ou décimal comme 0,25), puis Vérifier. Quand c'est demandé, donne une fraction irréductible. Indice et correction disponibles. Leçon : lecons/donnees-et-probabilites/04-deux-epreuves-frequences-simulation.md",
+  sections: [
+    { title: "A. Dénombrer les issues", items: [
+      { type: "num", q: "On lance deux dés équilibrés à 6 faces. Combien y a-t-il de couples de résultats (équiprobables) ?", answer: "36",
+        hint: "6 résultats possibles pour le 1er dé, et pour chacun 6 résultats pour le 2e.",
+        solution: "6 × 6 = 36 couples, tous équiprobables." },
+      { type: "num", q: "On lance trois pièces équilibrées. Combien y a-t-il d'issues (équiprobables) ?", answer: "8",
+        hint: "Chaque pièce double le nombre d'issues : 2 × 2 × 2.",
+        solution: "2 × 2 × 2 = 8 issues : PPP, PPF, PFP, PFF, FPP, FPF, FFP, FFF." },
+      { type: "num", q: "On lance deux pièces équilibrées. Quelle est la probabilité d'obtenir exactement une face ? (fraction irréductible)", answer: "1/2", irreducible: true,
+        hint: "Liste les 4 issues PP, PF, FP, FF. Lesquelles ont exactement une face ?",
+        solution: "Issues favorables : PF et FP, soit 2 issues sur 4. P = 2/4 = 1/2." },
+      { type: "num", q: "On lance un dé équilibré à 6 faces, puis une pièce équilibrée. Combien y a-t-il d'issues (équiprobables) ?", answer: "12",
+        hint: "Pour chaque résultat du dé, la pièce a 2 résultats possibles.",
+        solution: "6 × 2 = 12 issues, par exemple (3 ; P) ou (6 ; F)." }
+    ]},
+    { title: "B. Deux dés : sommes et événements", statement: "Dans cette partie, on lance deux dés équilibrés à 6 faces : les 36 couples sont équiprobables. Réponds par une fraction irréductible quand c'est demandé.", items: [
+      { type: "num", q: "Combien de couples ont une somme égale à 9 ?", answer: "4",
+        hint: "Cherche les couples (a ; b) avec a + b = 9 : le plus petit possible pour a est 3.",
+        solution: "(3 ; 6), (4 ; 5), (5 ; 4), (6 ; 3) : 4 couples." },
+      { type: "num", q: "Quelle est la probabilité que la somme soit égale à 9 ? (fraction irréductible)", answer: "1/9", irreducible: true,
+        hint: "Utilise le résultat précédent : 4 couples favorables sur 36.",
+        solution: "P = 4/36 = 1/9." },
+      { type: "num", q: "Quelle est la probabilité que la somme soit supérieure ou égale à 10 ? (fraction irréductible)", answer: "1/6", irreducible: true,
+        hint: "Dénombre les couples de somme 10, 11 et 12 : 3 + 2 + 1.",
+        solution: "Somme 10 : 3 couples ; somme 11 : 2 ; somme 12 : 1. Total 6 couples. P = 6/36 = 1/6." },
+      { type: "num", q: "Quelle est la probabilité que la somme soit paire ? (fraction irréductible)", answer: "1/2", irreducible: true,
+        hint: "Regarde le tableau : la parité alterne dans chaque ligne et chaque colonne.",
+        solution: "Dans chaque ligne, 3 sommes sur 6 sont paires : 18 couples sur 36. P = 18/36 = 1/2." },
+      { type: "num", q: "Quelle est la probabilité d'obtenir au moins un 6 ? (fraction irréductible)", answer: "11/36", irreducible: true,
+        hint: "Passe par l'événement contraire : « aucun 6 ».",
+        solution: "« Aucun 6 » : 5 × 5 = 25 couples. P(au moins un 6) = 1 − 25/36 = 11/36. Ne pas écrire 1/6 + 1/6 : le couple (6 ; 6) serait compté deux fois." },
+      { type: "num", q: "Quelle est la probabilité que la somme soit 7 ou 11 ? (fraction irréductible)", answer: "2/9", irreducible: true,
+        hint: "Les événements « somme 7 » et « somme 11 » sont incompatibles : additionne leurs probabilités.",
+        solution: "P(7) = 6/36 ; P(11) = 2/36. P = 8/36 = 2/9." }
+    ]},
+    { title: "C. Urne : avec ou sans remise", statement: "Une urne contient 3 boules rouges et 2 boules vertes, indiscernables au toucher. On tire deux boules successivement. Chaque boule est équiprobable lors d'un tirage. Réponds par une fraction irréductible.", items: [
+      { type: "num", q: "Tirage AVEC remise. Quelle est la probabilité d'obtenir deux boules rouges ?", answer: "9/25", irreducible: true,
+        hint: "Les deux tirages sont identiques : multiplie les probabilités le long de la branche RR.",
+        solution: "P(RR) = 3/5 × 3/5 = 9/25." },
+      { type: "num", q: "Tirage AVEC remise. Quelle est la probabilité d'obtenir deux boules de la même couleur ?", answer: "13/25", irreducible: true,
+        hint: "Additionne P(RR) et P(VV).",
+        solution: "P(RR) = 9/25 ; P(VV) = 2/5 × 2/5 = 4/25. Total : 13/25." },
+      { type: "num", q: "Tirage AVEC remise. Quelle est la probabilité d'obtenir au moins une boule verte ?", answer: "16/25", irreducible: true,
+        hint: "Le contraire de « au moins une verte » est « aucune verte », c'est-à-dire RR.",
+        solution: "1 − P(RR) = 1 − 9/25 = 16/25." },
+      { type: "num", q: "Tirage SANS remise. Quelle est la probabilité d'obtenir deux boules rouges ?", answer: "3/10", irreducible: true,
+        hint: "Au 2e tirage, il reste 4 boules dont 2 rouges.",
+        solution: "P(RR) = 3/5 × 2/4 = 6/20 = 3/10." },
+      { type: "num", q: "Tirage SANS remise. Quelle est la probabilité d'obtenir deux boules de couleurs différentes ?", answer: "3/5", irreducible: true,
+        hint: "Il y a deux branches : RV et VR. Calcule le produit sur chacune.",
+        solution: "P(RV) = 3/5 × 2/4 = 3/10 ; P(VR) = 2/5 × 3/4 = 3/10. Total : 6/10 = 3/5." },
+      { type: "num", q: "Tirage SANS remise. Quelle est la probabilité d'obtenir au moins une boule rouge ?", answer: "9/10", irreducible: true,
+        hint: "Contraire : « aucune rouge », c'est-à-dire VV.",
+        solution: "P(VV) = 2/5 × 1/4 = 1/10. P(au moins une rouge) = 1 − 1/10 = 9/10." }
+    ]},
+    { title: "D. Fréquence, fluctuation et simulation", items: [
+      { type: "num", q: "Sur 200 lancers d'une pièce, on a obtenu 108 piles. Quelle est la fréquence de pile (en écriture décimale) ?", answer: "0.54",
+        hint: "Fréquence = effectif / nombre d'essais.",
+        solution: "108 / 200 = 0,54." },
+      { type: "num", q: "La probabilité théorique de pile vaut 0,5. De combien la fréquence observée (0,54) s'écarte-t-elle de cette probabilité ?", answer: "0.04",
+        hint: "Calcule la différence entre 0,54 et 0,5.",
+        solution: "0,54 − 0,5 = 0,04. Cet écart est une fluctuation d'échantillonnage normale, pas une anomalie." },
+      { type: "num", q: "On simule 600 lancers de deux dés équilibrés. Combien de fois s'attend-on, en moyenne, à obtenir la somme 7 ?", answer: "100",
+        hint: "P(somme 7) = 1/6. Prends 1/6 de 600.",
+        solution: "600 × 1/6 = 100. Une simulation réelle donnera un nombre proche de 100, rarement exactement 100." },
+      { type: "qcm", q: "Dans un tableur, on appuie sur F9 et la fréquence de la somme 7 passe de 0,168 à 0,159. Pourquoi ?",
+        options: ["Le tableur fait une erreur de calcul", "Chaque recalcul génère un nouvel échantillon : les fréquences fluctuent", "La probabilité de la somme 7 a changé", "Le nombre de dés a changé"], answer: 1,
+        explain: "Chaque recalcul relance toutes les formules ALEA.ENTRE.BORNES : nouvel échantillon, nouvelle fréquence. La probabilité théorique reste 1/6." },
+      { type: "qcm", q: "Dans l'algorithme « répéter 1000 fois : lancer deux dés ; si somme = 7, nb_sept augmente de 1 », que représente nb_sept / 1000 à la fin ?",
+        options: ["La probabilité théorique de la somme 7", "La fréquence observée de la somme 7 dans cette simulation", "Le nombre de lancers effectués", "Toujours 1/6"], answer: 1,
+        explain: "nb_sept est un effectif ; le diviser par le nombre d'essais donne la fréquence observée, qui varie d'une simulation à l'autre." },
+      { type: "qcm", q: "On lance une pièce 10 fois et on obtient 7 piles. Quelle conclusion est raisonnable ?",
+        options: ["La pièce est truquée", "La pièce est équilibrée, c'est prouvé", "Un échantillon de 10 lancers est trop petit pour conclure", "Au lancer suivant, face est plus probable"], answer: 2,
+        explain: "Avec 10 lancers, la fréquence fluctue beaucoup. Il faut plus d'essais pour douter de l'équilibre, et la pièce n'a pas de mémoire." }
+    ]},
+    { title: "Problème 1 · Une pièce puis un dé", statement: "On lance une pièce équilibrée puis un dé équilibré à 6 faces. Une issue est un couple (pièce ; dé), par exemple (F ; 4). Toutes les issues sont équiprobables.", items: [
+      { type: "num", label: "a)", q: "Combien y a-t-il d'issues possibles ?", answer: "12",
+        solution: "2 × 6 = 12 issues." },
+      { type: "num", label: "b)", q: "Quelle est la probabilité d'obtenir Face ET un nombre pair ? (fraction irréductible)", answer: "1/4", irreducible: true,
+        hint: "Liste les issues (F ; 2), (F ; 4), (F ; 6).",
+        solution: "3 issues favorables sur 12 : P = 3/12 = 1/4." },
+      { type: "num", label: "c)", q: "Quelle est la probabilité d'obtenir Face OU un 6 ? (fraction irréductible)", answer: "7/12", irreducible: true,
+        hint: "Compte les 6 issues avec Face, puis ajoute celle avec 6 qui n'est pas déjà comptée : (P ; 6).",
+        solution: "Face : 6 issues. Pile et 6 : 1 issue, (P ; 6). Total : 7 issues sur 12. P = 7/12. Additionner 6/12 + 2/12 compterait deux fois (F ; 6)." }
+    ]},
+    { title: "Problème 2 · Les quatre cartons", statement: "Quatre cartons numérotés 1, 2, 3 et 4 sont dans un sac. On tire deux cartons successivement, sans remise. Tous les tirages ordonnés sont équiprobables.", items: [
+      { type: "num", label: "a)", q: "Combien y a-t-il de tirages ordonnés possibles ?", answer: "12",
+        hint: "4 possibilités pour le 1er carton, puis 3 pour le 2e.",
+        solution: "4 × 3 = 12 couples." },
+      { type: "num", label: "b)", q: "Quelle est la probabilité que la somme des deux numéros soit 5 ? (fraction irréductible)", answer: "1/3", irreducible: true,
+        hint: "Cherche les couples dont la somme vaut 5.",
+        solution: "(1 ; 4), (4 ; 1), (2 ; 3), (3 ; 2) : 4 couples sur 12. P = 4/12 = 1/3." },
+      { type: "num", label: "c)", q: "Quelle est la probabilité que les deux numéros soient consécutifs (comme 2 et 3) ? (fraction irréductible)", answer: "1/2", irreducible: true,
+        hint: "Les paires consécutives sont {1 ; 2}, {2 ; 3}, {3 ; 4}, chacune dans deux ordres.",
+        solution: "(1 ; 2), (2 ; 1), (2 ; 3), (3 ; 2), (3 ; 4), (4 ; 3) : 6 couples sur 12. P = 6/12 = 1/2." }
+    ]}
+  ]
+};
+</script>
+<script src="../../assets/admin-config.js"></script>
+<script src="../../assets/nav-data.js"></script>
+<script src="../../assets/nav.js"></script>
+<script src="../../assets/app.js"></script>
+</body>
+</html>

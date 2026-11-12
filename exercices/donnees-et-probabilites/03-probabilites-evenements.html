@@ -1,0 +1,132 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Exercices 03 — Probabilités : événements</title>
+<link rel="stylesheet" href="../../assets/style.css">
+</head>
+<body>
+<main>
+  <header>
+    <h1 id="title"></h1>
+    <p id="subtitle"></p>
+  </header>
+  <div id="app"></div>
+</main>
+<script>
+window.PAGE = {
+  id: "exo-03-probabilites-evenements",
+  title: "Exercices 03 — Probabilités : événements",
+  subtitle: "Tape ta réponse (fraction 1/6, décimal 0,25 ou 0.25 acceptés), puis Vérifier. Indice et correction disponibles. Leçon : lecons/donnees-et-probabilites/03-probabilites-evenements.md",
+  sections: [
+    { title: "A. Équiprobabilité", items: [
+      { type: "num", q: "On lance un dé équilibré à 6 faces. Quelle est la probabilité d'obtenir un multiple de 3 ? (fraction irréductible)", answer: "1/3", irreducible: true,
+        hint: "Compte les issues favorables, puis divise par 6.",
+        solution: "Multiples de 3 : 3 et 6, soit 2 issues favorables sur 6 (équiprobables). P = 2/6 = 1/3." },
+      { type: "num", q: "Une urne contient 5 boules rouges, 3 vertes et 2 jaunes. On tire une boule au hasard (boules indiscernables au toucher). Quelle est la probabilité qu'elle soit verte ? (écriture décimale)", answer: "0.3",
+        hint: "Combien y a-t-il de boules en tout ?",
+        solution: "5 + 3 + 2 = 10 boules, dont 3 vertes : P = 3/10 = 0,3." },
+      { type: "num", q: "On tire une carte au hasard dans un jeu de 32 cartes (4 valets, 4 dames, 4 rois, etc.). Quelle est la probabilité d'obtenir une figure (valet, dame ou roi) ? (fraction irréductible)", answer: "3/8", irreducible: true,
+        hint: "Combien de figures dans le jeu ?",
+        solution: "3 × 4 = 12 figures sur 32 cartes : P = 12/32 = 3/8." },
+      { type: "num", q: "Un sac contient 12 jetons numérotés de 1 à 12. On en tire un au hasard. Quelle est la probabilité que le numéro soit un nombre premier ? (fraction irréductible)", answer: "5/12", irreducible: true,
+        hint: "Rappel : 1 n'est pas premier.",
+        solution: "Nombres premiers jusqu'à 12 : 2, 3, 5, 7, 11, soit 5 issues favorables sur 12. P = 5/12." },
+      { type: "num", q: "On choisit au hasard une lettre du mot MATHEMATIQUES (chaque lettre écrite compte, soit 13 lettres). Quelle est la probabilité de choisir une voyelle (A, E, I, O, U, Y) ? (fraction irréductible)", answer: "6/13", irreducible: true,
+        hint: "Compte les voyelles lettre par lettre : M-A-T-H-E-M-A-T-I-Q-U-E-S.",
+        solution: "Voyelles : A, E, A, I, U, E, soit 6 lettres sur 13. P = 6/13." }
+    ]},
+    { title: "B. Loi de probabilité", items: [
+      { type: "num", q: "Une roue donne les probabilités suivantes : rouge 0,2 ; bleu 0,35 ; vert 0,25 ; jaune ? Il n'y a pas d'autre couleur. Quelle est la probabilité du jaune ? (décimal)", answer: "0.2",
+        hint: "La somme des probabilités de toutes les issues vaut 1.",
+        solution: "P(jaune) = 1 − (0,2 + 0,35 + 0,25) = 1 − 0,8 = 0,2." },
+      { type: "num", q: "Un dé est truqué : le 6 sort avec la probabilité 0,4 et les cinq autres faces sont équiprobables. Quelle est la probabilité d'obtenir 3 ? (décimal)", answer: "0.12",
+        hint: "Les cinq autres faces se partagent 1 − 0,4.",
+        solution: "1 − 0,4 = 0,6 se répartit équitablement sur 5 faces : 0,6 ÷ 5 = 0,12." },
+      { type: "num", q: "La probabilité d'un événement A vaut 7/20. Donne-la en pourcentage (sans écrire le signe %).", answer: "35",
+        hint: "Écris 7/20 avec un dénominateur 100.",
+        solution: "7/20 = 35/100 = 35 %." },
+      { type: "qcm", q: "Laquelle de ces valeurs ne peut pas être une probabilité ?",
+        options: ["3/4", "0,05", "5/4", "100 %"], answer: 2,
+        explain: "5/4 = 1,25 > 1. 100 % = 1 est la probabilité de l'événement certain, 0,05 et 3/4 sont entre 0 et 1." },
+      { type: "num", q: "Une variable prend les valeurs 1, 2, 3 et 4 avec les probabilités 0,1 ; 0,4 ; 0,3 et x. Que vaut x ? (décimal)", answer: "0.2",
+        hint: "Somme égale à 1.",
+        solution: "x = 1 − (0,1 + 0,4 + 0,3) = 1 − 0,8 = 0,2." }
+    ]},
+    { title: "C. Contraire, réunion, intersection", items: [
+      { type: "num", q: "On lance un dé équilibré à 6 faces. Quelle est la probabilité de ne pas obtenir 6 ? (fraction irréductible)", answer: "5/6", irreducible: true,
+        hint: "Événement contraire de « obtenir 6 ».",
+        solution: "P(non 6) = 1 − 1/6 = 5/6." },
+      { type: "num", q: "On lance deux dés équilibrés à 6 faces. Quelle est la probabilité d'obtenir au moins un 6 ? (fraction)", answer: "11/36", irreducible: true,
+        hint: "Passe par le contraire : aucun 6. Il y a 36 couples équiprobables.",
+        solution: "Aucun 6 : 5 × 5 = 25 couples sur 36. P(au moins un 6) = 1 − 25/36 = 11/36." },
+      { type: "num", q: "On lance deux dés équilibrés à 6 faces et on fait la somme. Quelle est la probabilité d'obtenir une somme égale à 8 ? (fraction)", answer: "5/36", irreducible: true,
+        hint: "Dresse la liste des couples (premier dé, second dé) de somme 8 ; l'univers compte 36 couples.",
+        solution: "Couples : (2,6) ; (3,5) ; (4,4) ; (5,3) ; (6,2), soit 5 sur 36. P = 5/36." },
+      { type: "num", q: "Dé équilibré à 6 faces. A : « obtenir un nombre pair » ; B : « obtenir un nombre supérieur ou égal à 4 ». Quelle est la probabilité de A ∩ B ? (fraction irréductible)", answer: "1/3", irreducible: true,
+        hint: "A = {2 ; 4 ; 6}, B = {4 ; 5 ; 6}. Quelles issues sont communes ?",
+        solution: "A ∩ B = {4 ; 6} : 2 issues sur 6. P = 2/6 = 1/3." },
+      { type: "num", q: "Même expérience (A : pair ; B : supérieur ou égal à 4). Quelle est la probabilité de A ∪ B ? (fraction irréductible)", answer: "2/3", irreducible: true,
+        hint: "Utilise P(A) + P(B) − P(A ∩ B).",
+        solution: "P(A ∪ B) = 3/6 + 3/6 − 2/6 = 4/6 = 2/3. Vérification : A ∪ B = {2 ; 4 ; 5 ; 6}, 4 issues sur 6." },
+      { type: "num", q: "On sait que P(A) = 0,45 ; P(B) = 0,3 et P(A ∩ B) = 0,1. Calculer P(A ∪ B). (décimal)", answer: "0.65",
+        hint: "P(A ∪ B) = P(A) + P(B) − P(A ∩ B).",
+        solution: "0,45 + 0,3 − 0,1 = 0,65." },
+      { type: "num", q: "On sait que P(A) = 0,5 ; P(B) = 0,6 et P(A ∪ B) = 0,8. Calculer P(A ∩ B). (décimal)", answer: "0.3",
+        hint: "Isole P(A ∩ B) dans P(A ∪ B) + P(A ∩ B) = P(A) + P(B).",
+        solution: "P(A ∩ B) = P(A) + P(B) − P(A ∪ B) = 0,5 + 0,6 − 0,8 = 0,3." },
+      { type: "num", q: "On tire une carte au hasard dans un jeu de 32 cartes. A : « tirer un trèfle » (8 cartes) ; B : « tirer une figure » (12 cartes). Quelle est la probabilité de A ∪ B ? (fraction)", answer: "17/32", irreducible: true,
+        hint: "Combien de cartes sont à la fois des trèfles et des figures ?",
+        solution: "A ∩ B : valet, dame et roi de trèfle, soit 3 cartes. P(A ∪ B) = 8/32 + 12/32 − 3/32 = 17/32." }
+    ]},
+    { title: "Problème 1 · La roue de loterie", statement: "Une roue est partagée en 12 secteurs de même taille : 1 secteur « gros lot » (50 €), 2 secteurs « 10 € », 4 secteurs « 2 € » et 5 secteurs « perdu ». On fait tourner la roue ; la flèche s'arrête sur un secteur au hasard (secteurs équiprobables).", items: [
+      { type: "num", label: "a)", q: "Quelle est la probabilité de gagner quelque chose (un lot quelconque) ? (fraction)", answer: "7/12", irreducible: true,
+        hint: "Compte tous les secteurs qui ne sont pas « perdu ».",
+        solution: "1 + 2 + 4 = 7 secteurs gagnants sur 12 : P = 7/12 (ou 1 − 5/12)." },
+      { type: "num", label: "b)", q: "Quelle est la probabilité de gagner au moins 10 € ? (fraction irréductible)", answer: "1/4", irreducible: true,
+        hint: "Gros lot ou 10 €.",
+        solution: "Ces deux événements sont incompatibles : P = 1/12 + 2/12 = 3/12 = 1/4." },
+      { type: "num", label: "c)", q: "On fait tourner la roue 240 fois. Combien de « gros lot » peut-on s'attendre à obtenir en moyenne ?", answer: "20",
+        hint: "Applique la probabilité du gros lot à 240 tours.",
+        solution: "P(gros lot) = 1/12, donc 240 × 1/12 = 20 en moyenne. Le nombre réel observé peut différer." },
+      { type: "num", label: "d)", q: "Quelle est la probabilité d'obtenir « 2 € » ou « perdu » ? (fraction irréductible)", answer: "3/4", irreducible: true,
+        hint: "Ces deux événements sont-ils incompatibles ?",
+        solution: "Incompatibles : P = 4/12 + 5/12 = 9/12 = 3/4." }
+    ]},
+    { title: "Problème 2 · Tirages dans une urne", statement: "Une urne contient 3 boules rouges et 2 boules vertes, indiscernables au toucher. On tire deux boules successivement.", items: [
+      { type: "num", label: "a)", q: "Tirage AVEC remise (on remet la première boule avant de tirer la seconde). Quelle est la probabilité d'obtenir deux boules rouges ? (décimal)", answer: "0.36",
+        hint: "Chaque tirage a la même composition : P(rouge) = 3/5 à chaque fois.",
+        solution: "P = 3/5 × 3/5 = 9/25 = 0,36." },
+      { type: "num", label: "b)", q: "Tirage SANS remise. Quelle est la probabilité d'obtenir deux boules rouges ? (décimal)", answer: "0.3",
+        hint: "Après un tirage rouge, il reste 4 boules dont 2 rouges.",
+        solution: "P = 3/5 × 2/4 = 6/20 = 3/10 = 0,3." },
+      { type: "num", label: "c)", q: "Tirage SANS remise. Quelle est la probabilité d'obtenir deux boules vertes ? (décimal)", answer: "0.1",
+        hint: "Après une verte, il reste 4 boules dont 1 verte.",
+        solution: "P = 2/5 × 1/4 = 2/20 = 1/10 = 0,1." }
+    ]},
+    { title: "Problème 3 · Fréquence et probabilité", statement: "Un élève lance 600 fois un dé cubique équilibré et note les résultats. Il obtient 118 fois le 6.", items: [
+      { type: "num", label: "a)", q: "Combien de fois peut-on s'attendre à obtenir 6 sur 600 lancers ?", answer: "100",
+        hint: "Multiplie le nombre de lancers par la probabilité d'un 6.",
+        solution: "P(6) = 1/6 donc 600 × 1/6 = 100 en moyenne." },
+      { type: "num", label: "b)", q: "Quelle est la fréquence observée du 6 ? (décimal arrondi au millième)", answer: "0.197", tol: 0.001,
+        hint: "Fréquence = effectif ÷ nombre total d'essais.",
+        solution: "118 ÷ 600 ≈ 0,1967, soit 0,197 au millième." },
+      { type: "qcm", label: "c)", q: "Que peut-on conclure de cette fréquence observée (≈ 0,197) ?",
+        options: [
+          "Le dé est truqué car 0,197 ≠ 1/6",
+          "Elle est proche de P(6) = 1/6 ≈ 0,167 : l'écart est normal pour un échantillon fini",
+          "La probabilité du 6 vaut maintenant 0,197",
+          "Il aurait fallu obtenir exactement 100 fois le 6"],
+        answer: 1,
+        explain: "Une fréquence observée fluctue autour de la probabilité théorique. Un écart de cet ordre sur 600 lancers n'est pas une preuve de dé truqué, et la probabilité du modèle ne change pas." }
+    ]}
+  ]
+};
+</script>
+<script src="../../assets/admin-config.js"></script>
+<script src="../../assets/nav-data.js"></script>
+<script src="../../assets/nav.js"></script>
+<script src="../../assets/app.js"></script>
+</body>
+</html>

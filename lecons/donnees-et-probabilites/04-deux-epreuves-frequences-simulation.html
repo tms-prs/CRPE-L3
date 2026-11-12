@@ -1,0 +1,105 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Leçon 04 — Expériences à deux épreuves, fréquences et simulation</title>
+<link rel="stylesheet" href="../../assets/style.css">
+</head>
+<body class="lesson">
+<main>
+<div class="lesson-hero">
+<nav class="crumbs" aria-label="Fil d'Ariane"><a href="../../index.html">Accueil</a><span>›</span><span>Données et probabilités</span><span>›</span><span>Leçon 04</span></nav>
+<span class="kicker">Leçon 04</span>
+<h1>Expériences à deux épreuves, fréquences et <em>simulation</em></h1>
+<div class="meta-row"><span class="pill-tag blue">Données et probabilités</span><span class="pill-tag">⏱ 1 h 30 (cours) + exercices</span></div>
+<div class="infos"><div class="info"><b>Programme</b>cycle 4 — expériences aléatoires à une ou deux épreuves, fréquence et probabilité, simulation avec un tableur ou un langage de programmation (BO du 5 mars 2026, annexe 2)</div><div class="info"><b>Prérequis</b>leçon 03 de ce domaine (probabilité, équiprobabilité, événement contraire) ; leçon 01 de ce domaine (fréquences, effectifs)</div></div>
+</div>
+<div class="lesson-layout">
+<article class="prose">
+<section class="sec-objectifs"><h2 id="s1">Objectifs</h2><p>À la fin de la leçon, l'étudiante sait :</p>
+<ul><li>reconnaître une expérience aléatoire à deux épreuves et en lister <strong>toutes</strong> les issues ;</li><li>dénombrer avec un <strong>tableau à double entrée</strong> ou un <strong>arbre des possibles</strong> ;</li><li>calculer la probabilité d'un événement composé (« au moins un », « exactement un », « la somme vaut… ») ;</li><li>distinguer <strong>fréquence observée</strong> et <strong>probabilité théorique</strong>, et expliquer la fluctuation d'échantillonnage ;</li><li>simuler une expérience avec un tableur ou un algorithme, et <strong>interpréter</strong> le résultat ;</li><li>repérer les erreurs types d'élèves et proposer une remédiation.</li></ul></section>
+<section class=""><h2 id="s2">1. Expériences à deux épreuves</h2><p>Une <strong>épreuve</strong> est une expérience aléatoire élémentaire (lancer un dé, tirer une boule…). Une expérience <strong>à deux épreuves</strong> en enchaîne deux : lancer deux pièces, lancer un dé deux fois, tirer deux boules dans une urne.</p>
+<p>Une <strong>issue</strong> de l'expérience est un <strong>couple</strong> (résultat de la 1re épreuve, résultat de la 2e). L'<strong>ordre compte</strong> : <code>(P, F)</code> et <code>(F, P)</code> sont deux issues différentes.</p>
+<div class="callout"><span class="ic">i</span><div><p><strong>Rappel (leçon 03).</strong> Si les issues sont <strong>équiprobables</strong>, <code>P(A) = nombre d'issues favorables / nombre d'issues possibles</code>, et <code>P(non A) = 1 − P(A)</code>.</p></div></div>
+<h3>1.1 Avec ou sans remise</h3>
+<ul><li><strong>Avec remise</strong> : on remet la boule dans l'urne avant le second tirage. Les deux épreuves sont identiques et <strong>indépendantes</strong>.</li><li><strong>Sans remise</strong> : la composition de l'urne change après le premier tirage. Les deux épreuves ne sont <strong>pas</strong> identiques.</li></ul>
+<p>Tirer deux boules « en même temps » revient à les tirer <strong>successivement sans remise</strong>.</p>
+<h3>1.2 Deux pièces équilibrées</h3>
+<p>Les issues sont <code>PP, PF, FP, FF</code> : <strong>4 issues équiprobables</strong>, chacune de probabilité <code>1/4</code>. Il y a 2 manières d'obtenir « une face et un pile » (<code>PF</code> et <code>FP</code>), d'où <code>P(une face exactement) = 2/4 = 1/2</code>.</p></section>
+<section class=""><h2 id="s3">2. Dénombrer : tableau et arbre</h2><h3>2.1 Tableau à double entrée (deux dés équilibrés à 6 faces)</h3>
+<p>Les 36 couples sont équiprobables. On place le 1er dé en lignes, le 2e en colonnes, et on écrit la <strong>somme</strong> dans chaque case :</p>
+<div class="table-wrap"><table><thead><tr><th>1er \ 2e</th><th>1</th><th>2</th><th>3</th><th>4</th><th>5</th><th>6</th></tr></thead><tbody><tr><td><strong>1</strong></td><td>2</td><td>3</td><td>4</td><td>5</td><td>6</td><td>7</td></tr><tr><td><strong>2</strong></td><td>3</td><td>4</td><td>5</td><td>6</td><td>7</td><td>8</td></tr><tr><td><strong>3</strong></td><td>4</td><td>5</td><td>6</td><td>7</td><td>8</td><td>9</td></tr><tr><td><strong>4</strong></td><td>5</td><td>6</td><td>7</td><td>8</td><td>9</td><td>10</td></tr><tr><td><strong>5</strong></td><td>6</td><td>7</td><td>8</td><td>9</td><td>10</td><td>11</td></tr><tr><td><strong>6</strong></td><td>7</td><td>8</td><td>9</td><td>10</td><td>11</td><td>12</td></tr></tbody></table></div>
+<p>Les <strong>sommes ne sont pas équiprobables</strong> : seules les 36 cases le sont.</p>
+<div class="table-wrap"><table><thead><tr><th>Somme</th><th>2</th><th>3</th><th>4</th><th>5</th><th>6</th><th>7</th><th>8</th><th>9</th><th>10</th><th>11</th><th>12</th></tr></thead><tbody><tr><td>Cases</td><td>1</td><td>2</td><td>3</td><td>4</td><td>5</td><td>6</td><td>5</td><td>4</td><td>3</td><td>2</td><td>1</td></tr><tr><td>Probabilité</td><td>1/36</td><td>2/36</td><td>3/36</td><td>4/36</td><td>5/36</td><td>6/36</td><td>5/36</td><td>4/36</td><td>3/36</td><td>2/36</td><td>1/36</td></tr></tbody></table></div>
+<p>Ainsi <code>P(somme = 7) = 6/36 = 1/6</code> (la somme la plus probable) et <code>P(somme = 2) = 1/36</code>.</p>
+<h3>2.2 Arbre des possibles</h3>
+<p>Pour une urne de <strong>3 boules rouges et 2 vertes</strong>, on tire deux boules <strong>sans remise</strong>. On écrit sur chaque branche la probabilité de l'étape.</p>
+<figure class="fig"><svg viewBox="0 0 520 250" width="520" role="img" aria-label="Arbre pondéré du tirage de deux boules sans remise">
+  <path class="sb" d="M60 125L190 60M60 125L190 190"/>
+  <path class="s" d="M190 60L330 28M190 60L330 92M190 190L330 158M190 190L330 222"/>
+  <circle class="pt" cx="60" cy="125" r="4"/><circle class="pb" cx="190" cy="60" r="4"/><circle class="pb" cx="190" cy="190" r="4"/>
+  <text class="b" x="105" y="80">3/5</text><text class="b" x="105" y="178">2/5</text>
+  <text class="m" x="196" y="38">R</text><text class="m" x="196" y="218">V</text>
+  <text x="240" y="34">2/4</text><text x="240" y="98">2/4</text><text x="240" y="152">3/4</text><text x="240" y="222">1/4</text>
+  <text x="338" y="32">RR : 3/5 × 2/4 = 3/10</text>
+  <text x="338" y="96">RV : 3/5 × 2/4 = 3/10</text>
+  <text x="338" y="162">VR : 2/5 × 3/4 = 3/10</text>
+  <text x="338" y="226">VV : 2/5 × 1/4 = 1/10</text>
+</svg><figcaption>Arbre pondéré : tirage de deux boules sans remise dans une urne de 3 rouges (R) et 2 vertes (V). Au second tirage il reste 4 boules.</figcaption></figure>
+<p><strong>Règles de l'arbre pondéré.</strong></p>
+<ol><li>La somme des probabilités des branches issues d'un même nœud vaut <code>1</code>.</li><li>La probabilité d'une <strong>feuille</strong> (issue) est le <strong>produit</strong> des probabilités le long de la branche.</li><li>La probabilité d'un événement est la <strong>somme</strong> des probabilités des feuilles qui le réalisent.</li></ol>
+<p>Vérification : <code>3/10 + 3/10 + 3/10 + 1/10 = 1</code>. Les feuilles ne sont <strong>pas</strong> équiprobables ici (<code>VV</code> est plus rare), mais le principe produit/somme fonctionne toujours.</p>
+<p><strong>Arbre non pondéré, feuilles équiprobables.</strong> Dans le cas avec remise ou pour deux pièces, chaque étape a des branches de même probabilité : les feuilles sont équiprobables et on peut simplement <strong>compter</strong> les feuilles.</p></section>
+<section class=""><h2 id="s4">3. Événements composés</h2><h3>3.1 Vocabulaire à traduire en issues</h3>
+<ul><li><strong>« au moins un »</strong> : un ou plusieurs (le contraire est « aucun ») ;</li><li><strong>« exactement un »</strong> : un seul, ni zéro, ni deux ;</li><li><strong>« la somme est égale à <code>s</code> »</strong> : tous les couples de somme <code>s</code>.</li></ul>
+<h3>3.2 Exemples résolus</h3>
+<p><strong>Exemple 1 (deux dés, « au moins un 6 »).</strong> Passer par le contraire : « aucun 6 » a <code>5 × 5 = 25</code> issues sur 36.</p>
+<pre><code>P(au moins un 6) = 1 − P(aucun 6) = 1 − 25/36 = 11/36</code></pre>
+<p>Piège : <code>P(6 au 1er) + P(6 au 2e) = 2/6</code> compte deux fois le couple <code>(6, 6)</code>.</p>
+<p><strong>Exemple 2 (urne 3R / 2V, avec remise, 25 couples).</strong></p>
+<pre><code>P(RR) = 3/5 × 3/5 = 9/25        P(VV) = 2/5 × 2/5 = 4/25
+P(même couleur) = 9/25 + 4/25 = 13/25
+P(exactement un rouge) = RV + VR = 6/25 + 6/25 = 12/25</code></pre>
+<p><strong>Exemple 3 (même urne, sans remise, 20 issues).</strong></p>
+<pre><code>P(RR) = 3/10     P(VV) = 1/10
+P(au moins un rouge) = 1 − P(VV) = 9/10
+P(couleurs différentes) = 3/10 + 3/10 = 3/5</code></pre></section>
+<section class=""><h2 id="s5">4. Fréquence et probabilité</h2><h3>4.1 Deux notions distinctes</h3>
+<ul><li>La <strong>probabilité</strong> est un nombre <strong>théorique</strong>, fixé par le modèle (ici : équiprobabilité) avant toute expérience.</li><li>La <strong>fréquence</strong> d'un événement est le rapport <code>effectif de l'événement / nombre d'essais</code> : elle est <strong>observée</strong> et change d'une série à l'autre.</li></ul>
+<p><strong>Exemple.</strong> Sur 200 lancers d'une pièce, on obtient 108 piles : fréquence <code>108/200 = 0,54</code>, alors que <code>P(pile) = 0,5</code>. L'écart n'est pas une anomalie.</p>
+<h3>4.2 Fluctuation d'échantillonnage et stabilisation</h3>
+<div class="callout"><span class="ic">i</span><div><p><strong>Fait à retenir (loi des grands nombres, sans formalisme).</strong> Quand le nombre d'essais augmente, la fréquence d'un événement <strong>se stabilise</strong> autour de sa probabilité : plus l'échantillon est grand, <strong>moins les fréquences fluctuent</strong> d'une série à l'autre.</p></div></div>
+<p>Exemple <strong>illustratif</strong> (valeurs inventées, pas une vérité mathématique) de fréquences cumulées de « pile » sur une série de lancers :</p>
+<div class="table-wrap"><table><thead><tr><th>Lancers</th><th>10</th><th>50</th><th>100</th><th>500</th><th>1 000</th></tr></thead><tbody><tr><td>Piles</td><td>7</td><td>28</td><td>53</td><td>254</td><td>502</td></tr><tr><td>Fréquence</td><td>0,70</td><td>0,56</td><td>0,53</td><td>0,508</td><td>0,502</td></tr></tbody></table></div>
+<p>Précisions importantes :</p>
+<ul><li><strong>Elle ne prouve pas</strong> la valeur de la probabilité : elle l'<strong>estime</strong> ; on ne peut pas la lire exactement sur une série finie.</li><li>Rien ne « compense » : après une série de piles, la pièce <strong>n'a pas de mémoire</strong>. C'est la <strong>proportion</strong> qui s'approche de <code>0,5</code>, pas l'effectif (l'écart <code>piles − faces</code> peut grandir).</li><li>Deux séries de même taille donnent des fréquences <strong>différentes</strong>, et c'est normal.</li></ul></section>
+<section class=""><h2 id="s6">5. Simuler une expérience</h2><p><strong>Simuler</strong> consiste à reproduire une expérience aléatoire par un procédé informatique, pour obtenir rapidement un grand nombre d'essais.</p>
+<h3>5.1 Avec un tableur</h3>
+<div class="table-wrap"><table><thead><tr><th>Besoin</th><th>Formule</th></tr></thead><tbody><tr><td>Nombre aléatoire dans <code>[0 ; 1[</code></td><td><code>=ALEA()</code></td></tr><tr><td>Lancer d'un dé à 6 faces</td><td><code>=ALEA.ENTRE.BORNES(1;6)</code></td></tr><tr><td>Lancer d'une pièce (1 = pile, 0 = face)</td><td><code>=ALEA.ENTRE.BORNES(0;1)</code></td></tr><tr><td>Somme de deux dés</td><td><code>=ALEA.ENTRE.BORNES(1;6)+ALEA.ENTRE.BORNES(1;6)</code></td></tr><tr><td>Nombre de 7 dans <code>B2:B1001</code></td><td><code>=NB.SI(B2:B1001;7)</code></td></tr><tr><td>Fréquence correspondante</td><td><code>=NB.SI(B2:B1001;7)/1000</code></td></tr></tbody></table></div>
+<p>Pour simuler « deux dés » avec 1000 essais, on <strong>recopie vers le bas</strong> une ligne contenant deux <code>ALEA.ENTRE.BORNES(1;6)</code> et leur somme. Chaque <strong>recalcul</strong> (touche <code>F9</code>) produit une <strong>nouvelle</strong> simulation, donc de nouvelles fréquences.</p>
+<h3>5.2 Avec un algorithme (pseudo-code, proche de Scratch / Python)</h3>
+<pre><code>nb_sept ← 0
+répéter 1000 fois :
+    d1 ← nombre aléatoire entre 1 et 6
+    d2 ← nombre aléatoire entre 1 et 6
+    si d1 + d2 = 7 alors
+        nb_sept ← nb_sept + 1
+afficher nb_sept / 1000</code></pre>
+<p>En Python : <code>random.randint(1, 6)</code>. Le compteur doit être <strong>initialisé à 0 avant</strong> la boucle.</p>
+<h3>5.3 Interpréter une simulation</h3>
+<ul><li>La fréquence obtenue (par exemple <code>0,172</code>) est <strong>proche de</strong> <code>1/6 ≈ 0,167</code>, sans être égale : on <strong>ne conclut pas</strong> que la probabilité est <code>0,172</code>.</li><li>Une simulation <strong>valide ou met en doute un modèle</strong> : si les 11 sommes étaient équiprobables, on aurait <code>P(7) = 1/11 ≈ 0,09</code> ; une fréquence de 7 proche de <code>0,17</code> sur 1000 essais met cette idée en défaut.</li><li>Pour mieux estimer : <strong>augmenter</strong> le nombre d'essais, ou <strong>répéter</strong> la simulation et observer la dispersion.</li></ul></section>
+<section class="sec-didactic"><h2 id="s7">6. Erreurs types d'élèves (volet didactique)</h2><div class="table-wrap"><table><thead><tr><th>Erreur observée</th><th>Exemple</th><th>Cause probable</th><th>Remédiation possible</th></tr></thead><tbody><tr><td>Issues non distinguées</td><td>« Deux pièces : PP, PF, FF, donc 3 issues équiprobables, <code>P = 1/3</code> »</td><td><code>PF</code> et <code>FP</code> confondus : l'ordre est ignoré</td><td>Pièces de deux couleurs (rouge, bleue), lister les couples, vérifier par l'expérience</td></tr><tr><td>Somme de deux dés équiprobable</td><td>« 11 sommes possibles, donc <code>P(7) = 1/11</code> »</td><td>Équiprobabilité appliquée aux sommes, pas aux couples</td><td>Tableau à double entrée ; expérimenter (la somme 7 sort bien plus souvent que 2)</td></tr><tr><td>Mémoire de la pièce</td><td>« Après 5 piles, face est plus probable »</td><td>Croyance en une compensation</td><td>Simulation : la série suivante ne dépend pas de la précédente</td></tr><tr><td>Confusion fréquence / probabilité</td><td>« J'ai obtenu 0,54 donc <code>P(pile) = 0,54</code> »</td><td>Une fréquence observée est prise pour la valeur théorique</td><td>Comparer plusieurs séries et la stabilisation</td></tr><tr><td>Additionner au lieu de multiplier</td><td><code>P(RR) = 3/5 + 3/5</code></td><td>Règles de l'arbre mal comprises</td><td>Compter sur le tableau ou le dénombrement des couples</td></tr><tr><td>Oublier la remise</td><td>Utiliser <code>3/5 × 3/5</code> sans remise</td><td>Urne supposée inchangée</td><td>Écrire la composition de l'urne à chaque étape</td></tr><tr><td>« Au moins un » mal traité</td><td><code>P(au moins un 6) = 1/6 + 1/6</code></td><td>Double comptage de <code>(6, 6)</code></td><td>Passer par l'événement contraire</td></tr></tbody></table></div>
+<p><strong>Dispositifs pour enseigner.</strong> Lancers réels en groupe, mise en commun des résultats de la classe (fréquences <strong>cumulées</strong> par tranche : 10, 50, 100…), tableau de fréquences cumulées au tableur, comparaison avec la probabilité théorique, puis simulation de plus grands échantillons. Lancer le même nombre d'essais dans plusieurs groupes fait <strong>voir</strong> la fluctuation.</p></section>
+<section class="sec-retenir"><h2 id="s8">7. À retenir</h2><ul><li>Deux épreuves : une issue est un <strong>couple</strong> ; l'ordre compte.</li><li>Tableau à double entrée ou arbre : lister toutes les issues avant de compter.</li><li>Arbre pondéré : <strong>produit</strong> le long d'une branche, <strong>somme</strong> sur les branches.</li><li>« Au moins un » : passer par le <strong>contraire</strong> (« aucun »).</li><li>Sommes de deux dés : <strong>non équiprobables</strong> (1/36 pour 2 ou 12, 6/36 pour 7).</li><li>Fréquence <strong>observée</strong> ≠ probabilité <strong>théorique</strong> ; elle se stabilise quand l'échantillon grandit.</li><li>La pièce n'a <strong>pas de mémoire</strong>.</li><li>Tableur : <code>ALEA.ENTRE.BORNES</code>, <code>NB.SI</code>, recalcul pour une nouvelle simulation.</li></ul></section>
+<section class="sec-practice"><h2 id="s9">Pour s'entraîner</h2><div class="practice"><a class="mode-card blue" href="../../quiz/donnees-et-probabilites/04-deux-epreuves-frequences-simulation.html"><h3>Quiz</h3><p>Questions courtes avec correction immédiate pour vérifier que c’est acquis.</p><span class="go">Lancer le quiz <span>→</span></span></a><a class="mode-card sky" href="../../exercices/donnees-et-probabilites/04-deux-epreuves-frequences-simulation.html"><h3>Exercices</h3><p>Réponses à saisir, indices et corrections détaillées.</p><span class="go">Commencer <span>→</span></span></a></div></section>
+<section class="sec-extra"><h2 id="s10">Pistes de prolongement (culture mathématique)</h2><ul><li>Le problème des partis (Pascal et Fermat, 1654) : naissance du calcul des probabilités à partir de jeux de dés.</li><li>Jacques Bernoulli (<em>Ars conjectandi</em>, 1713) : première formulation de la loi des grands nombres.</li></ul></section>
+</article>
+<aside class="toc" aria-label="Sommaire"><h4>Sur cette page</h4><ol><li><a href="#s1">Objectifs</a></li><li><a href="#s2">1. Expériences à deux épreuves</a></li><li><a href="#s3">2. Dénombrer : tableau et arbre</a></li><li><a href="#s4">3. Événements composés</a></li><li><a href="#s5">4. Fréquence et probabilité</a></li><li><a href="#s6">5. Simuler une expérience</a></li><li><a href="#s7">6. Erreurs types d'élèves (volet didactique)</a></li><li><a href="#s8">7. À retenir</a></li><li><a href="#s9">Pour s'entraîner</a></li><li><a href="#s10">Pistes de prolongement (culture mathématique)</a></li></ol></aside>
+</div>
+</main>
+<script src="../../assets/admin-config.js"></script>
+<script src="../../assets/nav-data.js"></script>
+<script src="../../assets/nav.js"></script>
+</body>
+</html>

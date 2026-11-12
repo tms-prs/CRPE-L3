@@ -1,0 +1,119 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Bilan — Données et probabilités</title>
+<link rel="stylesheet" href="../../assets/style.css">
+</head>
+<body>
+<main>
+  <header>
+    <h1 id="title"></h1>
+    <p id="subtitle"></p>
+  </header>
+  <div id="app"></div>
+</main>
+<script>
+window.PAGE = {
+  mix: true,
+  id: "bilan-donnees-et-probabilites",
+  title: "Bilan — Données et probabilités",
+  subtitle: "29 questions mêlant les leçons 01 à 04, à faire sans notes (durée conseillée : 40 min). Les corrections sont disponibles question par question.",
+  sections: [
+    { title: "Séries et représentations (leçon 01)", items: [
+      { type: "num", q: "Pointures de 40 élèves : 36 → 4 élèves ; 37 → 8 ; 38 → 12 ; 39 → 10 ; 40 → 6. Quel pourcentage des élèves chausse du 38 ou moins ?", answer: "60",
+        hint: "Effectif cumulé croissant, puis fréquence.",
+        solution: "4 + 8 + 12 = 24 élèves ; 24 ÷ 40 = 0,6, soit 60 %." },
+      { type: "num", q: "Dans un échantillon de 80 personnes, une modalité a pour fréquence 12,5 %. Quel est son effectif ?", answer: "10",
+        solution: "12,5 % de 80 = 0,125 × 80 = 10." },
+      { type: "num", q: "Dans un diagramme circulaire représentant 150 élèves, le secteur « bus » correspond à 45 élèves. Quel est son angle en degrés ?", answer: "108",
+        hint: "L'angle est proportionnel à l'effectif.",
+        solution: "45 ÷ 150 × 360 = 0,3 × 360 = 108°." },
+      { type: "qcm", q: "Dans un histogramme dont les classes ont des amplitudes différentes, quelle grandeur doit être proportionnelle à l'effectif ?",
+        options: ["La hauteur du rectangle", "L'aire du rectangle", "La largeur du rectangle"], answer: 1,
+        explain: "Quand les amplitudes diffèrent, c'est l'aire des rectangles (et non la hauteur) qui représente l'effectif." },
+      { type: "qcm", q: "Dans un tableur, on écrit en C2 la formule =B2/B$7 (B7 contient l'effectif total) puis on la recopie vers le bas. À quoi sert le « $ » ?",
+        options: ["À figer la ligne 7 lors de la recopie", "À arrondir le résultat", "À afficher un pourcentage"], answer: 0,
+        explain: "B$7 reste inchangé à la recopie : chaque effectif est bien divisé par le total." },
+      { type: "num", q: "Une série de 20 valeurs est regroupée en classes de même amplitude : [0 ; 5[ → 3 ; [5 ; 10[ → 9 ; [10 ; 15[ → 6 ; [15 ; 20[ → 2. Combien de valeurs sont supérieures ou égales à 10 ?", answer: "8",
+        solution: "6 + 2 = 8 valeurs." },
+      { type: "num", problem: true, q: "Problème : lors d'une enquête sur 250 élèves, 40 % viennent à pied, 30 % en bus et les autres à vélo ou en voiture. Parmi ces « autres », les 3/5 viennent à vélo. Combien d'élèves viennent à vélo ?", answer: "45",
+        hint: "Commence par l'effectif des « autres ».",
+        solution: "Autres : 100 % − 40 % − 30 % = 30 %, soit 0,3 × 250 = 75 élèves. Vélo : 3/5 × 75 = 45." }
+    ]},
+    { title: "Moyenne, médiane, quartiles (leçon 02)", items: [
+      { type: "num", q: "Calculer la moyenne des températures 12 ; 15 ; 11 ; 9 ; 14 ; 17 ; 13 (en °C).", answer: "13",
+        solution: "Somme : 91 ; 91 ÷ 7 = 13 °C." },
+      { type: "num", q: "Dans une entreprise de 20 salariés, 5 gagnent 1 200 €, 10 gagnent 1 500 € et 5 gagnent 2 400 €. Quel est le salaire moyen (en €) ?", answer: "1650",
+        hint: "Moyenne pondérée par les effectifs.",
+        solution: "(5 × 1 200 + 10 × 1 500 + 5 × 2 400) ÷ 20 = 33 000 ÷ 20 = 1 650 €." },
+      { type: "num", q: "Quelle est la médiane de la série 14 ; 8 ; 11 ; 17 ; 9 ; 20 ; 12 ; 15 ?", answer: "13",
+        hint: "Range d'abord les valeurs.",
+        solution: "Série rangée : 8 ; 9 ; 11 ; 12 ; 14 ; 15 ; 17 ; 20. Huit valeurs : médiane = (12 + 14) ÷ 2 = 13." },
+      { type: "num", q: "Quel est le premier quartile Q1 de la série rangée 3 ; 5 ; 6 ; 8 ; 9 ; 11 ; 12 ; 14 ; 15 ; 17 ; 18 ; 20 ; 22 ; 25 ; 27 ?", answer: "8",
+        hint: "25 % de 15 = 3,75.",
+        solution: "Q1 est la plus petite valeur telle qu'au moins 25 % des données lui soient inférieures ou égales. 25 % de 15 = 3,75 : on prend la 4e valeur, soit 8." },
+      { type: "num", q: "Quel est l'écart interquartile de la série rangée 2 ; 4 ; 5 ; 7 ; 8 ; 10 ; 13 ; 15 ?", answer: "6",
+        hint: "25 % de 8 = 2 et 75 % de 8 = 6.",
+        solution: "Q1 = 2e valeur = 4 ; Q3 = 6e valeur = 10. Écart interquartile : 10 − 4 = 6." },
+      { type: "num", q: "Pour une série, le minimum est 4, Q1 = 9, la médiane est 12, Q3 = 18 et le maximum est 25. Quelle est l'étendue ?", answer: "21",
+        solution: "Étendue = maximum − minimum = 25 − 4 = 21." },
+      { type: "num", q: "Une série est regroupée en classes : [0 ; 4[ → 5 ; [4 ; 8[ → 10 ; [8 ; 12[ → 15 ; [12 ; 16[ → 10. En prenant les centres des classes, quelle est la moyenne estimée ?", answer: "9",
+        hint: "Centres : 2, 6, 10 et 14.",
+        solution: "(5 × 2 + 10 × 6 + 15 × 10 + 10 × 14) ÷ 40 = 360 ÷ 40 = 9." },
+      { type: "qcm", q: "On remplace la plus grande valeur d'une série par une valeur beaucoup plus grande. Laquelle de ces grandeurs ne change pas nécessairement ?",
+        options: ["La moyenne", "La médiane", "L'étendue"], answer: 1,
+        explain: "La médiane ne dépend pas des valeurs extrêmes, contrairement à la moyenne et à l'étendue." },
+      { type: "num", problem: true, q: "Problème : une classe de 24 élèves a une moyenne de 11,5. Les 9 garçons ont une moyenne de 10. Quelle est la moyenne des 15 filles ?", answer: "12.4",
+        hint: "Raisonne sur les sommes des notes.",
+        solution: "Somme totale : 24 × 11,5 = 276. Somme des garçons : 9 × 10 = 90. Somme des filles : 186, donc moyenne 186 ÷ 15 = 12,4." }
+    ]},
+    { title: "Probabilités et événements (leçon 03)", items: [
+      { type: "num", q: "Une urne contient 7 boules rouges, 5 noires et 3 jaunes, indiscernables au toucher. On tire une boule au hasard. Quelle est la probabilité qu'elle soit jaune ? (fraction irréductible)", answer: "1/5", irreducible: true,
+        solution: "3 boules favorables sur 15 : 3/15 = 1/5." },
+      { type: "num", q: "On lance un dé équilibré à 20 faces numérotées de 1 à 20. Quelle est la probabilité que le numéro ne soit pas un multiple de 4 ? (fraction irréductible)", answer: "3/4", irreducible: true,
+        hint: "Passe par l'événement contraire.",
+        solution: "Multiples de 4 : 4, 8, 12, 16, 20, soit 5 numéros : probabilité 5/20 = 1/4. Contraire : 1 − 1/4 = 3/4." },
+      { type: "num", q: "On sait que P(A) = 0,6, P(B) = 0,5 et P(A ∪ B) = 0,8. Calculer P(A ∩ B).", answer: "0.3",
+        solution: "P(A ∪ B) = P(A) + P(B) − P(A ∩ B), donc P(A ∩ B) = 0,6 + 0,5 − 0,8 = 0,3." },
+      { type: "num", q: "Dans une loi de probabilité, trois issues ont pour probabilités 1/2, 1/3 et x, et il n'y a pas d'autre issue. Quelle est la valeur de x ? (fraction irréductible)", answer: "1/6", irreducible: true,
+        solution: "x = 1 − 1/2 − 1/3 = 6/6 − 3/6 − 2/6 = 1/6." },
+      { type: "qcm", q: "Dans un jeu, on a 1 chance sur 4 de gagner à chaque partie. Si on joue 4 parties, que peut-on dire ?",
+        options: ["On est certain de gagner au moins une fois", "On peut ne gagner aucune fois, même si c'est peu probable", "On gagne exactement une fois"], answer: 1,
+        explain: "Les parties sont indépendantes : la probabilité de ne rien gagner est (3/4)⁴ ≈ 0,32, elle n'est pas nulle." },
+      { type: "num", q: "On lance un dé équilibré à 12 faces numérotées de 1 à 12. Quelle est la probabilité d'obtenir un multiple de 2 ou un multiple de 3 ? (fraction irréductible)", answer: "2/3", irreducible: true,
+        hint: "Attention aux numéros comptés deux fois.",
+        solution: "Multiples de 2 : 6 numéros ; de 3 : 4 numéros ; des deux (6 et 12) : 2 numéros. 6 + 4 − 2 = 8 numéros favorables, soit 8/12 = 2/3." },
+      { type: "num", problem: true, q: "Problème : une urne contient 20 boules, rouges ou vertes. La probabilité de tirer une boule rouge (boules équiprobables) est 0,35. Combien y a-t-il de boules vertes ?", answer: "13",
+        hint: "Déduis d'abord le nombre de rouges.",
+        solution: "Rouges : 0,35 × 20 = 7. Vertes : 20 − 7 = 13." }
+    ]},
+    { title: "Deux épreuves, fréquences, simulation (leçon 04)", items: [
+      { type: "num", q: "On lance deux dés équilibrés à 6 faces et on additionne les résultats. Quelle est la probabilité que la somme soit 8 ? (fraction irréductible)", answer: "5/36", irreducible: true,
+        hint: "Tableau à double entrée de 36 cases.",
+        solution: "Somme 8 : (2,6), (3,5), (4,4), (5,3), (6,2), soit 5 issues sur 36 : 5/36." },
+      { type: "num", q: "On lance trois fois une pièce équilibrée. Quelle est la probabilité d'obtenir exactement deux « pile » ? (fraction irréductible)", answer: "3/8", irreducible: true,
+        hint: "Arbre : 8 issues équiprobables.",
+        solution: "Issues avec exactement deux « pile » : PPF, PFP, FPP, soit 3 issues sur 8 : 3/8." },
+      { type: "num", q: "Une urne contient 4 boules rouges et 6 noires. On tire 2 boules successivement sans remise (boules équiprobables). Quelle est la probabilité d'obtenir deux boules noires ? (fraction irréductible)", answer: "1/3", irreducible: true,
+        solution: "Arbre : 6/10 × 5/9 = 30/90 = 1/3." },
+      { type: "num", q: "On lance trois fois un dé équilibré à 6 faces. Quelle est la probabilité d'obtenir au moins un 6 ? (fraction irréductible)", answer: "91/216", irreducible: true,
+        hint: "Passe par l'événement contraire « aucun 6 ».",
+        solution: "Aucun 6 : (5/6)³ = 125/216. Au moins un 6 : 1 − 125/216 = 91/216." },
+      { type: "qcm", q: "Quand on augmente le nombre de répétitions d'une expérience aléatoire, que devient en général la fréquence observée d'un événement ?",
+        options: ["Elle devient exactement égale à la probabilité", "Elle se stabilise autour de la probabilité", "Elle s'éloigne de plus en plus de la probabilité"], answer: 1,
+        explain: "La fluctuation d'échantillonnage diminue avec la taille de l'échantillon : la fréquence se rapproche de la probabilité sans l'atteindre nécessairement." },
+      { type: "num", problem: true, q: "Problème : on simule 500 tirages d'une boule dans une urne où la probabilité d'obtenir une boule rouge est 0,3. La simulation donne 164 boules rouges. Quel est l'écart (positif, valeur décimale) entre la fréquence observée et la probabilité théorique ?", answer: "0.028", tol: 0.0005,
+        hint: "Calcule d'abord la fréquence observée.",
+        solution: "Fréquence observée : 164 ÷ 500 = 0,328. Écart : 0,328 − 0,3 = 0,028." }
+    ]}
+  ]
+};
+</script>
+<script src="../../assets/admin-config.js"></script>
+<script src="../../assets/nav-data.js"></script>
+<script src="../../assets/nav.js"></script>
+<script src="../../assets/app.js"></script>
+</body>
+</html>

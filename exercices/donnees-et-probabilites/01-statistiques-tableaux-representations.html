@@ -1,0 +1,134 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Exercices 01 — Statistiques : tableaux et représentations</title>
+<link rel="stylesheet" href="../../assets/style.css">
+</head>
+<body>
+<main>
+  <header>
+    <h1 id="title"></h1>
+    <p id="subtitle"></p>
+  </header>
+  <div id="app"></div>
+</main>
+<script>
+window.PAGE = {
+  id: "exo-01-statistiques-tableaux-representations",
+  title: "Exercices 01 — Statistiques : tableaux et représentations",
+  subtitle: "Tape ta réponse (36, 0,3 ou 3/10 acceptés selon la question), puis Vérifier. Indice et correction disponibles. Leçon : lecons/donnees-et-probabilites/01-statistiques-tableaux-representations.md",
+  sections: [
+    { title: "A. Vocabulaire, effectifs et fréquences", statement: "Un professeur interroge les 30 élèves d'une classe sur le nombre de livres lus pendant l'été. Résultats (nombre de livres : effectif) — 0 : 3 ; 1 : 6 ; 2 : 9 ; 3 : 7 ; 4 : 3 ; 5 : 2.", items: [
+      { type: "num", q: "Quel est l'effectif total de cette série ?", answer: "30",
+        hint: "L'effectif total est la somme de tous les effectifs.",
+        solution: "3 + 6 + 9 + 7 + 3 + 2 = 30 élèves." },
+      { type: "num", q: "Quelle est la fréquence des élèves ayant lu 2 livres (en %) ?", answer: "30",
+        hint: "Fréquence = effectif ÷ effectif total.",
+        solution: "9 ÷ 30 = 0,3 = 30 %." },
+      { type: "num", q: "Quelle est la fréquence des élèves ayant lu 1 livre, en fraction irréductible ?", answer: ["1/5", "0.2"],
+        hint: "Écris 6/30 puis simplifie.",
+        solution: "6/30 = 1/5 (= 0,2 = 20 %)." },
+      { type: "num", q: "Combien d'élèves ont lu au plus 3 livres ?", answer: "25",
+        hint: "C'est l'effectif cumulé croissant de la valeur 3.",
+        solution: "3 + 6 + 9 + 7 = 25 élèves." },
+      { type: "num", q: "Combien d'élèves ont lu au moins 3 livres ?", answer: "12",
+        hint: "Additionne les effectifs des valeurs 3, 4 et 5, ou fais 30 − (effectif cumulé de 2).",
+        solution: "7 + 3 + 2 = 12 élèves (ou 30 − 18 = 12)." },
+      { type: "num", q: "Quelle est la fréquence cumulée croissante de la valeur 2 (en %) ?", answer: "60",
+        hint: "Effectif cumulé de 2, puis divise par l'effectif total.",
+        solution: "Effectif cumulé : 3 + 6 + 9 = 18 ; 18 ÷ 30 = 0,6 = 60 %." }
+    ]},
+    { title: "B. Regrouper en classes", statement: "Tailles (en cm) de 20 élèves : 142 ; 148 ; 151 ; 155 ; 138 ; 160 ; 145 ; 152 ; 149 ; 157 ; 163 ; 141 ; 150 ; 154 ; 146 ; 158 ; 147 ; 153 ; 144 ; 159. On regroupe en classes [135 ; 145[, [145 ; 155[ et [155 ; 165[.", items: [
+      { type: "num", q: "Quel est l'effectif de la classe [145 ; 155[ ?", answer: "10",
+        hint: "145 appartient à la classe, 155 n'y appartient pas.",
+        solution: "Valeurs : 148, 151, 145, 152, 149, 150, 154, 146, 147, 153, soit 10 élèves." },
+      { type: "num", q: "Quelle est la fréquence de la classe [135 ; 145[ (en %) ?", answer: "20",
+        hint: "Compte d'abord les valeurs strictement inférieures à 145.",
+        solution: "Valeurs : 142, 138, 141, 144, soit 4 élèves ; 4 ÷ 20 = 0,2 = 20 %." },
+      { type: "num", q: "Quelle est l'étendue de la série (en cm) ?", answer: "25",
+        hint: "Étendue = plus grande valeur − plus petite valeur.",
+        solution: "163 − 138 = 25 cm." },
+      { type: "qcm", q: "Dans quelle classe range-t-on la taille 155 cm ?",
+        options: ["[135 ; 145[", "[145 ; 155[", "[155 ; 165[", "Dans aucune classe"], answer: 2,
+        explain: "La classe [a ; b[ inclut a et exclut b : 155 est exclu de [145 ; 155[ et appartient à [155 ; 165[." }
+    ]},
+    { title: "C. Diagrammes circulaires et histogrammes", statement: "Dans un collège, 60 élèves choisissent une activité périscolaire : sport 24 ; musique 15 ; théâtre 9 ; dessin 12. On construit un diagramme circulaire (un tour complet : 360°).", items: [
+      { type: "num", q: "Quel est l'angle du secteur « sport » (en degrés) ?", answer: "144",
+        hint: "Un élève correspond à 360° ÷ 60.",
+        solution: "360° ÷ 60 = 6° par élève ; 24 × 6° = 144°." },
+      { type: "num", q: "Quel est l'angle du secteur « théâtre » (en degrés) ?", answer: "54",
+        solution: "9 × 6° = 54°." },
+      { type: "num", q: "Dans un autre diagramme circulaire, un secteur de 90° représente une catégorie d'une population de 32 personnes. Combien de personnes dans cette catégorie ?", answer: "8",
+        hint: "Quelle fraction du cercle représente 90° ?",
+        solution: "90° est le quart de 360° ; 32 ÷ 4 = 8 personnes." },
+      { type: "num", q: "On utilise un diagramme semi-circulaire (180°) pour 20 individus. Quel est l'angle (en degrés) d'une catégorie de 7 individus ?", answer: "63",
+        hint: "Un individu correspond à 180° ÷ 20.",
+        solution: "180° ÷ 20 = 9° par individu ; 7 × 9° = 63°." },
+      { type: "num", q: "Un histogramme donne la durée du trajet de 40 élèves, par classes de 10 min, avec les effectifs 5, 12, 15 et 8 pour [0 ; 10[, [10 ; 20[, [20 ; 30[ et [30 ; 40[. Combien d'élèves mettent moins de 20 minutes ?", answer: "17",
+        hint: "Additionne les effectifs des deux premières classes.",
+        solution: "5 + 12 = 17 élèves." },
+      { type: "num", q: "Avec les mêmes données, quelle est la fréquence de la classe [20 ; 30[ (en %) ?", answer: "37.5",
+        hint: "Divise l'effectif de la classe par 40.",
+        solution: "15 ÷ 40 = 0,375 = 37,5 %." }
+    ]},
+    { title: "D. Tableur", statement: "Dans un tableur, les valeurs 0 à 5 (livres lus) sont en A2:A7 et les effectifs 3 ; 6 ; 9 ; 7 ; 3 ; 2 sont en B2:B7. La cellule B8 contient =SOMME(B2:B7).", items: [
+      { type: "num", q: "Quelle valeur la cellule B8 affiche-t-elle ?", answer: "30",
+        hint: "SOMME additionne toutes les cellules de la plage.",
+        solution: "3 + 6 + 9 + 7 + 3 + 2 = 30." },
+      { type: "num", q: "En C4, on saisit =B4/B$8. Quelle valeur (en décimal) s'affiche ?", answer: ["0.3", "3/10"],
+        hint: "B4 est l'effectif de la valeur 2 ; B$8 contient l'effectif total.",
+        solution: "B4 = 9 et B8 = 30 : 9 ÷ 30 = 0,3." },
+      { type: "qcm", q: "Pourquoi écrit-on B$8 (avec un $) dans la formule de fréquence avant de la recopier vers le bas ?",
+        options: [
+          "Pour que la ligne 8 (effectif total) reste le dénominateur dans toutes les lignes",
+          "Pour afficher le résultat en pourcentage",
+          "Pour arrondir le résultat",
+          "Pour additionner les cellules"],
+        answer: 0,
+        explain: "Le $ fige la ligne 8 : en recopiant, on obtient =B5/B$8, =B6/B$8… Sans le $, le dénominateur glisserait vers B9, B10… et le résultat serait faux." }
+    ]},
+    { title: "E. Esprit critique", items: [
+      { type: "qcm", q: "Un graphique montre deux barres : 95 et 100 (ventes de deux années). L'axe vertical est gradué de 90 à 100 sans commencer à 0. Quel effet produit cette échelle ?",
+        options: [
+          "Elle réduit l'écart entre les deux barres",
+          "Elle exagère l'écart : la seconde barre paraît beaucoup plus grande que la première",
+          "Elle n'a aucun effet sur la lecture",
+          "Elle permet de lire les fréquences"],
+        answer: 1,
+        explain: "Un axe tronqué amplifie visuellement les différences. Les hauteurs apparentes sont 5 et 10 (rapport 2) alors que les valeurs sont 95 et 100." },
+      { type: "num", q: "Dans l'exemple précédent, de combien la valeur a-t-elle réellement augmenté, en % (arrondi au dixième) ?", answer: "5.26", tol: 0.05,
+        hint: "Augmentation relative = (100 − 95) ÷ 95.",
+        solution: "5 ÷ 95 ≈ 0,0526, soit environ 5,3 % : bien loin des 100 % que laisse voir la seconde barre." },
+      { type: "qcm", q: "Un élève de CM2 trace le diagramme circulaire d'une classe de 25 élèves en donnant à un secteur de 16 élèves un angle de 160°. Quelle remédiation est la plus adaptée ?",
+        options: [
+          "Lui dire de recommencer sans explication",
+          "Lui faire construire un tableau de proportionnalité effectif / angle (360° pour 25 élèves) et vérifier que la somme des angles fait 360°",
+          "Lui demander d'apprendre la définition de la fréquence",
+          "Lui faire tracer le graphique à main levée"],
+        answer: 1,
+        explain: "Le lien avec la proportionnalité est essentiel : 360° ÷ 25 = 14,4° par élève, donc 16 élèves donnent 230,4°. Le contrôle de la somme à 360° aide l'élève à se corriger seul." }
+    ]},
+    { title: "Problème 1 · Les écrans dans les foyers", statement: "On interroge 50 familles sur le nombre d'écrans (téléviseurs, ordinateurs, tablettes) dans leur foyer. Résultats (nombre d'écrans : effectif) — 1 : 4 ; 2 : 11 ; 3 : 18 ; 4 : 12 ; 5 : 5.", items: [
+      { type: "num", label: "a)", q: "Quelle est la fréquence des foyers ayant 3 écrans (en %) ?", answer: "36",
+        hint: "Divise l'effectif de la valeur 3 par 50.",
+        solution: "18 ÷ 50 = 0,36 = 36 %." },
+      { type: "num", label: "b)", q: "Combien de foyers ont au plus 3 écrans ?", answer: "33",
+        solution: "Effectif cumulé croissant de la valeur 3 : 4 + 11 + 18 = 33 foyers." },
+      { type: "num", label: "c)", q: "Quel pourcentage de foyers a au moins 4 écrans ?", answer: "34",
+        hint: "Additionne les effectifs des valeurs 4 et 5.",
+        solution: "12 + 5 = 17 foyers ; 17 ÷ 50 = 0,34 = 34 %." },
+      { type: "num", label: "d)", q: "Dans un diagramme circulaire de cette série, quel est l'angle du secteur « 3 écrans » (en degrés) ?", answer: "129.6", tol: 0.05,
+        hint: "Angle = 360° × fréquence.",
+        solution: "360° × 0,36 = 129,6°." }
+    ]}
+  ]
+};
+</script>
+<script src="../../assets/admin-config.js"></script>
+<script src="../../assets/nav-data.js"></script>
+<script src="../../assets/nav.js"></script>
+<script src="../../assets/app.js"></script>
+</body>
+</html>

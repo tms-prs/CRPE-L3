@@ -1,0 +1,119 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Quiz 01 — Statistiques : tableaux et représentations</title>
+<link rel="stylesheet" href="../../assets/style.css">
+</head>
+<body>
+<main>
+  <header>
+    <h1 id="title"></h1>
+    <p id="subtitle"></p>
+  </header>
+  <div id="app"></div>
+</main>
+<script>
+window.PAGE = {
+  id: "quiz-01-statistiques-tableaux-representations",
+  title: "Quiz 01 — Statistiques : tableaux et représentations",
+  subtitle: "20 questions, correction immédiate. Leçon : lecons/donnees-et-probabilites/01-statistiques-tableaux-representations.md",
+  sections: [
+    { title: "Vocabulaire", items: [
+      { type: "qcm", q: "La couleur des yeux des élèves d'une classe est un caractère…",
+        options: ["quantitatif discret", "quantitatif continu", "qualitatif", "cumulé"], answer: 2,
+        explain: "Les valeurs (bleu, vert, marron…) ne sont pas des nombres : le caractère est qualitatif." },
+      { type: "qcm", q: "Le nombre de frères et sœurs d'un élève est un caractère…",
+        options: ["qualitatif", "quantitatif discret", "quantitatif continu", "sans valeur"], answer: 1,
+        explain: "Ce sont des valeurs numériques isolées (0, 1, 2, 3…) : caractère quantitatif discret." },
+      { type: "qcm", q: "La taille (mesurée en cm) des élèves d'une classe est un caractère…",
+        options: ["qualitatif", "quantitatif discret", "un effectif", "quantitatif continu"], answer: 3,
+        explain: "Une taille peut prendre n'importe quelle valeur d'un intervalle : caractère quantitatif continu, souvent regroupé en classes." },
+      { type: "qcm", q: "Dans une classe de 40 élèves, 10 élèves ont choisi l'anglais. Quelle est la fréquence de ce choix ?",
+        options: ["25 %", "10 %", "40 %", "4 %"], answer: 0,
+        explain: "Fréquence = effectif ÷ effectif total = 10 ÷ 40 = 0,25 = 25 %." },
+      { type: "qcm", q: "Que vaut la somme de toutes les fréquences d'une série (en décimal) ?",
+        options: ["0", "100", "Cela dépend de la série", "1"], answer: 3,
+        explain: "La somme des effectifs est l'effectif total N, donc la somme des fréquences est N ÷ N = 1, soit 100 %." }
+    ]},
+    { title: "Tableaux et calculs", items: [
+      { type: "qcm", q: "Effectifs d'une série : 4 ; 9 ; 7 ; 3 ; 2. Quel est l'effectif total ?",
+        options: ["5", "20", "24", "25"], answer: 3,
+        explain: "4 + 9 + 7 + 3 + 2 = 25." },
+      { type: "qcm", q: "Dans la série précédente (valeurs 0 ; 1 ; 2 ; 3 ; 4), combien d'individus ont au plus la valeur 2 ?",
+        options: ["7", "20", "13", "16"], answer: 1,
+        explain: "Effectif cumulé croissant de la valeur 2 : 4 + 9 + 7 = 20." },
+      { type: "qcm", q: "Toujours dans cette série de 25 individus, quelle est la fréquence de la valeur 1 (effectif 9) ?",
+        options: ["9 %", "20 %", "36 %", "9/5"], answer: 2,
+        explain: "9 ÷ 25 = 0,36 = 36 %." },
+      { type: "qcm", q: "Dans quelle classe range-t-on la valeur 20 si les classes sont [10 ; 20[ et [20 ; 30[ ?",
+        options: ["[20 ; 30[", "[10 ; 20[", "Dans les deux", "Dans aucune"], answer: 0,
+        explain: "Une classe [a ; b[ inclut a et exclut b : 20 appartient à [20 ; 30[." },
+      { type: "qcm", q: "Les effectifs sont en B2:B6. Quelle formule donne l'effectif total ?",
+        options: ["=B2+B6", "=SOMME(B2:B6)", "=B2:B6", "=TOTAL(B2;B6)"], answer: 1,
+        explain: "=SOMME(B2:B6) additionne toutes les cellules de la plage B2 à B6." }
+    ]},
+    { title: "Représentations", items: [
+      { type: "qcm", q: "Dans un diagramme circulaire de 40 individus, quel est l'angle du secteur d'une catégorie de 14 individus ?",
+        options: ["35°", "90°", "140°", "126°"], answer: 3,
+        explain: "Un individu correspond à 360° ÷ 40 = 9°, donc 14 × 9° = 126°." },
+      { type: "qcm", q: "Pour représenter l'évolution de la température d'une ville au cours de la journée, on choisit plutôt…",
+        options: ["un diagramme circulaire", "un graphique cartésien (courbe)", "un diagramme en barres sans axes", "un tableau sans valeurs"], answer: 1,
+        explain: "Une grandeur qui évolue dans le temps se représente par une courbe dans un repère." },
+      { type: "qcm", q: "Dans un histogramme dont les classes ont toutes la même amplitude, la hauteur d'un rectangle est…",
+        options: ["égale à l'amplitude de la classe", "toujours égale à 1", "proportionnelle à l'effectif de la classe", "proportionnelle à la borne supérieure"], answer: 2,
+        explain: "À amplitude constante, la hauteur est proportionnelle à l'effectif (ou à la fréquence) de la classe." },
+      { type: "qcm", q: "Pour montrer la répartition d'un budget en pourcentages (un « tout »), on utilise le plus naturellement…",
+        options: ["un diagramme circulaire", "un graphique cartésien", "un histogramme", "un diagramme en bâtons"], answer: 0,
+        explain: "Le diagramme circulaire met en évidence les parts d'un tout." },
+      { type: "qcm", q: "Dans un diagramme en bâtons, la hauteur d'un bâton représente…",
+        options: ["la valeur du caractère", "l'amplitude de la classe", "l'angle du secteur", "l'effectif (ou la fréquence) de cette valeur"], answer: 3,
+        explain: "La valeur du caractère est lue sur l'axe horizontal ; la hauteur du bâton donne l'effectif (ou la fréquence)." }
+    ]},
+    { title: "Esprit critique et regard d'enseignant", items: [
+      { type: "qcm", q: "Un diagramme en barres montre deux barres de hauteurs 5 et 10, mais l'axe vertical commence à 90 (valeurs réelles : 95 et 100). Quel est le problème ?",
+        options: [
+          "Aucun, la seconde valeur est bien le double de la première",
+          "Les barres devraient être des secteurs",
+          "Il manque une troisième barre",
+          "L'échelle tronquée fait paraître la seconde valeur deux fois plus grande alors que l'écart réel est faible"],
+        answer: 3,
+        explain: "Un axe qui ne commence pas à 0 exagère les écarts : la hausse réelle est d'environ 5 %, pas de 100 %." },
+      { type: "qcm", q: "Un élève calcule la fréquence de la valeur 1 (effectif 9, effectif total 25) en faisant 9 ÷ 5. Quelle est l'explication la plus probable ?",
+        options: [
+          "Il divise par le nombre de valeurs (5 colonnes) au lieu de l'effectif total",
+          "Il a confondu avec un diagramme circulaire",
+          "Il a bien calculé la fréquence",
+          "Il a appliqué la règle des signes"],
+        answer: 0,
+        explain: "Erreur classique : dénominateur = nombre de colonnes. Remédiation : vérifier que la somme des fréquences fait 100 %." },
+      { type: "qcm", q: "Sur un diagramme circulaire, un élève trace un secteur de 90° pour une catégorie représentant 20 % des individus. Quelle est la bonne valeur de l'angle ?",
+        options: ["90°", "36°", "72°", "20°"], answer: 2,
+        explain: "20 % de 360° = 0,2 × 360° = 72°. Le tableau de proportionnalité effectif / angle permet de vérifier." },
+      { type: "qcm", q: "Au cycle 3, quel lien fait-on entre statistiques et autre domaine mathématique ?",
+        options: [
+          "Aucun lien : les statistiques sont indépendantes du reste",
+          "La proportionnalité (pourcentages, angles d'un diagramme circulaire)",
+          "Uniquement la géométrie des solides",
+          "Uniquement le calcul littéral"],
+        answer: 1,
+        explain: "Fréquences, pourcentages et angles d'un diagramme circulaire sont des situations de proportionnalité." },
+      { type: "qcm", q: "Pour que les élèves comprennent qu'un graphique peut tromper, quelle démarche est la plus pertinente ?",
+        options: [
+          "Leur faire apprendre par cœur les types de graphiques",
+          "Leur interdire les diagrammes en barres",
+          "Leur faire construire puis comparer deux graphiques de la même série avec des échelles différentes",
+          "Ne montrer que des graphiques corrects"],
+        answer: 2,
+        explain: "Comparer plusieurs représentations de la même série, en variant l'échelle, développe l'esprit critique." }
+    ]}
+  ]
+};
+</script>
+<script src="../../assets/admin-config.js"></script>
+<script src="../../assets/nav-data.js"></script>
+<script src="../../assets/nav.js"></script>
+<script src="../../assets/app.js"></script>
+</body>
+</html>

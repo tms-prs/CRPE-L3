@@ -1,0 +1,97 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Leçon 03 — Probabilités : événements et calculs simples</title>
+<link rel="stylesheet" href="../../assets/style.css">
+</head>
+<body class="lesson">
+<main>
+<div class="lesson-hero">
+<nav class="crumbs" aria-label="Fil d'Ariane"><a href="../../index.html">Accueil</a><span>›</span><span>Données et probabilités</span><span>›</span><span>Leçon 03</span></nav>
+<span class="kicker">Leçon 03</span>
+<h1>Probabilités : événements et calculs <em>simples</em></h1>
+<div class="meta-row"><span class="pill-tag blue">Données et probabilités</span><span class="pill-tag">⏱ 1 h 30 (cours) + exercices</span></div>
+<div class="infos"><div class="info"><b>Programme</b>cycle 4 — notion de probabilité et calculs en 5e / 4e, événements contraires, réunion et intersection en 3e (BO du 5 mars 2026, annexe 2)</div><div class="info"><b>Prérequis</b>fractions, pourcentages, chapitre 01 de ce domaine (notion de fréquence)</div></div>
+</div>
+<div class="lesson-layout">
+<article class="prose">
+<section class="sec-objectifs"><h2 id="s1">Objectifs</h2><p>À la fin de la leçon, l'étudiante sait :</p>
+<ul><li>employer le vocabulaire : expérience aléatoire, issue, univers, événement, événement certain / impossible / contraire, événements incompatibles ;</li><li>calculer une probabilité dans une situation d'<strong>équiprobabilité</strong> et l'écrire en fraction, en décimal ou en pourcentage ;</li><li>construire et utiliser une <strong>loi de probabilité</strong> (la somme vaut 1) ;</li><li>utiliser l'événement contraire : <code>P(non A) = 1 − P(A)</code> ;</li><li>calculer <code>P(A ∪ B)</code> avec la formule <code>P(A ∪ B) + P(A ∩ B) = P(A) + P(B)</code> et la <strong>justifier</strong> ;</li><li>résoudre des problèmes types (dés, cartes, urnes, roues, tirages) ;</li><li>repérer les erreurs types d'élèves et proposer une remédiation.</li></ul></section>
+<section class=""><h2 id="s2">1. Vocabulaire</h2><h3>1.1 Expérience aléatoire, issue, univers</h3>
+<p>Une <strong>expérience aléatoire</strong> est une expérience dont on connaît les résultats possibles, mais dont on ne peut pas prévoir le résultat avant de l'avoir faite (lancer un dé, tirer une carte, faire tourner une roue).</p>
+<ul><li>Un résultat possible s'appelle une <strong>issue</strong>.</li><li>L'ensemble de toutes les issues est l'<strong>univers</strong>, noté <code>Ω</code>.</li></ul>
+<p>Exemples : pour un dé cubique, <code>Ω = {1 ; 2 ; 3 ; 4 ; 5 ; 6}</code> (6 issues). Pour une pièce, <code>Ω = {pile ; face}</code>. Pour le lancer de deux dés, il y a <code>6 × 6 = 36</code> issues (couples ordonnés).</p>
+<div class="callout"><span class="ic">i</span><div><p><strong>Attention</strong> : l'univers dépend de ce qu'on observe. Si on ne regarde que la parité du dé, on peut prendre <code>Ω = {pair ; impair}</code>, mais ces deux issues sont alors équiprobables seulement parce que le dé a autant de faces paires qu'impaires.</p></div></div>
+<h3>1.2 Événements</h3>
+<p>Un <strong>événement</strong> est un ensemble d'issues (une partie de l'univers).</p>
+<ul><li>Un événement <strong>élémentaire</strong> ne contient qu'une issue : « obtenir 5 ».</li><li>Un événement <strong>composé</strong> en contient plusieurs : « obtenir un nombre pair » = <code>{2 ; 4 ; 6}</code>.</li><li>L'événement <strong>certain</strong> est l'univers entier : « obtenir un nombre inférieur à 7 ».</li><li>L'événement <strong>impossible</strong> ne contient aucune issue : « obtenir 7 ». On le note <code>∅</code>.</li><li>Les issues d'un événement sont dites <strong>favorables</strong> à cet événement.</li></ul>
+<h3>1.3 Événement contraire, événements incompatibles</h3>
+<ul><li>Le <strong>contraire</strong> de <code>A</code>, noté <code>non A</code> (ou <code>Ā</code>), contient toutes les issues qui ne sont pas dans <code>A</code>. Contraire de « obtenir un nombre pair » : « obtenir un nombre impair ».</li><li>Deux événements sont <strong>incompatibles</strong> s'ils ne peuvent pas se réaliser en même temps (aucune issue commune). « Obtenir 2 » et « obtenir un nombre impair » sont incompatibles.</li></ul>
+<div class="callout"><span class="ic">i</span><div><p>Deux événements <strong>contraires</strong> sont toujours incompatibles ; la réciproque est fausse : « obtenir 1 » et « obtenir 2 » sont incompatibles sans être contraires.</p></div></div></section>
+<section class=""><h2 id="s3">2. Probabilité d'un événement</h2><h3>2.1 Définition et propriétés</h3>
+<p>La <strong>probabilité</strong> <code>P(A)</code> mesure la « chance » que <code>A</code> se réalise.</p>
+<ul><li><code>0 ≤ P(A) ≤ 1</code> ;</li><li><code>P(∅) = 0</code> (impossible) et <code>P(Ω) = 1</code> (certain) ;</li><li>elle s'écrit sous forme de <strong>fraction</strong>, de <strong>décimal</strong> ou de <strong>pourcentage</strong> : <code>1/4 = 0,25 = 25 %</code>.</li></ul>
+<p>Un nombre négatif ou supérieur à 1 (<code>−0,2</code>, <code>5/4</code>, <code>125 %</code>) ne peut <strong>jamais</strong> être une probabilité.</p>
+<h3>2.2 Lien avec la fréquence</h3>
+<p>Quand on répète une expérience un grand nombre de fois, la <strong>fréquence</strong> observée d'une issue se rapproche de sa probabilité (loi des grands nombres, vue en intuition au collège). Mais une fréquence calculée sur un échantillon reste une <strong>observation</strong>, alors que la probabilité est une valeur <strong>théorique</strong> du modèle.</p>
+<ul><li>600 lancers d'un dé équilibré : on attend environ <code>600 × 1/6 = 100</code> six, pas exactement 100.</li><li>Sur 10 lancers, une fréquence de <code>0,4</code> pour le 6 ne remet pas en cause <code>P(6) = 1/6</code>.</li></ul>
+<h3>2.3 Équiprobabilité</h3>
+<p>Les issues sont <strong>équiprobables</strong> quand elles ont la même probabilité (dé équilibré, pièce non truquée, tirage « au hasard » dans une urne). Alors :</p>
+<p><code>P(A) = nombre d'issues favorables à A / nombre d'issues possibles</code></p>
+<p><strong>Exemple résolu 1.</strong> Un dé équilibré à 6 faces. <code>A</code> : « obtenir un diviseur de 6 ».<br>Les issues favorables sont <code>1 ; 2 ; 3 ; 6</code> : <code>P(A) = 4/6 = 2/3</code>.</p>
+<p><strong>Exemple résolu 2.</strong> Une urne contient 5 boules rouges, 3 vertes et 2 jaunes. On tire une boule au hasard.<br><code>P(verte) = 3/10 = 0,3 = 30 %</code> ; <code>P(rouge ou jaune) = 7/10</code>.</p>
+<div class="callout"><span class="ic">i</span><div><p>La formule n'est valable <strong>que</strong> si les issues sont équiprobables. « Gagner ou perdre » : 2 issues, mais pas forcément <code>1/2</code>.</p></div></div></section>
+<section class=""><h2 id="s4">3. Loi de probabilité</h2><p>Une <strong>loi de probabilité</strong> associe à chaque issue sa probabilité. On la présente souvent dans un tableau.</p>
+<div class="table-wrap"><table><thead><tr><th>Issue</th><th>rouge</th><th>bleu</th><th>vert</th><th>jaune</th></tr></thead><tbody><tr><td>Probabilité</td><td>0,2</td><td>0,35</td><td>0,25</td><td>?</td></tr></tbody></table></div>
+<p><strong>Propriété</strong> : la somme des probabilités de toutes les issues vaut <strong>1</strong>. Ici <code>P(jaune) = 1 − (0,2 + 0,35 + 0,25) = 0,2</code>.</p>
+<p>La probabilité d'un événement est la <strong>somme</strong> des probabilités des issues qui le composent : <code>P(rouge ou vert) = 0,2 + 0,25 = 0,45</code>.</p>
+<p><strong>Exemple (dé truqué).</strong> Le 6 sort avec la probabilité <code>0,4</code> ; les cinq autres faces sont équiprobables. Elles se partagent <code>1 − 0,4 = 0,6</code>, donc chacune a pour probabilité <code>0,6 ÷ 5 = 0,12</code>.</p></section>
+<section class=""><h2 id="s5">4. Événement contraire</h2><p>Un événement et son contraire forment à eux deux tout l'univers, sans issue commune :</p>
+<p><code>P(non A) = 1 − P(A)</code></p>
+<p>Cette formule est très utile pour les événements du type « <strong>au moins un</strong> ».</p>
+<p><strong>Exemple résolu 3.</strong> On lance deux dés équilibrés. <code>A</code> : « obtenir au moins un 6 ».<br>Le contraire est « aucun 6 » : <code>5 × 5 = 25</code> couples sur 36. Donc <code>P(A) = 1 − 25/36 = 11/36</code>.</p></section>
+<section class=""><h2 id="s6">5. Réunion et intersection</h2><p>Soient <code>A</code> et <code>B</code> deux événements.</p>
+<ul><li><strong>Intersection</strong> <code>A ∩ B</code> (« A et B ») : issues communes à <code>A</code> et à <code>B</code>.</li><li><strong>Réunion</strong> <code>A ∪ B</code> (« A ou B ») : issues qui sont dans <code>A</code>, ou dans <code>B</code>, ou dans les deux. Le « ou » est <strong>inclusif</strong>.</li></ul>
+<h3>5.1 Un exemple en diagramme de Venn</h3>
+<p>Dé équilibré. <code>A</code> : « pair » = <code>{2 ; 4 ; 6}</code> ; <code>B</code> : « supérieur ou égal à 4 » = <code>{4 ; 5 ; 6}</code>.</p>
+<figure class="fig"><svg viewBox="0 0 400 240" width="400" role="img" aria-label="Diagramme de Venn de deux événements A et B sur un dé">
+  <rect class="s" x="10" y="10" width="380" height="220" rx="10"/>
+  <circle class="fs" cx="150" cy="120" r="80" style="opacity:.7"/>
+  <circle class="fb" cx="250" cy="120" r="80" style="opacity:.3"/>
+  <text class="b" x="95" y="62">A</text><text class="b" x="293" y="62">B</text>
+  <text x="115" y="125">2</text><text x="190" y="108">4</text><text x="190" y="140">6</text><text x="282" y="125">5</text>
+  <text x="36" y="40">1</text><text x="360" y="212">3</text>
+  <text class="m" x="22" y="224">Ω</text>
+</svg><figcaption>Diagramme de Venn : A ∩ B = {4 ; 6} ; A ∪ B = {2 ; 4 ; 5 ; 6} ; les issues 1 et 3 sont dans aucun des deux événements.</figcaption></figure>
+<p>Ici <code>P(A) = 3/6</code>, <code>P(B) = 3/6</code>, <code>P(A ∩ B) = 2/6</code>, <code>P(A ∪ B) = 4/6</code>.</p>
+<h3>5.2 La formule</h3>
+<p><code>P(A ∪ B) + P(A ∩ B) = P(A) + P(B)</code> soit <code>P(A ∪ B) = P(A) + P(B) − P(A ∩ B)</code></p>
+<p><strong>Justification (comptage).</strong> En comptant les issues de <code>A</code> puis celles de <code>B</code>, on compte <strong>deux fois</strong> les issues communes à <code>A</code> et <code>B</code>. Pour obtenir la réunion, il faut donc retirer une fois l'intersection.</p>
+<div class="table-wrap"><table><thead><tr><th></th><th>issues de <code>A</code></th><th>issues de <code>B</code></th><th>en commun</th></tr></thead><tbody><tr><td>Nombre</td><td>3</td><td>3</td><td>2</td></tr></tbody></table></div>
+<p><code>3 + 3 − 2 = 4</code> issues dans <code>A ∪ B</code>, d'où <code>P(A ∪ B) = 4/6 = 2/3</code>. On vérifie la formule : <code>1/2 + 1/2 = 1 = 2/3 + 1/3</code>. En divisant le comptage par le nombre total d'issues (équiprobabilité), on obtient la formule sur les probabilités.</p>
+<h3>5.3 Cas particulier : événements incompatibles</h3>
+<p>Si <code>A ∩ B = ∅</code>, alors <code>P(A ∩ B) = 0</code> et la formule devient :</p>
+<p><code>P(A ∪ B) = P(A) + P(B)</code></p>
+<p><strong>Exemple résolu 4.</strong> Dé équilibré, <code>A</code> : « obtenir un multiple de 3 », <code>B</code> : « obtenir 4 ». Incompatibles : <code>P(A ou B) = 2/6 + 1/6 = 1/2</code>.</p>
+<div class="callout"><span class="ic">i</span><div><p>Piège : additionner <code>P(A) + P(B)</code> <strong>sans</strong> vérifier l'incompatibilité donne parfois plus que 1 ou une valeur fausse. Exemple : <code>P(pair) + P(≥ 4) = 1</code>, alors que <code>P(pair ou ≥ 4) = 2/3</code>.</p></div></div></section>
+<section class=""><h2 id="s7">6. Problèmes types</h2><p><strong>Problème 1 (cartes).</strong> Jeu de 32 cartes, une carte tirée au hasard. <code>A</code> : « roi » (4 cartes) ; <code>B</code> : « cœur » (8 cartes). <code>A ∩ B</code> : « roi de cœur » (1 carte).<br><code>P(A ∪ B) = 4/32 + 8/32 − 1/32 = 11/32</code>.</p>
+<p><strong>Problème 2 (somme de deux dés).</strong> On lance deux dés équilibrés. <code>S = 8</code> pour les couples <code>(2,6) ; (3,5) ; (4,4) ; (5,3) ; (6,2)</code> : <code>P(S = 8) = 5/36</code>. Ici l'univers a 36 issues, <strong>pas 11</strong> (les sommes de 2 à 12 ne sont pas équiprobables).</p>
+<p><strong>Problème 3 (roue de loterie).</strong> Roue de 12 secteurs égaux : 1 « gros lot », 2 « 10 € », 4 « 2 € », 5 « perdu ».<br><code>P(gagner quelque chose) = 7/12</code> ; <code>P(perdre) = 1 − 7/12 = 5/12</code>.</p>
+<p><strong>Problème 4 (tirages, aperçu 3e).</strong> Urne avec 3 boules rouges et 2 vertes ; on tire deux boules <strong>sans remise</strong>. Un arbre donne <code>P(deux rouges) = 3/5 × 2/4 = 3/10</code>. Avec <strong>remise</strong>, on aurait <code>3/5 × 3/5 = 9/25</code>. Toujours préciser « avec » ou « sans remise ».</p></section>
+<section class=""><h2 id="s8">7. Probabilités à l'école et au collège (volet didactique)</h2><ul><li><strong>À l'école</strong> : le programme parle de « chance » et de situations de hasard (jeux de dés, de cartes, loto, roues). On travaille le vocabulaire (« possible, impossible, certain, plus de chances, moins de chances »), sans calcul formalisé.</li><li><strong>Au collège</strong> : on passe du vécu à un <strong>modèle</strong> : fréquences observées (cycle 3 / début cycle 4), puis probabilité comme valeur théorique, équiprobabilité, événements, loi de probabilité.</li><li><strong>Représentations utiles</strong> : urne, roue partagée en secteurs égaux, tableau de loi, tableau à double entrée (deux dés), arbre, diagramme de Venn.</li><li><strong>Démarche conseillée</strong> : expérimenter (lancers réels ou simulation tableur), comparer les fréquences, puis introduire le modèle théorique.</li></ul></section>
+<section class="sec-didactic"><h2 id="s9">8. Erreurs types d'élèves (volet didactique)</h2><div class="table-wrap"><table><thead><tr><th>Erreur observée</th><th>Exemple</th><th>Cause probable</th><th>Remédiation possible</th></tr></thead><tbody><tr><td>« 1 chance sur 2 » par défaut</td><td>« Gagner ou perdre : 1 chance sur 2 »</td><td>Deux issues vues comme équiprobables</td><td>Urne 1 rouge / 9 bleues : compter les issues <strong>équiprobables</strong> (les 10 boules)</td></tr><tr><td>Confondre fréquence et probabilité</td><td>4 six sur 10 lancers : « <code>P(6) = 0,4</code> »</td><td>Un échantillon pris pour la loi du modèle</td><td>Regrouper les résultats de toute la classe (grand échantillon), simulation tableur</td></tr><tr><td>Biais de représentativité</td><td>« <code>PFPFFP</code> est plus probable que <code>PPPPPP</code> »</td><td>Le hasard « doit avoir l'air mélangé »</td><td>Les 64 suites ont la même probabilité <code>(1/2)⁶</code> ; lister des suites</td></tr><tr><td>« Le 6 est plus dur à obtenir »</td><td>Croyance sur une face particulière</td><td>Rareté perçue, jeux où il faut un 6</td><td>Tableau des fréquences après 100 lancers de la classe, face par face</td></tr><tr><td>Oublier l'ordre dans deux dés</td><td>« Somme 7 : 1 issue sur 11 »</td><td>Les 11 sommes vues comme équiprobables</td><td>Tableau à 36 cases</td></tr><tr><td>Additionner sans vérifier l'incompatibilité</td><td><code>P(pair ou ≥ 4) = 3/6 + 3/6 = 1</code></td><td>Formule apprise sans condition</td><td>Diagramme de Venn, compter les issues communes</td></tr><tr><td>Probabilité &gt; 1 ou négative</td><td><code>P = 5/4</code></td><td>Dénominateur et numérateur inversés</td><td>Rappeler : favorables ≤ possibles</td></tr></tbody></table></div>
+<p><strong>Modèles et outils pour enseigner</strong> : dés et pièces réels, urnes en sachets opaques, roues, simulation sur tableur, tableaux à double entrée.</p></section>
+<section class="sec-retenir"><h2 id="s10">9. À retenir</h2><ul><li><code>P(A) = issues favorables / issues possibles</code> <strong>uniquement</strong> si les issues sont équiprobables.</li><li><code>0 ≤ P(A) ≤ 1</code> ; somme des probabilités des issues <code>= 1</code>.</li><li><code>P(non A) = 1 − P(A)</code> (utile pour « au moins un »).</li><li><code>P(A ∪ B) = P(A) + P(B) − P(A ∩ B)</code> ; si <code>A</code> et <code>B</code> sont incompatibles : <code>P(A ∪ B) = P(A) + P(B)</code>.</li><li>Fréquence observée ≠ probabilité théorique.</li><li>Préciser toujours « équiprobables », « avec remise » ou « sans remise ».</li></ul></section>
+<section class="sec-practice"><h2 id="s11">Pour s'entraîner</h2><div class="practice"><a class="mode-card blue" href="../../quiz/donnees-et-probabilites/03-probabilites-evenements.html"><h3>Quiz</h3><p>Questions courtes avec correction immédiate pour vérifier que c’est acquis.</p><span class="go">Lancer le quiz <span>→</span></span></a><a class="mode-card sky" href="../../exercices/donnees-et-probabilites/03-probabilites-evenements.html"><h3>Exercices</h3><p>Réponses à saisir, indices et corrections détaillées.</p><span class="go">Commencer <span>→</span></span></a></div></section>
+<section class="sec-extra"><h2 id="s12">Pistes de prolongement (culture mathématique)</h2><ul><li>Origines du calcul des probabilités : correspondance entre Pascal et Fermat (1654) autour du « problème des partis » ; Jacques Bernoulli et la loi des grands nombres.</li></ul></section>
+</article>
+<aside class="toc" aria-label="Sommaire"><h4>Sur cette page</h4><ol><li><a href="#s1">Objectifs</a></li><li><a href="#s2">1. Vocabulaire</a></li><li><a href="#s3">2. Probabilité d'un événement</a></li><li><a href="#s4">3. Loi de probabilité</a></li><li><a href="#s5">4. Événement contraire</a></li><li><a href="#s6">5. Réunion et intersection</a></li><li><a href="#s7">6. Problèmes types</a></li><li><a href="#s8">7. Probabilités à l'école et au collège (volet didactique)</a></li><li><a href="#s9">8. Erreurs types d'élèves (volet didactique)</a></li><li><a href="#s10">9. À retenir</a></li><li><a href="#s11">Pour s'entraîner</a></li><li><a href="#s12">Pistes de prolongement (culture mathématique)</a></li></ol></aside>
+</div>
+</main>
+<script src="../../assets/admin-config.js"></script>
+<script src="../../assets/nav-data.js"></script>
+<script src="../../assets/nav.js"></script>
+</body>
+</html>

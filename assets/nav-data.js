@@ -196,9 +196,62 @@ window.CRPE_NAV = {
   {
    "id": "donnees-et-probabilites",
    "label": "Données et probabilités",
-   "chapters": [],
-   "placement": null,
-   "tests": []
+   "chapters": [
+    {
+     "num": "01",
+     "title": "Séries statistiques : tableaux et représentations",
+     "lesson": "lecons/donnees-et-probabilites/01-statistiques-tableaux-representations.html",
+     "quiz": "quiz/donnees-et-probabilites/01-statistiques-tableaux-representations.html",
+     "exo": "exercices/donnees-et-probabilites/01-statistiques-tableaux-representations.html",
+     "quizId": "quiz-01-statistiques-tableaux-representations",
+     "exoId": "exo-01-statistiques-tableaux-representations"
+    },
+    {
+     "num": "02",
+     "title": "Moyenne, médiane, étendue et quartiles",
+     "lesson": "lecons/donnees-et-probabilites/02-moyenne-mediane-quartiles.html",
+     "quiz": "quiz/donnees-et-probabilites/02-moyenne-mediane-quartiles.html",
+     "exo": "exercices/donnees-et-probabilites/02-moyenne-mediane-quartiles.html",
+     "quizId": "quiz-02-moyenne-mediane-quartiles",
+     "exoId": "exo-02-moyenne-mediane-quartiles"
+    },
+    {
+     "num": "03",
+     "title": "Probabilités : événements et calculs simples",
+     "lesson": "lecons/donnees-et-probabilites/03-probabilites-evenements.html",
+     "quiz": "quiz/donnees-et-probabilites/03-probabilites-evenements.html",
+     "exo": "exercices/donnees-et-probabilites/03-probabilites-evenements.html",
+     "quizId": "quiz-03-probabilites-evenements",
+     "exoId": "exo-03-probabilites-evenements"
+    },
+    {
+     "num": "04",
+     "title": "Expériences à deux épreuves, fréquences et simulation",
+     "lesson": "lecons/donnees-et-probabilites/04-deux-epreuves-frequences-simulation.html",
+     "quiz": "quiz/donnees-et-probabilites/04-deux-epreuves-frequences-simulation.html",
+     "exo": "exercices/donnees-et-probabilites/04-deux-epreuves-frequences-simulation.html",
+     "quizId": "quiz-04-deux-epreuves-frequences-simulation",
+     "exoId": "exo-04-deux-epreuves-frequences-simulation"
+    }
+   ],
+   "placement": {
+    "title": "Test de positionnement — Données et probabilités",
+    "path": "tests-blancs/donnees-et-probabilites/positionnement.html",
+    "id": null,
+    "count": 28
+   },
+   "tests": [
+    {
+     "title": "Bilan — Données et probabilités",
+     "path": "tests-blancs/donnees-et-probabilites/bilan-donnees-et-probabilites.html",
+     "id": null
+    },
+    {
+     "title": "Problèmes de synthèse — Données et probabilités",
+     "path": "tests-blancs/donnees-et-probabilites/problemes-synthese.html",
+     "id": "synthese-donnees-et-probabilites"
+    }
+   ]
   },
   {
    "id": "proportionnalite-et-fonctions",

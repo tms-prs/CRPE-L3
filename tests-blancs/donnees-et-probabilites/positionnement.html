@@ -1,0 +1,107 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Test de positionnement — Données et probabilités</title>
+<link rel="stylesheet" href="../../assets/style.css">
+</head>
+<body>
+<main>
+  <header>
+    <h1 id="title"></h1>
+    <p id="subtitle"></p>
+  </header>
+  <div id="app"></div>
+</main>
+<script>
+window.PAGE = {
+  mix: true,
+  id: "placement-donnees-et-probabilites",
+  title: "Test de positionnement — Données et probabilités",
+  subtitle: "28 questions (exercices types et problèmes) sur les 4 sous-thèmes. Aucune correction pendant le test : tu la verras à la fin, avec ta note et ton pourcentage par sous-thème. Réponds sans notes ni calculatrice (durée conseillée : 35 min).",
+  test: true,
+  placement: { domain: "donnees-et-probabilites" },
+  parts: {
+    "01": { label: "Séries statistiques : tableaux et représentations", lesson: "../../lecons/donnees-et-probabilites/01-statistiques-tableaux-representations.html" },
+    "02": { label: "Moyenne, médiane, étendue et quartiles", lesson: "../../lecons/donnees-et-probabilites/02-moyenne-mediane-quartiles.html" },
+    "03": { label: "Probabilités : événements et calculs simples", lesson: "../../lecons/donnees-et-probabilites/03-probabilites-evenements.html" },
+    "04": { label: "Deux épreuves, fréquences et simulation", lesson: "../../lecons/donnees-et-probabilites/04-deux-epreuves-frequences-simulation.html" }
+  },
+  sections: [
+    { title: "Séries statistiques : tableaux et représentations", part: "01", items: [
+      { type: "num", q: "On a interrogé 40 élèves sur leur nombre de frères et sœurs : 0 → 8 élèves ; 1 → 15 ; 2 → 11 ; 3 → 4 ; 4 → 2. Quelle est la fréquence, en pourcentage, des élèves qui ont exactement 1 frère ou sœur ?", answer: "37.5",
+        solution: "Fréquence = effectif ÷ effectif total = 15 ÷ 40 = 0,375, soit 37,5 %." },
+      { type: "num", q: "Dans la même série (0 → 8 élèves ; 1 → 15 ; 2 → 11 ; 3 → 4 ; 4 → 2), combien d'élèves ont au plus 2 frères et sœurs ?", answer: "34",
+        solution: "Effectif cumulé croissant : 8 + 15 + 11 = 34 élèves." },
+      { type: "num", q: "Dans un diagramme circulaire (un tour complet = 360°), un secteur représente 42 élèves sur 120. Quel est son angle en degrés ?", answer: "126",
+        solution: "L'angle est proportionnel à l'effectif : 42 ÷ 120 × 360 = 126°." },
+      { type: "qcm", q: "Dans un histogramme dont toutes les classes ont la même amplitude, à quoi la hauteur d'un rectangle est-elle proportionnelle ?",
+        options: ["À l'effectif de la classe", "Au centre de la classe", "À l'amplitude de la classe"], answer: 0,
+        explain: "À amplitudes égales, l'aire (donc la hauteur) est proportionnelle à l'effectif de la classe." },
+      { type: "num", q: "Une série de 50 valeurs est regroupée en classes : [0 ; 10[ → 5 ; [10 ; 20[ → 12 ; [20 ; 30[ → 20 ; [30 ; 40[ → 13. Quelle est la fréquence, en pourcentage, de la classe [20 ; 30[ ?", answer: "40",
+        solution: "20 ÷ 50 = 0,4, soit 40 %." },
+      { type: "num", q: "Une modalité a pour fréquence 0,18 dans une série d'effectif total 250. Quel est son effectif ?", answer: "45",
+        solution: "Effectif = fréquence × effectif total = 0,18 × 250 = 45." },
+      { type: "num", problem: true, q: "Problème : dans un diagramme circulaire, le secteur « vélo » mesure 54° et représente 63 élèves. Combien d'élèves compte la série au total ?", answer: "420",
+        solution: "54° sur 360° correspond à la fréquence 54 ÷ 360 = 0,15. L'effectif total vaut donc 63 ÷ 0,15 = 420 élèves." }
+    ]},
+    { title: "Moyenne, médiane, étendue et quartiles", part: "02", items: [
+      { type: "num", q: "Calculer la moyenne des valeurs 12 ; 15 ; 9 ; 14 ; 10.", answer: "12",
+        solution: "(12 + 15 + 9 + 14 + 10) ÷ 5 = 60 ÷ 5 = 12." },
+      { type: "num", q: "Un élève a 12 avec le coefficient 2, 15 avec le coefficient 3 et 9 avec le coefficient 1. Quelle est sa moyenne pondérée ?", answer: "13",
+        solution: "(12 × 2 + 15 × 3 + 9 × 1) ÷ (2 + 3 + 1) = 78 ÷ 6 = 13." },
+      { type: "num", q: "Quelle est la médiane de la série 4 ; 7 ; 9 ; 12 ; 15 ; 20 ?", answer: "10.5",
+        solution: "6 valeurs rangées : la médiane est la moyenne des 3e et 4e valeurs, (9 + 12) ÷ 2 = 10,5." },
+      { type: "num", q: "Quel est le premier quartile Q1 de la série rangée 2 ; 3 ; 5 ; 6 ; 8 ; 9 ; 11 ; 12 ; 14 ; 15 ; 17 ; 20 ?", answer: "5",
+        solution: "Q1 est la plus petite valeur telle qu'au moins 25 % des données lui soient inférieures ou égales. 25 % de 12 = 3 : c'est la 3e valeur, soit 5." },
+      { type: "num", q: "Quel est le troisième quartile Q3 de la série rangée 1 ; 4 ; 4 ; 6 ; 7 ; 9 ; 10 ; 12 ; 13 ; 15 ?", answer: "12",
+        solution: "75 % de 10 = 7,5 : on prend la 8e valeur (rang entier immédiatement supérieur), soit 12." },
+      { type: "num", q: "Une série est regroupée en classes : [0 ; 10[ → 4 élèves ; [10 ; 20[ → 6 élèves ; [20 ; 30[ → 10 élèves. En prenant les centres des classes, quelle est la moyenne estimée ?", answer: "18",
+        solution: "Centres 5, 15 et 25 : (4 × 5 + 6 × 15 + 10 × 25) ÷ 20 = 360 ÷ 20 = 18." },
+      { type: "num", problem: true, q: "Problème : la moyenne de 4 notes est 12. Avec une cinquième note, la moyenne devient 13. Quelle est cette cinquième note ?", answer: "17",
+        solution: "Somme des 4 notes : 4 × 12 = 48. Somme des 5 notes : 5 × 13 = 65. La cinquième note vaut 65 − 48 = 17." }
+    ]},
+    { title: "Probabilités : événements et calculs simples", part: "03", items: [
+      { type: "num", q: "On lance un dé équilibré à 6 faces. Quelle est la probabilité d'obtenir un nombre premier ? (fraction irréductible)", answer: "1/2", irreducible: true,
+        solution: "Nombres premiers : 2, 3, 5, soit 3 issues favorables sur 6 équiprobables : 3/6 = 1/2." },
+      { type: "num", q: "Une urne contient 4 boules rouges, 6 bleues et 5 vertes, indiscernables au toucher. On tire une boule au hasard. Quelle est la probabilité qu'elle ne soit pas bleue ? (fraction irréductible)", answer: "3/5", irreducible: true,
+        solution: "Événement contraire de « bleue » : 1 − 6/15 = 9/15 = 3/5." },
+      { type: "num", q: "On sait que P(A) = 0,35, P(B) = 0,5 et P(A ∩ B) = 0,2. Calculer P(A ∪ B).", answer: "0.65",
+        solution: "P(A ∪ B) = P(A) + P(B) − P(A ∩ B) = 0,35 + 0,5 − 0,2 = 0,65." },
+      { type: "qcm", q: "Parmi ces nombres, lequel ne peut pas être la probabilité d'un événement ?",
+        options: ["0,7", "1,2", "3/8", "0"], answer: 1,
+        explain: "Une probabilité est toujours comprise entre 0 et 1 : 1,2 est impossible." },
+      { type: "num", q: "Une loi de probabilité sur {1 ; 2 ; 3 ; 4} vérifie P(1) = 0,2 ; P(2) = 0,3 ; P(3) = 0,1. Quelle est P(4) ?", answer: "0.4",
+        solution: "La somme des probabilités vaut 1 : P(4) = 1 − (0,2 + 0,3 + 0,1) = 0,4." },
+      { type: "num", q: "Une roue est partagée en 8 secteurs équiprobables numérotés de 1 à 8. Quelle est la probabilité d'obtenir un nombre pair ou un multiple de 3 ? (fraction irréductible)", answer: "5/8", irreducible: true,
+        solution: "Numéros favorables : 2, 3, 4, 6, 8 (le 6 n'est compté qu'une fois), soit 5 issues sur 8 : 5/8." },
+      { type: "num", problem: true, q: "Problème : un sac contient 12 jetons dont 4 rouges. On ajoute 4 jetons rouges, puis on tire un jeton au hasard (jetons équiprobables). Quelle est la probabilité qu'il soit rouge ? (fraction irréductible)", answer: "1/2", irreducible: true,
+        solution: "Après ajout : 8 rouges sur 16 jetons, soit 8/16 = 1/2." }
+    ]},
+    { title: "Deux épreuves, fréquences et simulation", part: "04", items: [
+      { type: "num", q: "On lance deux fois une pièce équilibrée. Quelle est la probabilité d'obtenir au moins un « pile » ? (fraction irréductible)", answer: "3/4", irreducible: true,
+        solution: "Issues : PP, PF, FP, FF (équiprobables). Contraire de « au moins un pile » : FF, de probabilité 1/4. Donc 1 − 1/4 = 3/4." },
+      { type: "num", q: "On lance deux dés équilibrés à 6 faces et on additionne les résultats. Quelle est la probabilité que la somme soit 7 ? (fraction irréductible)", answer: "1/6", irreducible: true,
+        solution: "36 issues équiprobables ; somme 7 : (1,6), (2,5), (3,4), (4,3), (5,2), (6,1), soit 6 issues. 6/36 = 1/6." },
+      { type: "num", q: "On lance deux dés équilibrés à 6 faces et on multiplie les résultats. Quelle est la probabilité que le produit soit 6 ? (fraction irréductible)", answer: "1/9", irreducible: true,
+        solution: "Couples de produit 6 : (1,6), (6,1), (2,3), (3,2), soit 4 issues sur 36 : 4/36 = 1/9." },
+      { type: "num", q: "Une pièce est lancée 200 fois et donne 112 fois « pile ». Quelle est la fréquence observée de « pile » ? (valeur décimale)", answer: "0.56",
+        solution: "112 ÷ 200 = 0,56." },
+      { type: "qcm", q: "Une pièce lancée 10 fois donne « pile » 7 fois (fréquence 0,7). Quelle conclusion est la plus raisonnable ?",
+        options: ["La pièce est certainement truquée", "C'est une fluctuation d'échantillonnage normale sur un petit nombre de lancers", "La probabilité de « pile » est 0,7"], answer: 1,
+        explain: "Sur 10 lancers, la fréquence fluctue beaucoup autour de la probabilité : on ne peut rien conclure." },
+      { type: "num", q: "Une urne contient 3 boules rouges et 2 bleues. On tire 2 boules successivement sans remise (boules équiprobables). Quelle est la probabilité d'obtenir deux boules rouges ? (fraction irréductible)", answer: "3/10", irreducible: true,
+        solution: "Arbre : 3/5 pour une première rouge, puis 2/4 pour une seconde rouge. 3/5 × 2/4 = 6/20 = 3/10." },
+      { type: "num", problem: true, q: "Problème : une urne contient 2 boules rouges et 3 vertes. On tire une boule, on la remet, puis on en tire une seconde (tirages avec remise, boules équiprobables). Quelle est la probabilité d'obtenir au moins une boule rouge ? (fraction irréductible)", answer: "16/25", irreducible: true,
+        solution: "Contraire : aucune rouge, soit 3/5 × 3/5 = 9/25. Donc 1 − 9/25 = 16/25." }
+    ]}
+  ]
+};
+</script>
+<script src="../../assets/admin-config.js"></script>
+<script src="../../assets/nav-data.js"></script>
+<script src="../../assets/nav.js"></script>
+<script src="../../assets/app.js"></script>
+</body>
+</html>

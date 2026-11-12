@@ -1,0 +1,99 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Quiz 04 — Deux épreuves, fréquences, simulation</title>
+<link rel="stylesheet" href="../../assets/style.css">
+</head>
+<body>
+<main>
+  <header>
+    <h1 id="title"></h1>
+    <p id="subtitle"></p>
+  </header>
+  <div id="app"></div>
+</main>
+<script>
+window.PAGE = {
+  id: "quiz-04-deux-epreuves-frequences-simulation",
+  title: "Quiz 04 — Deux épreuves, fréquences, simulation",
+  subtitle: "20 questions, correction immédiate. Leçon : lecons/donnees-et-probabilites/04-deux-epreuves-frequences-simulation.md",
+  sections: [
+    { title: "Dénombrer les issues", items: [
+      { type: "qcm", q: "On lance deux pièces équilibrées. Combien y a-t-il d'issues équiprobables (en tenant compte de l'ordre) ?",
+        options: ["2", "3", "4", "6"], answer: 2,
+        explain: "PP, PF, FP, FF : 4 couples équiprobables. PF et FP sont deux issues différentes." },
+      { type: "qcm", q: "On lance deux dés équilibrés à 6 faces. Combien y a-t-il de couples de résultats équiprobables ?",
+        options: ["12", "36", "21", "11"], answer: 1,
+        explain: "6 résultats possibles pour le 1er dé, 6 pour le 2e : 6 × 6 = 36 couples." },
+      { type: "qcm", q: "On lance deux pièces équilibrées. Quelle est la probabilité d'obtenir deux faces ?",
+        options: ["1/4", "1/2", "1/3", "1/8"], answer: 0,
+        explain: "Une seule issue favorable (FF) parmi 4 issues équiprobables : 1/4." },
+      { type: "qcm", q: "Une urne contient 3 boules rouges et 2 vertes. On tire une boule rouge, qu'on ne remet pas. Quelle est la probabilité que la 2e boule soit rouge ?",
+        options: ["3/5", "3/4", "2/5", "2/4"], answer: 3,
+        explain: "Il reste 4 boules dont 2 rouges : 2/4 = 1/2. La composition de l'urne a changé." },
+      { type: "qcm", q: "Tirer deux boules « en même temps » dans une urne revient à…",
+        options: ["deux tirages avec remise", "deux tirages successifs sans remise", "une seule épreuve", "deux épreuves identiques et indépendantes"], answer: 1,
+        explain: "Les deux boules sont différentes : c'est équivalent à deux tirages successifs sans remise." }
+    ]},
+    { title: "Événements composés", items: [
+      { type: "qcm", q: "On lance deux dés équilibrés. Quelle est la probabilité que la somme soit 7 ?",
+        options: ["1/12", "1/11", "1/6", "7/36"], answer: 2,
+        explain: "Six couples ont pour somme 7 : (1,6), (2,5), (3,4), (4,3), (5,2), (6,1). P = 6/36 = 1/6." },
+      { type: "qcm", q: "On lance deux dés équilibrés. Quelle est la probabilité d'obtenir au moins un 6 ?",
+        options: ["1/3", "10/36", "1/6", "11/36"], answer: 3,
+        explain: "Contraire « aucun 6 » : 25/36. Donc 1 − 25/36 = 11/36. (1/6 + 1/6 compterait deux fois (6, 6).)" },
+      { type: "qcm", q: "Dans un arbre pondéré, comment calcule-t-on la probabilité d'une feuille ?",
+        options: ["On additionne les probabilités des branches du chemin", "On prend la probabilité de la dernière branche seulement", "On multiplie les probabilités le long du chemin", "On fait la moyenne des probabilités du chemin"], answer: 2,
+        explain: "Produit le long d'une branche ; on additionne ensuite les feuilles d'un même événement." },
+      { type: "qcm", q: "Urne de 3 boules rouges et 2 vertes, deux tirages avec remise. Quelle est la probabilité d'obtenir exactement une rouge ?",
+        options: ["12/25", "6/25", "3/5", "9/25"], answer: 0,
+        explain: "RV et VR : 3/5 × 2/5 + 2/5 × 3/5 = 6/25 + 6/25 = 12/25." },
+      { type: "qcm", q: "Avec deux dés équilibrés, quelle somme est la plus probable ?",
+        options: ["2", "12", "Toutes les sommes sont équiprobables", "7"], answer: 3,
+        explain: "La somme 7 est obtenue par 6 couples sur 36, plus que n'importe quelle autre somme." }
+    ]},
+    { title: "Fréquence, probabilité, fluctuation", items: [
+      { type: "qcm", q: "Sur 200 lancers d'une pièce, on a obtenu 108 piles. Quelle est la fréquence de pile ?",
+        options: ["0,46", "0,54", "0,5", "1,08"], answer: 1,
+        explain: "Fréquence = 108/200 = 0,54." },
+      { type: "qcm", q: "Une pièce équilibrée a donné pile 5 fois de suite. Au 6e lancer…",
+        options: ["face est plus probable", "pile est plus probable", "pile et face ont chacune la probabilité 1/2", "on ne peut rien dire"], answer: 2,
+        explain: "La pièce n'a pas de mémoire : les lancers sont indépendants et chaque face garde la probabilité 1/2." },
+      { type: "qcm", q: "Quand le nombre de lancers augmente, que devient la fréquence d'un événement ?",
+        options: ["Elle devient exactement égale à la probabilité", "Elle se stabilise autour de la probabilité, avec de moins en moins de fluctuation", "Elle s'éloigne de la probabilité", "Elle reste égale à celle de la première série"], answer: 1,
+        explain: "C'est la stabilisation des fréquences : elle s'approche de la probabilité sans forcément l'atteindre." },
+      { type: "qcm", q: "La classe A lance une pièce 10 fois, la classe B 1000 fois. Laquelle a le plus de chances d'obtenir une fréquence de pile très éloignée de 0,5 ?",
+        options: ["La classe A (10 lancers)", "La classe B (1000 lancers)", "Les deux pareillement", "Aucune des deux"], answer: 0,
+        explain: "Plus l'échantillon est petit, plus les fréquences fluctuent." },
+      { type: "qcm", q: "Sur 100 lancers d'une pièce, on observe une fréquence de pile de 0,49. Que peut-on dire ?",
+        options: ["Cela prouve que P(pile) = 0,49", "Cela contredit l'équilibre de la pièce", "C'est tout à fait compatible avec une pièce équilibrée", "C'est impossible"], answer: 2,
+        explain: "Un écart de 0,01 est une fluctuation normale. Une fréquence observée n'est pas la probabilité." }
+    ]},
+    { title: "Simulation et regard d'enseignant", items: [
+      { type: "qcm", q: "Que simule =ALEA.ENTRE.BORNES(1;6) dans un tableur ?",
+        options: ["Un dé équilibré à 6 faces", "Une pièce de monnaie", "Deux dés", "Un nombre décimal entre 1 et 6"], answer: 0,
+        explain: "La fonction renvoie un entier de 1 à 6, chaque valeur étant équiprobable : un dé équilibré." },
+      { type: "qcm", q: "Que renvoie =NB.SI(B2:B1001;7) ?",
+        options: ["La fréquence de 7", "Le nombre de cellules de la plage qui contiennent 7", "La somme des valeurs", "La moyenne des valeurs"], answer: 1,
+        explain: "NB.SI compte les cellules qui vérifient le critère : c'est un effectif. Il faut diviser par 1000 pour la fréquence." },
+      { type: "qcm", q: "Quelle formule simule correctement la somme de deux dés ?",
+        options: ["=ALEA.ENTRE.BORNES(2;12)", "=2*ALEA.ENTRE.BORNES(1;6)", "=ALEA.ENTRE.BORNES(1;6)+ALEA.ENTRE.BORNES(1;6)", "=ALEA()*12"], answer: 2,
+        explain: "Il faut simuler deux dés séparément puis les additionner. ALEA.ENTRE.BORNES(2;12) rendrait les 11 sommes équiprobables, ce qui est faux." },
+      { type: "qcm", q: "Un élève écrit : « Deux pièces : PP, PF, FF, donc 3 issues équiprobables, P(PP) = 1/3 ». Quelle est l'explication la plus probable ?",
+        options: ["Il n'a pas appris ce qu'est une pièce", "Il ne distingue pas PF et FP : il ignore l'ordre", "Il a raison", "Il a confondu avec un dé"], answer: 1,
+        explain: "PF et FP sont deux issues distinctes. Remédiation : deux pièces de couleurs différentes, lister les couples, puis expérimenter." },
+      { type: "qcm", q: "Après un recalcul (F9), la fréquence simulée de la somme 7 passe de 0,168 à 0,159. Comment l'interpréter ?",
+        options: ["Le tableur est défectueux", "La probabilité a changé", "Il faut garder la fréquence la plus proche de 1/6", "C'est la fluctuation d'échantillonnage : chaque recalcul est une nouvelle simulation"], answer: 3,
+        explain: "Chaque recalcul fournit un nouvel échantillon, donc une nouvelle fréquence. La probabilité théorique, elle, reste 1/6." }
+    ]}
+  ]
+};
+</script>
+<script src="../../assets/admin-config.js"></script>
+<script src="../../assets/nav-data.js"></script>
+<script src="../../assets/nav.js"></script>
+<script src="../../assets/app.js"></script>
+</body>
+</html>

@@ -1,0 +1,129 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Quiz 02 — Moyenne, médiane, quartiles</title>
+<link rel="stylesheet" href="../../assets/style.css">
+</head>
+<body>
+<main>
+  <header>
+    <h1 id="title"></h1>
+    <p id="subtitle"></p>
+  </header>
+  <div id="app"></div>
+</main>
+<script>
+window.PAGE = {
+  id: "quiz-02-moyenne-mediane-quartiles",
+  title: "Quiz 02 — Moyenne, médiane, quartiles",
+  subtitle: "20 questions, correction immédiate. Leçon : lecons/donnees-et-probabilites/02-moyenne-mediane-quartiles.md",
+  sections: [
+    { title: "Moyenne", items: [
+      { type: "qcm", q: "Quelle est la moyenne de 6 ; 9 ; 12 ; 5 ?",
+        options: ["7", "8", "8,5", "32"], answer: 1,
+        explain: "Somme : 6 + 9 + 12 + 5 = 32 ; effectif : 4 ; moyenne : 32 ÷ 4 = 8." },
+      { type: "qcm", q: "Une classe de 20 élèves a une moyenne de 12 et une classe de 30 élèves une moyenne de 14. Quelle est la moyenne des 50 élèves ?",
+        options: ["13", "13,5", "13,2", "26"], answer: 2,
+        explain: "Il faut pondérer par les effectifs : (20 × 12 + 30 × 14) ÷ 50 = 660 ÷ 50 = 13,2." },
+      { type: "qcm", q: "La moyenne d'une série est 15. On multiplie toutes les valeurs par 2, puis on ajoute 1 à chacune. Quelle est la nouvelle moyenne ?",
+        options: ["30", "16", "32", "31"], answer: 3,
+        explain: "La moyenne subit les mêmes opérations : 15 × 2 = 30, puis 30 + 1 = 31." },
+      { type: "qcm", q: "Pour estimer une moyenne à partir de données regroupées en classes, on remplace chaque classe par…",
+        options: ["sa borne inférieure", "son centre", "son effectif", "sa fréquence"], answer: 1,
+        explain: "On utilise le centre de chaque classe, pondéré par l'effectif. Le résultat est une estimation, pas une valeur exacte." },
+      { type: "qcm", q: "Cinq notes ont pour moyenne 12. Quelle est leur somme ?",
+        options: ["12", "17", "2,4", "60"], answer: 3,
+        explain: "somme = effectif × moyenne = 5 × 12 = 60." }
+    ]},
+    { title: "Médiane et étendue", items: [
+      { type: "qcm", q: "Quelle est la médiane de 5 ; 12 ; 9 ; 3 ; 7 ?",
+        options: ["9", "7", "3", "7,2"], answer: 1,
+        explain: "On range : 3 ; 5 ; 7 ; 9 ; 12. Effectif 5 : la médiane est la 3e valeur, soit 7. (9 est la valeur du milieu de la liste non rangée, 7,2 est la moyenne.)" },
+      { type: "qcm", q: "Quelle est la médiane de 4 ; 6 ; 8 ; 9 ; 12 ; 15 ?",
+        options: ["8", "9", "9,5", "8,5"], answer: 3,
+        explain: "Effectif pair (6) : demi-somme des valeurs de rang 3 et 4 : (8 + 9) ÷ 2 = 8,5." },
+      { type: "qcm", q: "Effectifs cumulés croissants d'une série de 20 valeurs : 1 → 4 ; 2 → 10 ; 3 → 16 ; 4 → 20. Quelle est la médiane ?",
+        options: ["2", "3", "2,5", "10"], answer: 2,
+        explain: "Les rangs 10 et 11 sont à repérer : le rang 10 vaut 2 (cumul 10) et le rang 11 vaut 3. Médiane : (2 + 3) ÷ 2 = 2,5." },
+      { type: "qcm", q: "Quelle est l'étendue de la série de températures −3 ; 4 ; 7 ; −1 ; 10 ?",
+        options: ["13", "7", "10", "3"], answer: 0,
+        explain: "étendue = max − min = 10 − (−3) = 13." },
+      { type: "qcm", q: "On ajoute à une série une valeur très grande. Quelle caractéristique est la moins modifiée en général ?",
+        options: ["La moyenne", "La médiane", "L'étendue", "La somme"], answer: 1,
+        explain: "La médiane est robuste : elle dépend du rang, pas de la taille des valeurs extrêmes. Moyenne, somme et étendue augmentent fortement." }
+    ]},
+    { title: "Quartiles et boîte à moustaches", items: [
+      { type: "qcm", q: "Quelle est la définition de Q1 dans le programme ?",
+        options: [
+          "La moyenne des 25 % valeurs les plus petites",
+          "La valeur située à 25 % de l'étendue",
+          "La plus petite valeur de la série telle qu'au moins 25 % des données lui soient inférieures ou égales",
+          "La valeur de la série augmentée de 25 %"],
+        answer: 2,
+        explain: "Q1 est une valeur de la série : la plus petite telle qu'au moins 25 % des données soient ≤ Q1." },
+      { type: "qcm", q: "Quel est Q1 de la série rangée 3 ; 5 ; 6 ; 8 ; 9 ; 10 ; 12 ; 13 ; 14 ; 16 ; 18 ; 21 (selon le cours) ?",
+        options: ["5", "7", "7,5", "6"], answer: 3,
+        explain: "n = 12 ; 12 ÷ 4 = 3 : Q1 est la valeur de rang 3, soit 6. (7,5 est la valeur renvoyée par QUARTILE du tableur, selon une autre convention.)" },
+      { type: "qcm", q: "Pour une série de 20 valeurs rangées, de quel rang est Q3 ?",
+        options: ["5", "10", "15", "16"], answer: 2,
+        explain: "3 × 20 ÷ 4 = 15 : Q3 est la valeur de rang 15." },
+      { type: "qcm", q: "Série rangée de 15 valeurs : 2 ; 4 ; 5 ; 7 ; 8 ; 9 ; 11 ; 12 ; 13 ; 14 ; 16 ; 17 ; 19 ; 20 ; 23. Quel est l'écart interquartile ?",
+        options: ["10", "21", "5", "12"], answer: 0,
+        explain: "Q1 : rang ⌈15 ÷ 4⌉ = 4, soit 7. Q3 : rang ⌈45 ÷ 4⌉ = 12, soit 17. Écart interquartile : 17 − 7 = 10." },
+      { type: "qcm", q: "Dans une boîte à moustaches, la boîte s'étend…",
+        options: [
+          "du minimum au maximum",
+          "de Q1 à Q3",
+          "de la moyenne à la médiane",
+          "de 0 au maximum"],
+        answer: 1,
+        explain: "La boîte va de Q1 à Q3 avec un trait pour la médiane ; les moustaches vont jusqu'au minimum et au maximum." }
+    ]},
+    { title: "Regard d'enseignant", items: [
+      { type: "qcm", q: "Un élève calcule la moyenne de deux classes (12 pour 20 élèves, 14 pour 30 élèves) et trouve 13. Quelle est l'explication la plus probable ?",
+        options: [
+          "Il n'a pas pondéré par les effectifs",
+          "Il a mal additionné",
+          "Il a calculé la médiane",
+          "Il a raison"],
+        answer: 0,
+        explain: "Il a fait (12 + 14) ÷ 2. Remédiation : revenir à la somme totale (20 × 12 + 30 × 14) ÷ 50 = 13,2, avec un cas extrême pour convaincre." },
+      { type: "qcm", q: "Pour la série 5 ; 12 ; 9 ; 3 ; 7, un élève répond « médiane = 9 ». Que s'est-il passé ?",
+        options: [
+          "Il a calculé la moyenne",
+          "Il a pris la valeur du milieu de la liste sans l'avoir rangée",
+          "Il a pris la plus petite valeur",
+          "Son calcul est correct"],
+        answer: 1,
+        explain: "9 est la 3e valeur de la liste donnée. Il faut d'abord ranger (3 ; 5 ; 7 ; 9 ; 12) : la médiane est 7." },
+      { type: "qcm", q: "Un élève affirme que « la médiane est la valeur qui revient le plus souvent ». De quelle notion s'agit-il en réalité ?",
+        options: ["La moyenne", "L'étendue", "Le quartile", "Le mode"], answer: 3,
+        explain: "La valeur la plus fréquente est le mode. Remédiation : fiche de trois définitions illustrées sur une même série." },
+      { type: "qcm", q: "Quel est le meilleur point de départ pour introduire la moyenne à l'école ?",
+        options: [
+          "Donner la formule somme ÷ effectif, puis des exercices",
+          "Faire calculer la médiane en premier",
+          "Une situation de partage équitable : on met en commun puis on répartit également",
+          "Utiliser uniquement le tableur"],
+        answer: 2,
+        explain: "La moyenne est d'abord un nivellement : redistribuer pour que tous aient la même quantité. La formule vient ensuite." },
+      { type: "qcm", q: "Pour la série 3 ; 5 ; 6 ; 8 ; 9 ; 10 ; 12 ; 13 ; 14 ; 16 ; 18 ; 21, QUARTILE donne 7,5 pour Q1 alors que le cours donne 6. Que faut-il faire ?",
+        options: [
+          "Retenir 7,5 car le tableur ne se trompe jamais",
+          "Arrondir 7,5 à 8",
+          "Retenir la moyenne de 6 et 7,5",
+          "Expliquer que le tableur utilise une autre convention (interpolation) et appliquer la définition du programme"],
+        answer: 3,
+        explain: "Plusieurs conventions existent. On applique la définition du programme (Q1 est une valeur de la série) et on signale l'écart avec le tableur." }
+    ]}
+  ]
+};
+</script>
+<script src="../../assets/admin-config.js"></script>
+<script src="../../assets/nav-data.js"></script>
+<script src="../../assets/nav.js"></script>
+<script src="../../assets/app.js"></script>
+</body>
+</html>
