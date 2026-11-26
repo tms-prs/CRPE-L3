@@ -1,7 +1,7 @@
 {
   "name": "cartable",
   "productName": "Cartable",
-  "version": "1.0.3",
+  "version": "1.0.4",
   "description": "Cartable : tous tes cours au même endroit, hors ligne.",
   "main": "main.js",
   "author": "Cartable",
@@ -34,6 +34,7 @@
     "files": [
       "main.js",
       "preload.js",
+      "updater.js",
       "shell/**/*",
       "cours/**/*",
       "build/icon.png",
