@@ -62,17 +62,16 @@ fs.rmSync(SITE, { recursive: true, force: true });
 copyDir(path.join(ROOT, "dist"), SITE);
 fonts();
 
-/* Dans l'app, la progression est déjà enregistrée localement : on retire export / import / réinitialisation
-   du pied de page (le mode admin reste). Le site web d'origine n'est pas modifié. */
+/* Dans l'app, la progression est déjà enregistrée localement : on retire export / import du pied de page
+   (le mode admin et « Réinitialiser la progression » restent). Le site web d'origine n'est pas modifié. */
 {
   const idx = path.join(SITE, "index.html");
   const html = fs.readFileSync(idx, "utf8");
   const out = html
     .replace(/<button[^>]*data-export[^>]*>.*?<\/button>/s, "")
     .replace(/<button[^>]*data-import[^>]*>.*?<\/button>/s, "")
-    .replace(/<input[^>]*data-import-file[^>]*>/s, "")
-    .replace(/<button[^>]*data-reset[^>]*>.*?<\/button>/s, "");
-  if (out === html) console.warn("! boutons export/import/reset introuvables dans index.html");
+    .replace(/<input[^>]*data-import-file[^>]*>/s, "");
+  if (out === html) console.warn("! boutons export/import introuvables dans index.html");
   fs.writeFileSync(idx, out);
 }
 console.log("Cours maths-crpe synchronisé :", SITE);
