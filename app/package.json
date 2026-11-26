@@ -1,7 +1,7 @@
 {
   "name": "cartable",
   "productName": "Cartable",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "Cartable : tous tes cours au même endroit, hors ligne.",
   "main": "main.js",
   "author": "Cartable",

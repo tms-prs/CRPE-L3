@@ -84,7 +84,7 @@
     count.textContent = isTest
       ? done + " / " + total + " répondues"
       : done + " / " + total + " traités · " + good + " réussis";
-    if (done === total) (isTest ? finishTest : finishPractice)();
+    if (!isTest && done === total) finishPractice();
   }
 
   function saveBest(pct) {
@@ -193,36 +193,50 @@
     card.appendChild(fb); card.appendChild(sol);
   }
 
-  /* ---------- rendus : mode test (une seule tentative, pas de correction) ---------- */
-  function answered(card, item, ok, note) {
-    done++; if (ok) good++;
-    outcome[item._idx] = !!ok;
-    card.classList.add("answered");
+  /* ---------- rendus : mode test (réponses modifiables jusqu'à la validation finale) ---------- */
+  var ans = [];
+  var fullShown = false;
+  function setAns(card, item, a) {
+    var prev = ans[item._idx];
+    if (prev) { done--; if (prev.ok) good--; }
+    ans[item._idx] = a || null;
+    outcome[item._idx] = !!(a && a.ok);
+    if (a) { done++; if (a.ok) good++; }
+    card.classList.toggle("answered", !!a);
     var tag = card.querySelector(".qtag");
-    if (tag) tag.textContent = note || "Réponse enregistrée";
+    if (tag) tag.textContent = a ? (a.skip ? "Passée" : "Réponse enregistrée") : "";
+    var wasFull = fullShown;
     refresh();
+    if (done === total) { if (!wasFull) { fullShown = true; openConfirm(); } }
+    else fullShown = false;
   }
 
   function renderTestQCM(card, item) {
     var opts = el("div", "opts");
     var btns = [];
     var skip = el("button", "btn ghost skip", "Je ne sais pas"); skip.type = "button";
-    function lock(i) {
-      btns.forEach(function (x) { x.disabled = true; });
-      skip.disabled = true;
-      if (i >= 0) btns[i].classList.add("picked");
-      answered(card, item, i === item.answer, i < 0 ? "Passée" : null);
+    function paint(a) {
+      btns.forEach(function (x, i) { x.classList.toggle("picked", !!a && !a.skip && a.sel === i); });
+      skip.classList.toggle("on", !!a && !!a.skip);
     }
     item.options.forEach(function (o, i) {
       var b = el("button", "opt"); b.type = "button";
       b.appendChild(el("span", "k", String.fromCharCode(65 + i)));
       b.appendChild(el("span", "t", o));
-      b.addEventListener("click", function () { lock(i); });
+      b.addEventListener("click", function () {
+        var a = { ok: i === item.answer, sel: i };
+        paint(a); setAns(card, item, a);
+      });
       btns.push(b); opts.appendChild(b);
     });
-    skip.addEventListener("click", function () { lock(-1); });
+    skip.addEventListener("click", function () {
+      var a = { ok: false, skip: true };
+      paint(a); setAns(card, item, a);
+    });
     card.appendChild(opts);
-    var row = el("div", "row"); row.appendChild(skip); card.appendChild(row);
+    var row = el("div", "row"); row.appendChild(skip);
+    row.appendChild(el("small", "change-hint", "Tu peux changer ta réponse tant que tu n'as pas terminé le test."));
+    card.appendChild(row);
   }
 
   function renderTestInput(card, item) {
@@ -233,21 +247,62 @@
     var ok = el("button", "btn", "Valider"); ok.type = "button";
     var skip = el("button", "btn ghost skip", "Je ne sais pas"); skip.type = "button";
     row.appendChild(inp); row.appendChild(ok); row.appendChild(skip);
-    var counted = false;
-    function lock(correct, note) {
-      if (counted) return;
-      counted = true;
-      inp.disabled = true; ok.disabled = true; skip.disabled = true;
-      answered(card, item, correct, note);
+    var locked = false;
+    function lock(a) {
+      locked = true;
+      inp.disabled = true; skip.disabled = true;
+      ok.textContent = "Modifier";
+      ok.classList.add("ghost");
+      setAns(card, item, a);
+    }
+    function unlock() {
+      locked = false;
+      inp.disabled = false; skip.disabled = false;
+      ok.textContent = "Valider";
+      ok.classList.remove("ghost");
+      inp.placeholder = "ex. −3 ou 1/2";
+      setAns(card, item, null);
+      inp.focus();
     }
     function submit() {
+      if (locked) { unlock(); return; }
       if (!inp.value.trim()) return;
-      lock(isCorrect(item, inp.value) === true);
+      lock({ ok: isCorrect(item, inp.value) === true, raw: inp.value.trim() });
     }
     ok.addEventListener("click", submit);
     inp.addEventListener("keydown", function (e) { if (e.key === "Enter") submit(); });
-    skip.addEventListener("click", function () { lock(false, "Passée"); });
+    skip.addEventListener("click", function () {
+      inp.value = ""; inp.placeholder = "Question passée";
+      lock({ ok: false, skip: true });
+    });
     card.appendChild(row);
+  }
+
+  /* ---------- confirmation de fin de test ---------- */
+  function openConfirm() {
+    if (document.querySelector(".confirm-scrim")) return;
+    var skipped = 0;
+    ans.forEach(function (a) { if (a && a.skip) skipped++; });
+    var scrim = el("div", "modal-scrim confirm-scrim");
+    var m = el("div", "modal"); m.setAttribute("role", "dialog"); m.setAttribute("aria-modal", "true");
+    m.appendChild(el("h2", null, "Valider toutes les réponses ?"));
+    var unans = total - done;
+    var txt = unans > 0
+      ? "Il reste " + unans + " question" + (unans > 1 ? "s" : "") + " sans réponse : " + (unans > 1 ? "elles seront comptées fausses" : "elle sera comptée fausse") + ". "
+      : "Tu as répondu à toutes les questions" + (skipped ? " (dont " + skipped + " passée" + (skipped > 1 ? "s" : "") + ")" : "") + ". ";
+    m.appendChild(el("p", null, txt + "Une fois le test terminé, tu ne pourras plus modifier tes réponses : ton résultat sera enregistré et le diagnostic affiché. Tu peux aussi revenir en arrière pour revoir tes choix."));
+    var row = el("div", "row");
+    var back = el("button", "btn ghost", "Revoir mes réponses"); back.type = "button";
+    var go = el("button", "btn blue", "Terminer le test"); go.type = "button";
+    row.appendChild(back); row.appendChild(go); m.appendChild(row);
+    scrim.appendChild(m); document.body.appendChild(scrim);
+    function close() { document.removeEventListener("keydown", onKey); scrim.remove(); }
+    function onKey(e) { if (e.key === "Escape") close(); }
+    document.addEventListener("keydown", onKey);
+    back.addEventListener("click", close);
+    go.addEventListener("click", function () { close(); finishTest(); });
+    scrim.addEventListener("click", function (e) { if (e.target === scrim) close(); });
+    go.focus();
   }
 
   /* ---------- construction de la page ---------- */
@@ -287,6 +342,12 @@
     });
     qs.appendChild(s);
   });
+
+  if (isTest) {
+    var finBtn = el("button", "btn blue finish-btn", "Terminer le test"); finBtn.type = "button";
+    finBtn.addEventListener("click", openConfirm);
+    bar.appendChild(finBtn);
+  }
 
   /* ---------- outils du mode admin : répondre automatiquement ---------- */
   if (window.CRPE_IS_ADMIN === true) {
@@ -347,7 +408,11 @@
       p.total++;
       if (outcome[it._idx]) p.ok++; else wrong.push(it._idx);
     });
-    return { v: 1, date: Date.now(), correct: good, total: total, parts: parts, wrong: wrong };
+    var rec = items.map(function (it) {
+      var a = ans[it._idx];
+      return { q: it.q, p: it._part, st: !a ? "none" : a.skip ? "skip" : a.ok ? "ok" : "ko", sel: a && a.sel != null ? a.sel : null, raw: a && a.raw != null ? a.raw : null };
+    });
+    return { v: 2, date: Date.now(), correct: good, total: total, parts: parts, wrong: wrong, rec: rec };
   }
 
   function finishTest() {
@@ -439,28 +504,92 @@
     diag.appendChild(actions);
     diag.appendChild(el("p", "diag-note", "Les leçons, quiz, exercices et le bilan de ce thème sont maintenant déverrouillés."));
 
-    /* corrections */
-    if (r.wrong && r.wrong.length) {
-      var rev = el("details", "review");
-      var sm = el("summary", null, "Voir la correction des " + r.wrong.length + " questions ratées ou passées");
-      rev.appendChild(sm);
-      r.wrong.forEach(function (idx) {
-        var it = items[idx];
-        if (!it) return;
-        var c = el("div", "rev-item");
-        var hd = el("div", "rev-head");
-        hd.appendChild(el("span", "part-num", it._part || ""));
-        hd.appendChild(document.createTextNode(" " + (it._part && P.parts[it._part] ? P.parts[it._part].label : "") + (it.problem ? " · problème" : "")));
-        c.appendChild(hd);
-        c.appendChild(el("div", "rev-q", it.q));
-        var exp = it.type === "qcm" ? it.options[it.answer] : it.shown;
-        c.appendChild(el("div", "rev-a", "Réponse attendue : " + exp));
-        var why = it.type === "qcm" ? it.explain : it.solution;
-        if (why) c.appendChild(el("div", "rev-w", why));
-        rev.appendChild(c);
-      });
-      diag.appendChild(rev);
+    /* revue complète des questions, dans l'ordre du test */
+    var recs = r.rec;
+    if (!recs) {
+      var wset = {}; (r.wrong || []).forEach(function (i) { wset[i] = 1; });
+      recs = items.map(function (it) { return { q: it.q, p: it._part, st: wset[it._idx] ? "ko" : "ok", legacy: true }; });
     }
+    var used = {};
+    var list2 = recs.map(function (rc, n) {
+      var it = null;
+      for (var j = 0; j < items.length; j++) { if (!used[j] && items[j].q === rc.q) { it = items[j]; used[j] = 1; break; } }
+      return it ? { rc: rc, it: it, n: n + 1 } : null;
+    }).filter(Boolean);
+    var STAT = { ok: "Juste", ko: "Faux", skip: "Passée", none: "Sans réponse" };
+    var rev = el("details", "review");
+    rev.appendChild(el("summary", null, "Revoir les " + list2.length + " questions avec les corrections"));
+    var filt = el("div", "rev-filters");
+    var selPart = el("select"); selPart.setAttribute("aria-label", "Filtrer par sous-thème");
+    var o0 = el("option", null, "Tous les sous-thèmes"); o0.value = ""; selPart.appendChild(o0);
+    keys.forEach(function (k) { var o = el("option", null, k + " · " + P.parts[k].label); o.value = k; selPart.appendChild(o); });
+    filt.appendChild(selPart);
+    var FILTERS = [["all", "Toutes"], ["answered", "Répondues"], ["skip", "Passées"], ["ko", "Fausses"], ["ok", "Justes"]];
+    var curF = "all", chips = {};
+    var chipBox = el("div", "chips");
+    FILTERS.forEach(function (f) {
+      var c = el("button", "chip", f[1]); c.type = "button";
+      c.addEventListener("click", function () { curF = f[0]; apply(); });
+      chips[f[0]] = c; chipBox.appendChild(c);
+    });
+    filt.appendChild(chipBox);
+    var cnt = el("p", "rev-count");
+    rev.appendChild(filt); rev.appendChild(cnt);
+    var box = el("div", "rev-list");
+    rev.appendChild(box);
+    var cards = list2.map(function (x) {
+      var rc = x.rc, it = x.it;
+      var st = rc.st === "none" ? "skip" : rc.st;
+      var c = el("div", "rev-item " + st);
+      var hd = el("div", "rev-head");
+      hd.appendChild(el("b", null, "Question " + x.n));
+      hd.appendChild(document.createTextNode(" · "));
+      hd.appendChild(el("span", "part-num", it._part || ""));
+      hd.appendChild(document.createTextNode(" " + (it._part && P.parts[it._part] ? P.parts[it._part].label : "") + (it.problem ? " · problème" : "")));
+      hd.appendChild(el("span", "rev-badge " + st, STAT[rc.st] || ""));
+      c.appendChild(hd);
+      c.appendChild(el("div", "rev-q", it.q));
+      var mine;
+      if (rc.legacy) mine = rc.st === "ok" ? "Juste" : "détail non conservé (test passé avant la mise à jour)";
+      else if (rc.st === "skip") mine = "tu as passé cette question";
+      else if (rc.st === "none") mine = "tu n'as pas répondu";
+      else mine = it.type === "qcm" ? String.fromCharCode(65 + rc.sel) + ". " + it.options[rc.sel] : rc.raw;
+      if (it.type === "qcm") {
+        var ol = el("div", "rev-opts");
+        it.options.forEach(function (o, i) {
+          var row = el("div", "rev-opt" + (i === it.answer ? " good" : "") + (rc.sel === i && i !== it.answer ? " bad" : ""));
+          row.appendChild(el("span", "k", String.fromCharCode(65 + i)));
+          row.appendChild(el("span", "t", o));
+          if (rc.sel === i) row.appendChild(el("em", null, "ta réponse"));
+          if (i === it.answer) row.appendChild(el("em", null, "bonne réponse"));
+          ol.appendChild(row);
+        });
+        c.appendChild(ol);
+        if (rc.st === "skip" || rc.st === "none" || rc.legacy) c.appendChild(el("div", "rev-mine", "Ta réponse : " + mine));
+      } else {
+        c.appendChild(el("div", "rev-mine " + (rc.st === "ok" ? "good" : rc.st === "ko" ? "bad" : ""), "Ta réponse : " + mine));
+        c.appendChild(el("div", "rev-a", "Réponse attendue : " + it.shown));
+      }
+      var why = it.type === "qcm" ? it.explain : it.solution;
+      if (why) c.appendChild(el("div", "rev-w", why));
+      box.appendChild(c);
+      return { node: c, part: it._part, st: st, rawst: rc.st };
+    });
+    function apply() {
+      var shown = 0;
+      cards.forEach(function (x) {
+        var okPart = !selPart.value || x.part === selPart.value;
+        var okF = curF === "all" || (curF === "answered" ? (x.rawst === "ok" || x.rawst === "ko") : curF === "skip" ? (x.rawst === "skip" || x.rawst === "none") : x.st === curF);
+        var v = okPart && okF;
+        x.node.classList.toggle("hidden", !v);
+        if (v) shown++;
+      });
+      Object.keys(chips).forEach(function (k) { chips[k].classList.toggle("on", k === curF); });
+      cnt.textContent = shown + " question" + (shown > 1 ? "s" : "") + " affichée" + (shown > 1 ? "s" : "") + " sur " + cards.length;
+    }
+    selPart.addEventListener("change", apply);
+    apply();
+    diag.appendChild(rev);
     if (!fresh) return;
     window.scrollTo({ top: 0, behavior: "smooth" });
   }
